@@ -15,6 +15,7 @@ public class Jeu extends Application {
     List<Evenement> evenements;
     ArbreDeCompetence arbre;
     static Group root;
+    static Scene scene;
 
     void sauvegarder(){}
     void charger(){}
@@ -25,7 +26,7 @@ public class Jeu extends Application {
 
         root = new Group();
 
-        Scene scene = new Scene(root, 1000, 1000);
+        scene = new Scene(root, 1024, 768);
 
         primaryStage.setTitle("Coucou!");
         primaryStage.setScene(scene);

@@ -1,3 +1,5 @@
+import javafx.scene.image.Image;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Line;
 
 import java.util.ArrayList;
@@ -9,7 +11,7 @@ import java.util.Map;
  * Created by Victor on 04/12/2015.
  */
 public class ArbreDeCompetence {
-    HashMap<String, List<Competence>> competences;
+    HashMap<String, ArrayList<Competence>> competences;
 
     public ArbreDeCompetence(String document){
 
@@ -45,14 +47,15 @@ public class ArbreDeCompetence {
 
     void affichage(){
 
-        for (Map.Entry<String, List<Competence>> competence : competences.entrySet()) {
+        Jeu.scene.setFill(new ImagePattern(new Image("file:test.png"), 0, 0, 1, 1, true));
+        for (Map.Entry<String, ArrayList<Competence>> competence : competences.entrySet()) {
             for(Competence c : competence.getValue()){
 
                 Line l = new Line();
-                l.setStartX(competence.getValue().get(0).ligne*100);
-                l.setStartY(competence.getValue().get(0).colone*100);
-                l.setEndX(c.ligne*100);
-                l.setEndY(c.colone*100);
+                l.setStartX(competence.getValue().get(0).colone*200);
+                l.setStartY(768-competence.getValue().get(0).ligne*100);
+                l.setEndX(c.colone*200);
+                l.setEndY(768-c.ligne*100);
                 Jeu.root.getChildren().add(l);
 
                 if(!Jeu.root.getChildren().contains(c.ligne+","+c.colone)) c.affichage();
@@ -68,9 +71,41 @@ public class ArbreDeCompetence {
 
 
     }
-    void debloquerCompetence(String compet){
+    void debloquerCompetence(int ligne, int colone){
 
-        System.out.print(compet);
+        competences.get(ligne+","+colone).get(0).setAchete();
+        if(colone > 1 ) {
+
+            boolean debloque = true;
+            ArrayList<Competence> c = competences.get(ligne+1 + "," + (colone - 1));
+            for(int i=1;i<c.size();++i){
+
+                if(!c.get(i).debloque || !c.get(i).achete) debloque = false;
+
+            }
+            if(debloque) {
+
+                c.get(0).setDebloque();
+                System.out.print("debloquer");
+            }
+
+        }
+
+
+
+        boolean debloque = true;
+        ArrayList<Competence> c = competences.get(ligne+1 + "," + (colone));
+        if(c != null && c.size() > 1) {
+            for (int i = 1; i < c.size(); ++i) {
+
+                if (!c.get(i).debloque || !c.get(i).achete) debloque = false;
+
+            }
+            if (debloque) {
+                System.out.print("debloquer");
+                c.get(0).setDebloque();
+            }
+        }
 
     }
 }

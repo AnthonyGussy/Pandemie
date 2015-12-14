@@ -24,6 +24,7 @@ public class Competence {
     int[] effet;
     int cout;
     boolean debloque;
+    boolean achete;
     String sommetLie;
     Circle compet;
     Group g;
@@ -34,6 +35,7 @@ public class Competence {
     Competence(String document,int numeroCompetence,ArbreDeCompetence arbre){
 
         arbreDeCompetence = arbre;
+        achete = false;
         effet = new int[3];
         InputStream flux= null;
         String lignes;
@@ -59,7 +61,7 @@ public class Competence {
                     cout =  Integer.parseInt(info[7]);
                     if(info.length == 9) sommetLie = info[8];
                     else sommetLie = null;
-                    if(ligne==10) debloque = true;
+                    if(ligne==1) debloque = true;
                     else debloque = false;
 
                 }
@@ -81,8 +83,8 @@ public class Competence {
 
     void affichage(){
 
-        compet = new Circle(ligne*100,colone*100,50);
-        compet.setFill(new ImagePattern(new Image("file:Compet.png"), 0, 0, 1, 1, true));
+        compet = new Circle(colone*200,768-ligne*100,30);
+        compet.setFill(new ImagePattern(new Image("file:Compet3.png"), 0, 0, 1, 1, true));
         compet.setOnMouseEntered(new EventHandler<MouseEvent>() {
 
             @Override
@@ -92,6 +94,7 @@ public class Competence {
                     Jeu.root.getChildren().remove(Jeu.root.getChildren().size() - 1, Jeu.root.getChildren().size());
                     cliquer = false;
                 }
+                compet.setRadius(32);
                 g = new Group();
                 Rectangle r = new Rectangle();
                 r.setX(ligne + 200);
@@ -108,7 +111,7 @@ public class Competence {
                 b.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent e) {
-                        if(debloque) arbreDeCompetence.debloquerCompetence(ligne+""+colone);
+                        if(debloque) arbreDeCompetence.debloquerCompetence(ligne,colone);
                     }
                 });
                 g.getChildren().add(r);
@@ -125,6 +128,7 @@ public class Competence {
             @Override
             public void handle(MouseEvent mouseEvent) {
 
+                compet.setRadius(30);
                 Jeu.root.getChildren().remove(Jeu.root.getChildren().size() - 1, Jeu.root.getChildren().size());
 
 
@@ -152,7 +156,7 @@ public class Competence {
                 b.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent e) {
-                        if (debloque) arbreDeCompetence.debloquerCompetence(ligne+""+colone);
+                        if (debloque) arbreDeCompetence.debloquerCompetence(ligne,colone);
                     }
                 });
                 g.getChildren().add(r);
@@ -169,4 +173,8 @@ public class Competence {
 
     }
     void applicationCompetence(){}
+
+    void setAchete(){ achete = true; }
+
+    void setDebloque(){ debloque = true; }
 }
