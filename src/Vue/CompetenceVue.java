@@ -1,0 +1,143 @@
+package Vue;
+
+import Modele.CompetenceModele;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Group;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
+
+/**
+ * Created by Anthony on 15/12/2015.
+ */
+public class CompetenceVue {
+
+    CompetenceModele compM;
+    Circle compet;
+    Group g;
+    int colone;
+    int ligne;
+
+    public static boolean cliquer = false;
+
+    CompetenceVue(CompetenceModele c){
+
+        compM = c;
+        ligne = c.getLigne();
+        colone = c.getColone();
+
+    }
+
+    void affichage(){
+
+        compet = new Circle(colone*200,768-ligne*100,30);
+        compet.setFill(new ImagePattern(new Image("file:Compet3.png"), 0, 0, 1, 1, true));
+
+        //quand la souris entre dans la zone du cercle ajoute la fenetre de description
+        compet.setOnMouseEntered(new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+
+                if(CompetenceVue.cliquer) {
+                    Jeu.root.getChildren().remove(Jeu.root.getChildren().size() - 1, Jeu.root.getChildren().size());
+                    CompetenceVue.cliquer = false;
+                }
+                compet.setRadius(32);
+                Group g = new Group();
+                Rectangle r = new Rectangle();
+                r.setX(compM.getLigne() + 200);
+                r.setY(compM.getColone() + 200);
+                r.setWidth(100);
+                r.setHeight(100);
+                Text nomR = new Text(compM.getNom() + "\n" + compM.getDescription());
+                nomR.setFill(Color.AQUA);
+                nomR.setX(compM.getLigne() + 210);
+                nomR.setY(compM.getColone() + 250);
+                Button b = new Button("Achat");
+                b.setLayoutX(compM.getLigne() + 210);
+                b.setLayoutY(compM.getColone() + 280);
+                b.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent e) {
+                        if (compM.getDebloque()) compM.getArbreDeCompetence().debloquerCompetence(compM.getLigne(), compM.getColone());
+                    }
+                });
+                g.getChildren().add(r);
+                g.getChildren().add(nomR);
+                g.getChildren().add(b);
+                setGroup(g);
+                Jeu.root.getChildren().add(g);
+
+
+            }
+
+        });
+
+        //quand la souris sors de la zone du cercle retire la fenetre de description
+        compet.setOnMouseExited(new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+
+                compet.setRadius(30);
+                Jeu.root.getChildren().remove(Jeu.root.getChildren().size() - 1, Jeu.root.getChildren().size());
+
+
+            }
+
+        });
+
+        /*Lors du clique sur le cercle de la competence permet de figer le descriptif
+          de la competence
+         */
+        compet.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+
+                Group g = new Group();
+                Rectangle r = new Rectangle();
+                r.setX(compM.getLigne() + 200);
+                r.setY(compM.getColone() + 200);
+                r.setWidth(100);
+                r.setHeight(100);
+                Text nomR = new Text(compM.getNom() + "\n" + compM.getDescription());
+                nomR.setFill(Color.AQUA);
+                nomR.setX(compM.getLigne() + 210);
+                nomR.setY(compM.getColone() + 250);
+                Button b = new Button("Achat");
+                b.setLayoutX(compM.getLigne() + 210);
+                b.setLayoutY(compM.getColone() + 280);
+                b.setOnAction(new EventHandler<ActionEvent>() {
+                    @Override
+                    public void handle(ActionEvent e) {
+                        if (compM.getDebloque())
+                            compM.getArbreDeCompetence().debloquerCompetence(compM.getLigne(), compM.getColone());
+                    }
+                });
+                g.getChildren().add(r);
+                g.getChildren().add(nomR);
+                g.getChildren().add(b);
+                setGroup(g);
+                Jeu.root.getChildren().add(g);
+                CompetenceVue.cliquer = true;
+
+
+            }
+
+        });
+        Jeu.root.getChildren().add(compet);
+
+    }
+
+    public Circle getCompet(){ return compet;}
+
+    public void setGroup(Group group){ g = group; }
+}

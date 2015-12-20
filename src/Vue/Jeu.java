@@ -1,9 +1,12 @@
+package Vue;
+
 import Modele.ArbreDeCompetenceModele;
-import Vue.ArbreDeCompetenceVue;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+import java.util.List;
 
 /**
  * Created by Victor on 04/12/2015.
@@ -29,7 +32,9 @@ public class Jeu extends Application {
 
         primaryStage.setTitle("Coucou!");
         primaryStage.setScene(scene);
-        ArbreDeCompetence arbreV = new ArbreDeCompetence(".\\competence.txt");
+
+        ArbreDeCompetenceModele arbre = new ArbreDeCompetenceModele(".\\competence.txt");
+        ArbreDeCompetenceVue arbreV = new ArbreDeCompetenceVue(arbre);
         arbreV.affichage();
 
         primaryStage.show();

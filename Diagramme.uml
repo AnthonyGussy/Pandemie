@@ -17,7 +17,7 @@
     <node x="524.4886904761905" y="378.0">ArbreDeCompetence</node>
     <node x="213.0" y="778.0">EvenementPopUp</node>
     <node x="322.8140873015873" y="0.0">CompetenceType</node>
-    <node x="692.5648809523809" y="734.0">Jeu</node>
+    <node x="692.5648809523809" y="734.0">Vue.Jeu</node>
     <node x="773.4886904761905" y="378.0">Tache</node>
   </nodes>
   <notes />
@@ -26,11 +26,11 @@
       <point x="0.0" y="0.0" />
       <point x="0.0" y="0.0" />
     </edge>
-    <edge source="Jeu" target="Menu">
+    <edge source="Vue.Jeu" target="Menu">
       <point x="0.0" y="0.0" />
       <point x="0.0" y="0.0" />
     </edge>
-    <edge source="Jeu" target="Evenement">
+    <edge source="Vue.Jeu" target="Evenement">
       <point x="0.0" y="0.0" />
       <point x="0.0" y="0.0" />
     </edge>
@@ -46,7 +46,7 @@
       <point x="0.0" y="0.0" />
       <point x="0.0" y="0.0" />
     </edge>
-    <edge source="Jeu" target="Compteur">
+    <edge source="Vue.Jeu" target="Compteur">
       <point x="0.0" y="0.0" />
       <point x="0.0" y="0.0" />
     </edge>
@@ -54,7 +54,7 @@
       <point x="0.0" y="0.0" />
       <point x="0.0" y="0.0" />
     </edge>
-    <edge source="Jeu" target="Departement">
+    <edge source="Vue.Jeu" target="Departement">
       <point x="0.0" y="0.0" />
       <point x="0.0" y="0.0" />
     </edge>
@@ -84,7 +84,7 @@
       <point x="0.0" y="0.0" />
       <point x="0.0" y="0.0" />
     </edge>
-    <edge source="Jeu" target="ArbreDeCompetence">
+    <edge source="Vue.Jeu" target="ArbreDeCompetence">
       <point x="0.0" y="0.0" />
       <point x="0.0" y="0.0" />
     </edge>

@@ -1,3 +1,4 @@
+import Vue.Jeu;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
