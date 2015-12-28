@@ -1,3 +1,5 @@
+import Modele.Compteur;
+
 import java.util.List;
 
 /**

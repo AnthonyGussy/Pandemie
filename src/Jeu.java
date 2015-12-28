@@ -9,9 +9,9 @@ import javafx.stage.Stage;
  * Created by Victor on 04/12/2015.
  */
 public class Jeu extends Application {
-    /*List<Menu> menus;
+    /*List<Vue.Menu> menus;
     List<Departement> departements;
-    List<Compteur> compteurs;
+    List<Modele.Compteur> compteurs;
     List<Evenement> evenements;*/
     public static Group root;
     public static Scene scene;

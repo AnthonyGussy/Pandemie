@@ -1,47 +1,47 @@
 package Vue;
 
 import Modele.ArbreDeCompetenceModele;
+import Modele.Compteur;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.shape.Circle;
 import javafx.stage.Stage;
 
 import java.util.List;
 
-/**
- * Created by Victor on 04/12/2015.
- */
 public class Jeu extends Application {
-    /*List<Menu> menus;
-    List<Departement> departements;
+    List<Menu> menus;
+    //List<Departement> departements;
     List<Compteur> compteurs;
-    List<Evenement> evenements;*/
+    //List<Evenement> evenements;
     public static Group root;
     public static Scene scene;
-
+    Circle test;
+    int rayon=5;
     void sauvegarder(){}
     void charger(){}
     void affichage(){}
 
     @Override
     public void start(Stage primaryStage) {
-
         root = new Group();
 
-        scene = new Scene(root, 1024, 768);
+        scene = new Scene(root, 800, 600);
 
-        primaryStage.setTitle("Coucou!");
+        primaryStage.setTitle("Study Project Simulator");
         primaryStage.setScene(scene);
 
         ArbreDeCompetenceModele arbre = new ArbreDeCompetenceModele(".\\competence.txt");
         ArbreDeCompetenceVue arbreV = new ArbreDeCompetenceVue(arbre);
         arbreV.affichage();
 
+        test = new Circle(50,50,rayon);
+        Jeu.root.getChildren().add(test);
+
         primaryStage.show();
     }
-    public static void main(String[] args) {
-        launch(args);
-    }
+    public static void main(String[] args) { launch(args); }
 
 }
 
