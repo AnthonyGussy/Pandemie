@@ -75,7 +75,7 @@ public class CompetenceModele {
 
     public int getLigne() { return ligne;}
 
-    public int getColone() { return colone;}
+    public int getColonne() { return colone;}
 
     public String getNom(){ return nom;}
 

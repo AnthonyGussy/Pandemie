@@ -1,5 +1,4 @@
 package Modele;
-import Vue.CompetenceVue;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -58,7 +57,7 @@ public class ArbreDeCompetenceModele {
             if(debloque) {
 
                 c.get(0).setDebloque();
-                System.out.print("debloquer");
+
             }
 
         }
@@ -74,8 +73,24 @@ public class ArbreDeCompetenceModele {
 
             }
             if (debloque) {
-                System.out.print("debloquer");
+
                 c.get(0).setDebloque();
+
+            }
+        }
+
+        debloque = true;
+        c = competencesMod.get(ligne+1 + "," + (colone+1));
+        if(c != null && c.size() > 1) {
+            for (int i = 1; i < c.size(); ++i) {
+
+                if (!c.get(i).debloque || !c.get(i).achete) debloque = false;
+
+            }
+            if (debloque) {
+
+                c.get(0).setDebloque();
+
             }
         }
 

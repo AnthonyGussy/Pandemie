@@ -19,6 +19,7 @@ import javafx.scene.text.Text;
 public class CompetenceVue {
 
     CompetenceModele compM;
+    ArbreDeCompetenceVue vueArbre;
     Circle compet;
     Group g;
     int colonne;
@@ -26,18 +27,22 @@ public class CompetenceVue {
 
     public static boolean cliquer = false;
 
-    CompetenceVue(CompetenceModele c){
+    CompetenceVue(CompetenceModele c, ArbreDeCompetenceVue arbreDeCompetenceVue){
 
+        vueArbre = arbreDeCompetenceVue;
         compM = c;
         ligne = c.getLigne();
-        colonne = c.getColone();
+        colonne = c.getColonne();
 
     }
 
     void affichage(){
 
         compet = new Circle(colonne *200,768-ligne*100,30);
-        compet.setFill(new ImagePattern(new Image("file:Compet3.png"), 0, 0, 1, 1, true));
+        if(compM.getDebloque())
+            compet.setFill(new ImagePattern(new Image("file:CompetenceDebloque.png"), 0, 0, 1, 1, true));
+        else
+            compet.setFill(new ImagePattern(new Image("file:CompetenceBloque.png"), 0, 0, 1, 1, true));
 
         //quand la souris entre dans la zone du cercle ajoute la fenetre de description
         compet.setOnMouseEntered(new EventHandler<MouseEvent>() {
@@ -52,21 +57,25 @@ public class CompetenceVue {
                 compet.setRadius(32);
                 Group g = new Group();
                 Rectangle r = new Rectangle();
-                r.setX(compM.getLigne() + 200);
-                r.setY(compM.getColone() + 200);
+                r.setX(ligne + 200);
+                r.setY(colonne + 200);
                 r.setWidth(100);
                 r.setHeight(100);
                 Text nomR = new Text(compM.getNom() + "\n" + compM.getDescription());
                 nomR.setFill(Color.AQUA);
-                nomR.setX(compM.getLigne() + 210);
-                nomR.setY(compM.getColone() + 250);
+                nomR.setX(ligne + 210);
+                nomR.setY(colonne + 250);
                 Button b = new Button("Achat");
-                b.setLayoutX(compM.getLigne() + 210);
-                b.setLayoutY(compM.getColone() + 280);
+                b.setLayoutX(ligne + 210);
+                b.setLayoutY(colonne + 280);
                 b.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent e) {
-                        if (compM.getDebloque()) compM.getArbreDeCompetence().debloquerCompetence(compM.getLigne(), compM.getColone());
+                        if (compM.getDebloque() && !compM.getAchete()) {
+                            compM.getArbreDeCompetence().debloquerCompetence(ligne, colonne);
+                            compet.setFill(new ImagePattern(new Image("file:CompetenceAchete.png"), 0, 0, 1, 1, true));
+                            vueArbre.changementAffichage(ligne, colonne);
+                        }
                     }
                 });
                 g.getChildren().add(r);
@@ -104,22 +113,25 @@ public class CompetenceVue {
 
                 Group g = new Group();
                 Rectangle r = new Rectangle();
-                r.setX(compM.getLigne() + 200);
-                r.setY(compM.getColone() + 200);
+                r.setX(ligne + 200);
+                r.setY(colonne + 200);
                 r.setWidth(100);
                 r.setHeight(100);
                 Text nomR = new Text(compM.getNom() + "\n" + compM.getDescription());
                 nomR.setFill(Color.AQUA);
-                nomR.setX(compM.getLigne() + 210);
-                nomR.setY(compM.getColone() + 250);
+                nomR.setX(ligne + 210);
+                nomR.setY(colonne + 250);
                 Button b = new Button("Achat");
-                b.setLayoutX(compM.getLigne() + 210);
-                b.setLayoutY(compM.getColone() + 280);
+                b.setLayoutX(ligne + 210);
+                b.setLayoutY(colonne + 280);
                 b.setOnAction(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent e) {
-                        if (compM.getDebloque())
-                            compM.getArbreDeCompetence().debloquerCompetence(compM.getLigne(), compM.getColone());
+                        if (compM.getDebloque()) {
+                            compM.getArbreDeCompetence().debloquerCompetence(ligne, colonne);
+                            compet.setFill(new ImagePattern(new Image("file:CompetenceAchete.png"), 0, 0, 1, 1, true));
+                            vueArbre.changementAffichage(ligne, colonne);
+                        }
                     }
                 });
                 g.getChildren().add(r);
