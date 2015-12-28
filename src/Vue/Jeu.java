@@ -17,8 +17,6 @@ public class Jeu extends Application {
     //List<Evenement> evenements;
     public static Group root;
     public static Scene scene;
-    Circle test;
-    int rayon=5;
     void sauvegarder(){}
     void charger(){}
     void affichage(){}
@@ -31,14 +29,10 @@ public class Jeu extends Application {
 
         primaryStage.setTitle("Study Project Simulator");
         primaryStage.setScene(scene);
-
+        //menus.add(new Menu());
         ArbreDeCompetenceModele arbre = new ArbreDeCompetenceModele(".\\competence.txt");
         ArbreDeCompetenceVue arbreV = new ArbreDeCompetenceVue(arbre);
         arbreV.affichage();
-
-        test = new Circle(50,50,rayon);
-        Jeu.root.getChildren().add(test);
-
         primaryStage.show();
     }
     public static void main(String[] args) { launch(args); }
