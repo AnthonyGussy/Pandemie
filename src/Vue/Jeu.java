@@ -43,6 +43,5 @@ public class Jeu extends Application {
         launch(args);
     }
 
-    //test
 }
 
