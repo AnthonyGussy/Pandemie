@@ -21,7 +21,7 @@ public class CompetenceVue {
     CompetenceModele compM;
     Circle compet;
     Group g;
-    int colone;
+    int colonne;
     int ligne;
 
     public static boolean cliquer = false;
@@ -30,13 +30,13 @@ public class CompetenceVue {
 
         compM = c;
         ligne = c.getLigne();
-        colone = c.getColone();
+        colonne = c.getColone();
 
     }
 
     void affichage(){
 
-        compet = new Circle(colone*200,768-ligne*100,30);
+        compet = new Circle(colonne *200,768-ligne*100,30);
         compet.setFill(new ImagePattern(new Image("file:Compet3.png"), 0, 0, 1, 1, true));
 
         //quand la souris entre dans la zone du cercle ajoute la fenetre de description
