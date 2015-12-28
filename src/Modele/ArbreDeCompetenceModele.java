@@ -10,28 +10,22 @@ public class ArbreDeCompetenceModele {
     HashMap<String, ArrayList<CompetenceModele>> competencesMod;
 
 
-    public ArbreDeCompetenceModele(String document){
+    public ArbreDeCompetenceModele(String departement){
 
         competencesMod = new HashMap<>();
-        ArrayList<CompetenceModele> listCompetence = new ArrayList<>();
 
         for(int i=0;i<3;++i){
 
-            CompetenceModele c = new CompetenceModele(document,i,this);
-            listCompetence.add(c);
-
-        }
-
-        for(CompetenceModele c: listCompetence){
+            CompetenceModele c = new CompetenceModele(departement,i,this);
 
             competencesMod.put(c.ligne + "," + c.colone, new ArrayList<>());
             competencesMod.get(c.ligne + ","+c.colone).add(c);
             if(c.sommetLie != null) {
-                String sommet[] = c.sommetLie.split(",");
+                String sommet[] = c.sommetLie.split(";");
 
                 for (String s : sommet) {
 
-                    competencesMod.get(c.ligne + ","+c.colone).add(listCompetence.get(Integer.parseInt(s)));
+                    competencesMod.get(c.ligne + ","+c.colone).add(competencesMod.get(s).get(0));
 
                 }
             }

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+<competences>
+
+    <info>
+
+        <competence>
+
+            <nom>Nom</nom>
+            <description>Description</description>
+            <ligne>1</ligne>
+            <colonne>1</colonne>
+            <moral>1</moral>
+            <efficacite>1</efficacite>
+            <temps>0</temps>
+            <cout>9</cout>
+            <sommetLie>
+                <sommet></sommet>
+            </sommetLie>
+
+        </competence>
+
+        <competence>
+
+            <nom>Nom2</nom>
+            <description>Description2</description>
+            <ligne>1</ligne>
+            <colonne>2</colonne>
+            <moral>1</moral>
+            <efficacite>1</efficacite>
+            <temps>0</temps>
+            <cout>9</cout>
+            <sommetLie>
+                <sommet></sommet>
+            </sommetLie>
+
+        </competence>
+
+        <competence>
+
+            <nom>Nom3</nom>
+            <description>Description3</description>
+            <ligne>2</ligne>
+            <colonne>1</colonne>
+            <moral>1</moral>
+            <efficacite>1</efficacite>
+            <temps>0</temps>
+            <cout>9</cout>
+            <sommetLie>
+
+                <sommet>1,1</sommet>
+                <sommet>1,2</sommet>
+
+            </sommetLie>
+
+        </competence>
+
+    </info>
+
+</competences>

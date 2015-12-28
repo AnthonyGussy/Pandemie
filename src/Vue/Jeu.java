@@ -30,7 +30,7 @@ public class Jeu extends Application {
         primaryStage.setTitle("Study Project Simulator");
         primaryStage.setScene(scene);
         //menus.add(new Menu());
-        ArbreDeCompetenceModele arbre = new ArbreDeCompetenceModele(".\\competence.txt");
+        ArbreDeCompetenceModele arbre = new ArbreDeCompetenceModele("info");
         ArbreDeCompetenceVue arbreV = new ArbreDeCompetenceVue(arbre);
         arbreV.affichage();
         primaryStage.show();
