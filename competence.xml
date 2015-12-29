@@ -2,18 +2,18 @@
 
 <competences>
 
-    <info>
+    <informatique>
 
         <competence>
 
-            <nom>Nom</nom>
-            <description>Description</description>
+            <nom>Explication du sujet</nom>
+            <description>Expliquer au département les enjeux du projet</description>
             <ligne>1</ligne>
             <colonne>1</colonne>
-            <moral>1</moral>
-            <efficacite>1</efficacite>
+            <moral>10</moral>
+            <efficacite>0</efficacite>
             <temps>0</temps>
-            <cout>9</cout>
+            <cout>1</cout>
             <sommetLie>
                 <sommet></sommet>
             </sommetLie>
@@ -22,39 +22,336 @@
 
         <competence>
 
-            <nom>Nom2</nom>
-            <description>Description2</description>
+            <nom>Connexion à internet</nom>
+            <description>Amener la connexion à internet au département informatique</description>
             <ligne>1</ligne>
             <colonne>2</colonne>
-            <moral>1</moral>
-            <efficacite>1</efficacite>
+            <moral>0</moral>
+            <efficacite>10</efficacite>
             <temps>0</temps>
-            <cout>9</cout>
+            <cout>1</cout>
             <sommetLie>
                 <sommet></sommet>
+            </sommetLie>
+
+        </competence>
+		
+		<competence>
+
+            <nom>Discours de motivation</nom>
+            <description>Effectuer un discourt pour motiver le département</description>
+            <ligne>2</ligne>
+            <colonne>1</colonne>
+            <moral>20</moral>
+            <efficacite>0</efficacite>
+            <temps>0</temps>
+            <cout>2</cout>
+            <sommetLie>
+                <sommet>1,1</sommet>
+            </sommetLie>
+
+        </competence>
+		
+		<competence>
+
+            <nom>Machine à café</nom>
+            <description>Débloquer la machine à café dans le département</description>
+            <ligne>2</ligne>
+            <colonne>2</colonne>
+            <moral>10</moral>
+            <efficacite>0</efficacite>
+            <temps>0</temps>
+            <cout>2</cout>
+            <sommetLie>
+                <sommet>1,1</sommet>
+            </sommetLie>
+
+        </competence>
+		
+		<competence>
+
+            <nom>Algorithmique</nom>
+            <description>Initiation à l'algorithmique</description>
+            <ligne>2</ligne>
+            <colonne>3</colonne>
+            <moral>0</moral>
+            <efficacite>20</efficacite>
+            <temps>0</temps>
+            <cout>2</cout>
+            <sommetLie>
+                <sommet>1,2</sommet>
+            </sommetLie>
+
+        </competence>
+		
+		<competence>
+
+            <nom>Ordinateur équipé d'Intel Pentium</nom>
+            <description>Equiper le département de pc plus performant</description>
+            <ligne>2</ligne>
+            <colonne>4</colonne>
+            <moral>0</moral>
+            <efficacite>20</efficacite>
+            <temps>0</temps>
+            <cout>3</cout>
+            <sommetLie>
+                <sommet>1,2</sommet>
+            </sommetLie>
+
+        </competence>
+		
+		<competence>
+
+            <nom>Discour Shia Labeouf</nom>
+            <description>Diffuser la vidéo de Shia Labeouf "Just do it"</description>
+            <ligne>3</ligne>
+            <colonne>1</colonne>
+            <moral>50</moral>
+            <efficacite>0</efficacite>
+            <temps>0</temps>
+            <cout>5</cout>
+            <sommetLie>
+                <sommet>2,1</sommet>
+            </sommetLie>
+
+        </competence>
+		
+		<competence>
+
+            <nom>Café 1/4</nom>
+            <description>Diminuer le prix du café de 25%</description>
+            <ligne>3</ligne>
+            <colonne>2</colonne>
+            <moral>10</moral>
+            <efficacite>10</efficacite>
+            <temps>0</temps>
+            <cout>3</cout>
+            <sommetLie>
+                <sommet>2,2</sommet>
+				<sommet>2,3</sommet>
+            </sommetLie>
+
+        </competence>
+		
+		<competence>
+
+            <nom>Programmation</nom>
+            <description>Initation à la programmation</description>
+            <ligne>3</ligne>
+            <colonne>3</colonne>
+            <moral>0</moral>
+            <efficacite>20</efficacite>
+            <temps>0</temps>
+            <cout>3</cout>
+            <sommetLie>
+                <sommet>2,3</sommet>
+				<sommet>2,4</sommet>
+            </sommetLie>
+
+        </competence>
+		
+		<competence>
+
+            <nom>Connexion à internet haut-débit</nom>
+            <description>Amener la connexion à internet en Haut-Débit au département</description>
+            <ligne>3</ligne>
+            <colonne>4</colonne>
+            <moral>0</moral>
+            <efficacite>20</efficacite>
+            <temps>0</temps>
+            <cout>3</cout>
+            <sommetLie>
+                <sommet>2,4</sommet>
             </sommetLie>
 
         </competence>
 
         <competence>
 
-            <nom>Nom3</nom>
-            <description>Description3</description>
-            <ligne>2</ligne>
+            <nom>Visite d'un informaticien</nom>
+            <description>Visite d'un professionnel du domaine</description>
+            <ligne>4</ligne>
             <colonne>1</colonne>
-            <moral>1</moral>
-            <efficacite>1</efficacite>
+            <moral>20</moral>
+            <efficacite>0</efficacite>
             <temps>0</temps>
-            <cout>9</cout>
+            <cout>5</cout>
             <sommetLie>
 
-                <sommet>1,1</sommet>
-                <sommet>1,2</sommet>
+                <sommet>3,1</sommet>
+                <sommet>3,2</sommet>
+
+            </sommetLie>
+
+        </competence>
+		
+		<competence>
+
+            <nom>Café 2/4</nom>
+            <description>Diminuer le prix du café de 50%</description>
+            <ligne>4</ligne>
+            <colonne>2</colonne>
+            <moral>20</moral>
+            <efficacite>20</efficacite>
+            <temps>0</temps>
+            <cout>5</cout>
+            <sommetLie>
+
+                <sommet>3,2</sommet>
+                <sommet>3,3</sommet>
+
+            </sommetLie>
+
+        </competence>
+		
+		<competence>
+
+            <nom>Algorithmique avancée</nom>
+            <description>Appronfondissement de l'algorithmique</description>
+            <ligne>4</ligne>
+            <colonne>3</colonne>
+            <moral>0</moral>
+            <efficacite>30</efficacite>
+            <temps>0</temps>
+            <cout>5</cout>
+            <sommetLie>
+
+                <sommet>3,3</sommet>
+                <sommet>3,4</sommet>
+
+            </sommetLie>
+
+        </competence>
+		
+		<competence>
+
+            <nom>Ordinateur équipé d'Intel i5</nom>
+            <description>Equiper le département de pc encore plus performant</description>
+            <ligne>4</ligne>
+            <colonne>4</colonne>
+            <moral>0</moral>
+            <efficacite>30</efficacite>
+            <temps>0</temps>
+            <cout>5</cout>
+            <sommetLie>
+
+                <sommet>3,4</sommet>
+
+            </sommetLie>
+
+        </competence>
+		
+		<competence>
+
+            <nom>Réussite de l'UV LO43</nom>
+            <description>Félicitation, vous avez validé l'UV LO43</description>
+            <ligne>5</ligne>
+            <colonne>1</colonne>
+            <moral>80</moral>
+            <efficacite>0</efficacite>
+            <temps>0</temps>
+            <cout>7</cout>
+            <sommetLie>
+
+                <sommet>4,1</sommet>
+
+            </sommetLie>
+
+        </competence>
+		
+		<competence>
+
+            <nom>Café 3/4</nom>
+            <description>Diminuer le prix du café de 75%</description>
+            <ligne>5</ligne>
+            <colonne>2</colonne>
+            <moral>30</moral>
+            <efficacite>30</efficacite>
+            <temps>0</temps>
+            <cout>6</cout>
+            <sommetLie>
+
+                <sommet>4,2</sommet>
+                <sommet>4,3</sommet>
+
+            </sommetLie>
+
+        </competence>
+		
+		<competence>
+
+            <nom>Programmation avancée</nom>
+            <description>Approfondissement de la programmation</description>
+            <ligne>5</ligne>
+            <colonne>3</colonne>
+            <moral>0</moral>
+            <efficacite>50</efficacite>
+            <temps>0</temps>
+            <cout>7</cout>
+            <sommetLie>
+
+                <sommet>4,3</sommet>
+                <sommet>4,4</sommet>
+
+            </sommetLie>
+
+        </competence>
+		
+		<competence>
+
+            <nom>Ordinateur quantique</nom>
+            <description>Equiper le département du dernier cri en matière de technologie</description>
+            <ligne>5</ligne>
+            <colonne>4</colonne>
+            <moral>0</moral>
+            <efficacite>70</efficacite>
+            <temps>0</temps>
+            <cout>10</cout>
+            <sommetLie>
+
+                <sommet>4,4</sommet>
+
+            </sommetLie>
+
+        </competence>
+		
+		<competence>
+
+            <nom>Café 4/4</nom>
+            <description>Diminution du prix du café de 100%</description>
+            <ligne>6</ligne>
+            <colonne>1</colonne>
+            <moral>50</moral>
+            <efficacite>50</efficacite>
+            <temps>0</temps>
+            <cout>10</cout>
+            <sommetLie>
+
+                <sommet>5,2</sommet>
+                <sommet>5,3</sommet>
+
+            </sommetLie>
+
+        </competence>
+		
+		<competence>
+
+            <nom>Programmation orienté objet</nom>
+            <description>Apprentissage de le programmation orienté objet</description>
+            <ligne>6</ligne>
+            <colonne>2</colonne>
+            <moral>0</moral>
+            <efficacite>100</efficacite>
+            <temps>0</temps>
+            <cout>10</cout>
+            <sommetLie>
+
+                <sommet>5,3</sommet>
 
             </sommetLie>
 
         </competence>
 
-    </info>
+    </informatique>
 
 </competences>

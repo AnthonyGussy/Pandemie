@@ -42,10 +42,10 @@ public class ArbreDeCompetenceVue {
                 for (int i=1;i<competence.getValue().size();++i){
 
                     Line l = new Line();
-                    l.setStartX(competence.getValue().get(0).getColonne() * 200);
-                    l.setStartY(768 - competence.getValue().get(0).getLigne() * 100);
-                    l.setEndX(competence.getValue().get(i).getColonne() * 200);
-                    l.setEndY(768 - competence.getValue().get(i).getLigne() * 100);
+                    l.setStartX(competence.getValue().get(0).getColonne() * 100);
+                    l.setStartY(Jeu.scene.getHeight() - competence.getValue().get(0).getLigne() * 50);
+                    l.setEndX(competence.getValue().get(i).getColonne() * 100);
+                    l.setEndY(Jeu.scene.getHeight() - competence.getValue().get(i).getLigne() * 50);
                     Jeu.root.getChildren().add(l);
 
                 }
@@ -59,19 +59,15 @@ public class ArbreDeCompetenceVue {
         }
     }
 
-    void changementAffichage(int ligne,int colonne){
+    void changementAffichage(int ligne){
 
-        if(competences.get((ligne+1)+","+(colonne-1)) != null){
-            if(competences.get((ligne+1)+","+(colonne-1)).compM.getDebloque() && !competences.get((ligne+1)+","+(colonne-1)).compM.getAchete())
-                competences.get((ligne+1)+","+(colonne-1)).compet.setFill(new ImagePattern(new Image("file:CompetenceDebloque.png"), 0, 0, 1, 1, true));
-        }
-        if(competences.get((ligne+1)+","+(colonne)) != null){
-            if(competences.get((ligne+1)+","+(colonne)).compM.getDebloque() && !competences.get((ligne+1)+","+(colonne)).compM.getAchete())
-                competences.get((ligne+1)+","+(colonne)).compet.setFill(new ImagePattern(new Image("file:CompetenceDebloque.png"), 0, 0, 1, 1, true));
-        }
-        if(competences.get((ligne+1)+","+(colonne+1)) != null){
-            if(competences.get((ligne+1)+","+(colonne+1)).compM.getDebloque() && !competences.get((ligne+1)+","+(colonne+1)).compM.getAchete())
-                competences.get((ligne+1)+","+(colonne+1)).compet.setFill(new ImagePattern(new Image("file:CompetenceDebloque.png"), 0, 0, 1, 1, true));
+        for(int i=1;i<5;++i){
+
+            if(competences.get((ligne+1)+","+(i)) != null){
+                if(competences.get((ligne+1)+","+(i)).compM.getDebloque() && !competences.get((ligne+1)+","+(i)).compM.getAchete())
+                    competences.get((ligne+1)+","+(i)).compet.setFill(new ImagePattern(new Image("file:CompetenceDebloque.png"), 0, 0, 1, 1, true));
+            }
+
         }
 
     }

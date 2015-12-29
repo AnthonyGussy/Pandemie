@@ -38,7 +38,7 @@ public class CompetenceVue {
 
     void affichage(){
 
-        compet = new Circle(colonne *200,768-ligne*100,30);
+        compet = new Circle(colonne *100,Jeu.scene.getHeight()-ligne*50,20);
         if(compM.getDebloque())
             compet.setFill(new ImagePattern(new Image("file:CompetenceDebloque.png"), 0, 0, 1, 1, true));
         else
@@ -54,13 +54,13 @@ public class CompetenceVue {
                     Jeu.root.getChildren().remove(Jeu.root.getChildren().size() - 1, Jeu.root.getChildren().size());
                     CompetenceVue.cliquer = false;
                 }
-                compet.setRadius(32);
+                compet.setRadius(22);
                 Group g = new Group();
                 Rectangle r = new Rectangle();
-                r.setX(ligne + 200);
-                r.setY(colonne + 200);
-                r.setWidth(100);
-                r.setHeight(100);
+                r.setX(800);
+                r.setY(500);
+                r.setWidth(200);
+                r.setHeight(400);
                 Text nomR = new Text(compM.getNom() + "\n" + compM.getDescription());
                 nomR.setFill(Color.AQUA);
                 nomR.setX(ligne + 210);
@@ -74,7 +74,7 @@ public class CompetenceVue {
                         if (compM.getDebloque() && !compM.getAchete()) {
                             compM.getArbreDeCompetence().debloquerCompetence(ligne, colonne);
                             compet.setFill(new ImagePattern(new Image("file:CompetenceAchete.png"), 0, 0, 1, 1, true));
-                            vueArbre.changementAffichage(ligne, colonne);
+                            vueArbre.changementAffichage(ligne);
                         }
                     }
                 });
@@ -95,7 +95,7 @@ public class CompetenceVue {
             @Override
             public void handle(MouseEvent mouseEvent) {
 
-                compet.setRadius(30);
+                compet.setRadius(20);
                 Jeu.root.getChildren().remove(Jeu.root.getChildren().size() - 1, Jeu.root.getChildren().size());
 
 
@@ -130,7 +130,7 @@ public class CompetenceVue {
                         if (compM.getDebloque()) {
                             compM.getArbreDeCompetence().debloquerCompetence(ligne, colonne);
                             compet.setFill(new ImagePattern(new Image("file:CompetenceAchete.png"), 0, 0, 1, 1, true));
-                            vueArbre.changementAffichage(ligne, colonne);
+                            vueArbre.changementAffichage(ligne);
                         }
                     }
                 });
