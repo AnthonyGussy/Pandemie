@@ -1,12 +1,9 @@
-import Modele.Compteur;
+import Vue.Compteur;
 
 import java.util.List;
 
-/**
- * Created by Victor on 20/11/2015.
- */
 public class Departement {
-    DepartementNom nom;
+    Enumerations.DepartementNom nom;
     int nbPersonne;
     List<Compteur> compteurs;
     List<Tache> taches;

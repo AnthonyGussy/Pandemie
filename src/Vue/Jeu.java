@@ -1,7 +1,6 @@
 package Vue;
 
 import Modele.ArbreDeCompetenceModele;
-import Modele.Compteur;
 import javafx.application.Application;
 import javafx.beans.value.ObservableValue;
 import javafx.beans.value.ChangeListener;
@@ -24,7 +23,7 @@ public class Jeu extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        menus = new ArrayList<Menu>();
+        menus = new ArrayList<>();
         root = new Group();
 
         scene = new Scene(root, 800, 600);

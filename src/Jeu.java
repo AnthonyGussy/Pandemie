@@ -5,13 +5,10 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/**
- * Created by Victor on 04/12/2015.
- */
 public class Jeu extends Application {
     /*List<Vue.Menu> menus;
     List<Departement> departements;
-    List<Modele.Compteur> compteurs;
+    List<Vue.Compteur> compteurs;
     List<Evenement> evenements;*/
     public static Group root;
     public static Scene scene;
