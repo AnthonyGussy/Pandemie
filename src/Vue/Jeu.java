@@ -1,5 +1,6 @@
 package Vue;
 
+import Enumerations.CompteurType;
 import Modele.ArbreDeCompetenceModele;
 import javafx.application.Application;
 import javafx.beans.value.ObservableValue;
@@ -34,6 +35,8 @@ public class Jeu extends Application {
         String[] boutons = new String[]{"Commencer", "Charger", "Quitter"};
         menus.add(new Menu(boutons));
         menus.get(0).affichage(true);
+        Compteur test = new Barre(1, 5, CompteurType.Efficacite);
+        test.affichage(20, 20);
         scene.widthProperty().addListener(new ChangeListener<Number>() {
             @Override public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneWidth, Number newSceneWidth) {
                 menus.get(0).affichage(true);
