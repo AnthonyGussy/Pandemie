@@ -15,18 +15,12 @@ public class Menu {
     final int espacement = 40;
     final int largeur = 160;
     final int hauteur = 40;
-    Group g;
     List<Button> boutons;
 
     Menu (String[] boutonTypes){
         boutons = new ArrayList<Button>();
-        g = new Group();
-        int i = 1;
         for(String type : boutonTypes) {
             Button b = new Button(type);
-            b.setLayoutX((Jeu.scene.getWidth() - largeur) / 2);
-            b.setLayoutY((Jeu.scene.getHeight() / (boutonTypes.length * 2)) * i - hauteur / 2);
-            b.setMinSize(largeur, hauteur);
             b.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent e) {
@@ -35,6 +29,8 @@ public class Menu {
                             System.exit(0);
                             break;
                         case "Commencer":
+                            Jeu.commencerPartie();
+                            affichage(false);
                             break;
                         default:
                             break;
@@ -42,13 +38,25 @@ public class Menu {
                 }
             });
             boutons.add(b);
-            ++i;
         }
     }
 
-    void affichage(){
-        for(Button b : boutons) {
-            Jeu.root.getChildren().add(b);
+    void affichage(boolean afficher){
+        if(afficher) {
+            int i = 1;
+            for (Button b : boutons) {
+                Jeu.root.getChildren().remove(b);
+                b.setLayoutX((Jeu.scene.getWidth() - largeur) / 2);
+                b.setLayoutY((Jeu.scene.getHeight() / (boutons.size() + 1)) * i - hauteur / 2);
+                b.setMinSize(largeur, hauteur);
+                Jeu.root.getChildren().add(b);
+                ++i;
+            }
+        }
+        else {
+            for (Button b : boutons) {
+                Jeu.root.getChildren().remove(b);
+            }
         }
     }
 }
