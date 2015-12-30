@@ -44,7 +44,13 @@ public class ArbreDeCompetenceModele {
 
                     Element type = (Element) racineNoeuds.item(i);
 
-                    NodeList competences = type.getElementsByTagName("competence"); //recupere toute les element competence
+                    NodeList lignes = type.getElementsByTagName("lignes"); //recupere tout les element lignes
+                    Element lignesE = (Element) lignes.item(0);
+
+                    NodeList colonnes = lignesE.getElementsByTagName("colonne");
+                    int nbLignes = colonnes.getLength();
+
+                    NodeList competences = type.getElementsByTagName("competence"); //recupere tout les elements competence
                     int nbCompetences = competences.getLength();
 
                     for (int j = 0; j<nbCompetences; ++j) {
@@ -76,7 +82,7 @@ public class ArbreDeCompetenceModele {
                         }
 
 
-                        CompetenceModele c = new CompetenceModele(nom,description,ligne,colone,effet,cout,sommetLie,this);
+                        CompetenceModele c = new CompetenceModele(nom,description,ligne,colone,effet,cout,sommetLie, Integer.parseInt(colonnes.item(ligne-1).getTextContent()),nbLignes,this);
 
                         competencesMod.put(c.ligne + "," + c.colonne, new ArrayList<>());
                         competencesMod.get(c.ligne + ","+c.colonne).add(c);

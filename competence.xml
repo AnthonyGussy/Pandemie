@@ -4,6 +4,15 @@
 
     <informatique>
 
+		<lignes>
+			<colonne>2</colonne>
+			<colonne>4</colonne>
+			<colonne>4</colonne>
+			<colonne>4</colonne>
+			<colonne>4</colonne>
+            <colonne>2</colonne>
+		</lignes>
+
         <competence>
 
             <nom>Explication du sujet</nom>

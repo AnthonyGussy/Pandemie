@@ -38,7 +38,12 @@ public class CompetenceVue {
 
     void affichage(){
 
-        compet = new Circle(colonne *100,Jeu.scene.getHeight()-ligne*50,20);
+        double coefx = (double) 1/compM.getNbColonnes()*(colonne-1);
+        double coefy = (double) 1/compM.getNbLignes()*(ligne-1);
+
+        compet = new Circle((Jeu.scene.getWidth()*20)/100+coefx*(Jeu.scene.getWidth()*50/100),
+                (Jeu.scene.getHeight()*85)/100-coefy*(Jeu.scene.getHeight()*70/100),20);
+
         if(compM.getDebloque())
             compet.setFill(new ImagePattern(new Image("file:CompetenceDebloque.png"), 0, 0, 1, 1, true));
         else

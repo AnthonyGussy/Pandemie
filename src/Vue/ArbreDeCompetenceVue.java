@@ -41,11 +41,16 @@ public class ArbreDeCompetenceVue {
             if(competence.getValue().size()>1) {
                 for (int i=1;i<competence.getValue().size();++i){
 
+                    double coefx1 = (double) 1/competence.getValue().get(0).getNbColonnes()*(competence.getValue().get(0).getColonne()-1);
+                    double coefy1 = (double) 1/ competence.getValue().get(0).getNbLignes()*( competence.getValue().get(0).getLigne()-1);;
+                    double coefx2 = (double) 1/competence.getValue().get(i).getNbColonnes()*(competence.getValue().get(i).getColonne()-1);;
+                    double coefy2 = (double) 1/competence.getValue().get(i).getNbLignes()*( competence.getValue().get(i).getLigne()-1);;
+
                     Line l = new Line();
-                    l.setStartX(competence.getValue().get(0).getColonne() * 100);
-                    l.setStartY(Jeu.scene.getHeight() - competence.getValue().get(0).getLigne() * 50);
-                    l.setEndX(competence.getValue().get(i).getColonne() * 100);
-                    l.setEndY(Jeu.scene.getHeight() - competence.getValue().get(i).getLigne() * 50);
+                    l.setStartX((Jeu.scene.getWidth()*20)/100+coefx1*(Jeu.scene.getWidth()*50/100));
+                    l.setStartY((Jeu.scene.getHeight()*85)/100-coefy1*(Jeu.scene.getHeight()*70/100));
+                    l.setEndX((Jeu.scene.getWidth()*20)/100+coefx2*(Jeu.scene.getWidth()*50/100));
+                    l.setEndY((Jeu.scene.getHeight()*85)/100-coefy2*(Jeu.scene.getHeight()*70/100));
                     Jeu.root.getChildren().add(l);
 
                 }

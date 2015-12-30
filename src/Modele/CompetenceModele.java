@@ -11,13 +11,15 @@ public class CompetenceModele {
     int colonne;
     int[] effet;  //contient 3 valeurs correspondant a l'efficacite, le moral et le temps
     int cout;
+    int nbLignes;
+    int nbColonnes;
     boolean debloque;
     boolean achete;
     String sommetLie;   //la liste des sommets lie de forme ligne,colonne separer par des points virgules
 
     ArbreDeCompetenceModele arbreDeCompetence;
 
-    CompetenceModele(String _nom, String _description, int _ligne, int _colonne, int[] _effet, int _cout, String _sommetLie, ArbreDeCompetenceModele arbre){
+    CompetenceModele(String _nom, String _description, int _ligne, int _colonne, int[] _effet, int _cout, String _sommetLie,int _nbColonnes, int _nbLignes, ArbreDeCompetenceModele arbre){
 
         arbreDeCompetence = arbre;
         achete = false;
@@ -27,6 +29,8 @@ public class CompetenceModele {
         colonne = _colonne;
         effet = _effet;
         cout = _cout;
+        nbColonnes = _nbColonnes;
+        nbLignes = _nbLignes;
         sommetLie = _sommetLie;
         if(ligne == 1) debloque = true;
         else debloque = false;
@@ -49,6 +53,10 @@ public class CompetenceModele {
     public String getNom(){ return nom;}
 
     public String getDescription() { return description;}
+
+    public int getNbLignes() { return nbLignes; }
+
+    public int getNbColonnes() { return nbColonnes; }
 
     public ArbreDeCompetenceModele getArbreDeCompetence() { return  arbreDeCompetence; }
 
