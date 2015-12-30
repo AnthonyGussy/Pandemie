@@ -5,6 +5,7 @@ import Modele.CompetenceModele;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
@@ -20,10 +21,12 @@ public class ArbreDeCompetenceVue {
     ArbreDeCompetenceModele aC;
     HashMap<String, CompetenceVue> competences;
     Text nom;
+    public static String aCliquer;
 
     ArbreDeCompetenceVue(ArbreDeCompetenceModele ac){
 
         aC = ac;
+        aCliquer="";
         competences = new  HashMap<String, CompetenceVue>();
         HashMap<String, ArrayList<CompetenceModele>> temporaire = aC.getComp();
         for (Map.Entry<String, ArrayList<CompetenceModele>> competence : temporaire.entrySet()) {
@@ -40,7 +43,7 @@ public class ArbreDeCompetenceVue {
         Jeu.scene.setFill(new ImagePattern(new Image("file:fond2.png"), 0, 0, 1, 1, true));
 
         nom = new Text(aC.getNom());
-        nom.setFont(Font.font("Verdana", 20));
+        nom.setFont(Font.loadFont("file:Font.ttf", 40));
         nom.setX(Jeu.scene.getHeight() * 50 / 100);
         nom.setY(Jeu.scene.getWidth()*10/100);
 
@@ -72,6 +75,15 @@ public class ArbreDeCompetenceVue {
             comp.getValue().affichage();
 
         }
+
+        Rectangle r = new Rectangle();
+        r.setFill(new ImagePattern(new Image("file:post-it.png"), 0, 0, 1, 1, true));
+        r.setX((Jeu.scene.getWidth() * 77) / 100);
+        r.setY((Jeu.scene.getHeight() * 55) / 100);
+        r.setWidth((Jeu.scene.getWidth() * 22) / 100);
+        r.setHeight((Jeu.scene.getHeight() * 47) / 100);
+        Jeu.root.getChildren().add(r);
+
     }
 
     void changementAffichage(int ligne){

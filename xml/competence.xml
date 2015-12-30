@@ -1635,8 +1635,8 @@
 		
 		<competence>
 
-            <nom>Imprimante 3D</nom>
-            <description>Achat d'une imprimante 3D</description>
+            <nom>Imprimante 3d</nom>
+            <description>Achat d'une imprimante 3d</description>
             <ligne>4</ligne>
             <colonne>4</colonne>
             <moral>0</moral>

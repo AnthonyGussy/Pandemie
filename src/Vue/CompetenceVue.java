@@ -11,7 +11,10 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
+import javafx.scene.text.*;
+import javafx.scene.text.Font;
+
+import java.awt.*;
 
 /**
  * Created by Anthony on 15/12/2015.
@@ -24,8 +27,7 @@ public class CompetenceVue {
     Group g;
     int colonne;
     int ligne;
-
-    public static boolean cliquer = false;
+    Rectangle r;
 
     CompetenceVue(CompetenceModele c, ArbreDeCompetenceVue arbreDeCompetenceVue){
 
@@ -55,39 +57,19 @@ public class CompetenceVue {
             @Override
             public void handle(MouseEvent mouseEvent) {
 
-                if(CompetenceVue.cliquer) {
-                    Jeu.root.getChildren().remove(Jeu.root.getChildren().size() - 1, Jeu.root.getChildren().size());
-                    CompetenceVue.cliquer = false;
-                }
                 compet.setRadius(22);
-                Group g = new Group();
-                Rectangle r = new Rectangle();
-                r.setX(800);
-                r.setY(500);
-                r.setWidth(200);
-                r.setHeight(400);
-                Text nomR = new Text(compM.getNom() + "\n" + compM.getDescription());
-                nomR.setFill(Color.AQUA);
-                nomR.setX(ligne + 210);
-                nomR.setY(colonne + 250);
-                Button b = new Button("Achat");
-                b.setLayoutX(ligne + 210);
-                b.setLayoutY(colonne + 280);
-                b.setOnAction(new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(ActionEvent e) {
-                        if (compM.getDebloque() && !compM.getAchete()) {
-                            compM.getArbreDeCompetence().debloquerCompetence(ligne, colonne);
-                            compet.setFill(new ImagePattern(new Image("file:CompetenceAchete.png"), 0, 0, 1, 1, true));
-                            vueArbre.changementAffichage(ligne);
-                        }
-                    }
-                });
-                g.getChildren().add(r);
-                g.getChildren().add(nomR);
-                g.getChildren().add(b);
-                setGroup(g);
-                Jeu.root.getChildren().add(g);
+
+                Text nomR = new Text(compM.getNom() + "\n \n" + compM.getDescription());
+                if(compM.getEffet()[0] != 0) nomR.setText(nomR.getText()+"\n moral :+"+compM.getEffet()[0]);
+                if(compM.getEffet()[1] != 0) nomR.setText(nomR.getText()+"\n efficacité :+"+compM.getEffet()[1]);
+                if(compM.getEffet()[2] != 0) nomR.setText(nomR.getText()+"\n temps :+"+compM.getEffet()[2]);
+
+                nomR.setFont(Font.loadFont("file:Font.ttf", 30));
+                nomR.setX((Jeu.scene.getWidth() * 79) / 100);
+                nomR.setY((Jeu.scene.getHeight() * 61) / 100);
+                nomR.setWrappingWidth((Jeu.scene.getWidth() * 20) / 100);
+
+                Jeu.root.getChildren().add(nomR);
 
 
             }
@@ -101,7 +83,7 @@ public class CompetenceVue {
             public void handle(MouseEvent mouseEvent) {
 
                 compet.setRadius(20);
-                Jeu.root.getChildren().remove(Jeu.root.getChildren().size() - 1, Jeu.root.getChildren().size());
+                Jeu.root.getChildren().remove(Jeu.root.getChildren().size()-1);
 
 
             }
@@ -116,40 +98,20 @@ public class CompetenceVue {
             @Override
             public void handle(MouseEvent mouseEvent) {
 
-                Group g = new Group();
-                Rectangle r = new Rectangle();
-                r.setX(ligne + 200);
-                r.setY(colonne + 200);
-                r.setWidth(100);
-                r.setHeight(100);
-                Text nomR = new Text(compM.getNom() + "\n" + compM.getDescription());
-                nomR.setFill(Color.AQUA);
-                nomR.setX(ligne + 210);
-                nomR.setY(colonne + 250);
-                Button b = new Button("Achat");
-                b.setLayoutX(ligne + 210);
-                b.setLayoutY(colonne + 280);
-                b.setOnAction(new EventHandler<ActionEvent>() {
-                    @Override
-                    public void handle(ActionEvent e) {
-                        if (compM.getDebloque()) {
-                            compM.getArbreDeCompetence().debloquerCompetence(ligne, colonne);
-                            compet.setFill(new ImagePattern(new Image("file:CompetenceAchete.png"), 0, 0, 1, 1, true));
-                            vueArbre.changementAffichage(ligne);
-                        }
+                if(ArbreDeCompetenceVue.aCliquer.equals(ligne+","+colonne)) {
+
+                    if (compM.getDebloque()) {
+                        compM.getArbreDeCompetence().debloquerCompetence(ligne, colonne);
+                        compet.setFill(new ImagePattern(new Image("file:CompetenceAchete.png"), 0, 0, 1, 1, true));
+                        vueArbre.changementAffichage(ligne);
                     }
-                });
-                g.getChildren().add(r);
-                g.getChildren().add(nomR);
-                g.getChildren().add(b);
-                setGroup(g);
-                Jeu.root.getChildren().add(g);
-                CompetenceVue.cliquer = true;
 
-
+                }
+                else ArbreDeCompetenceVue.aCliquer = ligne+","+colonne;
             }
 
         });
+
         Jeu.root.getChildren().add(compet);
 
     }

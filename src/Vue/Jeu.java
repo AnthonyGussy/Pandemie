@@ -27,7 +27,7 @@ public class Jeu extends Application {
         menus = new ArrayList<>();
         root = new Group();
 
-        scene = new Scene(root, 800, 600);
+        scene = new Scene(root, 1024, 768);
 
         primaryStage.setTitle("Study Project Simulator");
         primaryStage.setScene(scene);

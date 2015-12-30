@@ -58,6 +58,8 @@ public class CompetenceModele {
 
     public int getNbColonnes() { return nbColonnes; }
 
+    public int[] getEffet() {return effet; }
+
     public ArbreDeCompetenceModele getArbreDeCompetence() { return  arbreDeCompetence; }
 
     public boolean getDebloque(){ return debloque;}
