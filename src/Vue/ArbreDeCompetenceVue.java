@@ -76,13 +76,15 @@ public class ArbreDeCompetenceVue {
 
     void changementAffichage(int ligne){
 
-        for(int i=1;i<5;++i){
+        if(aC.getComp().get(ligne+1+","+1) != null) {
+            for (int i = 1; i <= aC.getComp().get(ligne + 1 + "," + 1).get(0).getNbColonnes(); ++i) {
 
-            if(competences.get((ligne+1)+","+(i)) != null){
-                if(competences.get((ligne+1)+","+(i)).compM.getDebloque() && !competences.get((ligne+1)+","+(i)).compM.getAchete())
-                    competences.get((ligne+1)+","+(i)).compet.setFill(new ImagePattern(new Image("file:CompetenceDebloque.png"), 0, 0, 1, 1, true));
+                if (competences.get((ligne + 1) + "," + (i)) != null) {
+                    if (competences.get((ligne + 1) + "," + (i)).compM.getDebloque() && !competences.get((ligne + 1) + "," + (i)).compM.getAchete())
+                        competences.get((ligne + 1) + "," + (i)).compet.setFill(new ImagePattern(new Image("file:CompetenceDebloque.png"), 0, 0, 1, 1, true));
+                }
+
             }
-
         }
 
     }

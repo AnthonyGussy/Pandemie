@@ -121,25 +121,27 @@ public class ArbreDeCompetenceModele {
     public void debloquerCompetence(int ligne, int colone){
 
         competencesMod.get(ligne+","+colone).get(0).setAchete();
-        for(int i=1;i<5;++i){
+        if(competencesMod.get(ligne+1+","+1) != null) {
+            for (int i = 1; i <= competencesMod.get(ligne + 1 + "," + 1).get(0).getNbColonnes(); ++i) {
 
-            boolean debloque = true;
-            ArrayList<CompetenceModele> c = competencesMod.get(ligne+1 + "," + i);
-            if(c != null) {
+                boolean debloque = true;
+                ArrayList<CompetenceModele> c = competencesMod.get(ligne + 1 + "," + i);
+                if (c != null) {
 
-                for (int j = 1; j < c.size(); ++j) {
+                    for (int j = 1; j < c.size(); ++j) {
 
-                    if (!c.get(j).debloque || !c.get(j).achete) debloque = false;
+                        if (!c.get(j).debloque || !c.get(j).achete) debloque = false;
 
-                }
-                if (debloque) {
+                    }
+                    if (debloque) {
 
-                    c.get(0).setDebloque();
+                        c.get(0).setDebloque();
+
+                    }
 
                 }
 
             }
-
         }
 
     }
