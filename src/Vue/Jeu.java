@@ -34,18 +34,16 @@ public class Jeu extends Application {
         //menus.add(new Menu());
         String[] boutons = new String[]{"Jouer", "Charger", "Quitter"};
         menus.add(new Menu(boutons));
-        menus.get(0).affichage(true);
-        Compteur test = new Barre(1, 5, CompteurType.Efficacite);
-        test.affichage(20, 20);
+        menus.get(0).affichage(0);
         scene.widthProperty().addListener(new ChangeListener<Number>() {
             @Override public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneWidth, Number newSceneWidth) {
-                menus.get(0).affichage(true);
+                menus.get(0).affichage(1);
             }
         });
         scene.heightProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneHeight, Number newSceneHeight) {
-                menus.get(0).affichage(true);
+                menus.get(0).affichage(1);
             }
         });
 

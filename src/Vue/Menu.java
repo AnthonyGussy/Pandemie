@@ -16,6 +16,7 @@ public class Menu {
     final int espacement = 40;
     final int largeur = 160;
     final int hauteur = 40;
+    boolean affiche = false;
     List<Rectangle> boutons;
 
     Menu (String[] boutonTypes){
@@ -41,8 +42,8 @@ public class Menu {
                         System.exit(0);
                         break;
                     case "Jouer":
+                        affichage(2);
                         Jeu.commencerPartie();
-                        affichage(false);
                         break;
                     default:
                         break;
@@ -52,24 +53,32 @@ public class Menu {
         }
     }
 
-    void affichage(boolean afficher){
-        if(afficher) {
-            Jeu.scene.setFill(new ImagePattern(new Image("file:image\\PandemieAccueil.jpg"), 0, 0, 1, 1, true));
-            int i = 1;
-            for (Rectangle b : boutons) {
-                Jeu.root.getChildren().remove(b);
-                b.setX(((Jeu.scene.getWidth() * 21 *i) / 100 ));
-                b.setY((Jeu.scene.getHeight() * 50) / 100);
-                b.setHeight(77);
-                b.setWidth(152);
-                Jeu.root.getChildren().add(b);
-                ++i;
-            }
-        }
-        else {
-            for (Rectangle b : boutons) {
-                Jeu.root.getChildren().remove(b);
-            }
+    void affichage(int afficher){
+        switch(afficher){
+            case 0:
+                affiche = true;
+                Jeu.scene.setFill(new ImagePattern(new Image("file:image\\PandemieAccueil.jpg"), 0, 0, 1, 1, true));
+                int i = 1;
+                for (Rectangle b : boutons) {
+                    Jeu.root.getChildren().remove(b);
+                    b.setX(((Jeu.scene.getWidth() * 21 *i) / 100 ));
+                    b.setY((Jeu.scene.getHeight() * 50) / 100);
+                    b.setHeight(77);
+                    b.setWidth(152);
+                    Jeu.root.getChildren().add(b);
+                    ++i;
+                }
+                break;
+            case 1:
+                if(affiche) {
+                    affichage(0);
+                }
+                break;
+            default:
+                affiche = false;
+                for (Rectangle b : boutons) {
+                    Jeu.root.getChildren().remove(b);
+                }
         }
     }
 }
