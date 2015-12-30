@@ -34,7 +34,7 @@ public class Menu {
                 b.setWidth(152);
 
             });
-            b.setFill(new ImagePattern(new Image("file:Pandemie"+type+".jpg"), 0, 0, 1, 1, true));
+            b.setFill(new ImagePattern(new Image("file:image\\Pandemie"+type+".jpg"), 0, 0, 1, 1, true));
             b.setOnMouseClicked(e -> {
                 switch (type) {
                     case "Quitter":
@@ -54,7 +54,7 @@ public class Menu {
 
     void affichage(boolean afficher){
         if(afficher) {
-            Jeu.scene.setFill(new ImagePattern(new Image("file:PandemieAccueil.jpg"), 0, 0, 1, 1, true));
+            Jeu.scene.setFill(new ImagePattern(new Image("file:image\\PandemieAccueil.jpg"), 0, 0, 1, 1, true));
             int i = 1;
             for (Rectangle b : boutons) {
                 Jeu.root.getChildren().remove(b);

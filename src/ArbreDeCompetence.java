@@ -47,7 +47,6 @@ public class ArbreDeCompetence {
 
     void affichage(){
 
-        Jeu.scene.setFill(new ImagePattern(new Image("file:fond2.png"), 0, 0, 1, 1, true));
         for (Map.Entry<String, ArrayList<Competence>> competence : competences.entrySet()) {
             for(Competence c : competence.getValue()){
 

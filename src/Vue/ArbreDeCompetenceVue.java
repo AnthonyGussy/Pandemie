@@ -40,7 +40,7 @@ public class ArbreDeCompetenceVue {
 
     void affichage() {
 
-        Jeu.scene.setFill(new ImagePattern(new Image("file:PandemieCompetenceJournal.jpg"), 0, 0, 1, 1, true));
+        Jeu.scene.setFill(new ImagePattern(new Image("file:image\\PandemieCompetenceJournal.jpg"), 0, 0, 1, 1, true));
 
         nom = new Text(aC.getNom());
         nom.setFont(Font.loadFont("file:Font.ttf", 40));
@@ -85,7 +85,7 @@ public class ArbreDeCompetenceVue {
 
                 if (competences.get((ligne + 1) + "," + (i)) != null) {
                     if (competences.get((ligne + 1) + "," + (i)).compM.getDebloque() && !competences.get((ligne + 1) + "," + (i)).compM.getAchete())
-                        competences.get((ligne + 1) + "," + (i)).compet.setFill(new ImagePattern(new Image("file:CompetenceDebloque.png"), 0, 0, 1, 1, true));
+                        competences.get((ligne + 1) + "," + (i)).compet.setFill(new ImagePattern(new Image("file:image\\CompetenceDebloque.png"), 0, 0, 1, 1, true));
                 }
 
             }

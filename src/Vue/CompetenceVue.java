@@ -47,9 +47,9 @@ public class CompetenceVue {
                 (Jeu.scene.getHeight()*90)/100-coefy*(Jeu.scene.getHeight()*65/100),20);
 
         if(compM.getDebloque())
-            compet.setFill(new ImagePattern(new Image("file:CompetenceDebloque.png"), 0, 0, 1, 1, true));
+            compet.setFill(new ImagePattern(new Image("file:image\\CompetenceDebloque.png"), 0, 0, 1, 1, true));
         else
-            compet.setFill(new ImagePattern(new Image("file:CompetenceBloque.png"), 0, 0, 1, 1, true));
+            compet.setFill(new ImagePattern(new Image("file:image\\CompetenceBloque.png"), 0, 0, 1, 1, true));
 
         //quand la souris entre dans la zone du cercle ajoute la fenetre de description
         compet.setOnMouseEntered(new EventHandler<MouseEvent>() {
@@ -102,7 +102,7 @@ public class CompetenceVue {
 
                     if (compM.getDebloque()) {
                         compM.getArbreDeCompetence().debloquerCompetence(ligne, colonne);
-                        compet.setFill(new ImagePattern(new Image("file:CompetenceAchete.png"), 0, 0, 1, 1, true));
+                        compet.setFill(new ImagePattern(new Image("file:image\\CompetenceAchete.png"), 0, 0, 1, 1, true));
                         vueArbre.changementAffichage(ligne);
                     }
 
