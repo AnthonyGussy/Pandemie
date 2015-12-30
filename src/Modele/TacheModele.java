@@ -83,8 +83,8 @@ public class TacheModele implements Constantes {
     	System.out.println("nom : "+nom);
     	System.out.println("description : "+description);
     	System.out.println("termine : "+termine);
-    	System.out.println("temps : "+compteurs.get(0).compte);
-    	System.out.println("infectes : "+compteurs.get(1).compte);
+    	System.out.println("temps : "+compteurs.get(0).getCompte());
+    	System.out.println("infectes : "+compteurs.get(1).getCompte());
     }
     
     public void setAvancement(int incr){
