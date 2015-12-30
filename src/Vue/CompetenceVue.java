@@ -44,7 +44,7 @@ public class CompetenceVue {
         double coefy = (double) 1/compM.getNbColonnes()*(colonne-1);
 
         compet = new Circle((Jeu.scene.getWidth()*15)/100+coefx*(Jeu.scene.getWidth()*60/100),
-                (Jeu.scene.getHeight()*90)/100-coefy*(Jeu.scene.getHeight()*65/100),20);
+                (Jeu.scene.getHeight()*90)/100-coefy*(Jeu.scene.getHeight()*65/100),24);
 
         if(compM.getDebloque())
             compet.setFill(new ImagePattern(new Image("file:image\\CompetenceDebloque.png"), 0, 0, 1, 1, true));
@@ -57,7 +57,7 @@ public class CompetenceVue {
             @Override
             public void handle(MouseEvent mouseEvent) {
 
-                compet.setRadius(22);
+                if(compM.getDebloque())compet.setRadius(26);
 
                 Text nomR = new Text(compM.getNom() + "\n \n" + compM.getDescription());
                 if(compM.getEffet()[0] != 0) nomR.setText(nomR.getText()+"\nmoral :+"+compM.getEffet()[0]);
@@ -82,7 +82,7 @@ public class CompetenceVue {
             @Override
             public void handle(MouseEvent mouseEvent) {
 
-                compet.setRadius(20);
+                compet.setRadius(24);
                 Jeu.root.getChildren().remove(Jeu.root.getChildren().size()-1);
 
 

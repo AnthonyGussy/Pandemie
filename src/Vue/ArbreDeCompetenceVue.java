@@ -61,9 +61,9 @@ public class ArbreDeCompetenceVue {
 
                     Line l = new Line();
                     l.setStartX((Jeu.scene.getWidth()*15)/100+coefx1*(Jeu.scene.getWidth()*60/100));
-                    l.setStartY((Jeu.scene.getHeight()*90)/100-coefy1*(Jeu.scene.getHeight()*65/100));
-                    l.setEndX((Jeu.scene.getWidth()*15)/100+coefx2*(Jeu.scene.getWidth()*60/100));
-                    l.setEndY((Jeu.scene.getHeight()*90)/100-coefy2*(Jeu.scene.getHeight()*65/100));
+                    l.setStartY((Jeu.scene.getHeight() * 90) / 100 - coefy1 * (Jeu.scene.getHeight() * 65 / 100));
+                    l.setEndX((Jeu.scene.getWidth() * 15) / 100 + coefx2 * (Jeu.scene.getWidth() * 60 / 100));
+                    l.setEndY((Jeu.scene.getHeight() * 90) / 100 - coefy2 * (Jeu.scene.getHeight() * 65 / 100));
                     Jeu.root.getChildren().add(l);
 
                 }
