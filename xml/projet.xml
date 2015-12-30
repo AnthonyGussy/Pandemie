@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+<!--  A venir -->
+
+<projets>
+
+	<Informatique>
+	
+		<projet>
+			<nom></nom>
+			<description></description>
+		</projet>
+		
+	</Informatique>
+	
+	<Energie>
+	
+		<projet>
+			<nom></nom>
+			<description></description>
+		</projet>
+		
+	</Energie>
+	
+	<Imsi>
+	
+		<projet>
+			<nom></nom>
+			<description></description>
+		</projet>
+		
+	</Imsi>
+	
+	<Gmc>
+
+		<projet>
+			<nom></nom>
+			<description></description>
+		</projet>
+		
+	</Gmc>
+	
+	<Edim>
+	
+		<projet>
+			<nom></nom>
+			<description></description>
+		</projet>
+		
+	</Edim>
+
+</projets>

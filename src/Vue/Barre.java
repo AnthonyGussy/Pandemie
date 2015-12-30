@@ -16,7 +16,7 @@ public class Barre extends Compteur {
     Group g;
     final int largeur = 100;
     final int hauteur = 10;
-    void affichage(int x, int y){
+    public void affichage(int x, int y){
         Rectangle barre = new Rectangle(x, y, largeur, hauteur);
         barre.setFill(Color.DARKGRAY);
         Rectangle progression = new Rectangle(x + 1, y + 1, ((float)compte/valeurMax)*(largeur-2), hauteur-2);
@@ -26,7 +26,7 @@ public class Barre extends Compteur {
         g.getChildren().add(progression);
         Jeu.root.getChildren().add(g);
     }
-    void affichage(){
+    public void affichage(){
         Jeu.root.getChildren().remove(g);
     }
 }

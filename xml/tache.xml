@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+<!-- A compléter : http://www.utbm.fr/formations.html -->
+
+<taches>
+	<Informatique>
+	
+		<Facile>
+
+			<tache>
+				<nom>Réseaux sociaux</nom>
+				<description>Gestion de la communication sur les réseaux sociaux</description>
+				<temps>10</temps>
+				<infecte>7</infecte>
+			</tache>
+			
+		</Facile>
+		
+		<Moyenne>
+		
+			<tache>
+				<nom>Site Web</nom>
+				<description>Création d'une site Web dynamique</description>
+				<temps>50</temps>
+				<infecte>15</infecte>
+			</tache>
+		
+		</Moyenne>
+		
+		<Avancee>
+		
+			<tache>
+				<nom>Moteur physique</nom>
+				<description>Création d'un moteur physique</description>
+				<temps>100</temps>
+				<infecte>30</infecte>
+			</tache>
+		
+		</Avancee>
+		
+		
+	</Informatique>
+	
+	<Energie>
+	
+		<Facile>
+		
+			<tache>
+				<nom>Panneaux solaires</nom>
+				<description>Installation de panneaux solaires pour l'alimentation</description>
+				<temps>10</temps>
+				<infecte>7</infecte>
+			</tache>
+			
+		</Facile>
+		
+		<Moyenne>
+		
+			<tache>
+				<nom>Chauffage</nom>
+				<description>Gestion optimisée des températures dans les salles des infectés</description>
+				<temps>50</temps>
+				<infecte>15</infecte>
+			</tache>
+			
+		</Moyenne>
+			
+		<Avancee>
+		
+			<tache>
+				<nom>Machines électriques</nom>
+				<description>Automatisation de machines électriques</description>
+				<temps>100</temps>
+				<infecte>30</infecte>
+			</tache>
+			
+		</Avancee>
+		
+	</Energie>
+	
+	<Imsi>
+		
+		<Facile>
+		
+			<tache>
+				<nom>Système logistique</nom>
+				<description>Mise en place d'un système logistique</description>
+				<temps>10</temps>
+				<infecte>7</infecte>
+			</tache>
+			
+		</Facile>
+		
+		<Moyenne>
+		
+			<tache>
+				<nom>Cellule de Production</nom>
+				<description>Mise en place d'une cellule de production</description>
+				<temps>50</temps>
+				<infecte>15</infecte>
+			</tache>
+			
+		</Moyenne>
+			
+		<Avancee>
+		
+			<tache>
+				<nom>Optimisations</nom>
+				<description>Optimisation de la qualité et de la performance industrielle</description>
+				<temps>100</temps>
+				<infecte>30</infecte>
+			</tache>
+			
+		</Avancee>
+		
+	</Imsi>
+	
+	<Gmc>
+		
+		<Facile>
+		
+			<tache>
+				<nom>Roulements</nom>
+				<description>Création de roues et du système adéquate</description>
+				<temps>10</temps>
+				<infecte>7</infecte>
+			</tache>
+			
+		</Facile>
+		
+		<Moyenne>
+		
+			<tache>
+				<nom>Mouvement mécanique</nom>
+				<description>Recherches du meilleur mouvement mécanique possible</description>
+				<temps>50</temps>
+				<infecte>15</infecte>
+			</tache>
+			
+		</Moyenne>
+			
+		<Avancee>
+		
+			<tache>
+				<nom>Vol</nom>
+				<description>Travaux de propulsion aéronautique</description>
+				<temps>100</temps>
+				<infecte>30</infecte>
+			</tache>
+			
+		</Avancee>
+		
+	</Gmc>
+	
+	<Edim>
+	
+		<Facile>
+		
+			<tache>
+				<nom>Allègement</nom>
+				<description>Allègement des matériaux pour un projet plus léger</description>
+				<temps>10</temps>
+				<infecte>7</infecte>
+			</tache>
+			
+		</Facile>
+		
+		<Moyenne>
+		
+			<tache>
+				<nom>Ergonomie</nom>
+				<description>Travaux sur l'ergonomie nécessaire</description>
+				<temps>50</temps>
+				<infecte>15</infecte>
+			</tache>
+			
+		</Moyenne>
+			
+		<Avancee>
+		
+			<tache>
+				<nom>Modélisation 3D</nom>
+				<description>Travaux de Modélisation 3D</description>
+				<temps>100</temps>
+				<infecte>30</infecte>
+			</tache>
+			
+		</Avancee>
+		
+	</Edim>
+
+</taches>

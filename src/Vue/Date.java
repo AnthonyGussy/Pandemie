@@ -10,5 +10,5 @@ public class Date extends Compteur {
     Date(int c, int vMax, CompteurType t){
         super(c, vMax, t);
     }
-    void affichage(){}
+    public void affichage(){}
 }
