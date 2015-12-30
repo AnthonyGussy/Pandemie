@@ -20,7 +20,7 @@ public class CompetenceModele {
     String description;
     int ligne;
     int colone;
-    int[] effet;  //contient 3 valeurs correspondant a l'efficacite, le moral et le temps
+    int[] effet;  //contient 3 valeurs correspondant au moral, efficacité et le temps
     int cout;
     boolean debloque;
     boolean achete;

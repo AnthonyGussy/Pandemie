@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+
+<evenementsarticle>
+	<evenement>
+			<nom>La panne des machines !</nom>
+            <description>Nous apprenons à l'instant que toutes les machines à café de l'UTBM sont tombées
+            en panne pour une mystérieuse raison. Mais pas de panique ! Une entreprise devrait venir nous 
+            dépanner prochainement. En attendant, nous devons rester forts.
+            </description>
+            <moral>-1</moral>
+            <efficacite>-1</efficacite>
+            <temps>0</temps>
+	</evenement>
+	<evenement>
+			<nom>L'Espace UTBM est cassé !</nom>
+            <description>Adieu cours en ligne, mails via Zimbra et espace de stockage en ligne !
+            L'UTBM ayant oublié de renouveler le nom de domaine, un petit malin a sauté sur l'occasion
+            pour promouvoir son site. Nos plus grands négociateurs sont sur le coup et nul doute que l'affaire
+            sera réglé rapidement.
+            </description>
+            <moral>-1</moral>
+            <efficacite>-1</efficacite>
+            <temps>0</temps>
+	</evenement>
+	<evenement>
+			<nom>Remise des diplômes !</nom>
+            <description>La remise des diplômes s'est très bien passée. Les étudiants en ont profité
+            pour échanger et apprendre beaucoup. Ils ont par exemple pu poser des questions à leurs aînés
+            pour leurs tâches. Grâce à cela, ils sont confiants et remotivés.
+            </description>
+            <moral>1</moral>
+            <efficacite>1</efficacite>
+            <temps>0</temps>
+    </evenement>
+</evenementsarticle>
