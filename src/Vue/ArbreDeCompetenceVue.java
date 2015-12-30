@@ -5,6 +5,8 @@ import Modele.CompetenceModele;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Line;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,6 +19,7 @@ public class ArbreDeCompetenceVue {
 
     ArbreDeCompetenceModele aC;
     HashMap<String, CompetenceVue> competences;
+    Text nom;
 
     ArbreDeCompetenceVue(ArbreDeCompetenceModele ac){
 
@@ -35,6 +38,13 @@ public class ArbreDeCompetenceVue {
     void affichage() {
 
         Jeu.scene.setFill(new ImagePattern(new Image("file:fond2.png"), 0, 0, 1, 1, true));
+
+        nom = new Text(aC.getNom());
+        nom.setFont(Font.font("Verdana", 20));
+        nom.setX(Jeu.scene.getHeight() * 50 / 100);
+        nom.setY(Jeu.scene.getWidth()*10/100);
+
+        Jeu.root.getChildren().add(nom);
         HashMap<String, ArrayList<CompetenceModele>> temporaire = aC.getComp();
         for (Map.Entry<String, ArrayList<CompetenceModele>> competence : temporaire.entrySet()) {
 

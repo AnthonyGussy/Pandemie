@@ -2,7 +2,7 @@
 
 <competences>
 
-    <informatique>
+    <Informatique>
 
 		<lignes>
 			<colonne>2</colonne>
@@ -361,6 +361,6 @@
 
         </competence>
 
-    </informatique>
+    </Informatique>
 
 </competences>

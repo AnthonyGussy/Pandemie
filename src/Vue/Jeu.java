@@ -53,7 +53,7 @@ public class Jeu extends Application {
     }
 
     public static void commencerPartie() {
-        ArbreDeCompetenceModele arbre = new ArbreDeCompetenceModele("informatique");
+        ArbreDeCompetenceModele arbre = new ArbreDeCompetenceModele("Informatique");
         ArbreDeCompetenceVue arbreV = new ArbreDeCompetenceVue(arbre);
         arbreV.affichage();
     }

@@ -18,18 +18,19 @@ import java.util.HashMap;
  * Created by Victor on 04/12/2015.
  */
 public class ArbreDeCompetenceModele {
+    String nom;
     HashMap<String, ArrayList<CompetenceModele>> competencesMod;
-
 
     public ArbreDeCompetenceModele(String departement){
 
+        nom = departement;
         competencesMod = new HashMap<>();
 
         final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 
         try {
             final DocumentBuilder builder = factory.newDocumentBuilder();
-            final Document doc = builder.parse(new File("competence.xml"));
+            final Document doc = builder.parse(new File("xml\\competence.xml"));
             Element racine = doc.getDocumentElement(); //recupere l'element competences
 
             NodeList racineNoeuds = racine.getChildNodes(); //recupere toute les sous elements de competences
@@ -144,4 +145,8 @@ public class ArbreDeCompetenceModele {
     }
 
     public HashMap<String, ArrayList<CompetenceModele>> getComp(){ return competencesMod; }
+
+    public String getNom() {
+        return nom;
+    }
 }
