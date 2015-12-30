@@ -18,9 +18,9 @@ public class EvenementArticleModele extends Evenement implements Constantes {
 	
 	// Attributs
 	
-	String nom;
-	String description;
-	int effets[] = new int[TAILLE_EFFETS]; // Contient le moral, efficacité et temps
+	private String nom;
+	private String description;
+	private int effets[] = new int[TAILLE_EFFETS]; // Contient le moral, efficacité et temps
 	
 	// Méthodes
 	
@@ -77,6 +77,7 @@ public class EvenementArticleModele extends Evenement implements Constantes {
 	// TO-DO : Méthode qui retourne une liste d'EvenementArticle selon difficulté
 
 	public void affichage(){
+		// (316, 53) -> (748, 62)
     	super.affichage();
     	System.out.println("nom : "+nom);
     	System.out.println("description : "+description);
@@ -92,4 +93,16 @@ public class EvenementArticleModele extends Evenement implements Constantes {
 		EvenementArticleModele a = new EvenementArticleModele(DepartementNom.GI, 1);
 		a.affichage();
 	}
+	
+	public String getNom() { return nom; }
+	
+	public String getDescription() { return description; }
+	
+	public int[] getEffets() { return effets; }
+	
+	public int getMoral() { return effets[0]; }
+	
+	public int getEfficacite() { return effets[1]; }
+	
+	public int getTemps() { return effets[2]; }
 }

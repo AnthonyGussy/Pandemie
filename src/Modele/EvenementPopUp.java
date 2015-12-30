@@ -4,12 +4,16 @@ package Modele;
  */
 public class EvenementPopUp extends Evenement {
 
-    int duree;
-    int effet;
+    private int duree;
+    private int effet;
     
-    void affichage(){
+    public void affichage(){
     	super.affichage();
     }
     
-    void appliquerEffet(){}
+    public void appliquerEffet(){}
+    
+    public int getDuree() { return duree; }
+    
+    public int getEffet() { return effet; }
 }
