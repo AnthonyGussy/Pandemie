@@ -40,11 +40,11 @@ public class CompetenceVue {
 
     void affichage(){
 
-        double coefx = (double) 1/compM.getNbColonnes()*(colonne-1);
-        double coefy = (double) 1/compM.getNbLignes()*(ligne-1);
+        double coefx = (double) 1/compM.getNbLignes()*(ligne-1);
+        double coefy = (double) 1/compM.getNbColonnes()*(colonne-1);
 
-        compet = new Circle((Jeu.scene.getWidth()*20)/100+coefx*(Jeu.scene.getWidth()*50/100),
-                (Jeu.scene.getHeight()*85)/100-coefy*(Jeu.scene.getHeight()*70/100),20);
+        compet = new Circle((Jeu.scene.getWidth()*15)/100+coefx*(Jeu.scene.getWidth()*60/100),
+                (Jeu.scene.getHeight()*90)/100-coefy*(Jeu.scene.getHeight()*65/100),20);
 
         if(compM.getDebloque())
             compet.setFill(new ImagePattern(new Image("file:CompetenceDebloque.png"), 0, 0, 1, 1, true));
@@ -60,14 +60,14 @@ public class CompetenceVue {
                 compet.setRadius(22);
 
                 Text nomR = new Text(compM.getNom() + "\n \n" + compM.getDescription());
-                if(compM.getEffet()[0] != 0) nomR.setText(nomR.getText()+"\n moral :+"+compM.getEffet()[0]);
-                if(compM.getEffet()[1] != 0) nomR.setText(nomR.getText()+"\n efficacité :+"+compM.getEffet()[1]);
-                if(compM.getEffet()[2] != 0) nomR.setText(nomR.getText()+"\n temps :+"+compM.getEffet()[2]);
+                if(compM.getEffet()[0] != 0) nomR.setText(nomR.getText()+"\nmoral :+"+compM.getEffet()[0]);
+                if(compM.getEffet()[1] != 0) nomR.setText(nomR.getText()+"\nefficacité :+"+compM.getEffet()[1]);
+                if(compM.getEffet()[2] != 0) nomR.setText(nomR.getText()+"\ntemps :+"+compM.getEffet()[2]);
 
-                nomR.setFont(Font.loadFont("file:Font.ttf", 30));
-                nomR.setX((Jeu.scene.getWidth() * 79) / 100);
-                nomR.setY((Jeu.scene.getHeight() * 61) / 100);
-                nomR.setWrappingWidth((Jeu.scene.getWidth() * 20) / 100);
+                nomR.setFont(Font.loadFont("file:Font.ttf", 24));
+                nomR.setX((Jeu.scene.getWidth() * 83.5) / 100);
+                nomR.setY((Jeu.scene.getHeight() * 45) / 100);
+                nomR.setWrappingWidth((Jeu.scene.getWidth() * 14) / 100);
 
                 Jeu.root.getChildren().add(nomR);
 

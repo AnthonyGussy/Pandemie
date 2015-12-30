@@ -40,12 +40,12 @@ public class ArbreDeCompetenceVue {
 
     void affichage() {
 
-        Jeu.scene.setFill(new ImagePattern(new Image("file:fond2.png"), 0, 0, 1, 1, true));
+        Jeu.scene.setFill(new ImagePattern(new Image("file:PandemieCompetenceJournal.jpg"), 0, 0, 1, 1, true));
 
         nom = new Text(aC.getNom());
         nom.setFont(Font.loadFont("file:Font.ttf", 40));
-        nom.setX(Jeu.scene.getHeight() * 50 / 100);
-        nom.setY(Jeu.scene.getWidth()*10/100);
+        nom.setX(Jeu.scene.getWidth() * 35 / 100);
+        nom.setY(Jeu.scene.getHeight()*35/100);
 
         Jeu.root.getChildren().add(nom);
         HashMap<String, ArrayList<CompetenceModele>> temporaire = aC.getComp();
@@ -54,16 +54,16 @@ public class ArbreDeCompetenceVue {
             if(competence.getValue().size()>1) {
                 for (int i=1;i<competence.getValue().size();++i){
 
-                    double coefx1 = (double) 1/competence.getValue().get(0).getNbColonnes()*(competence.getValue().get(0).getColonne()-1);
-                    double coefy1 = (double) 1/ competence.getValue().get(0).getNbLignes()*( competence.getValue().get(0).getLigne()-1);;
-                    double coefx2 = (double) 1/competence.getValue().get(i).getNbColonnes()*(competence.getValue().get(i).getColonne()-1);;
-                    double coefy2 = (double) 1/competence.getValue().get(i).getNbLignes()*( competence.getValue().get(i).getLigne()-1);;
+                    double coefx1 = (double) 1/competence.getValue().get(0).getNbLignes()*(competence.getValue().get(0).getLigne()-1);
+                    double coefy1 = (double) 1/ competence.getValue().get(0).getNbColonnes()*( competence.getValue().get(0).getColonne()-1);;
+                    double coefx2 = (double) 1/competence.getValue().get(i).getNbLignes() * (competence.getValue().get(i).getLigne()-1);;
+                    double coefy2 = (double) 1/competence.getValue().get(i).getNbColonnes()*( competence.getValue().get(i).getColonne() - 1);;
 
                     Line l = new Line();
-                    l.setStartX((Jeu.scene.getWidth()*20)/100+coefx1*(Jeu.scene.getWidth()*50/100));
-                    l.setStartY((Jeu.scene.getHeight()*85)/100-coefy1*(Jeu.scene.getHeight()*70/100));
-                    l.setEndX((Jeu.scene.getWidth()*20)/100+coefx2*(Jeu.scene.getWidth()*50/100));
-                    l.setEndY((Jeu.scene.getHeight()*85)/100-coefy2*(Jeu.scene.getHeight()*70/100));
+                    l.setStartX((Jeu.scene.getWidth()*15)/100+coefx1*(Jeu.scene.getWidth()*60/100));
+                    l.setStartY((Jeu.scene.getHeight()*90)/100-coefy1*(Jeu.scene.getHeight()*65/100));
+                    l.setEndX((Jeu.scene.getWidth()*15)/100+coefx2*(Jeu.scene.getWidth()*60/100));
+                    l.setEndY((Jeu.scene.getHeight()*90)/100-coefy2*(Jeu.scene.getHeight()*65/100));
                     Jeu.root.getChildren().add(l);
 
                 }
@@ -75,14 +75,6 @@ public class ArbreDeCompetenceVue {
             comp.getValue().affichage();
 
         }
-
-        Rectangle r = new Rectangle();
-        r.setFill(new ImagePattern(new Image("file:post-it.png"), 0, 0, 1, 1, true));
-        r.setX((Jeu.scene.getWidth() * 77) / 100);
-        r.setY((Jeu.scene.getHeight() * 55) / 100);
-        r.setWidth((Jeu.scene.getWidth() * 22) / 100);
-        r.setHeight((Jeu.scene.getHeight() * 47) / 100);
-        Jeu.root.getChildren().add(r);
 
     }
 
