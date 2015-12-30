@@ -3,7 +3,7 @@ package Modele;
 import Enumerations.DepartementNom;
 
 class Evenement {
-    DepartementNom departement;
+    protected DepartementNom departement;
     
     public Evenement() {
     	this.departement = null;
@@ -13,7 +13,9 @@ class Evenement {
     	this.departement = departement;
     }
     
-    void affichage(){
+    public void affichage(){
     	System.out.println("lieu : "+departement);
     }
+    
+    public DepartementNom getDepartement() { return departement; }
 }

@@ -1,7 +1,9 @@
 package Vue;
 
 import Enumerations.CompteurType;
+import Enumerations.DepartementNom;
 import Modele.ArbreDeCompetenceModele;
+import Modele.EvenementArticleModele;
 import javafx.application.Application;
 import javafx.beans.value.ObservableValue;
 import javafx.beans.value.ChangeListener;
@@ -53,9 +55,15 @@ public class Jeu extends Application {
     }
 
     public static void commencerPartie() {
+    	/*
         ArbreDeCompetenceModele arbre = new ArbreDeCompetenceModele("Gmc");
         ArbreDeCompetenceVue arbreV = new ArbreDeCompetenceVue(arbre);
         arbreV.affichage();
+        */
+    	
+    	EvenementArticleModele evArticleM = new EvenementArticleModele(DepartementNom.GMC, 0);
+    	EvenementArticleVue evArticleV = new EvenementArticleVue(evArticleM);
+    	evArticleV.affichage();
     }
 
     public static void main(String[] args) { launch(args); }

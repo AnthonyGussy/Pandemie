@@ -7,12 +7,14 @@ import Enumerations.DepartementNom;
  */
 public class EvenementAccomplissement extends Evenement {
 	
-	int effet; // Calculé en fonction de la tâche
+	private int effet; // Calculé en fonction de la tâche
 	
-    void affichage(){
+    public void affichage(){
     	super.affichage();
     }
     
-    void appliquerEffet(){}
+    public void appliquerEffet(){}
+    
+    public int getEffet() { return effet; }
    
 }
