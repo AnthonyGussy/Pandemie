@@ -32,7 +32,7 @@ public class Jeu extends Application {
         primaryStage.setTitle("Study Project Simulator");
         primaryStage.setScene(scene);
         //menus.add(new Menu());
-        String[] boutons = new String[]{"Commencer", "Charger", "Quitter"};
+        String[] boutons = new String[]{"Jouer", "Charger", "Quitter"};
         menus.add(new Menu(boutons));
         menus.get(0).affichage(true);
         Compteur test = new Barre(1, 5, CompteurType.Efficacite);

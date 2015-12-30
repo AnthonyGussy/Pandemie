@@ -9,32 +9,43 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
+import javafx.scene.shape.Rectangle;
 
 public class Menu {
     final int positionY = 20;
     final int espacement = 40;
     final int largeur = 160;
     final int hauteur = 40;
-    List<Button> boutons;
+    List<Rectangle> boutons;
 
     Menu (String[] boutonTypes){
-        boutons = new ArrayList<Button>();
+        boutons = new ArrayList<Rectangle>();
         for(String type : boutonTypes) {
-            Button b = new Button(type);
-            b.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent e) {
-                    switch(type){
-                        case "Quitter":
-                            System.exit(0);
-                            break;
-                        case "Commencer":
-                            Jeu.commencerPartie();
-                            affichage(false);
-                            break;
-                        default:
-                            break;
-                    }
+            Rectangle b = new Rectangle();
+            b.setOnMouseEntered(event -> {
+
+                b.setHeight(79);
+                b.setWidth(154);
+
+            });
+            b.setOnMouseExited(event -> {
+
+                b.setHeight(77);
+                b.setWidth(152);
+
+            });
+            b.setFill(new ImagePattern(new Image("file:Pandemie"+type+".jpg"), 0, 0, 1, 1, true));
+            b.setOnMouseClicked(e -> {
+                switch (type) {
+                    case "Quitter":
+                        System.exit(0);
+                        break;
+                    case "Jouer":
+                        Jeu.commencerPartie();
+                        affichage(false);
+                        break;
+                    default:
+                        break;
                 }
             });
             boutons.add(b);
@@ -43,18 +54,20 @@ public class Menu {
 
     void affichage(boolean afficher){
         if(afficher) {
+            Jeu.scene.setFill(new ImagePattern(new Image("file:PandemieAccueil.jpg"), 0, 0, 1, 1, true));
             int i = 1;
-            for (Button b : boutons) {
+            for (Rectangle b : boutons) {
                 Jeu.root.getChildren().remove(b);
-                b.setLayoutX((Jeu.scene.getWidth() - largeur) / 2);
-                b.setLayoutY((Jeu.scene.getHeight() / (boutons.size() + 1)) * i - hauteur / 2);
-                b.setMinSize(largeur, hauteur);
+                b.setX(((Jeu.scene.getWidth() * 21 *i) / 100 ));
+                b.setY((Jeu.scene.getHeight() * 50) / 100);
+                b.setHeight(77);
+                b.setWidth(152);
                 Jeu.root.getChildren().add(b);
                 ++i;
             }
         }
         else {
-            for (Button b : boutons) {
+            for (Rectangle b : boutons) {
                 Jeu.root.getChildren().remove(b);
             }
         }
