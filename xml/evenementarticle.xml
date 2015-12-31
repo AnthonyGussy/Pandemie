@@ -1,35 +1,210 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 
+<!-- Réfléchir à une autre structure -->
+
 <evenementsarticle>
 	<evenement>
-			<nom>La panne des machines !</nom>
+			<nom>La panne des machines ! (1)</nom>
             <description>Nous apprenons à l'instant que toutes les machines à café de l'UTBM sont tombées 
 en panne pour une mystérieuse raison. Mais pas de panique ! Une entreprise devrait 
 venir nous dépanner prochainement. En attendant, nous devons rester forts.
             </description>
-            <moral>-1</moral>
-            <efficacite>-1</efficacite>
-            <temps>0</temps>
+            <moral>-10</moral>
+            <efficacite>0</efficacite>
+            <temps>1</temps>
 	</evenement>
+	
+	<evenement>
+			<nom>La panne des machines ! (2)</nom>
+            <description>Les machines à café sont de nouveau tombées 
+en panne. Il semblerait que le hasard s'acharne contre nous. Nous renouvellons
+notre confiance à CofeeMachine pour nous sortir de là. Affaire à suivre.
+            </description>
+            <moral>-15</moral>
+            <efficacite>0</efficacite>
+            <temps>2</temps>
+	</evenement>
+	
+	<evenement>
+			<nom>La panne des machines ! (3)</nom>
+            <description>Trop c'est trop. De nouvelles machines à café
+élaborées, testées et approuvées par nos laboratoires secrets seront
+déployées prochainement pour contrer ce fléau dont nous sommes victimes.
+            </description>
+            <moral>-20</moral>
+            <efficacite>0</efficacite>
+            <temps>3</temps>
+	</evenement>
+	
+	<evenement>
+			<nom>Jour férié</nom>
+            <description>Comme vous le savez tous, demain sera un jour férié.
+Il est donc strictement interdit de travailler sur les projets.
+Toute suspiscion sera fortement punie.
+            </description>
+            <moral>10</moral>
+            <efficacite>0</efficacite>
+            <temps>1</temps>
+	</evenement>
+	
+	<evenement>
+			<nom>Vacances (une semaine)</nom>
+            <description>Je vous souhaite d'agréables vacances. Pour rappel,
+les locaux seront fermés durant cette période. Profitez bien de cette 
+période.
+            </description>
+            <moral>10</moral>
+            <efficacite>0</efficacite>
+            <temps>2</temps>
+	</evenement>
+	
+	<evenement>
+			<nom>Vacances (deux semaines)</nom>
+            <description>Je vous souhaite d'agréables vacances. Pour rappel,
+les locaux seront fermés durant cette période. Profitez bien de cette 
+période.
+            </description>
+            <moral>20</moral>
+            <efficacite>0</efficacite>
+            <temps>4</temps>
+	</evenement>
+	
 	<evenement>
 			<nom>L'Espace UTBM est cassé !</nom>
             <description>Adieu cours en ligne, mails via Zimbra et espace de stockage en ligne !
-L'UTBM ayant oublié de renouveler le nom de domaine, un petit malin a sauté sur l'occasion
-pour promouvoir son site. Nos plus grands négociateurs sont sur le coup et nul doute que l'affaire
-sera réglé rapidement.
+L'UTBM ayant oublié de renouveler le nom de domaine, quelqu'un a sauté
+sur l'occasion. Nos meilleurs négociateurs sont sur le coup.
             </description>
-            <moral>-1</moral>
-            <efficacite>-1</efficacite>
-            <temps>0</temps>
+            <moral>-5</moral>
+            <efficacite>-10</efficacite>
+            <temps>2</temps>
 	</evenement>
+	
+	<evenement>
+			<nom>Quand Zimbra s'emmêle les pinceaux</nom>
+            <description>Pendant toute la journée d'hier, Zimbra a perdu la tête.
+En effet, elle s'est mise à supprimer, envoyer au mauvais destinataire, etc...
+D'après nos experts, les perturbations devraient continuer aujourd'hui.
+            </description>
+            <moral>-5</moral>
+            <efficacite>-10</efficacite>
+            <temps>2</temps>
+	</evenement>
+	
+	    <evenement>
+			<nom>Alerte Virus !</nom>
+            <description>Un malicieux virus s'est introduit dans nos réseaux et cause beaucoup
+de soucis sur notre matériel informatique. Pour plus de sécurité, il est
+recommandé de travailler avec votre propre matériel jusqu'à réparation.
+            </description>
+            <moral>0</moral>
+            <efficacite>-10</efficacite>
+            <temps>2</temps>
+    </evenement>
+	
 	<evenement>
 			<nom>Remise des diplômes !</nom>
             <description>La remise des diplômes s'est très bien passée. Les étudiants en ont profité
-pour échanger et apprendre beaucoup. Ils ont par exemple pu poser des questions à leurs aînés
-pour leurs tâches. Grâce à cela, ils sont confiants et remotivés.
+pour échanger et apprendre beaucoup. Ils ont par exemple pu poser des questions à
+leurs aînés pour leurs tâches. Grâce à cela, ils sont confiants et remotivés.
             </description>
-            <moral>1</moral>
-            <efficacite>1</efficacite>
-            <temps>0</temps>
+            <moral>5</moral>
+            <efficacite>10</efficacite>
+            <temps>1</temps>
     </evenement>
+    
+    <evenement>
+    		<nom>Trophée de la meilleure école</nom>
+            <description>Nous sommes fiers de vous annoncer que pour la dixième année de suite,
+l'UTBM est le lauréat du concours "La Meilleure École au Monde". Merci à vous !
+            </description>
+            <moral>10</moral>
+            <efficacite>0</efficacite>
+            <temps>1</temps>
+    </evenement>
+    
+    <evenement>
+    		<nom>Incendie</nom>
+            <description>Suite à une expérience qui a mal tournée, un incendie a ravagé le bâtiment
+O. Jusqu'à sa reconstruction, il va falloir chambouler l'organisation.
+            </description>
+            <moral>0</moral>
+            <efficacite>-15</efficacite>
+            <temps>5</temps>
+    </evenement>
+    
+    <evenement>
+    		<nom>La BU vous ouvre ses portes</nom>
+            <description>Après de grands travaux de rénovation, c'est une BU moderne avec
+pléthore de ressources qui ouvre ces portes. Allez jeter un coup d'oeil,
+ça vaut le détour ! 
+            </description>
+            <moral>0</moral>
+            <efficacite>15</efficacite>
+            <temps>4</temps>
+    </evenement>
+    
+    <evenement>
+    		<nom>Conférences (1)</nom>
+            <description>C'est une chance. L'expert mondial, M. Expert en personne
+donnera une série de conférences dans notre établissement. Plus d'informations
+dans le PDF envoyé par mail.
+            </description>
+            <moral>0</moral>
+            <efficacite>30</efficacite>
+            <temps>1</temps>
+    </evenement>
+    
+      <evenement>
+    		<nom>Conférences (2)</nom>
+            <description>M. Expert est de retour pour donner des conférences !
+Après le succès de la première édition, il a décidé de mieux organiser cela
+et a invité quelques collègues. Plus d'infos dans le PDF sur Zimbra.
+            </description>
+            <moral>0</moral>
+            <efficacite>30</efficacite>
+            <temps>1</temps>
+    </evenement>
+    
+	<evenement>
+    		<nom>Voyage voyage</nom>
+            <description>Un voyage aux Etats-Unis est prévu pour bientôt.
+Au programme : musées, visites de campus, visites de laboratoires, etc...
+            </description>
+            <moral>10</moral>
+            <efficacite>10</efficacite>
+            <temps>5</temps>
+    </evenement>
+    
+    <evenement>
+    		<nom>Grèves (1)</nom>
+            <description>Suite aux réformes sur l'éducation, une partie du 
+personnel sera absent demain. 
+            </description>
+            <moral>5</moral>
+            <efficacite>-5</efficacite>
+            <temps>1</temps>
+    </evenement>
+    
+    <evenement>
+    		<nom>Grèves (2)</nom>
+            <description>Suite à l'échec des négociations lors de la dernière 
+manifestation, l'UTBM sera en partie fermé durant deux jours.
+            </description>
+            <moral>5</moral>
+            <efficacite>-5</efficacite>
+            <temps>2</temps>
+    </evenement>
+    
+    <evenement>
+    		<nom>Grèves (3)</nom>
+            <description>Les précédents échecs de négociation
+ont donné lieu à des émeutes. L'Etat a accepté de discuter.
+Le temps que le corps enseignant se stabilise à nouveau, l'UTBM sera fermé. 
+            </description>
+            <moral>5</moral>
+            <efficacite>-5</efficacite>
+            <temps>4</temps>
+    </evenement>
+    
 </evenementsarticle>
