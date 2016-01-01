@@ -25,7 +25,15 @@ public class EvenementArticleModele extends Evenement implements Constantes {
 	// Méthodes
 	
 	// Constructeur
-	public EvenementArticleModele(DepartementNom departement, int index) {
+	public EvenementArticleModele(DepartementNom departement, String nom, String description, int effets[]) {
+		this.departement = departement;
+		this.nom = nom;
+		this.description = description;
+		this.effets = new int[3];
+		for (int i = 0; i < effets.length; i++) { this.effets[i] = effets[i]; }
+	}
+	
+	public EvenementArticleModele(DepartementNom departement, String difficulte, int index) {
 		
 		super(departement);
         effets = new int[3];
@@ -42,22 +50,29 @@ public class EvenementArticleModele extends Evenement implements Constantes {
             
             for (int i = 0; i < racineNoeuds.getLength() && !initialiser; i++) {
 
-                if(racineNoeuds.item(i).getNodeType() == Node.ELEMENT_NODE && racineNoeuds.item(i).getNodeName().equals("evenement")) {
+                if(racineNoeuds.item(i).getNodeType() == Node.ELEMENT_NODE && racineNoeuds.item(i).getNodeName().equals(difficulte)) {
                 	
-            		if (compteur == index) {
-            			
-	                    Element elementEven = (Element) racineNoeuds.item(i);
-	
-	                    nom = elementEven.getElementsByTagName("nom").item(0).getTextContent();
-	                    description = elementEven.getElementsByTagName("description").item(0).getTextContent();
-	                    effets[0] = Integer.parseInt(elementEven.getElementsByTagName("moral").item(0).getTextContent());
-	                    effets[1] = Integer.parseInt(elementEven.getElementsByTagName("efficacite").item(0).getTextContent());
-	                    effets[2] = Integer.parseInt(elementEven.getElementsByTagName("temps").item(0).getTextContent());
-	
-		                initialiser = true;
-            		}
-            		
-                	compteur++;
+                	NodeList evenNoeuds = racineNoeuds.item(i).getChildNodes();
+                    
+                    for (int j = 0; j < evenNoeuds.getLength() && !initialiser; j++) {
+
+                    	if(evenNoeuds.item(j).getNodeType() == Node.ELEMENT_NODE && evenNoeuds.item(j).getNodeName().equals("evenement")) {
+                    		
+		            		if (compteur == index) {
+			                    Element elementEven = (Element) evenNoeuds.item(j);
+			
+			                    nom = elementEven.getElementsByTagName("nom").item(0).getTextContent();
+			                    description = elementEven.getElementsByTagName("description").item(0).getTextContent();
+			                    effets[0] = Integer.parseInt(elementEven.getElementsByTagName("moral").item(0).getTextContent());
+			                    effets[1] = Integer.parseInt(elementEven.getElementsByTagName("efficacite").item(0).getTextContent());
+			                    effets[2] = Integer.parseInt(elementEven.getElementsByTagName("temps").item(0).getTextContent());
+			
+				                initialiser = true;
+		            		}
+	            		
+		            		compteur++;
+                    	}
+                    }
                 }
             }
         }
@@ -74,7 +89,7 @@ public class EvenementArticleModele extends Evenement implements Constantes {
         	
 	}
 	
-	// TO-DO : Méthode qui retourne une liste d'EvenementArticle selon difficulté
+	
 
 	public void affichage(){
 		// (316, 53) -> (748, 62)
@@ -90,8 +105,13 @@ public class EvenementArticleModele extends Evenement implements Constantes {
 	
 	// Test
 	public static void main(String[] args) {
-		EvenementArticleModele a = new EvenementArticleModele(DepartementNom.GI, 1);
+		EvenementArticleModele a = new EvenementArticleModele(DepartementNom.GI, "Moyen", 1);
+
+		EvenementArticleModele b = new EvenementArticleModele(a.departement, a.nom, a.description, a.effets);
+		a.effets[0] = 1000;
+		b.effets[1] = -5;
 		a.affichage();
+		b.affichage();
 	}
 	
 	public String getNom() { return nom; }

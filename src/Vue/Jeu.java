@@ -36,16 +36,18 @@ public class Jeu extends Application {
         //menus.add(new Menu());
         String[] boutons = new String[]{"Jouer", "Charger", "Quitter"};
         menus.add(new Menu(boutons));
-        menus.get(0).affichage(0);
+        menus.get(0).affichage(true);
+        Compteur test = new Barre(1, 5, CompteurType.Efficacite);
+        test.affichage(20, 20);
         scene.widthProperty().addListener(new ChangeListener<Number>() {
             @Override public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneWidth, Number newSceneWidth) {
-                menus.get(0).affichage(1);
+                menus.get(0).affichage(true);
             }
         });
         scene.heightProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneHeight, Number newSceneHeight) {
-                menus.get(0).affichage(1);
+                menus.get(0).affichage(true);
             }
         });
 
@@ -59,7 +61,7 @@ public class Jeu extends Application {
         arbreV.affichage();
         */
     	
-    	EvenementArticleModele evArticleM = new EvenementArticleModele(DepartementNom.GMC, 0);
+    	EvenementArticleModele evArticleM = new EvenementArticleModele(DepartementNom.GMC, "Facile", 0);
     	EvenementArticleVue evArticleV = new EvenementArticleVue(evArticleM);
     	evArticleV.affichage();
     }
