@@ -2,6 +2,9 @@ package Modele;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -24,9 +27,10 @@ public class EvenementArticleModele extends Evenement implements Constantes {
 	
 	// Méthodes
 	
-	// Constructeur
+	// Constructeurs
+	
 	public EvenementArticleModele(DepartementNom departement, String nom, String description, int effets[]) {
-		this.departement = departement;
+		super(departement);
 		this.nom = nom;
 		this.description = description;
 		this.effets = new int[3];
@@ -88,11 +92,9 @@ public class EvenementArticleModele extends Evenement implements Constantes {
         }
         	
 	}
-	
-	
 
+	// temporaire
 	public void affichage(){
-		// (316, 53) -> (748, 62)
     	super.affichage();
     	System.out.println("nom : "+nom);
     	System.out.println("description : "+description);
@@ -116,13 +118,23 @@ public class EvenementArticleModele extends Evenement implements Constantes {
 	
 	public String getNom() { return nom; }
 	
+	public void setNom(String nom) { this.nom = nom; }
+	
 	public String getDescription() { return description; }
+	
+	public void setDescription(String description) { this.description = description; }
 	
 	public int[] getEffets() { return effets; }
 	
 	public int getMoral() { return effets[0]; }
 	
+	public void setMoral(int moral) { this.effets[0] = moral; }
+	
 	public int getEfficacite() { return effets[1]; }
 	
+	public void setEfficacite(int efficacite) { this.effets[1] = efficacite; }
+	
 	public int getTemps() { return effets[2]; }
+	
+	public void setTemps(int temps) { this.effets[2] = temps; }
 }
