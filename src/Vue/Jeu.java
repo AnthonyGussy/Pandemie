@@ -36,9 +36,9 @@ public class Jeu{
 
         primaryStage.setTitle("Study Project Simulator");
         primaryStage.setScene(scene);
-        //menus.add(new Menu());
+
         String[] boutons = new String[]{"Jouer", "Charger", "Quitter"};
-        menus.add(new Menu(boutons,this));
+        menus.add(new Menu(boutons, this));
         menus.get(0).affichage(0);
         scene.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> {
             menus.get(0).affichage(0);
@@ -55,7 +55,6 @@ public class Jeu{
             int alea = (int)(Math.random()*departementNoms.size());
             departements.add(new Departement(departementNoms.get(alea)));
             departementNoms.remove(alea);
-            System.out.println(departements.get(i).getNom());
         }
     	/*
         ArbreDeCompetenceModele arbre = new ArbreDeCompetenceModele("Gmc");

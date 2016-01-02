@@ -20,7 +20,7 @@ public class Menu {
     List<Rectangle> boutons;
     Jeu jeu;
 
-    Menu (String[] boutonTypes,Jeu j){
+    Menu (String[] boutonTypes, Jeu j){
 
         jeu = j;
         boutons = new ArrayList<>();
