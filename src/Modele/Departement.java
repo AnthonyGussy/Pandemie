@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Departement {
-    Compteur c;
     Enumerations.DepartementNom nom;
     int nbPersonne;
     List<Compteur> compteurs;
