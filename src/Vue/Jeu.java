@@ -3,6 +3,7 @@ package Vue;
 import Enumerations.CompteurType;
 import Enumerations.DepartementNom;
 import Modele.ArbreDeCompetenceModele;
+import Modele.Departement;
 import Modele.EvenementArticleModele;
 import javafx.application.Application;
 import javafx.beans.value.ObservableValue;
@@ -12,11 +13,12 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Jeu extends Application {
     List<Menu> menus;
-    //List<Modele.Departement> departements;
+    List<Departement> departements;
     List<Compteur> compteurs;
     //List<Evenement> evenements;
     public static Group root;
@@ -37,8 +39,6 @@ public class Jeu extends Application {
         String[] boutons = new String[]{"Jouer", "Charger", "Quitter"};
         menus.add(new Menu(boutons));
         menus.get(0).affichage(0);
-        Compteur test = new Barre(1, 5, CompteurType.Efficacite);
-        test.affichage(20, 20);
         scene.widthProperty().addListener(new ChangeListener<Number>() {
             @Override public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneWidth, Number newSceneWidth) {
                 menus.get(0).affichage(0);
@@ -50,11 +50,17 @@ public class Jeu extends Application {
                 menus.get(0).affichage(0);
             }
         });
-
         primaryStage.show();
     }
 
-    public static void commencerPartie() {
+    public void commencerPartie() {
+        List<DepartementNom> departementNoms = Arrays.asList(DepartementNom.Edim, DepartementNom.Energie, DepartementNom.Gmc, DepartementNom.Imsi, DepartementNom.Informatique);
+        for(int i = 0; i<5; ++i) {
+            int alea = (int)(Math.random()*departementNoms.size());
+            departements.add(new Departement(departementNoms.get(alea)));
+            departementNoms.remove(alea);
+            System.out.println(departements.get(i).getNom());
+        }
     	/*
         ArbreDeCompetenceModele arbre = new ArbreDeCompetenceModele("Gmc");
         ArbreDeCompetenceVue arbreV = new ArbreDeCompetenceVue(arbre);
