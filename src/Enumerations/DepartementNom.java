@@ -1,10 +1,9 @@
 package Enumerations;
 
 public enum DepartementNom {
-    EE,
-    GI,
-    GMC,
-    IMSI,
-    EDIM,
-    UTBM
+    Informatique,
+    Energie,
+    Imsi,
+    Gmc,
+    Edim
 }
