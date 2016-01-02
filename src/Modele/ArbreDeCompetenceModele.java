@@ -18,12 +18,13 @@ import java.util.HashMap;
  * Created by Victor on 04/12/2015.
  */
 public class ArbreDeCompetenceModele {
-    String nom;
+
     HashMap<String, ArrayList<CompetenceModele>> competencesMod;
+    Departement depart;
 
-    public ArbreDeCompetenceModele(String departement){
+    public ArbreDeCompetenceModele(Departement _depart){
 
-        nom = departement;
+        depart = _depart;
         competencesMod = new HashMap<>();
 
         final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -41,7 +42,7 @@ public class ArbreDeCompetenceModele {
             for (int i = 0; i<nbRacineNoeuds && !initialiser; ++i) {
 
                 //ne prend que la partie qui nous interesse càd les competences du type du departement
-                if(racineNoeuds.item(i).getNodeType() == Node.ELEMENT_NODE && racineNoeuds.item(i).getNodeName().equals(departement)) {
+                if(racineNoeuds.item(i).getNodeType() == Node.ELEMENT_NODE && racineNoeuds.item(i).getNodeName().equals(depart.getNom())) {
 
                     Element type = (Element) racineNoeuds.item(i);
 
@@ -121,6 +122,7 @@ public class ArbreDeCompetenceModele {
     public void debloquerCompetence(int ligne, int colone){
 
         competencesMod.get(ligne+","+colone).get(0).setAchete();
+        competencesMod.get(ligne+","+colone).get(0).applicationCompetenceDepartement();
         if(competencesMod.get(ligne+1+","+1) != null) {
             for (int i = 1; i <= competencesMod.get(ligne + 1 + "," + 1).get(0).getNbColonnes(); ++i) {
 
@@ -148,7 +150,6 @@ public class ArbreDeCompetenceModele {
 
     public HashMap<String, ArrayList<CompetenceModele>> getComp(){ return competencesMod; }
 
-    public String getNom() {
-        return nom;
-    }
+    public String getNom(){ return depart.getNom();}
+
 }

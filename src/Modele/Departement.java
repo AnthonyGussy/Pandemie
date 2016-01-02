@@ -1,8 +1,10 @@
 package Modele;
 
 import Enumerations.CompteurType;
+import Enumerations.DepartementNom;
 import Vue.Compteur;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Departement {
@@ -13,13 +15,65 @@ public class Departement {
     List<TacheModele> taches;
     ArbreDeCompetenceModele arbre;
 
-    public Departement(){
-
-        c = new Compteur(10,10, CompteurType.Efficacite);
+    public Departement(DepartementNom depNom){
+        this.nom = depNom;
+        this.nbPersonne = 200 + (int)(Math.random() * 201);
+        this.arbre = new ArbreDeCompetenceModele(this);
+        Compteur efficacite = new Compteur(100,100, CompteurType.Efficacite);
+        Compteur moral = new Compteur(100,100, CompteurType.Moral);
+        Compteur infecte = new Compteur(0,nbPersonne, CompteurType.Infectes);
+        Compteur standBy = new Compteur(0,nbPersonne, CompteurType.Stand_By);
+        compteurs = new ArrayList<>(4);
+        compteurs.add(efficacite);
+        compteurs.add(moral);
+        compteurs.add(infecte);
+        compteurs.add(standBy);
+        taches = new ArrayList<>();
+    }
+    void affichage(){
 
     }
-    void affichage(){}
-    void creerTache(){}
-    void infection(){}
-    void supprimerTache(){}
+    void creerTache(){
+        int difficulte = 1 + (int)(Math.random() * 3);
+        String difficulteTache;
+        switch (difficulte){
+            case 1 :
+                difficulteTache="Facile";
+                break;
+            case 2 :
+                difficulteTache="Moyenne";
+                break;
+            case 3 :
+                difficulteTache="Avancee";
+                break;
+            default:
+                difficulteTache="Facile";
+                break;
+        }
+        TacheModele tache = new TacheModele(String.valueOf(this.nom),difficulteTache,0);
+        compteurs.get(3).modifCompte(-tache.getCompteurs().get(1).getCompte());
+        compteurs.get(2).modifCompte(tache.getCompteurs().get(1).getCompte());
+        taches.add(tache);
+    }
+    void infection(){
+        int nbTaches = taches.size();
+        int infection = nbTaches + (100-compteurs.get(1).getCompte())/100*nbTaches;
+        compteurs.get(3).modifCompte(-infection);
+        compteurs.get(2).modifCompte(infection);
+    }
+    void supprimerTache(){
+        for(TacheModele tache :  taches){
+            if(tache.getTermine()){
+                compteurs.get(3).modifCompte(tache.getCompteurs().get(1).getCompte());
+                compteurs.get(2).modifCompte(-tache.getCompteurs().get(1).getCompte());
+                taches.remove(tache);
+            }
+        }
+    }
+    public int getEfficacite() { return compteurs.get(0).getCompte(); }
+    public void setEfficacite(int ajout) { compteurs.get(0).modifCompte(ajout); }
+    public int getMorale() { return compteurs.get(1).getCompte(); }
+    public void setMorale(int ajout) { compteurs.get(1).modifCompte(ajout); }
+    public String getNom(){ return String.valueOf(nom);}
+
 }

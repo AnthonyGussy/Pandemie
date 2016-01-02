@@ -61,7 +61,7 @@ public class Jeu extends Application {
         arbreV.affichage();
         */
     	
-    	EvenementArticleModele evArticleM = new EvenementArticleModele(DepartementNom.GMC, "Facile", 0);
+    	EvenementArticleModele evArticleM = new EvenementArticleModele(DepartementNom.Gmc, "Facile", 0);
     	EvenementArticleVue evArticleV = new EvenementArticleVue(evArticleM);
     	evArticleV.affichage();
     }

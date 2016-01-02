@@ -72,7 +72,7 @@ public class EvenementArticleModeleList implements Constantes{
 	}
 	
 	public static void main(String[] args) {
-		EvenementArticleModeleList tmp = new EvenementArticleModeleList(DepartementNom.GI, "Facile");
+		EvenementArticleModeleList tmp = new EvenementArticleModeleList(DepartementNom.Informatique, "Facile");
 		List<EvenementArticleModele> tmp2 = tmp.getListEvenement();
 		for (int i = 0; i < tmp2.size(); i++) {
 			tmp2.get(i).affichage();

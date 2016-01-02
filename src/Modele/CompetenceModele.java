@@ -40,7 +40,13 @@ public class CompetenceModele {
 
     }
 
-    public void applicationCompetence(){}
+    public void applicationCompetenceDepartement(){
+
+        if(effet[0] != 0) arbreDeCompetence.depart.setEfficacite(effet[0]);
+        if(effet[0] != 0) arbreDeCompetence.depart.setMorale(effet[1]);
+
+
+    }
 
     public void setAchete(){ achete = true; }
 

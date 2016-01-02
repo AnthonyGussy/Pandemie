@@ -107,7 +107,7 @@ public class EvenementArticleModele extends Evenement implements Constantes {
 	
 	// Test
 	public static void main(String[] args) {
-		EvenementArticleModele a = new EvenementArticleModele(DepartementNom.GI, "Moyen", 1);
+		EvenementArticleModele a = new EvenementArticleModele(DepartementNom.Informatique, "Moyen", 1);
 
 		EvenementArticleModele b = new EvenementArticleModele(a.departement, a.nom, a.description, a.effets);
 		a.effets[0] = 1000;
