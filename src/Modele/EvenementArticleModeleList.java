@@ -56,13 +56,7 @@ public class EvenementArticleModeleList implements Constantes{
             }
         }
         
-        catch (final ParserConfigurationException e) {
-            e.printStackTrace();
-        }
-        catch (final SAXException e) {
-            e.printStackTrace();
-        }
-        catch (final IOException e) {
+        catch (final ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }
 	}

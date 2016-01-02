@@ -27,7 +27,7 @@ public class ArbreDeCompetenceVue {
 
         aC = ac;
         aCliquer="";
-        competences = new  HashMap<String, CompetenceVue>();
+        competences = new HashMap<>();
         HashMap<String, ArrayList<CompetenceModele>> temporaire = aC.getComp();
         for (Map.Entry<String, ArrayList<CompetenceModele>> competence : temporaire.entrySet()) {
 
@@ -55,9 +55,9 @@ public class ArbreDeCompetenceVue {
                 for (int i=1;i<competence.getValue().size();++i){
 
                     double coefx1 = (double) 1/competence.getValue().get(0).getNbLignes()*(competence.getValue().get(0).getLigne()-1);
-                    double coefy1 = (double) 1/ competence.getValue().get(0).getNbColonnes()*( competence.getValue().get(0).getColonne()-1);;
-                    double coefx2 = (double) 1/competence.getValue().get(i).getNbLignes() * (competence.getValue().get(i).getLigne()-1);;
-                    double coefy2 = (double) 1/competence.getValue().get(i).getNbColonnes()*( competence.getValue().get(i).getColonne() - 1);;
+                    double coefy1 = (double) 1/ competence.getValue().get(0).getNbColonnes()*( competence.getValue().get(0).getColonne()-1);
+                    double coefx2 = (double) 1/competence.getValue().get(i).getNbLignes() * (competence.getValue().get(i).getLigne()-1);
+                    double coefy2 = (double) 1/competence.getValue().get(i).getNbColonnes()*( competence.getValue().get(i).getColonne() - 1);
 
                     Line l = new Line();
                     l.setStartX((Jeu.scene.getWidth()*15)/100+coefx1*(Jeu.scene.getWidth()*60/100));

@@ -70,14 +70,10 @@ public class TacheModele implements Constantes {
 	                    }     
             		}
                 }
-            } catch (final ParserConfigurationException e) {
-            	e.printStackTrace();
-            } catch (final SAXException e) {
-            	e.printStackTrace();
-            } catch (final IOException e) {
+            } catch (final ParserConfigurationException | SAXException | IOException e) {
             	e.printStackTrace();
             }
-    }
+	}
     
     public void affichage() {
     	System.out.println("nom : "+nom);

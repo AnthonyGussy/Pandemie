@@ -29,11 +29,13 @@ public class Compteur {
     public void affichage(){
         Jeu.root.getChildren().remove(text);
     }
+
     public void modifCompte(int valeur){
         compte += valeur;
         if(valeur < 0) valeur = 0;
         else if(valeur > valeurMax) valeur = valeurMax;
     }
+
     public int getCompte(){ return compte; }
 
 }

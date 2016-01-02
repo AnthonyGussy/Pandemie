@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Jeu extends Application {
+public class Jeu{
     List<Menu> menus;
     List<Departement> departements;
     List<Compteur> compteurs;
@@ -26,10 +26,11 @@ public class Jeu extends Application {
     void sauvegarder(){}
     void charger(){}
 
-    @Override
-    public void start(Stage primaryStage) {
+    public Jeu(Stage primaryStage) {
         menus = new ArrayList<>();
         root = new Group();
+
+        departements = new ArrayList<>();
 
         scene = new Scene(root, 1024, 768);
 
@@ -37,24 +38,19 @@ public class Jeu extends Application {
         primaryStage.setScene(scene);
         //menus.add(new Menu());
         String[] boutons = new String[]{"Jouer", "Charger", "Quitter"};
-        menus.add(new Menu(boutons));
+        menus.add(new Menu(boutons,this));
         menus.get(0).affichage(0);
-        scene.widthProperty().addListener(new ChangeListener<Number>() {
-            @Override public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneWidth, Number newSceneWidth) {
-                menus.get(0).affichage(0);
-            }
+        scene.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> {
+            menus.get(0).affichage(0);
         });
-        scene.heightProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneHeight, Number newSceneHeight) {
-                menus.get(0).affichage(0);
-            }
+        scene.heightProperty().addListener((observableValue, oldSceneHeight, newSceneHeight) -> {
+            menus.get(0).affichage(0);
         });
         primaryStage.show();
     }
 
     public void commencerPartie() {
-        List<DepartementNom> departementNoms = Arrays.asList(DepartementNom.Edim, DepartementNom.Energie, DepartementNom.Gmc, DepartementNom.Imsi, DepartementNom.Informatique);
+        List<DepartementNom> departementNoms = new ArrayList<>(Arrays.asList(DepartementNom.Edim, DepartementNom.Energie, DepartementNom.Gmc, DepartementNom.Imsi, DepartementNom.Informatique));
         for(int i = 0; i<5; ++i) {
             int alea = (int)(Math.random()*departementNoms.size());
             departements.add(new Departement(departementNoms.get(alea)));
@@ -71,8 +67,6 @@ public class Jeu extends Application {
     	EvenementArticleVue evArticleV = new EvenementArticleVue(evArticleM);
     	evArticleV.affichage();
     }
-
-    public static void main(String[] args) { launch(args); }
 
 }
 

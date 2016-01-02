@@ -105,16 +105,9 @@ public class ArbreDeCompetenceModele {
             }
 
         }
-        catch (final ParserConfigurationException e) {
+        catch (final ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }
-        catch (final SAXException e) {
-            e.printStackTrace();
-        }
-        catch (final IOException e) {
-            e.printStackTrace();
-        }
-
 
 
     }

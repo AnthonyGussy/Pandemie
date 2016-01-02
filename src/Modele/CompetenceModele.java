@@ -32,8 +32,7 @@ public class CompetenceModele {
         nbColonnes = _nbColonnes;
         nbLignes = _nbLignes;
         sommetLie = _sommetLie;
-        if(ligne == 1) debloque = true;
-        else debloque = false;
+        debloque = ligne == 1;
 
 
 

@@ -18,9 +18,12 @@ public class Menu {
     final int hauteur = 40;
     boolean affiche = false;
     List<Rectangle> boutons;
+    Jeu jeu;
 
-    Menu (String[] boutonTypes){
-        boutons = new ArrayList<Rectangle>();
+    Menu (String[] boutonTypes,Jeu j){
+
+        jeu = j;
+        boutons = new ArrayList<>();
         for(String type : boutonTypes) {
             Rectangle b = new Rectangle();
             b.setOnMouseEntered(event -> {
@@ -43,7 +46,7 @@ public class Menu {
                         break;
                     case "Jouer":
                         affichage(2);
-                        Jeu.commencerPartie();
+                        jeu.commencerPartie();
                         break;
                     default:
                         break;

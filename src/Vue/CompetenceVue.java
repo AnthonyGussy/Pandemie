@@ -27,7 +27,6 @@ public class CompetenceVue {
     Group g;
     int colonne;
     int ligne;
-    Rectangle r;
 
     CompetenceVue(CompetenceModele c, ArbreDeCompetenceVue arbreDeCompetenceVue){
 
@@ -52,64 +51,56 @@ public class CompetenceVue {
             compet.setFill(new ImagePattern(new Image("file:image\\CompetenceBloque.png"), 0, 0, 1, 1, true));
 
         //quand la souris entre dans la zone du cercle ajoute la fenetre de description
-        compet.setOnMouseEntered(new EventHandler<MouseEvent>() {
+        compet.setOnMouseEntered(mouseEvent -> {
 
-            @Override
-            public void handle(MouseEvent mouseEvent) {
+            if(compM.getDebloque())compet.setRadius(26);
 
-                if(compM.getDebloque())compet.setRadius(26);
+            Text nomR = new Text(compM.getNom() + "\n \n" + compM.getDescription());
+            if(compM.getEffet()[0] != 0) nomR.setText(nomR.getText()+"\nmoral :+"+compM.getEffet()[0]);
+            if(compM.getEffet()[1] != 0) nomR.setText(nomR.getText()+"\nefficacité :+"+compM.getEffet()[1]);
+            if(compM.getEffet()[2] != 0) nomR.setText(nomR.getText()+"\ntemps :+"+compM.getEffet()[2]);
 
-                Text nomR = new Text(compM.getNom() + "\n \n" + compM.getDescription());
-                if(compM.getEffet()[0] != 0) nomR.setText(nomR.getText()+"\nmoral :+"+compM.getEffet()[0]);
-                if(compM.getEffet()[1] != 0) nomR.setText(nomR.getText()+"\nefficacité :+"+compM.getEffet()[1]);
-                if(compM.getEffet()[2] != 0) nomR.setText(nomR.getText()+"\ntemps :+"+compM.getEffet()[2]);
+            nomR.setFont(Font.loadFont("file:Font.ttf", 24));
+            nomR.setX((Jeu.scene.getWidth() * 83.5) / 100);
+            nomR.setY((Jeu.scene.getHeight() * 45) / 100);
+            nomR.setWrappingWidth((Jeu.scene.getWidth() * 14) / 100);
 
-                nomR.setFont(Font.loadFont("file:Font.ttf", 24));
-                nomR.setX((Jeu.scene.getWidth() * 83.5) / 100);
-                nomR.setY((Jeu.scene.getHeight() * 45) / 100);
-                nomR.setWrappingWidth((Jeu.scene.getWidth() * 14) / 100);
+            Jeu.root.getChildren().add(nomR);
 
-                Jeu.root.getChildren().add(nomR);
-
-
-            }
 
         });
 
         //quand la souris sors de la zone du cercle retire la fenetre de description
-        compet.setOnMouseExited(new EventHandler<MouseEvent>() {
+        compet.setOnMouseExited(mouseEvent -> {
 
-            @Override
-            public void handle(MouseEvent mouseEvent) {
+            compet.setRadius(24);
+            Jeu.root.getChildren().remove(Jeu.root.getChildren().size()-1);
 
-                compet.setRadius(24);
-                Jeu.root.getChildren().remove(Jeu.root.getChildren().size()-1);
-
-
-            }
 
         });
 
-        /*Lors du clique sur le cercle de la competence permet de figer le descriptif
-          de la competence
+        /*Lors du clique sur le cercle deux fois achete la compétence si débloquer
          */
-        compet.setOnMouseClicked(new EventHandler<MouseEvent>() {
+        compet.setOnMouseClicked(mouseEvent -> {
 
-            @Override
-            public void handle(MouseEvent mouseEvent) {
+            if(ArbreDeCompetenceVue.aCliquer.equals(ligne+","+colonne)) {
 
-                if(ArbreDeCompetenceVue.aCliquer.equals(ligne+","+colonne)) {
+                /*
 
-                    if (compM.getDebloque()) {
-                        compM.getArbreDeCompetence().debloquerCompetence(ligne, colonne);
-                        compet.setFill(new ImagePattern(new Image("file:image\\CompetenceAchete.png"), 0, 0, 1, 1, true));
-                        vueArbre.changementAffichage(ligne);
-                    }
 
+                    ICI METTRE LA FONCTION QUI DECREMENTE LES POINTS DE COMPETENCES
+
+
+
+                 */
+                if (compM.getDebloque()) {
+                    compM.getArbreDeCompetence().debloquerCompetence(ligne, colonne);
+                    compet.setFill(new ImagePattern(new Image("file:image\\CompetenceAchete.png"), 0, 0, 1, 1, true));
+                    vueArbre.changementAffichage(ligne);
                 }
-                else ArbreDeCompetenceVue.aCliquer = ligne+","+colonne;
-            }
 
+            }
+            else ArbreDeCompetenceVue.aCliquer = ligne+","+colonne;
         });
 
         Jeu.root.getChildren().add(compet);
