@@ -2,6 +2,7 @@ package Vue;
 
 import Modele.EvenementArticleModele;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -35,6 +36,7 @@ public class EvenementArticleVue {
         effets += "temps => "+eam.getTemps();
         Text departement = new Text(effets);
         departement.setFont(Font.loadFont("file:Font.ttf", 18));
+        departement.setFill(Color.WHITE);
         departement.setX(285);
         departement.setY(160);
         

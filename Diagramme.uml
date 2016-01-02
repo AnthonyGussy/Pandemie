@@ -7,7 +7,7 @@
     <node x="542.4886904761905" y="178.0">Competence</node>
     <node x="920.9886904761905" y="145.0">CompteurType</node>
     <node x="360.0" y="789.0">EvenementAccomplissement</node>
-    <node x="672.8636904761905" y="523.0">Departement</node>
+    <node x="672.8636904761905" y="523.0">Modele.Departement</node>
     <node x="1177.8765873015873" y="378.0">Bouton</node>
     <node x="1147.3765873015873" y="578.0">Menu</node>
     <node x="938.4886904761905" y="367.0">Compteur</node>
@@ -38,7 +38,7 @@
       <point x="0.0" y="0.0" />
       <point x="0.0" y="0.0" />
     </edge>
-    <edge source="Departement" target="ArbreDeCompetence">
+    <edge source="Modele.Departement" target="ArbreDeCompetence">
       <point x="0.0" y="0.0" />
       <point x="0.0" y="0.0" />
     </edge>
@@ -50,15 +50,15 @@
       <point x="0.0" y="0.0" />
       <point x="0.0" y="0.0" />
     </edge>
-    <edge source="Departement" target="DepartementNom">
+    <edge source="Modele.Departement" target="DepartementNom">
       <point x="0.0" y="0.0" />
       <point x="0.0" y="0.0" />
     </edge>
-    <edge source="Vue.Jeu" target="Departement">
+    <edge source="Vue.Jeu" target="Modele.Departement">
       <point x="0.0" y="0.0" />
       <point x="0.0" y="0.0" />
     </edge>
-    <edge source="Departement" target="Tache">
+    <edge source="Modele.Departement" target="Tache">
       <point x="0.0" y="0.0" />
       <point x="0.0" y="0.0" />
     </edge>
@@ -72,7 +72,7 @@
       <point x="372.0015873015873" y="714.0" />
       <point x="-23.875" y="36.5" />
     </edge>
-    <edge source="Departement" target="Compteur">
+    <edge source="Modele.Departement" target="Compteur">
       <point x="0.0" y="0.0" />
       <point x="0.0" y="0.0" />
     </edge>

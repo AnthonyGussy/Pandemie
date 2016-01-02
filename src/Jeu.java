@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 
 public class Jeu extends Application {
     /*List<Vue.Menu> menus;
-    List<Departement> departements;
+    List<Modele.Departement> departements;
     List<Vue.Compteur> compteurs;
     List<Evenement> evenements;*/
     public static Group root;

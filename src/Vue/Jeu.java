@@ -16,7 +16,7 @@ import java.util.List;
 
 public class Jeu extends Application {
     List<Menu> menus;
-    //List<Departement> departements;
+    //List<Modele.Departement> departements;
     List<Compteur> compteurs;
     //List<Evenement> evenements;
     public static Group root;
@@ -36,18 +36,18 @@ public class Jeu extends Application {
         //menus.add(new Menu());
         String[] boutons = new String[]{"Jouer", "Charger", "Quitter"};
         menus.add(new Menu(boutons));
-        menus.get(0).affichage(true);
+        menus.get(0).affichage(0);
         Compteur test = new Barre(1, 5, CompteurType.Efficacite);
         test.affichage(20, 20);
         scene.widthProperty().addListener(new ChangeListener<Number>() {
             @Override public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneWidth, Number newSceneWidth) {
-                menus.get(0).affichage(true);
+                menus.get(0).affichage(0);
             }
         });
         scene.heightProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observableValue, Number oldSceneHeight, Number newSceneHeight) {
-                menus.get(0).affichage(true);
+                menus.get(0).affichage(0);
             }
         });
 
