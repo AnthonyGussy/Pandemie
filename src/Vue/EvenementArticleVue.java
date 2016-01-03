@@ -39,7 +39,7 @@ public class EvenementArticleVue implements java.io.Serializable {
                 nom.setX((int)(Jeu.scene.getWidth() * 30 / 100));
                 nom.setY((int)(Jeu.scene.getHeight() * 7 / 100));
 
-                description.setX((int)(Jeu.scene.getWidth() * 29 / 100));
+                description.setX((int)(Jeu.scene.getWidth() * 28 / 100));
                 description.setY((int)(Jeu.scene.getHeight() * 10 / 100));
 
                 departement.setX((int)(Jeu.scene.getWidth() * 28 / 100));
