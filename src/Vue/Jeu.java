@@ -44,10 +44,10 @@ public class Jeu implements java.io.Serializable {
         menus.add(new Menu(boutons, this));
         menus.get(0).affichage(0);
         scene.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> {
-            menus.get(0).affichage(0);
+            menus.get(0).affichage(2);
         });
         scene.heightProperty().addListener((observableValue, oldSceneHeight, newSceneHeight) -> {
-            menus.get(0).affichage(0);
+            menus.get(0).affichage(2);
         });
         primaryStage.show();
     }
