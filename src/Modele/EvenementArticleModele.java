@@ -22,7 +22,7 @@ import Enumerations.DepartementNom;
 public class EvenementArticleModele extends Evenement implements Constantes, java.io.Serializable {
 	
 	// Attributs
-	Vue.EvenementArticleVue eAV = new EvenementArticleVue(this);
+	Vue.EvenementArticleVue eAV;
 	private String nom;
 	private String description;
 	private int effets[] = new int[TAILLE_EFFETS]; // Contient le moral, efficacité et temps
@@ -36,6 +36,7 @@ public class EvenementArticleModele extends Evenement implements Constantes, jav
 		this.nom = nom;
 		this.description = description;
 		this.effets = effets;
+		eAV = new EvenementArticleVue(this);
 	}
 	
 	public EvenementArticleModele(DepartementNom departement, String difficulte, int index) {
@@ -85,7 +86,7 @@ public class EvenementArticleModele extends Evenement implements Constantes, jav
         catch (final ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }
-
+		eAV = new EvenementArticleVue(this);
 	}
 
 	// temporaire

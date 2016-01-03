@@ -125,14 +125,13 @@ public class Jeu implements java.io.Serializable {
             menu.affichage(2);
         }
         for(Modele.Evenement evenement : evenements) {
-            //evenement.affichage();
             String type = evenement.getClass().getName();
             switch(type) {
-                case "EvenementArticleModele":
+                case "Modele.EvenementArticleModele":
                     EvenementArticleModele temp = (EvenementArticleModele) evenement;
                     temp.getEAV().affichage(2);
                     break;
-                case "EvenementAccomplissementModele":
+                case "Modele.EvenementAccomplissementModele":
                     break;
                 default:
             }

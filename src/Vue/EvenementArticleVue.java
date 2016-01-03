@@ -11,8 +11,22 @@ public class EvenementArticleVue implements java.io.Serializable {
 	
 	private EvenementArticleModele eam;
 	private boolean affiche = false;
+    private Text nom;
+    private Text description;
+    private Text departement;
 	public EvenementArticleVue(EvenementArticleModele eam) {
-		this.eam = eam;
+        this.eam = eam;
+        nom = new Text(eam.getNom());
+        nom.setFont(Font.loadFont("file:Font.ttf", 20));
+        description = new Text(eam.getDescription());
+        description.setFont(Font.loadFont("file:Font.ttf", 18));
+        String effets = "Effets sur "+eam.getDepartement()+" : ";
+        effets += "moral => "+eam.getMoral()+" / ";
+        effets += "efficacite => "+eam.getEfficacite()+" / ";
+        effets += "temps => "+eam.getTemps();
+        departement = new Text(effets);
+        departement.setFont(Font.loadFont("file:Font.ttf", 18));
+        departement.setFill(Color.WHITE);
 	}
 	
     public void affichage(int afficher) {
@@ -21,26 +35,19 @@ public class EvenementArticleVue implements java.io.Serializable {
             case 0:
                 affiche = true;
                 Jeu.scene.setFill(new ImagePattern(new Image("file:image\\PandemieCompetenceJournal.jpg"), 0, 0, 1, 1, true));
-                Text nom = new Text(eam.getNom());
-                nom.setFont(Font.loadFont("file:Font.ttf", 20));
+
                 nom.setX((int)(Jeu.scene.getWidth() * 30 / 100));
                 nom.setY((int)(Jeu.scene.getHeight() * 7 / 100));
 
-                Text description = new Text(eam.getDescription());
-                description.setFont(Font.loadFont("file:Font.ttf", 18));
-                description.setX(285);
-                description.setY(80);
+                description.setX((int)(Jeu.scene.getWidth() * 28 / 100));
+                description.setY((int)(Jeu.scene.getHeight() * 10 / 100));
 
-                String effets = "Effets sur "+eam.getDepartement()+" : ";
-                effets += "moral => "+eam.getMoral()+" / ";
-                effets += "efficacite => "+eam.getEfficacite()+" / ";
-                effets += "temps => "+eam.getTemps();
-                Text departement = new Text(effets);
-                departement.setFont(Font.loadFont("file:Font.ttf", 18));
-                departement.setFill(Color.WHITE);
-                departement.setX(285);
-                departement.setY(160);
+                departement.setX((int)(Jeu.scene.getWidth() * 28 / 100));
+                departement.setY((int)(Jeu.scene.getHeight() * 20 / 100));
 
+                Jeu.root.getChildren().remove(nom);
+                Jeu.root.getChildren().remove(description);
+                Jeu.root.getChildren().remove(departement);
                 Jeu.root.getChildren().add(nom);
                 Jeu.root.getChildren().add(description);
                 Jeu.root.getChildren().add(departement);
@@ -48,7 +55,9 @@ public class EvenementArticleVue implements java.io.Serializable {
             case 1:
                 if(affiche) {
                     affiche = false;
-                    Jeu.root.getChildren().clear();
+                    Jeu.root.getChildren().remove(nom);
+                    Jeu.root.getChildren().remove(description);
+                    Jeu.root.getChildren().remove(departement);
                 }
                 break;
             default:
