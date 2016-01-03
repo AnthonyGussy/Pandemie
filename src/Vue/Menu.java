@@ -55,7 +55,7 @@ public class Menu {
                         jeu.charger();
                         break;
                     case "Jouer":
-                        affichage(2);
+                        affichage(1);
                         jeu.commencerPartie();
                         break;
                     default:
@@ -83,14 +83,14 @@ public class Menu {
                 }
                 break;
             case 1:
-                if(affiche) {
-                    affichage(0);
-                }
-                break;
-            default:
                 affiche = false;
                 for (Rectangle b : boutons) {
                     Jeu.root.getChildren().remove(b);
+                }
+                break;
+            default:
+                if(affiche) {
+                    affichage(0);
                 }
         }
     }
