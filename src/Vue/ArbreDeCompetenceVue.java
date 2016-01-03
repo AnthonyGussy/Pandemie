@@ -13,10 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by Anthony on 15/12/2015.
- */
-public class ArbreDeCompetenceVue {
+public class ArbreDeCompetenceVue implements java.io.Serializable {
 
     ArbreDeCompetenceModele aC;
     HashMap<String, CompetenceVue> competences;

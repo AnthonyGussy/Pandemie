@@ -20,7 +20,7 @@ import org.xml.sax.SAXException;
 import Enumerations.CompteurType;
 
 
-public class TacheModele implements Constantes {
+public class TacheModele implements Constantes, java.io.Serializable {
 	
 	// Attributs
 	
@@ -36,7 +36,7 @@ public class TacheModele implements Constantes {
     	//Ne prend pas en compte l'index pour le moment
     	
     	termine = false;
-    	compteurs = new ArrayList<Compteur>();
+    	compteurs = new ArrayList<>();
     	
     	final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
     	

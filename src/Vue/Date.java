@@ -3,7 +3,7 @@ package Vue;
 import Enumerations.CompteurType;
 import Vue.Compteur;
 
-public class Date extends Compteur {
+public class Date extends Compteur implements java.io.Serializable {
     Date(int c, CompteurType t){
         super(c, t);
     }

@@ -6,7 +6,7 @@ import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class Barre extends Compteur {
+public class Barre extends Compteur implements java.io.Serializable {
     Barre(int c, CompteurType t){
         super(c, t);
     }

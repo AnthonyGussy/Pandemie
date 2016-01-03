@@ -7,7 +7,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
-public class EvenementArticleVue {
+public class EvenementArticleVue implements java.io.Serializable {
 	
 	private EvenementArticleModele eam;
 	

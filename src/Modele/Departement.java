@@ -7,7 +7,7 @@ import Vue.Compteur;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Departement {
+public class Departement implements java.io.Serializable {
     Enumerations.DepartementNom nom;
     int nbPersonne;
     List<Compteur> compteurs;

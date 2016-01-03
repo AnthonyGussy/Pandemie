@@ -16,10 +16,7 @@ import javafx.scene.text.Font;
 
 import java.awt.*;
 
-/**
- * Created by Anthony on 15/12/2015.
- */
-public class CompetenceVue {
+public class CompetenceVue implements java.io.Serializable {
 
     CompetenceModele compM;
     ArbreDeCompetenceVue vueArbre;

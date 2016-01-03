@@ -17,7 +17,7 @@ import org.xml.sax.SAXException;
 
 import Enumerations.DepartementNom;
 
-public class EvenementArticleModeleList implements Constantes{
+public class EvenementArticleModeleList implements Constantes, java.io.Serializable{
 	
 	List<EvenementArticleModele> liste;
 	
@@ -30,7 +30,7 @@ public class EvenementArticleModeleList implements Constantes{
             final Document doc = builder.parse(new File(PATH_EVEN_ARTICLE_MODELE));
             Element racine = doc.getDocumentElement();
             NodeList racineNoeuds = racine.getChildNodes();
-            EvenementArticleModele a = null;
+            EvenementArticleModele a;
             int effets[] = {0,0,0};
             
             for (int i = 0; i < racineNoeuds.getLength(); i++) {
@@ -68,8 +68,8 @@ public class EvenementArticleModeleList implements Constantes{
 	public static void main(String[] args) {
 		EvenementArticleModeleList tmp = new EvenementArticleModeleList(DepartementNom.Informatique, "Facile");
 		List<EvenementArticleModele> tmp2 = tmp.getListEvenement();
-		for (int i = 0; i < tmp2.size(); i++) {
-			tmp2.get(i).affichage();
+		for (EvenementArticleModele tmp2Elm : tmp2) {
+			tmp2Elm.affichage();
 			System.out.println("\n");
 		}
 	}

@@ -2,10 +2,7 @@ package Modele;
 
 import Enumerations.DepartementNom;
 
-/**
- * Created by Victor on 04/12/2015.
- */
-public class EvenementAccomplissement extends Evenement {
+public class EvenementAccomplissement extends Evenement implements java.io.Serializable {
 	
 	private int effet; // Calculé en fonction de la tâche
 	

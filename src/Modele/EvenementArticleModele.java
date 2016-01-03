@@ -17,7 +17,7 @@ import org.xml.sax.SAXException;
 import Enumerations.DepartementNom;
 
 
-public class EvenementArticleModele extends Evenement implements Constantes {
+public class EvenementArticleModele extends Evenement implements Constantes, java.io.Serializable {
 	
 	// Attributs
 	
@@ -33,8 +33,7 @@ public class EvenementArticleModele extends Evenement implements Constantes {
 		super(departement);
 		this.nom = nom;
 		this.description = description;
-		this.effets = new int[3];
-		for (int i = 0; i < effets.length; i++) { this.effets[i] = effets[i]; }
+		this.effets = effets;
 	}
 	
 	public EvenementArticleModele(DepartementNom departement, String difficulte, int index) {

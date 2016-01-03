@@ -4,7 +4,7 @@ import Enumerations.CompteurType;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
-public class Compteur {
+public class Compteur implements java.io.Serializable {
     int compte;
     int valeurMax;
     Text text;

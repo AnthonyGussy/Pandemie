@@ -14,10 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-/**
- * Created by Victor on 04/12/2015.
- */
-public class ArbreDeCompetenceModele {
+public class ArbreDeCompetenceModele implements java.io.Serializable {
 
     HashMap<String, ArrayList<CompetenceModele>> competencesMod;
     Departement depart;

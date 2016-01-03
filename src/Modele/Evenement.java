@@ -2,7 +2,7 @@ package Modele;
 
 import Enumerations.DepartementNom;
 
-class Evenement {
+class Evenement implements java.io.Serializable {
     protected DepartementNom departement;
     
     public Evenement() {

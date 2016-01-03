@@ -1,9 +1,6 @@
 package Modele;
 
-/**
- * Created by Anthony on 15/12/2015.
- */
-public class CompetenceModele {
+public class CompetenceModele implements java.io.Serializable {
 
     String nom;
     String description;

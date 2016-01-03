@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Jeu{
+public class Jeu implements java.io.Serializable {
     List<Menu> menus;
     List<Departement> departements;
     List<Compteur> compteurs;
@@ -56,11 +56,6 @@ public class Jeu{
             departements.add(new Departement(departementNoms.get(alea)));
             departementNoms.remove(alea);
         }
-    	/*
-        ArbreDeCompetenceModele arbre = new ArbreDeCompetenceModele("Gmc");
-        ArbreDeCompetenceVue arbreV = new ArbreDeCompetenceVue(arbre);
-        arbreV.affichage();
-        */
     	
     	EvenementArticleModele evArticleM = new EvenementArticleModele(DepartementNom.Gmc, "Facile", 0);
     	EvenementArticleVue evArticleV = new EvenementArticleVue(evArticleM);

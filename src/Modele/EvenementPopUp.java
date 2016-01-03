@@ -1,8 +1,6 @@
 package Modele;
-/**
- * Created by Victor on 04/12/2015.
- */
-public class EvenementPopUp extends Evenement {
+
+public class EvenementPopUp extends Evenement implements java.io.Serializable {
 
     private int duree;
     private int effet;
