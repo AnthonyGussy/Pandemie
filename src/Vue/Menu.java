@@ -36,11 +36,12 @@ public class Menu {
             });
             try {
                 b.setFill(new ImagePattern(new Image("file:image\\Pandemie" + type + ".jpg"), 0, 0, 1, 1, true));
+                //b.setFill(new ImagePattern(new Image("file:image\\PandemieDefault.png"), 0, 0, 1, 1, true));
             }
             catch(IllegalArgumentException ex)
             {
                 System.out.println("Pas d'image pour le bouton " + type);
-                b.setFill(new ImagePattern(new Image("file:image\\PandemieDefault.jpg"), 0, 0, 1, 1, true));
+                b.setFill(new ImagePattern(new Image("file:image\\PandemieDefault.png"), 0, 0, 1, 1, true));
             }
             b.setOnMouseClicked(e -> {
                 switch (type) {
