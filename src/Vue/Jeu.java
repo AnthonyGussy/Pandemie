@@ -25,7 +25,7 @@ public class Jeu implements java.io.Serializable {
     List<Menu> menus;
     List<Departement> departements;
     List<Compteur> compteurs;
-    //List<Evenement> evenements;
+    List<Modele.Evenement> evenements;
     public static Group root;
     public static Scene scene;
 
@@ -34,7 +34,7 @@ public class Jeu implements java.io.Serializable {
         root = new Group();
 
         departements = new ArrayList<>();
-
+        evenements = new ArrayList<>();
         scene = new Scene(root, 1024, 768);
 
         primaryStage.setTitle("Study Project Simulator");
@@ -44,10 +44,10 @@ public class Jeu implements java.io.Serializable {
         menus.add(new Menu(boutons, this));
         menus.get(0).affichage(0);
         scene.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> {
-            menus.get(0).affichage(2);
+            redimensionner();
         });
         scene.heightProperty().addListener((observableValue, oldSceneHeight, newSceneHeight) -> {
-            menus.get(0).affichage(2);
+            redimensionner();
         });
         primaryStage.show();
     }
@@ -59,10 +59,10 @@ public class Jeu implements java.io.Serializable {
             departements.add(new Departement(departementNoms.get(alea)));
             departementNoms.remove(alea);
         }
-    	
-    	EvenementArticleModele evArticleM = new EvenementArticleModele(DepartementNom.Gmc, "Facile", 0);
-    	EvenementArticleVue evArticleV = new EvenementArticleVue(evArticleM);
-    	evArticleV.affichage();
+
+        evenements.add(new EvenementArticleModele(DepartementNom.Gmc, "Facile", 0));
+        EvenementArticleModele test = (EvenementArticleModele) evenements.get(0);
+        test.getEAV().affichage(0);
     }
 
     public void sauvegarder() {
@@ -118,6 +118,25 @@ public class Jeu implements java.io.Serializable {
             }
         }
         return objet;
+    }
+
+    private void redimensionner() {
+        for(Menu menu : menus) {
+            menu.affichage(2);
+        }
+        for(Modele.Evenement evenement : evenements) {
+            //evenement.affichage();
+            String type = evenement.getClass().getName();
+            switch(type) {
+                case "EvenementArticleModele":
+                    EvenementArticleModele temp = (EvenementArticleModele) evenement;
+                    temp.getEAV().affichage(2);
+                    break;
+                case "EvenementAccomplissementModele":
+                    break;
+                default:
+            }
+        }
     }
 }
 

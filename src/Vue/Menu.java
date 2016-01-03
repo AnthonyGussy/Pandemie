@@ -83,9 +83,9 @@ public class Menu {
                 }
                 break;
             case 1:
-                affiche = false;
-                for (Rectangle b : boutons) {
-                    Jeu.root.getChildren().remove(b);
+                if(affiche) {
+                    affiche = false;
+                    Jeu.root.getChildren().clear();
                 }
                 break;
             default:

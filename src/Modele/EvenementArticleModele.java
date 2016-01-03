@@ -8,6 +8,8 @@ import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+
+import Vue.EvenementArticleVue;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -20,13 +22,13 @@ import Enumerations.DepartementNom;
 public class EvenementArticleModele extends Evenement implements Constantes, java.io.Serializable {
 	
 	// Attributs
-	
+	Vue.EvenementArticleVue eAV = new EvenementArticleVue(this);
 	private String nom;
 	private String description;
 	private int effets[] = new int[TAILLE_EFFETS]; // Contient le moral, efficacité et temps
 	
 	// Méthodes
-	
+	public EvenementArticleVue getEAV() { return eAV; }
 	// Constructeurs
 	
 	public EvenementArticleModele(DepartementNom departement, String nom, String description, int effets[]) {
@@ -87,7 +89,7 @@ public class EvenementArticleModele extends Evenement implements Constantes, jav
 	}
 
 	// temporaire
-	public void affichage(){
+/*	public void affichage(){
     	super.affichage();
     	System.out.println("nom : "+nom);
     	System.out.println("description : "+description);
@@ -95,11 +97,11 @@ public class EvenementArticleModele extends Evenement implements Constantes, jav
     	System.out.println("efficacité : "+effets[1]);
     	System.out.println("temps : "+effets[2]);
     }
-    
+*/
 	public void appliquerEffet(){}
 	
 	// Test
-	public static void main(String[] args) {
+/*	public static void main(String[] args) {
 		EvenementArticleModele a = new EvenementArticleModele(DepartementNom.Informatique, "Moyen", 1);
 
 		EvenementArticleModele b = new EvenementArticleModele(a.departement, a.nom, a.description, a.effets);
@@ -108,7 +110,7 @@ public class EvenementArticleModele extends Evenement implements Constantes, jav
 		a.affichage();
 		b.affichage();
 	}
-	
+*/
 	public String getNom() { return nom; }
 	
 	public void setNom(String nom) { this.nom = nom; }
