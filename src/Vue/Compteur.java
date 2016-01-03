@@ -32,8 +32,8 @@ public class Compteur implements java.io.Serializable {
 
     public void modifCompte(int valeur){
         compte += valeur;
-        if(valeur < 0) valeur = 0;
-        else if(valeur > valeurMax) valeur = valeurMax;
+        if(compte < 0) compte = 0;
+        else if(compte > valeurMax) compte = valeurMax;
     }
 
     public int getCompte(){ return compte; }
