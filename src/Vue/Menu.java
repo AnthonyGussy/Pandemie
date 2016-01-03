@@ -5,10 +5,6 @@ import javafx.scene.paint.ImagePattern;
 
 import java.util.ArrayList;
 import java.util.List;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Group;
-import javafx.scene.control.Button;
 import javafx.scene.shape.Rectangle;
 
 public class Menu {
@@ -44,6 +40,7 @@ public class Menu {
             catch(IllegalArgumentException ex)
             {
                 System.out.println("Pas d'image pour le bouton " + type);
+                b.setFill(new ImagePattern(new Image("file:image\\PandemieDefault.jpg"), 0, 0, 1, 1, true));
             }
             b.setOnMouseClicked(e -> {
                 switch (type) {
