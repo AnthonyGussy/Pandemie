@@ -38,11 +38,20 @@ public class Menu {
                 b.setWidth(152);
 
             });
-            b.setFill(new ImagePattern(new Image("file:image\\Pandemie"+type+".jpg"), 0, 0, 1, 1, true));
+            try {
+                b.setFill(new ImagePattern(new Image("file:image\\Pandemie" + type + ".jpg"), 0, 0, 1, 1, true));
+            }
+            catch(IllegalArgumentException ex)
+            {
+                System.out.println("Pas d'image pour le bouton " + type);
+            }
             b.setOnMouseClicked(e -> {
                 switch (type) {
                     case "Quitter":
                         System.exit(0);
+                        break;
+                    case "Sauvegarder":
+                        jeu.sauvegarder();
                         break;
                     case "Jouer":
                         affichage(2);

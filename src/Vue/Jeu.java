@@ -12,6 +12,9 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -23,8 +26,6 @@ public class Jeu implements java.io.Serializable {
     //List<Evenement> evenements;
     public static Group root;
     public static Scene scene;
-    void sauvegarder(){}
-    void charger(){}
 
     public Jeu(Stage primaryStage) {
         menus = new ArrayList<>();
@@ -37,7 +38,7 @@ public class Jeu implements java.io.Serializable {
         primaryStage.setTitle("Study Project Simulator");
         primaryStage.setScene(scene);
 
-        String[] boutons = new String[]{"Jouer", "Charger", "Quitter"};
+        String[] boutons = new String[]{"Jouer", "Sauvegarder", "Quitter"};
         menus.add(new Menu(boutons, this));
         menus.get(0).affichage(0);
         scene.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> {
@@ -62,5 +63,30 @@ public class Jeu implements java.io.Serializable {
     	evArticleV.affichage();
     }
 
+    public void sauvegarder() {
+        serializer(departements);
+        serializer(compteurs);
+    }
+
+    public <T> void serializer(T objet) {
+        ObjectOutputStream oos = null;
+        try {
+            final FileOutputStream fichier = new FileOutputStream(objet.getClass().getName()+".ser");
+            oos = new ObjectOutputStream(fichier);
+            oos.writeObject(objet);
+            oos.flush();
+        } catch (final java.io.IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (oos != null) {
+                    oos.flush();
+                    oos.close();
+                }
+            } catch (final IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
 }
 
