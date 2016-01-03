@@ -51,6 +51,9 @@ public class Menu {
                     case "Sauvegarder":
                         jeu.sauvegarder();
                         break;
+                    case "Charger":
+                        jeu.charger();
+                        break;
                     case "Jouer":
                         affichage(2);
                         jeu.commencerPartie();

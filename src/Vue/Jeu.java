@@ -15,6 +15,8 @@ import javafx.stage.Stage;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -38,7 +40,7 @@ public class Jeu implements java.io.Serializable {
         primaryStage.setTitle("Study Project Simulator");
         primaryStage.setScene(scene);
 
-        String[] boutons = new String[]{"Jouer", "Sauvegarder", "Quitter"};
+        String[] boutons = new String[]{"Jouer", "Charger", "Quitter"};
         menus.add(new Menu(boutons, this));
         menus.get(0).affichage(0);
         scene.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> {
@@ -64,14 +66,20 @@ public class Jeu implements java.io.Serializable {
     }
 
     public void sauvegarder() {
-        serializer(departements);
-        serializer(compteurs);
+        departements.add(new Departement(DepartementNom.Edim));
+        serialiser(departements, "departements");
+        //serializer(compteurs);
     }
 
-    public <T> void serializer(T objet) {
+    public void charger() {
+        departements = deserialiser("departements");
+        System.out.println(departements.get(0).getNom());
+    }
+
+    public <T> void serialiser(T objet, String nom) {
         ObjectOutputStream oos = null;
         try {
-            final FileOutputStream fichier = new FileOutputStream(objet.getClass().getName()+".ser");
+            final FileOutputStream fichier = new FileOutputStream(nom+".ser");
             oos = new ObjectOutputStream(fichier);
             oos.writeObject(objet);
             oos.flush();
@@ -87,6 +95,29 @@ public class Jeu implements java.io.Serializable {
                 ex.printStackTrace();
             }
         }
+    }
+
+    public <T> T deserialiser(String nom) {
+        ObjectInputStream ois = null;
+        T objet = null;
+        try {
+            final FileInputStream fichier = new FileInputStream(nom + ".ser");
+            ois = new ObjectInputStream(fichier);
+            objet = (T) ois.readObject();
+        } catch (final java.io.IOException e) {
+            e.printStackTrace();
+        } catch (final ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (ois != null) {
+                    ois.close();
+                }
+            } catch (final IOException ex) {
+                ex.printStackTrace();
+            }
+        }
+        return objet;
     }
 }
 
