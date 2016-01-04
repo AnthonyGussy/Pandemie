@@ -85,7 +85,8 @@ public class Departement{
             case 1:
                 if(affiche) {
                     affiche = false;
-                    root.getChildren().removeAll(nomR, liste, personne, information);
+                    //root.getChildren().removeAll(nomR, liste, personne, information);
+                    root.getChildren().clear();
                 }
                 break;
             default:
