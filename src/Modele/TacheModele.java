@@ -18,6 +18,7 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import Enumerations.CompteurType;
+import Enumerations.DepartementNom;
 
 
 public class TacheModele implements Constantes, java.io.Serializable {
@@ -31,9 +32,16 @@ public class TacheModele implements Constantes, java.io.Serializable {
     
     // Méthodes
     
+    public TacheModele(String nom, String description, Compteur temps, Compteur infectes) {
+		this.nom = nom;
+		this.description = description;
+		this.compteurs = new ArrayList<>();
+		this.compteurs.add(temps);
+		this.compteurs.add(infectes);
+		termine = false;
+	}
+    
     public TacheModele(String departement, String difficulte, int index) {
-    	
-    	//Ne prend pas en compte l'index pour le moment
     	
     	termine = false;
     	compteurs = new ArrayList<>();
