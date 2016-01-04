@@ -58,7 +58,9 @@ public class Jeu implements java.io.Serializable {
             departements.add(new Modele.Departement(departementNoms.get(alea)));
             departementNoms.remove(alea);
         }
-        departements.get(0).getVue().affichage(this, 0);
+        for(Modele.Departement dep : departements) {
+            dep.getVue().affichage(this, 0);
+        }
         /*evenements.add(new EvenementArticle(DepartementNom.Gmc, "Facile", 0));
         EvenementArticle test = (EvenementArticle) evenements.get(0);
         test.getEAV().affichage(this, 0);*/
