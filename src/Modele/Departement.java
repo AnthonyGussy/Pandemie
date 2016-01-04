@@ -11,8 +11,8 @@ public class Departement implements java.io.Serializable {
     Enumerations.DepartementNom nom;
     int nbPersonne;
     List<Compteur> compteurs;
-    List<Tache> taches;
-    ArbreDeCompetence arbre;
+    List<Modele.Tache> taches;
+    Modele.ArbreDeCompetence arbre;
 
     public Departement(DepartementNom depNom){
         this.nom = depNom;
@@ -49,7 +49,7 @@ public class Departement implements java.io.Serializable {
                 difficulteTache="Facile";
                 break;
         }
-        Tache tache = new Tache(String.valueOf(this.nom),difficulteTache,0);
+        Modele.Tache tache = new Tache(String.valueOf(this.nom),difficulteTache,0);
         compteurs.get(3).modifCompte(-tache.getCompteurs().get(1).getCompte());
         compteurs.get(2).modifCompte(tache.getCompteurs().get(1).getCompte());
         taches.add(tache);
@@ -74,5 +74,10 @@ public class Departement implements java.io.Serializable {
     public int getMorale() { return compteurs.get(1).getCompte(); }
     public void setMorale(int ajout) { compteurs.get(1).modifCompte(ajout); }
     public String getNom(){ return String.valueOf(nom);}
+    public ArbreDeCompetence getArbre(){ return arbre;}
+    public DepartementNom getNomEnum(){ return nom;}
+    public int getNbTaches(){ return taches.size();}
 
+    public int getNbActif(){ return compteurs.get(2).getCompte();}
+    public int getNbPersonne() {return nbPersonne;}
 }

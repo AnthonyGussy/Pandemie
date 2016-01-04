@@ -21,6 +21,7 @@ public class ArbreDeCompetence implements java.io.Serializable {
     public static String aCliquer;
 
     ArbreDeCompetence(Modele.ArbreDeCompetence ac){
+
         aC = ac;
         aCliquer="";
         competences = new HashMap<>();
