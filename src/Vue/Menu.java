@@ -78,7 +78,7 @@ public class Menu {
                 int i = 1;
                 for (Rectangle b : boutons) {
                     root.getChildren().remove(b);
-                    b.setX(((scene.getWidth() * 21 *i) / 100 ));
+                    b.setX(((scene.getWidth() * 18 *i) / 100 ));
                     b.setY((scene.getHeight() * 50) / 100);
                     b.setHeight(77);
                     b.setWidth(152);
