@@ -1,20 +1,13 @@
 package Vue;
 
 import Modele.CompetenceModele;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import Modele.Jeu;
 import javafx.scene.Group;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.*;
 import javafx.scene.text.Font;
-
-import java.awt.*;
 
 public class CompetenceVue implements java.io.Serializable {
 

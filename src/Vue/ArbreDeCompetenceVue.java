@@ -2,10 +2,10 @@ package Vue;
 
 import Modele.ArbreDeCompetenceModele;
 import Modele.CompetenceModele;
+import Modele.Jeu;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Line;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 

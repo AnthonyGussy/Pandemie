@@ -1,6 +1,8 @@
 package Vue;
 
 import Modele.EvenementArticleModele;
+import javafx.scene.Group;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
@@ -29,40 +31,41 @@ public class EvenementArticleVue implements java.io.Serializable {
         departement.setFill(Color.WHITE);
 	}
 	
-    public void affichage(int afficher) {
-    	// (316, 53) -> (748, 162)
+    public void affichage(Modele.Jeu jeu, int afficher) {
+    	Scene scene = jeu.getVue().getScene();
+        Group root = jeu.getVue().getRoot();
     	switch(afficher) {
             case 0:
                 affiche = true;
-                Jeu.scene.setFill(new ImagePattern(new Image("file:image\\PandemieCompetenceJournal.jpg"), 0, 0, 1, 1, true));
+                scene.setFill(new ImagePattern(new Image("file:image\\PandemieCompetenceJournal.jpg"), 0, 0, 1, 1, true));
 
-                nom.setX((int)(Jeu.scene.getWidth() * 30 / 100));
-                nom.setY((int)(Jeu.scene.getHeight() * 7 / 100));
+                nom.setX((int)(scene.getWidth() * 30 / 100));
+                nom.setY((int)(scene.getHeight() * 7 / 100));
 
-                description.setX((int)(Jeu.scene.getWidth() * 28 / 100));
-                description.setY((int)(Jeu.scene.getHeight() * 10 / 100));
+                description.setX((int)(scene.getWidth() * 28 / 100));
+                description.setY((int)(scene.getHeight() * 10 / 100));
 
-                departement.setX((int)(Jeu.scene.getWidth() * 28 / 100));
-                departement.setY((int)(Jeu.scene.getHeight() * 20 / 100));
+                departement.setX((int)(scene.getWidth() * 28 / 100));
+                departement.setY((int)(scene.getHeight() * 20 / 100));
 
-                Jeu.root.getChildren().remove(nom);
-                Jeu.root.getChildren().remove(description);
-                Jeu.root.getChildren().remove(departement);
-                Jeu.root.getChildren().add(nom);
-                Jeu.root.getChildren().add(description);
-                Jeu.root.getChildren().add(departement);
+                root.getChildren().remove(nom);
+                root.getChildren().remove(description);
+                root.getChildren().remove(departement);
+                root.getChildren().add(nom);
+                root.getChildren().add(description);
+                root.getChildren().add(departement);
                 break;
             case 1:
                 if(affiche) {
                     affiche = false;
-                    Jeu.root.getChildren().remove(nom);
-                    Jeu.root.getChildren().remove(description);
-                    Jeu.root.getChildren().remove(departement);
+                    root.getChildren().remove(nom);
+                    root.getChildren().remove(description);
+                    root.getChildren().remove(departement);
                 }
                 break;
             default:
                 if(affiche) {
-                    affichage(0);
+                    affichage(jeu, 0);
                 }
         }
     }
