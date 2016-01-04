@@ -1,10 +1,8 @@
 package Modele;
 
+import Constantes.Constantes;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -15,17 +13,15 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-
 import Enumerations.DepartementNom;
 
 
-public class EvenementArticleModele extends Evenement implements Constantes, java.io.Serializable {
-	
+public class EvenementArticleModele extends Evenement implements java.io.Serializable {
 	// Attributs
 	Vue.EvenementArticleVue eAV;
 	private String nom;
 	private String description;
-	private int effets[] = new int[TAILLE_EFFETS]; // Contient le moral, efficacité et temps
+	private int effets[] = new int[Constantes.TAILLE_EFFETS]; // Contient le moral, efficacité et temps
 	
 	// Méthodes
 	public EvenementArticleVue getEAV() { return eAV; }
@@ -47,7 +43,7 @@ public class EvenementArticleModele extends Evenement implements Constantes, jav
         
         try {
             final DocumentBuilder builder = factory.newDocumentBuilder();
-            final Document doc = builder.parse(new File(PATH_EVEN_ARTICLE_MODELE));
+            final Document doc = builder.parse(new File(Constantes.PATH_EVEN_ARTICLE_MODELE));
             Element racine = doc.getDocumentElement();
             NodeList racineNoeuds = racine.getChildNodes();
             boolean initialiser = false;

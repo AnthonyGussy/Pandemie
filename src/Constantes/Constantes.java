@@ -1,9 +1,6 @@
-package Modele;
+package Constantes;// Les constantes pour le jeu
 
-// Les constantes pour le jeu
-
-public interface Constantes {
-	
+public final class Constantes {
 	// Le tableau "effets"
 	public static final int TAILLE_EFFETS = 3;
 	public static final int INDEX_MORAL = 0;

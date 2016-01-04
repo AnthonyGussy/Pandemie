@@ -1,7 +1,6 @@
 package Vue;
 
 import Enumerations.CompteurType;
-import Modele.Jeu;
 import javafx.scene.text.Text;
 
 public class Compteur implements java.io.Serializable {

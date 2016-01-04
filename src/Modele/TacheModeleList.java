@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
+import Constantes.Constantes;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -16,23 +16,22 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import Enumerations.CompteurType;
-import Enumerations.DepartementNom;
 import Vue.Compteur;
 
-public class TacheModeleList implements Constantes, java.io.Serializable {
+public class TacheModeleList implements java.io.Serializable {
 
 	List<TacheModele> listeTaches;
 	
 	public TacheModeleList(String departement, String difficulte) {
-		int temps = 0;
-		int infectes = 0;
+		int temps;
+		int infectes;
 		listeTaches = new ArrayList<>();
 		final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		TacheModele a;
 		
         try {
             final DocumentBuilder builder = factory.newDocumentBuilder();
-            final Document doc = builder.parse(new File(PATH_TACHES));
+            final Document doc = builder.parse(new File(Constantes.PATH_TACHES));
             Element racine = doc.getDocumentElement();
             NodeList racineNoeuds = racine.getChildNodes();
             

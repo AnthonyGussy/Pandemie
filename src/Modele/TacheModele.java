@@ -1,7 +1,7 @@
 package Modele;
 
 import Vue.Compteur;
-
+import Constantes.Constantes;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,10 +18,9 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import Enumerations.CompteurType;
-import Enumerations.DepartementNom;
 
 
-public class TacheModele implements Constantes, java.io.Serializable {
+public class TacheModele implements java.io.Serializable {
 	
 	// Attributs
 	
@@ -51,7 +50,7 @@ public class TacheModele implements Constantes, java.io.Serializable {
         try {
         	
             final DocumentBuilder builder = factory.newDocumentBuilder();
-            final Document doc = builder.parse(new File(PATH_TACHES));
+            final Document doc = builder.parse(new File(Constantes.PATH_TACHES));
             Element racine = doc.getDocumentElement();
             NodeList racineNoeuds = racine.getChildNodes();
             boolean initialiser = false;
