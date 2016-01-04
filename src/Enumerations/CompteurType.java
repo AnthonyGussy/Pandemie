@@ -1,7 +1,7 @@
 package Enumerations;
 
 /**
- * Une énumération des différents types de compteurs possibles.
+ * Une énumération des différents types de compteurs possibles
  */
 public enum CompteurType {
     Efficacite,

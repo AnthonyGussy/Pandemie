@@ -5,7 +5,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -14,14 +13,19 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Partie Modele de la classe ArbreDeCompetence
+ * Cette classe sert à instancier un arbre regroupant des compétences pour un département donné
+ */
 public class ArbreDeCompetence implements java.io.Serializable {
 
-    HashMap<String, ArrayList<Competence>> competencesMod;
-    Departement depart;
+    // Champs
+    private HashMap<String, ArrayList<Competence>> competencesMod;
+    private Departement depart;
 
-    public ArbreDeCompetence(Departement _depart){
-
-        depart = _depart;
+    // Constructeur
+    public ArbreDeCompetence(Departement depart){
+        this.depart = depart;
         competencesMod = new HashMap<>();
 
         final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -29,27 +33,27 @@ public class ArbreDeCompetence implements java.io.Serializable {
         try {
             final DocumentBuilder builder = factory.newDocumentBuilder();
             final Document doc = builder.parse(new File("xml\\competence.xml"));
-            Element racine = doc.getDocumentElement(); //recupere l'element competences
+            Element racine = doc.getDocumentElement(); // Récupère l'élément "compétences"
 
-            NodeList racineNoeuds = racine.getChildNodes(); //recupere toute les sous elements de competences
+            NodeList racineNoeuds = racine.getChildNodes(); // Récupère tous les sous-éléments de "compétences"
             int nbRacineNoeuds = racineNoeuds.getLength();
 
             boolean initialiser = false;
 
             for (int i = 0; i<nbRacineNoeuds && !initialiser; ++i) {
 
-                //ne prend que la partie qui nous interesse càd les competences du type du departement
+                // Ne prend que la partie qui nous intéresse càd les compétences du type du département
                 if(racineNoeuds.item(i).getNodeType() == Node.ELEMENT_NODE && racineNoeuds.item(i).getNodeName().equals(depart.getNom())) {
 
                     Element type = (Element) racineNoeuds.item(i);
 
-                    NodeList lignes = type.getElementsByTagName("lignes"); //recupere tout les element lignes
+                    NodeList lignes = type.getElementsByTagName("lignes"); // Récupère tous les éléments "lignes"
                     Element lignesE = (Element) lignes.item(0);
 
                     NodeList colonnes = lignesE.getElementsByTagName("colonne");
                     int nbLignes = colonnes.getLength();
 
-                    NodeList competences = type.getElementsByTagName("competence"); //recupere tout les elements competence
+                    NodeList competences = type.getElementsByTagName("competence"); // Récupère tous les éléments "compétence"
                     int nbCompetences = competences.getLength();
 
                     for (int j = 0; j<nbCompetences; ++j) {

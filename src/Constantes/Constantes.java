@@ -1,5 +1,8 @@
-package Constantes;// Les constantes pour le jeu
+package Constantes;
 
+/**
+ * Les différentes constantes utilisées dans le programme
+ */
 public final class Constantes {
 	// Le tableau "effets"
 	public static final int TAILLE_EFFETS = 3;

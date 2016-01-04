@@ -18,7 +18,6 @@ import java.util.List;
  * Partie Modele de la classe Jeu
  * Cette classe sert à instancier les composantes du jeu
  */
-
 public class Jeu implements java.io.Serializable {
 
     //Champs
