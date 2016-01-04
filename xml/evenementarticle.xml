@@ -118,7 +118,81 @@ Plus d'informations dans le mail envoyé.
             
     	</evenement>
     	
-
+    	<evenement>
+    	
+    		<nom>Alarmes incendies</nom>
+            <description>Hier, toutes les alarmes incendies de l'UTBM se sont affolées 
+empêchant le bon fonctionnement de l'établissement. Pour le moment,
+la seule solution a été de les débrancher.
+            </description>
+            <moral>0</moral>
+            <efficacite>-5</efficacite>
+            <temps>1</temps>
+            
+        </evenement>
+        
+        <evenement>
+    	
+    		<nom>Absences</nom>
+            <description>Du fait de formations ou de conférences, une partie du corps 
+enseignant sera absent demain. Plus d'infos sur Zimbra.
+            </description>
+            <moral>5</moral>
+            <efficacite>-5</efficacite>
+            <temps>1</temps>
+            
+        </evenement>
+        
+        <evenement>
+    	
+    		<nom>Journée portes ouvertes</nom>
+            <description>La journée portes ouvertes c'est demain. Vous êtes fortement
+encouragés à venir faire découvrir l'établissement et échanger.
+            </description>
+            <moral>5</moral>
+            <efficacite>0</efficacite>
+            <temps>1</temps>
+            
+        </evenement>
+        
+        <evenement>
+    	
+    		<nom>Météo capricieuse</nom>
+            <description>Compte tenu des plus diluviennes qui s'abattent depuis quelques jours
+sur Belfort, rendant la circulation très difficile, il a été décidé de suspendre
+les cours jusqu'à un retour à la normal (après-demain d'après Météo France)
+            </description>
+            <moral>-5</moral>
+            <efficacite>-10</efficacite>
+            <temps>1</temps>
+            
+        </evenement>
+        
+        <evenement>
+		
+			<nom>FIMU</nom>
+            <description>En ces beaux jours, la nouvelle édition du FIMU se prépare.
+Comme chaque année, ce sera l'occasion d'écouter de la bonne musique un verre
+à la main. Plus d'informations dans notre édition à venir.
+            </description>
+            <moral>10</moral>
+            <efficacite>0</efficacite>
+            <temps>1</temps>
+            
+		</evenement>
+		
+		<evenement>
+		
+			<nom>Un projet récompensé</nom>
+            <description>C'est la surprise ! Par on ne quelle façon, la région
+a eu vent du projet ainsi que ses travaux et a décidé de récompenser
+l'établissement pour son travail.
+            </description>
+            <moral>5</moral>
+            <efficacite>5</efficacite>
+            <temps>2</temps>
+            
+		</evenement>
 	
 	</Facile>
 	
@@ -225,7 +299,58 @@ dans le PDF envoyé par mail.
             <temps>2</temps>
             
     	</evenement>
+    	
+    	<evenement>
+    	
+    		<nom>Absences</nom>
+            <description>Du fait de formations ou de conférences, une partie du corps 
+enseignant sera absent trois jours. Plus d'infos sur Zimbra.
+            </description>
+            <moral>10</moral>
+            <efficacite>-10</efficacite>
+            <temps>3</temps>
+            
+        </evenement>
+        
+        <evenement>
+    	
+    		<nom>Météo capricieuse</nom>
+            <description>Il a neigé 30 cm cette nuit et Belfort est complètement bloqué.
+De plus, on a annonce encore de fortes chutes de neige jusqu'à jeudi !
+Pour ces raisons, les cours sont suspendus jusqu'à ce jour.
+            </description>
+            <moral>5</moral>
+            <efficacite>-15</efficacite>
+            <temps>3</temps>
+            
+        </evenement>
+        
+        <evenement>
+		
+			<nom>FIMU</nom>
+            <description>Voilà, le FIMU c'est à partir d'aujourd'hui et
+que le programme est génial ! On va attend dans les rues !
+            </description>
+            <moral>15</moral>
+            <efficacite>-5</efficacite>
+            <temps>3</temps>
+            
+		</evenement>
 	
+	    <evenement>
+		
+			<nom>Un projet attendu</nom>
+            <description>Voilà le projet avance et commence à faire parler de lui si bien que l'
+Etat va récompenser l'établissement dans son ensemble pour son travail.
+M. Professeur, à l'origine du projet, nous a avoué, qu'il ne s'attendait
+pas à de telles retombées.
+            </description>
+            <moral>15</moral>
+            <efficacite>5</efficacite>
+            <temps>3</temps>
+            
+		</evenement>
+		
 	</Moyen>
 
 	<Avancee>
@@ -344,8 +469,46 @@ dans le PDF sur Zimbra.
             <efficacite>30</efficacite>
             <temps>4</temps>
             
-    </evenement>
+    	</evenement>
+    
+    	<evenement>
+    	
+    		<nom>Absences</nom>
+            <description>Du fait de formations ou de conférences, une partie du corps 
+enseignant sera absent cette semaine. Plus d'infos sur Zimbra.
+            </description>
+            <moral>15</moral>
+            <efficacite>-10</efficacite>
+            <temps>5</temps>
+            
+        </evenement>
 	
+		<evenement>
+    	
+    		<nom>Météo capricieuse</nom>
+            <description>On nous annonce une tempête tropicale (sans doute une conséquence
+du réchauffement climatique) pour la semaine. Pour cette raison, les cours sont
+annulés. Vous pouvez retrouver les mesures de sécurité dans le mail envoyé.
+            </description>
+            <moral>-5</moral>
+            <efficacite>-25</efficacite>
+            <temps>5</temps>
+            
+     	</evenement>
+     	
+     	<evenement>
+		
+			<nom>L'accomplissement</nom>
+            <description>La fin du projet est plus proche que jamais ! Récompensé 
+dernièrement par la région puis par l'Etat, l'UTBM s'est vu remettre 
+un prix nobel pour ses "travaux précursseurs"
+            </description>
+            <moral>20</moral>
+            <efficacite>10</efficacite>
+            <temps>5</temps>
+            
+		</evenement>
+        
 	</Avancee>
 	
 </evenementsarticle>
