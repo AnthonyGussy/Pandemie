@@ -58,8 +58,7 @@ public class Jeu implements java.io.Serializable {
             departements.add(new Modele.Departement(departementNoms.get(alea)));
             departementNoms.remove(alea);
         }
-        Vue.Departement vueDepart = new Vue.Departement(departements);
-        vueDepart.affichage(this, 0);
+        departements.get(0).getVue().affichage(this, 0);
         /*evenements.add(new EvenementArticle(DepartementNom.Gmc, "Facile", 0));
         EvenementArticle test = (EvenementArticle) evenements.get(0);
         test.getEAV().affichage(this, 0);*/

@@ -1,6 +1,7 @@
 package Vue;
 
 import Enumerations.DepartementNom;
+import Constantes.Constantes;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -14,16 +15,16 @@ import javafx.scene.text.Text;
 import java.util.ArrayList;
 
 /**
- * Created by Scorp' on 02/01/2016.
+ *
  */
 public class Departement{
 
-    private ArrayList<Modele.Departement> departements;
+    //private ArrayList<Modele.Departement> departements;
     private boolean affiche = false;
     private Text information;
     private ImageView liste;
     private Text nomR;
-    private Polygon info;
+    /*private Polygon info;
     private Polygon imsi;
     private Polygon energie;
     private Polygon gmc;
@@ -32,13 +33,47 @@ public class Departement{
     private Group imsiPersonne;
     private Group energiePersonne;
     private Group gmcPersonne;
-    private Group edimPersonne;
+    private Group edimPersonne;*/
+    private Polygon departementPoly;
+    private Group personne;
+    private double posX;
+    private double posY;
+    Modele.Departement departement;
 
-    public Departement(ArrayList<Modele.Departement> departs){
-        departements = new ArrayList<>();
-        departements = departs ;
-
-        // Poly info
+    public Departement(Modele.Departement departement/*ArrayList<Modele.Departement> departs*/){
+        /*departements = new ArrayList<>();
+        departements = departs ;*/
+        this.departement = departement;
+        departementPoly = new Polygon();
+        switch(departement.getNom()) {
+            case "Informatique":
+                posX = Constantes.POS_X_INFO;
+                posY = Constantes.POS_Y_INFO;
+                departementPoly.getPoints().addAll(Constantes.POLYGONE_INFO);
+                break;
+            case "Energie":
+                posX = Constantes.POS_X_ENERGIE;
+                posY = Constantes.POS_Y_ENERGIE;
+                departementPoly.getPoints().addAll(Constantes.POLYGONE_ENERGIE);
+                break;
+            case "Imsi":
+                posX = Constantes.POS_X_IMSI;
+                posY = Constantes.POS_Y_IMSI;
+                departementPoly.getPoints().addAll(Constantes.POLYGONE_IMSI);
+                break;
+            case "Gmc":
+                posX = Constantes.POS_X_GMC;
+                posY = Constantes.POS_Y_GMC;
+                departementPoly.getPoints().addAll(Constantes.POLYGONE_GMC);
+                break;
+            default:
+                posX = Constantes.POS_X_EDIM;
+                posY = Constantes.POS_Y_EDIM;
+                departementPoly.getPoints().addAll(Constantes.POLYGONE_EDIM);
+        }
+        departementPoly.setFill(new ImagePattern(new Image("file:image\\" + departement.getNom() + "Dep.jpg"), 0, 0, 1, 1, true));
+        personne = new Group();
+        /*// Poly info
         info = new Polygon();
         info.getPoints().addAll(15.0, 35.0,
                 104.0, 5.0,
@@ -92,27 +127,17 @@ public class Departement{
                 225.0, 68.0,
                 229.0, 160.0,
                 6.0, 161.0);
-        edim.setFill(new ImagePattern(new Image("file:image\\EdimDep.jpg"), 0, 0, 1, 1, true));
+        edim.setFill(new ImagePattern(new Image("file:image\\EdimDep.jpg"), 0, 0, 1, 1, true));*/
 
         liste = new ImageView(new Image("file:image\\Liste.jpg"));
-
         nomR = new Text("Departements :");
         nomR.setFont(Font.loadFont("file:Font.ttf", 24));
 
-        infoPersonne = new Group();
+        /*infoPersonne = new Group();
         imsiPersonne = new Group();
         energiePersonne = new Group();
         gmcPersonne = new Group();
-        edimPersonne = new Group();
-    }
-
-    private Modele.Departement rechercheDep(DepartementNom recherche){
-        for(Modele.Departement test : departements){
-            if(test.getNomEnum()==recherche){
-                return test;
-            }
-        }
-        return null;
+        edimPersonne = new Group();*/
     }
 
     public void affichage(Modele.Jeu jeu, int afficher) {
@@ -122,8 +147,9 @@ public class Departement{
             case 0:
                 affiche = true;
                 scene.setFill(new ImagePattern(new Image("file:image\\PandemieDep.jpg"), 0, 0, 1, 1, true));
-
-                info.setTranslateX(scene.getWidth() * 26.9 / 100);
+                departementPoly.setTranslateX(scene.getWidth() * posX);
+                departementPoly.setTranslateY(scene.getWidth() * posY);
+                /*info.setTranslateX(scene.getWidth() * 26.9 / 100);
                 info.setTranslateY(scene.getHeight() * 52.8 / 100);
                 
                 imsi.setTranslateX(scene.getWidth() * 53.7 / 100);
@@ -136,7 +162,7 @@ public class Departement{
                 gmc.setTranslateY(scene.getHeight() * 79.8 / 100);
 
                 edim.setTranslateX(scene.getWidth() * 4.6 / 100);
-                edim.setTranslateY(scene.getHeight() * 72.9 / 100);
+                edim.setTranslateY(scene.getHeight() * 72.9 / 100);*/
 
                 liste.setTranslateX(scene.getWidth() * 84.5 / 100);
                 liste.setTranslateY(scene.getHeight() * 50.8 / 100);
@@ -145,8 +171,13 @@ public class Departement{
                 nomR.setY((scene.getHeight() * 45) / 100);
                 nomR.setWrappingWidth((scene.getWidth() * 14) / 100);
 
-
-                infoPersonne.getChildren().add(info);
+                personne.getChildren().add(departementPoly);
+                personne.getChildren().add(genePoint(jeu, departementPoly));
+                personne.setOnMouseEntered(mouseEvent -> eventInformation(jeu, departementPoly));
+                personne.setOnMouseExited(mouseEvent -> eventRemoveInformation(jeu, departementPoly));
+                personne.setOnMouseClicked(mouseEvent -> eventArbreDeCompetence(jeu));
+                root.getChildren().addAll(nomR, liste, personne);
+                /*infoPersonne.getChildren().add(info);
                 infoPersonne.getChildren().add(genePoint(jeu, DepartementNom.Informatique, info, 26.9 / 100, 52.8 / 100));
 
                 imsiPersonne.getChildren().add(imsi);
@@ -180,12 +211,13 @@ public class Departement{
                 edimPersonne.setOnMouseEntered(mouseEvent -> eventInformation(jeu, rechercheDep(DepartementNom.Edim), edim));
                 edimPersonne.setOnMouseExited(mouseEvent -> eventRemoveInformation(jeu, rechercheDep(DepartementNom.Edim), edim));
                 edimPersonne.setOnMouseClicked(mouseEvent -> eventArbreDeCompetence(jeu, rechercheDep(DepartementNom.Edim)));
-                root.getChildren().addAll(nomR, liste, infoPersonne, imsiPersonne, energiePersonne, gmcPersonne, edimPersonne);
+                root.getChildren().addAll(nomR, liste, infoPersonne, imsiPersonne, energiePersonne, gmcPersonne, edimPersonne);*/
                 break;
             case 1:
                 if(affiche) {
                     affiche = false;
-                    root.getChildren().removeAll(nomR, liste, infoPersonne, imsiPersonne, energiePersonne, gmcPersonne, edimPersonne);
+                    //root.getChildren().removeAll(nomR, liste, infoPersonne, imsiPersonne, energiePersonne, gmcPersonne, edimPersonne);
+                    root.getChildren().removeAll(nomR, liste, personne);
                     if(root.getChildren().contains(information)) root.getChildren().remove(information);
                 }
                 break;
@@ -195,22 +227,22 @@ public class Departement{
                 }
         }
     }
-    private Group genePoint(Modele.Jeu jeu, DepartementNom departementNom, Polygon polygon, double width, double height) {
+    private Group genePoint(Modele.Jeu jeu, Polygon polygon) {
         Scene scene = jeu.getVue().getScene();
         Group root = jeu.getVue().getRoot();
         Group depPersonne = new Group();
-        for (int i = 0; i < rechercheDep(departementNom).getNbPersonne(); i++) {
-            Circle personne = new Circle();
-            personne.setRadius(4);
-            if (i < rechercheDep(departementNom).getNbActif()) {
-                personne.setFill(new ImagePattern(new Image("file:image\\PointInfecte.png")));
+        for (int i = 0; i < departement.getNbPersonne(); i++) {
+            Circle circle = new Circle();
+            circle.setRadius(4);
+            if (i < departement.getNbActif()) {
+                circle.setFill(new ImagePattern(new Image("file:image\\PointInfecte.png")));
             } else {
-                personne.setFill(new ImagePattern(new Image("file:image\\PointNormal.png")));
+                circle.setFill(new ImagePattern(new Image("file:image\\PointNormal.png")));
             }
-            personne.setCenterX(scene.getWidth() * width + Math.random() * polygon.getLayoutBounds().getWidth());
-            personne.setCenterY(scene.getHeight() * height + Math.random() * polygon.getLayoutBounds().getHeight());
-            if (polygon.contains(personne.getCenterX() - scene.getWidth() * width, personne.getCenterY() - scene.getHeight() * height)) {
-                depPersonne.getChildren().add(personne);
+            circle.setCenterX(scene.getWidth() * posX + Math.random() * polygon.getLayoutBounds().getWidth());
+            circle.setCenterY(scene.getHeight() * posY + Math.random() * polygon.getLayoutBounds().getHeight());
+            if (polygon.contains(circle.getCenterX() - scene.getWidth() * posX, circle.getCenterY() - scene.getHeight() * posY)) {
+                depPersonne.getChildren().add(circle);
             } else {
                 --i;
             }
@@ -218,7 +250,7 @@ public class Departement{
         return depPersonne;
     }
 
-    private void eventInformation(Modele.Jeu jeu, Modele.Departement departement, Polygon forme){
+    private void eventInformation(Modele.Jeu jeu, Polygon forme){
         Scene scene = jeu.getVue().getScene();
         Group root = jeu.getVue().getRoot();
         root.getChildren().remove(liste);
@@ -237,7 +269,7 @@ public class Departement{
         forme.setFill(new ImagePattern(new Image("file:image\\"+ nom +"DepSelec.jpg"), 0, 0, 1, 1, true));
         root.getChildren().add(information);
     }
-    private void eventRemoveInformation(Modele.Jeu jeu, Modele.Departement departement, Polygon forme){
+    private void eventRemoveInformation(Modele.Jeu jeu, Polygon forme){
         if(affiche) {
             Scene scene = jeu.getVue().getScene();
             Group root = jeu.getVue().getRoot();
@@ -248,7 +280,7 @@ public class Departement{
             forme.setFill(new ImagePattern(new Image("file:image\\" + nom + "Dep.jpg"), 0, 0, 1, 1, true));
         }
     }
-    private void eventArbreDeCompetence(Modele.Jeu jeu, Modele.Departement departement){
+    private void eventArbreDeCompetence(Modele.Jeu jeu){
         this.affichage(jeu, 1);
         Vue.ArbreDeCompetence ac = new ArbreDeCompetence(departement.getArbre());
         ac.affichage(jeu, 0);

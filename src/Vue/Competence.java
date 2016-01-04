@@ -73,7 +73,7 @@ public class Competence implements java.io.Serializable {
          */
         compet.setOnMouseClicked(mouseEvent -> {
 
-            if(ArbreDeCompetence.aCliquer.equals(ligne+","+colonne)) {
+            if(vueArbre.getACliquer().equals(ligne+","+colonne)) {
 
                 /*
 
@@ -90,7 +90,7 @@ public class Competence implements java.io.Serializable {
                 }
 
             }
-            else ArbreDeCompetence.aCliquer = ligne+","+colonne;
+            else vueArbre.setACliquer(ligne+","+colonne);
         });
 
         root.getChildren().add(compet);

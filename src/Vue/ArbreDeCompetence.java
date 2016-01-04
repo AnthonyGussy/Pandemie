@@ -13,14 +13,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ArbreDeCompetence implements java.io.Serializable {
+    private Modele.ArbreDeCompetence aC;
+    private HashMap<String, Competence> competences;
+    private Text nom;
+    private boolean affiche = false;
+    private String aCliquer;
 
-    Modele.ArbreDeCompetence aC;
-    HashMap<String, Competence> competences;
-    Text nom;
-    boolean affiche = false;
-    public static String aCliquer;
+    public String getACliquer() { return aCliquer; }
+    public void setACliquer(String aCliquer) { this.aCliquer = aCliquer; }
 
-    ArbreDeCompetence(Modele.ArbreDeCompetence ac){
+    public ArbreDeCompetence(Modele.ArbreDeCompetence ac){
 
         aC = ac;
         aCliquer="";

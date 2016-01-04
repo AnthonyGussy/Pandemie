@@ -13,6 +13,7 @@ public class Departement implements java.io.Serializable {
     private List<Compteur> compteurs;
     private List<Modele.Tache> taches;
     private Modele.ArbreDeCompetence arbre;
+    private Vue.Departement vue;
 
     public Departement(DepartementNom depNom){
         this.nom = depNom;
@@ -28,10 +29,11 @@ public class Departement implements java.io.Serializable {
         compteurs.add(infecte);
         compteurs.add(standBy);
         taches = new ArrayList<>();
+        vue = new Vue.Departement(this);
     }
-    void affichage(){
 
-    }
+    public Vue.Departement getVue() { return vue; }
+
     void creerTache(){
         int difficulte = 1 + (int)(Math.random() * 3);
         String difficulteTache;

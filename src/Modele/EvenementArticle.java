@@ -24,8 +24,8 @@ public class EvenementArticle extends Evenement implements java.io.Serializable 
 	
 	// Méthodes
 	public Vue.EvenementArticle getEAV() { return eAV; }
+
 	// Constructeurs
-	
 	public EvenementArticle(DepartementNom departement, String nom, String description, int effets[]) {
 		super(departement);
 		this.nom = nom;
