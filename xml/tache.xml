@@ -6,6 +6,13 @@
 	<Informatique>
 	
 		<Facile>
+		
+			<tache>
+				<nom>Site Web statique</nom>
+				<description>Création d'une site Web statique</description>
+				<temps>8</temps>
+				<infecte>4</infecte>
+			</tache>
 
 			<tache>
 				<nom>Réseaux sociaux</nom>
@@ -14,30 +21,106 @@
 				<infecte>7</infecte>
 			</tache>
 			
+			<tache>
+				<nom>Calculatrice</nom>
+				<description>Réalisation d'une calculatrice avec interface graphique</description>
+				<temps>4</temps>
+				<infecte>5</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Optimisation/Réparation d'ordinateurs</nom>
+				<description>Résolution de problèmes : suppression de logiciels inutiles, des virus, etc...</description>
+				<temps>10</temps>
+				<infecte>6</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Enregistrements de tests</nom>
+				<description>Enregistrements de tests dans des bases de données</description>
+				<temps>14</temps>
+				<infecte>6</infecte>
+			</tache>
+			
 		</Facile>
 		
 		<Moyenne>
 		
 			<tache>
-				<nom>Site Web</nom>
+				<nom>Logiciel de simulation de circuits électroniques</nom>
+				<description>Développement de simulation de circuits électroniques</description>
+				<temps>19</temps>
+				<infecte>20</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Site Web dynamique</nom>
 				<description>Création d'une site Web dynamique</description>
-				<temps>50</temps>
+				<temps>24</temps>
 				<infecte>15</infecte>
 			</tache>
-		
+			
+			<tache>
+				<nom>Optimisation/Réparation d'ordinateurs</nom>
+				<description>Résolution de problèmes : suppression de logiciels inutiles, des virus, etc...</description>
+				<temps>22</temps>
+				<infecte>18</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Traitement des enregistrements</nom>
+				<description>Traitements et analyses des enregistrements de tests</description>
+				<temps>18</temps>
+				<infecte>18</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Réseau dédié</nom>
+				<description>Mise en place d'un intranet dédié au projet</description>
+				<temps>15</temps>
+				<infecte>15</infecte>
+			</tache>
+			
 		</Moyenne>
 		
 		<Avancee>
 		
 			<tache>
+				<nom>Scripts</nom>
+				<description>Réalisation de scripts pour automatiser des tâches</description>
+				<temps>20</temps>
+				<infecte>40</infecte>
+			</tache>
+		
+			<tache>
 				<nom>Moteur physique</nom>
 				<description>Création d'un moteur physique</description>
-				<temps>100</temps>
+				<temps>35</temps>
 				<infecte>30</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Optimisation/Réparation d'ordinateurs</nom>
+				<description>Résolution de problèmes : suppression de logiciels inutiles, des virus, etc...</description>
+				<temps>30</temps>
+				<infecte>36</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Logiciel de modélisation 3D</nom>
+				<description>Développement d'un logiciel de modélisation 3D</description>
+				<temps>40</temps>
+				<infecte>35</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Logiciel pour la production</nom>
+				<description>Développement d'un logiciel pour la production</description>
+				<temps>39</temps>
+				<infecte>33</infecte>
 			</tache>
 		
 		</Avancee>
-		
 		
 	</Informatique>
 	
@@ -51,6 +134,7 @@
 				<temps>10</temps>
 				<infecte>7</infecte>
 			</tache>
+			
 			
 		</Facile>
 		
