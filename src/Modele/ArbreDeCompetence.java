@@ -113,6 +113,8 @@ public class ArbreDeCompetence implements java.io.Serializable {
 
     }
 
+    // Méthodes
+    public Departement getDepartement() { return depart; }
     public void debloquerCompetence(int ligne, int colone){
 
         competencesMod.get(ligne+","+colone).get(0).setAchete();
