@@ -106,13 +106,13 @@ public class Departement{
             } else {
                 circle.setFill(new ImagePattern(new Image("file:image\\PointNormal.png")));
             }
-            circle.setCenterX(scene.getWidth() * posX + Math.random() * polygon.getLayoutBounds().getWidth());
-            circle.setCenterY(scene.getHeight() * posY + Math.random() * polygon.getLayoutBounds().getHeight());
-            if (polygon.contains(circle.getCenterX() - scene.getWidth() * posX, circle.getCenterY() - scene.getHeight() * posY)) {
-                depPersonne.getChildren().add(circle);
-            } else {
-                --i;
-            }
+            do{
+
+                circle.setCenterX(scene.getWidth() * posX + Math.random() * polygon.getLayoutBounds().getWidth());
+                circle.setCenterY(scene.getHeight() * posY + Math.random() * polygon.getLayoutBounds().getHeight());
+
+            }while(!polygon.contains(circle.getCenterX() - scene.getWidth() * posX, circle.getCenterY() - scene.getHeight() * posY));
+            depPersonne.getChildren().add(circle);
         }
         return depPersonne;
     }
