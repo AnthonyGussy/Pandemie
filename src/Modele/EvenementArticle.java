@@ -7,7 +7,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import Vue.EvenementArticleVue;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -16,26 +15,26 @@ import org.xml.sax.SAXException;
 import Enumerations.DepartementNom;
 
 
-public class EvenementArticleModele extends Evenement implements java.io.Serializable {
+public class EvenementArticle extends Evenement implements java.io.Serializable {
 	// Attributs
-	Vue.EvenementArticleVue eAV;
+	Vue.EvenementArticle eAV;
 	private String nom;
 	private String description;
 	private int effets[] = new int[Constantes.TAILLE_EFFETS]; // Contient le moral, efficacité et temps
 	
 	// Méthodes
-	public EvenementArticleVue getEAV() { return eAV; }
+	public Vue.EvenementArticle getEAV() { return eAV; }
 	// Constructeurs
 	
-	public EvenementArticleModele(DepartementNom departement, String nom, String description, int effets[]) {
+	public EvenementArticle(DepartementNom departement, String nom, String description, int effets[]) {
 		super(departement);
 		this.nom = nom;
 		this.description = description;
 		this.effets = effets;
-		eAV = new EvenementArticleVue(this);
+		eAV = new Vue.EvenementArticle(this);
 	}
 	
-	public EvenementArticleModele(DepartementNom departement, String difficulte, int index) {
+	public EvenementArticle(DepartementNom departement, String difficulte, int index) {
 		
 		super(departement);
         effets = new int[3];
@@ -82,7 +81,7 @@ public class EvenementArticleModele extends Evenement implements java.io.Seriali
         catch (final ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }
-		eAV = new EvenementArticleVue(this);
+		eAV = new Vue.EvenementArticle(this);
 	}
 
 	// temporaire
@@ -99,9 +98,9 @@ public class EvenementArticleModele extends Evenement implements java.io.Seriali
 	
 	// Test
 /*	public static void main(String[] args) {
-		EvenementArticleModele a = new EvenementArticleModele(DepartementNom.Informatique, "Moyen", 1);
+		EvenementArticle a = new EvenementArticle(DepartementNom.Informatique, "Moyen", 1);
 
-		EvenementArticleModele b = new EvenementArticleModele(a.departement, a.nom, a.description, a.effets);
+		EvenementArticle b = new EvenementArticle(a.departement, a.nom, a.description, a.effets);
 		a.effets[0] = 1000;
 		b.effets[1] = -5;
 		a.affichage();

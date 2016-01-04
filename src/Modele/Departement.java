@@ -11,13 +11,13 @@ public class Departement implements java.io.Serializable {
     Enumerations.DepartementNom nom;
     int nbPersonne;
     List<Compteur> compteurs;
-    List<TacheModele> taches;
-    ArbreDeCompetenceModele arbre;
+    List<Tache> taches;
+    ArbreDeCompetence arbre;
 
     public Departement(DepartementNom depNom){
         this.nom = depNom;
         this.nbPersonne = 200 + (int)(Math.random() * 201);
-        this.arbre = new ArbreDeCompetenceModele(this);
+        this.arbre = new ArbreDeCompetence(this);
         Compteur efficacite = new Compteur(100,100, CompteurType.Efficacite);
         Compteur moral = new Compteur(100,100, CompteurType.Moral);
         Compteur infecte = new Compteur(0,nbPersonne, CompteurType.Infectes);
@@ -49,7 +49,7 @@ public class Departement implements java.io.Serializable {
                 difficulteTache="Facile";
                 break;
         }
-        TacheModele tache = new TacheModele(String.valueOf(this.nom),difficulteTache,0);
+        Tache tache = new Tache(String.valueOf(this.nom),difficulteTache,0);
         compteurs.get(3).modifCompte(-tache.getCompteurs().get(1).getCompte());
         compteurs.get(2).modifCompte(tache.getCompteurs().get(1).getCompte());
         taches.add(tache);
@@ -61,7 +61,7 @@ public class Departement implements java.io.Serializable {
         compteurs.get(2).modifCompte(infection);
     }
     void supprimerTache(){
-        for(TacheModele tache :  taches){
+        for(Tache tache :  taches){
             if(tache.getTermine()){
                 compteurs.get(3).modifCompte(tache.getCompteurs().get(1).getCompte());
                 compteurs.get(2).modifCompte(-tache.getCompteurs().get(1).getCompte());

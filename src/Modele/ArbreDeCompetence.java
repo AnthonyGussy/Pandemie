@@ -14,12 +14,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class ArbreDeCompetenceModele implements java.io.Serializable {
+public class ArbreDeCompetence implements java.io.Serializable {
 
-    HashMap<String, ArrayList<CompetenceModele>> competencesMod;
+    HashMap<String, ArrayList<Competence>> competencesMod;
     Departement depart;
 
-    public ArbreDeCompetenceModele(Departement _depart){
+    public ArbreDeCompetence(Departement _depart){
 
         depart = _depart;
         competencesMod = new HashMap<>();
@@ -81,7 +81,7 @@ public class ArbreDeCompetenceModele implements java.io.Serializable {
                         }
 
 
-                        CompetenceModele c = new CompetenceModele(nom,description,ligne,colone,effet,cout,sommetLie, Integer.parseInt(colonnes.item(ligne-1).getTextContent()),nbLignes,this);
+                        Competence c = new Competence(nom,description,ligne,colone,effet,cout,sommetLie, Integer.parseInt(colonnes.item(ligne-1).getTextContent()),nbLignes,this);
 
                         competencesMod.put(c.ligne + "," + c.colonne, new ArrayList<>());
                         competencesMod.get(c.ligne + ","+c.colonne).add(c);
@@ -117,7 +117,7 @@ public class ArbreDeCompetenceModele implements java.io.Serializable {
             for (int i = 1; i <= competencesMod.get(ligne + 1 + "," + 1).get(0).getNbColonnes(); ++i) {
 
                 boolean debloque = true;
-                ArrayList<CompetenceModele> c = competencesMod.get(ligne + 1 + "," + i);
+                ArrayList<Competence> c = competencesMod.get(ligne + 1 + "," + i);
                 if (c != null) {
 
                     for (int j = 1; j < c.size(); ++j) {
@@ -138,7 +138,7 @@ public class ArbreDeCompetenceModele implements java.io.Serializable {
 
     }
 
-    public HashMap<String, ArrayList<CompetenceModele>> getComp(){ return competencesMod; }
+    public HashMap<String, ArrayList<Competence>> getComp(){ return competencesMod; }
 
     public String getNom(){ return depart.getNom();}
 

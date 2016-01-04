@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
+import Constantes.Constantes;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -17,20 +17,20 @@ import org.xml.sax.SAXException;
 
 import Enumerations.DepartementNom;
 
-public class EvenementArticleModeleList implements Constantes, java.io.Serializable{
+public class EvenementArticleList implements java.io.Serializable{
 	
-	List<EvenementArticleModele> liste;
+	List<EvenementArticle> liste;
 	
-	public EvenementArticleModeleList(DepartementNom departement, String difficulte) {
+	public EvenementArticleList(DepartementNom departement, String difficulte) {
 		liste = new ArrayList<>();
 		final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         
         try {
             final DocumentBuilder builder = factory.newDocumentBuilder();
-            final Document doc = builder.parse(new File(PATH_EVEN_ARTICLE_MODELE));
+            final Document doc = builder.parse(new File(Constantes.PATH_EVEN_ARTICLE_MODELE));
             Element racine = doc.getDocumentElement();
             NodeList racineNoeuds = racine.getChildNodes();
-            EvenementArticleModele a;
+            EvenementArticle a;
             int effets[] = {0,0,0};
             
             for (int i = 0; i < racineNoeuds.getLength(); i++) {
@@ -48,7 +48,7 @@ public class EvenementArticleModeleList implements Constantes, java.io.Serializa
 			                effets[1] = Integer.parseInt(elementEven.getElementsByTagName("efficacite").item(0).getTextContent());
 			                effets[2] = Integer.parseInt(elementEven.getElementsByTagName("temps").item(0).getTextContent());
 			                
-			                a = new EvenementArticleModele(departement, nom, description, effets);
+			                a = new EvenementArticle(departement, nom, description, effets);
 			                liste.add(a);
                     	}
                     }
@@ -61,14 +61,14 @@ public class EvenementArticleModeleList implements Constantes, java.io.Serializa
         }
 	}
 	
-	public List<EvenementArticleModele> getListEvenement() {
+	public List<EvenementArticle> getListEvenement() {
 		return liste;
 	}
 	
 	public static void main(String[] args) {
-		EvenementArticleModeleList tmp = new EvenementArticleModeleList(DepartementNom.Informatique, "Facile");
-		List<EvenementArticleModele> tmp2 = tmp.getListEvenement();
-		for (EvenementArticleModele tmp2Elm : tmp2) {
+		EvenementArticleList tmp = new EvenementArticleList(DepartementNom.Informatique, "Facile");
+		List<EvenementArticle> tmp2 = tmp.getListEvenement();
+		for (EvenementArticle tmp2Elm : tmp2) {
 			tmp2Elm.affichage();
 			System.out.println("\n");
 		}

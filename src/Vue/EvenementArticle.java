@@ -1,6 +1,5 @@
 package Vue;
 
-import Modele.EvenementArticleModele;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -9,14 +8,14 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
-public class EvenementArticleVue implements java.io.Serializable {
+public class EvenementArticle implements java.io.Serializable {
 	
-	private EvenementArticleModele eam;
+	private Modele.EvenementArticle eam;
 	private boolean affiche = false;
     private Text nom;
     private Text description;
     private Text departement;
-	public EvenementArticleVue(EvenementArticleModele eam) {
+	public EvenementArticle(Modele.EvenementArticle eam) {
         this.eam = eam;
         nom = new Text(eam.getNom());
         nom.setFont(Font.loadFont("file:Font.ttf", 20));

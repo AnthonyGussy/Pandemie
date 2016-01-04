@@ -18,16 +18,16 @@ import org.xml.sax.SAXException;
 import Enumerations.CompteurType;
 import Vue.Compteur;
 
-public class TacheModeleList implements java.io.Serializable {
+public class TacheList implements java.io.Serializable {
 
-	List<TacheModele> listeTaches;
+	List<Tache> listeTaches;
 	
-	public TacheModeleList(String departement, String difficulte) {
+	public TacheList(String departement, String difficulte) {
 		int temps;
 		int infectes;
 		listeTaches = new ArrayList<>();
 		final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-		TacheModele a;
+		Tache a;
 		
         try {
             final DocumentBuilder builder = factory.newDocumentBuilder();
@@ -51,7 +51,7 @@ public class TacheModeleList implements java.io.Serializable {
                     				temps = Integer.parseInt(elementTache.getElementsByTagName("temps").item(0).getTextContent());
                     				infectes = Integer.parseInt(elementTache.getElementsByTagName("infecte").item(0).getTextContent());
                     				
-                    				a = new TacheModele(nom, description, new Compteur(temps, CompteurType.Temps), new Compteur(infectes, CompteurType.Infectes));
+                    				a = new Tache(nom, description, new Compteur(temps, CompteurType.Temps), new Compteur(infectes, CompteurType.Infectes));
                     				listeTaches.add(a);
                     			}
                     		}
@@ -66,14 +66,14 @@ public class TacheModeleList implements java.io.Serializable {
         }
 	}
 	
-	public List<TacheModele> getListTache() {
+	public List<Tache> getListTache() {
 		return listeTaches;
 	}
 	
 	public static void main(String[] args) {
-		TacheModeleList tmp = new TacheModeleList("Informatique", "Facile");
-		List<TacheModele> tmp2 = tmp.getListTache();
-		for (TacheModele tmp2Elm : tmp2) {
+		TacheList tmp = new TacheList("Informatique", "Facile");
+		List<Tache> tmp2 = tmp.getListTache();
+		for (Tache tmp2Elm : tmp2) {
 			tmp2Elm.affichage();
 			System.out.println("\n");
 		}

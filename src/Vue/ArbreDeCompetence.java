@@ -1,8 +1,5 @@
 package Vue;
 
-import Modele.ArbreDeCompetenceModele;
-import Modele.CompetenceModele;
-import Modele.Jeu;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -15,22 +12,22 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ArbreDeCompetenceVue implements java.io.Serializable {
+public class ArbreDeCompetence implements java.io.Serializable {
 
-    ArbreDeCompetenceModele aC;
-    HashMap<String, CompetenceVue> competences;
+    Modele.ArbreDeCompetence aC;
+    HashMap<String, Competence> competences;
     Text nom;
     boolean affiche = false;
     public static String aCliquer;
 
-    ArbreDeCompetenceVue(ArbreDeCompetenceModele ac){
+    ArbreDeCompetence(Modele.ArbreDeCompetence ac){
         aC = ac;
         aCliquer="";
         competences = new HashMap<>();
-        HashMap<String, ArrayList<CompetenceModele>> temporaire = aC.getComp();
-        for (Map.Entry<String, ArrayList<CompetenceModele>> competence : temporaire.entrySet()) {
+        HashMap<String, ArrayList<Modele.Competence>> temporaire = aC.getComp();
+        for (Map.Entry<String, ArrayList<Modele.Competence>> competence : temporaire.entrySet()) {
 
-            competences.put(competence.getKey(), new CompetenceVue(competence.getValue().get(0), this));
+            competences.put(competence.getKey(), new Competence(competence.getValue().get(0), this));
 
         }
         nom = new Text(aC.getNom());
@@ -48,8 +45,8 @@ public class ArbreDeCompetenceVue implements java.io.Serializable {
                 nom.setY(scene.getHeight()*35/100);
                 scene.setFill(new ImagePattern(new Image("file:image\\PandemieCompetenceJournal.jpg"), 0, 0, 1, 1, true));
                 root.getChildren().add(nom);
-                HashMap<String, ArrayList<CompetenceModele>> temporaire = aC.getComp();
-                for (Map.Entry<String, ArrayList<CompetenceModele>> competence : temporaire.entrySet()) {
+                HashMap<String, ArrayList<Modele.Competence>> temporaire = aC.getComp();
+                for (Map.Entry<String, ArrayList<Modele.Competence>> competence : temporaire.entrySet()) {
                     if(competence.getValue().size() > 1) {
                         for (int i = 1; i < competence.getValue().size(); ++i){
 
@@ -68,7 +65,7 @@ public class ArbreDeCompetenceVue implements java.io.Serializable {
                     }
 
                 }
-                for (Map.Entry<String, CompetenceVue> comp : competences.entrySet()) {
+                for (Map.Entry<String, Competence> comp : competences.entrySet()) {
                     comp.getValue().affichage(jeu);
                 }
                 break;

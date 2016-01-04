@@ -1,7 +1,5 @@
 package Vue;
 
-import Modele.CompetenceModele;
-import Modele.Jeu;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -10,16 +8,16 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.*;
 import javafx.scene.text.Font;
 
-public class CompetenceVue implements java.io.Serializable {
+public class Competence implements java.io.Serializable {
 
-    CompetenceModele compM;
-    ArbreDeCompetenceVue vueArbre;
+    Modele.Competence compM;
+    ArbreDeCompetence vueArbre;
     Circle compet;
     Group g;
     int colonne;
     int ligne;
 
-    CompetenceVue(CompetenceModele c, ArbreDeCompetenceVue arbreDeCompetenceVue){
+    Competence(Modele.Competence c, ArbreDeCompetence arbreDeCompetenceVue){
 
         vueArbre = arbreDeCompetenceVue;
         compM = c;
@@ -75,7 +73,7 @@ public class CompetenceVue implements java.io.Serializable {
          */
         compet.setOnMouseClicked(mouseEvent -> {
 
-            if(ArbreDeCompetenceVue.aCliquer.equals(ligne+","+colonne)) {
+            if(ArbreDeCompetence.aCliquer.equals(ligne+","+colonne)) {
 
                 /*
 
@@ -92,7 +90,7 @@ public class CompetenceVue implements java.io.Serializable {
                 }
 
             }
-            else ArbreDeCompetenceVue.aCliquer = ligne+","+colonne;
+            else ArbreDeCompetence.aCliquer = ligne+","+colonne;
         });
 
         root.getChildren().add(compet);

@@ -20,7 +20,7 @@ import org.xml.sax.SAXException;
 import Enumerations.CompteurType;
 
 
-public class TacheModele implements java.io.Serializable {
+public class Tache implements java.io.Serializable {
 	
 	// Attributs
 	
@@ -31,7 +31,7 @@ public class TacheModele implements java.io.Serializable {
     
     // Méthodes
     
-    public TacheModele(String nom, String description, Compteur temps, Compteur infectes) {
+    public Tache(String nom, String description, Compteur temps, Compteur infectes) {
 		this.nom = nom;
 		this.description = description;
 		this.compteurs = new ArrayList<>();
@@ -40,7 +40,7 @@ public class TacheModele implements java.io.Serializable {
 		termine = false;
 	}
     
-    public TacheModele(String departement, String difficulte, int index) {
+    public Tache(String departement, String difficulte, int index) {
     	
     	termine = false;
     	compteurs = new ArrayList<>();
@@ -104,7 +104,7 @@ public class TacheModele implements java.io.Serializable {
     public void setTermine(boolean termine) { this.termine = termine; }
     
     public static void main(String[] args) {
-    	TacheModele t = new TacheModele("Informatique", "Facile", 0);
+    	Tache t = new Tache("Informatique", "Facile", 0);
     	t.affichage();
     }
 }
