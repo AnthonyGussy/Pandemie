@@ -30,7 +30,7 @@ public class ArbreDeCompetence implements java.io.Serializable {
             competences.put(competence.getKey(), new Competence(competence.getValue().get(0), this));
 
         }
-        nom = new Text(aC.getNom());
+        nom = new Text(aC.getDepartement().getNom());
         nom.setFont(Font.loadFont("file:Font.ttf", 40));
     }
 
