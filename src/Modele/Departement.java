@@ -19,8 +19,8 @@ public class Departement implements java.io.Serializable {
         this.nom = depNom;
         this.nbPersonne = 200 + (int)(Math.random() * 201);
         this.arbre = new ArbreDeCompetence(this);
-        Compteur efficacite = new Compteur(100,100, CompteurType.Efficacite);
-        Compteur moral = new Compteur(100,100, CompteurType.Moral);
+        Compteur efficacite = new Compteur(0,100, CompteurType.Efficacite);
+        Compteur moral = new Compteur(0,100, CompteurType.Moral);
         Compteur infecte = new Compteur(0,nbPersonne, CompteurType.Infectes);
         Compteur standBy = new Compteur(0,nbPersonne, CompteurType.Stand_By);
         compteurs = new ArrayList<>(4);

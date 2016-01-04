@@ -66,6 +66,15 @@ public class Jeu implements java.io.Serializable {
         test.getEAV().affichage(this, 0);*/
     }
 
+    public void retourJeu() {
+
+        for(Modele.Departement dep : departements) {
+            dep.getVue().affichage(this, 0);
+        }
+
+    }
+
+
     /**
      * Cette méthode va sauvegarder le jeu en sérialisant les différents composants du jeu
      */

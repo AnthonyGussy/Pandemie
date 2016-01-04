@@ -2,9 +2,11 @@ package Vue;
 
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Polygon;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
@@ -18,9 +20,7 @@ public class ArbreDeCompetence implements java.io.Serializable {
     private Text nom;
     private boolean affiche = false;
     private String aCliquer;
-
-    public String getACliquer() { return aCliquer; }
-    public void setACliquer(String aCliquer) { this.aCliquer = aCliquer; }
+    private Polygon retour;
 
     public ArbreDeCompetence(Modele.ArbreDeCompetence ac){
 
@@ -35,6 +35,9 @@ public class ArbreDeCompetence implements java.io.Serializable {
         }
         nom = new Text(aC.getDepartement().getNom());
         nom.setFont(Font.loadFont("file:Font.ttf", 40));
+
+
+
     }
 
 
@@ -68,6 +71,26 @@ public class ArbreDeCompetence implements java.io.Serializable {
                     }
 
                 }
+
+                retour = new Polygon();
+                retour.getPoints().addAll(new Double[]{
+                        60.0,scene.getHeight()-30,
+                        80.0, scene.getHeight()-50,
+                        80.0, scene.getHeight()-40,
+                        100.0, scene.getHeight()-40,
+                        100.0, scene.getHeight()-20,
+                        80.0, scene.getHeight()-20,
+                        80.0, scene.getHeight()-10 });
+                retour.setFill(new ImagePattern(new Image("file:image\\Retour.png"), 0, 0, 1, 1, true));
+
+                retour.setOnMouseClicked(event -> {
+
+                    this.affichage(jeu,1);
+                    jeu.retourJeu();
+
+                });
+
+                root.getChildren().add(retour);
                 for (Map.Entry<String, Competence> comp : competences.entrySet()) {
                     comp.getValue().affichage(jeu);
                 }
@@ -100,4 +123,7 @@ public class ArbreDeCompetence implements java.io.Serializable {
         }
 
     }
+
+    public String getACliquer() { return aCliquer; }
+    public void setACliquer(String aCliquer) { this.aCliquer = aCliquer; }
 }

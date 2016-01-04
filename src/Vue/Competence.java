@@ -35,7 +35,9 @@ public class Competence implements java.io.Serializable {
         compet = new Circle((scene.getWidth()*15)/100+coefx*(scene.getWidth()*60/100),
                 (scene.getHeight()*90)/100-coefy*(scene.getHeight()*65/100),24);
 
-        if(compM.getDebloque())
+        if(compM.getAchete())
+            compet.setFill(new ImagePattern(new Image("file:image\\CompetenceAchete.png"), 0, 0, 1, 1, true));
+        else if(compM.getDebloque())
             compet.setFill(new ImagePattern(new Image("file:image\\CompetenceDebloque.png"), 0, 0, 1, 1, true));
         else
             compet.setFill(new ImagePattern(new Image("file:image\\CompetenceBloque.png"), 0, 0, 1, 1, true));
@@ -46,8 +48,8 @@ public class Competence implements java.io.Serializable {
             if(compM.getDebloque())compet.setRadius(26);
 
             Text nomR = new Text(compM.getNom() + "\n \n" + compM.getDescription());
-            if(compM.getEffet()[0] != 0) nomR.setText(nomR.getText()+"\nmoral :+"+compM.getEffet()[0]);
-            if(compM.getEffet()[1] != 0) nomR.setText(nomR.getText()+"\nefficacité :+"+compM.getEffet()[1]);
+            if(compM.getEffet()[0] != 0) nomR.setText(nomR.getText()+"\nefficacité :+"+compM.getEffet()[0]);
+            if(compM.getEffet()[1] != 0) nomR.setText(nomR.getText()+"\nmoral :+"+compM.getEffet()[1]);
             if(compM.getEffet()[2] != 0) nomR.setText(nomR.getText()+"\ntemps :+"+compM.getEffet()[2]);
 
             nomR.setFont(Font.loadFont("file:Font.ttf", 24));
@@ -83,7 +85,7 @@ public class Competence implements java.io.Serializable {
 
 
                  */
-                if (compM.getDebloque()) {
+                if (compM.getDebloque() && !compM.getAchete()) {
                     compM.getArbreDeCompetence().debloquerCompetence(ligne, colonne);
                     compet.setFill(new ImagePattern(new Image("file:image\\CompetenceAchete.png"), 0, 0, 1, 1, true));
                     vueArbre.changementAffichage(ligne);

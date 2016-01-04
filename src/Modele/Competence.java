@@ -39,7 +39,7 @@ public class Competence implements java.io.Serializable {
     public void applicationCompetenceDepartement(){
 
         if(effet[0] != 0) arbreDeCompetence.getDepartement().setEfficacite(effet[0]);
-        if(effet[0] != 0) arbreDeCompetence.getDepartement().setMorale(effet[1]);
+        if(effet[1] != 0) arbreDeCompetence.getDepartement().setMorale(effet[1]);
 
 
     }

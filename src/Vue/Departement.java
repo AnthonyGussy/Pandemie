@@ -55,7 +55,6 @@ public class Departement{
                 departementPoly.getPoints().addAll(Constantes.POLYGONE_EDIM);
         }
         departementPoly.setFill(new ImagePattern(new Image("file:image\\" + departement.getNom() + "Dep.jpg"), 0, 0, 1, 1, true));
-        personne = new Group();
         liste = new ImageView(new Image("file:image\\Liste.jpg"));
         nomR = new Text("Departements :");
         nomR.setFont(Font.loadFont("file:Font.ttf", 24));
@@ -67,6 +66,7 @@ public class Departement{
         switch(afficher) {
             case 0:
                 affiche = true;
+                personne = new Group();
                 scene.setFill(new ImagePattern(new Image("file:image\\PandemieDep.jpg"), 0, 0, 1, 1, true));
                 departementPoly.setTranslateX(scene.getWidth() * posX);
                 departementPoly.setTranslateY(scene.getHeight() * posY);
@@ -77,8 +77,8 @@ public class Departement{
                 nomR.setWrappingWidth((scene.getWidth() * 14) / 100);
                 personne.getChildren().add(departementPoly);
                 personne.getChildren().add(genePoint(jeu, departementPoly));
-                personne.setOnMouseEntered(mouseEvent -> eventInformation(jeu, departementPoly));
-                personne.setOnMouseExited(mouseEvent -> eventRemoveInformation(jeu, departementPoly));
+                personne.setOnMouseEntered(mouseEvent -> eventInformation(jeu));
+                personne.setOnMouseExited(mouseEvent -> eventRemoveInformation(jeu));
                 personne.setOnMouseClicked(mouseEvent -> eventArbreDeCompetence(jeu));
                 root.getChildren().addAll(nomR, liste, personne);
                 break;
@@ -117,7 +117,7 @@ public class Departement{
         return depPersonne;
     }
 
-    private void eventInformation(Modele.Jeu jeu, Polygon forme){
+    private void eventInformation(Modele.Jeu jeu){
         Scene scene = jeu.getVue().getScene();
         Group root = jeu.getVue().getRoot();
         root.getChildren().remove(liste);
@@ -133,20 +133,21 @@ public class Departement{
         information.setX((scene.getWidth() * 83.5) / 100);
         information.setY((scene.getHeight() * 52) / 100);
         information.setWrappingWidth((scene.getWidth() * 14) / 100);
-        forme.setFill(new ImagePattern(new Image("file:image\\"+ nom +"DepSelec.jpg"), 0, 0, 1, 1, true));
+        departementPoly.setFill(new ImagePattern(new Image("file:image\\"+ nom +"DepSelec.jpg"), 0, 0, 1, 1, true));
         root.getChildren().add(information);
     }
-    private void eventRemoveInformation(Modele.Jeu jeu, Polygon forme){
+    private void eventRemoveInformation(Modele.Jeu jeu){
         if(affiche) {
             Group root = jeu.getVue().getRoot();
             root.getChildren().remove(information);
             nomR.setText("Departements :");
             root.getChildren().add(liste);
             String nom = departement.getNom();
-            forme.setFill(new ImagePattern(new Image("file:image\\" + nom + "Dep.jpg"), 0, 0, 1, 1, true));
+            departementPoly.setFill(new ImagePattern(new Image("file:image\\" + nom + "Dep.jpg"), 0, 0, 1, 1, true));
         }
     }
     private void eventArbreDeCompetence(Modele.Jeu jeu){
+        eventRemoveInformation(jeu);
         this.affichage(jeu, 1);
         Vue.ArbreDeCompetence ac = new ArbreDeCompetence(departement.getArbre());
         ac.affichage(jeu, 0);

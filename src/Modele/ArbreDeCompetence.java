@@ -65,8 +65,8 @@ public class ArbreDeCompetence implements java.io.Serializable {
                         int ligne = Integer.parseInt(elementComp.getElementsByTagName("ligne").item(0).getTextContent());
                         int colone = Integer.parseInt(elementComp.getElementsByTagName("colonne").item(0).getTextContent());
                         int[] effet = new int[3];
-                        effet[0] = Integer.parseInt(elementComp.getElementsByTagName("moral").item(0).getTextContent());
-                        effet[1] = Integer.parseInt(elementComp.getElementsByTagName("efficacite").item(0).getTextContent());
+                        effet[0] = Integer.parseInt(elementComp.getElementsByTagName("efficacite").item(0).getTextContent());
+                        effet[1] = Integer.parseInt(elementComp.getElementsByTagName("moral").item(0).getTextContent());
                         effet[2] = Integer.parseInt(elementComp.getElementsByTagName("temps").item(0).getTextContent());
                         int cout = Integer.parseInt(elementComp.getElementsByTagName("cout").item(0).getTextContent());
 
