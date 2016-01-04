@@ -3,9 +3,7 @@ package Vue;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-/**
- * Created by Anthony on 02/01/2016.
- */
+
 public class Main extends Application {
 
     @Override
