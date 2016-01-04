@@ -33,7 +33,16 @@ public class Jeu {
     }
 
     // Méthodes
+    /**
+     * Getter du groupe racine
+     * @return Groupe racine
+     */
     public Group getRoot() { return root; }
+
+    /**
+     * Getter de la scene
+     * @return La scene
+     */
     public Scene getScene() { return scene; }
 
 }

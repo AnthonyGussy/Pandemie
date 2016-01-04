@@ -114,7 +114,18 @@ public class ArbreDeCompetence implements java.io.Serializable {
     }
 
     // Méthodes
+
+    /**
+     * Getter de departement
+     * @return Departement
+     */
     public Departement getDepartement() { return depart; }
+
+    /**
+     * Débloque une compétence donnée
+     * @param ligne Ligne de la compétence
+     * @param colone Colonne de la compétence
+     */
     public void debloquerCompetence(int ligne, int colone){
 
         competencesMod.get(ligne+","+colone).get(0).setAchete();
@@ -144,8 +155,15 @@ public class ArbreDeCompetence implements java.io.Serializable {
 
     }
 
+    /**
+     * Getter des compétences
+     * @return Les compétences
+     */
     public HashMap<String, ArrayList<Competence>> getComp(){ return competencesMod; }
 
+    /**
+     * Getter du nom
+     * @return Le nom
+     */
     public String getNom(){ return depart.getNom();}
-
 }
