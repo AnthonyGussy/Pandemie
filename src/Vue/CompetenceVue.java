@@ -3,6 +3,7 @@ package Vue;
 import Modele.CompetenceModele;
 import Modele.Jeu;
 import javafx.scene.Group;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
@@ -27,13 +28,14 @@ public class CompetenceVue implements java.io.Serializable {
 
     }
 
-    void affichage(){
-
+    void affichage(Modele.Jeu jeu){
+        Scene scene = jeu.getVue().getScene();
+        Group root = jeu.getVue().getRoot();
         double coefx = (double) 1/compM.getNbLignes()*(ligne-1);
         double coefy = (double) 1/compM.getNbColonnes()*(colonne-1);
 
-        compet = new Circle((Jeu.scene.getWidth()*15)/100+coefx*(Jeu.scene.getWidth()*60/100),
-                (Jeu.scene.getHeight()*90)/100-coefy*(Jeu.scene.getHeight()*65/100),24);
+        compet = new Circle((scene.getWidth()*15)/100+coefx*(scene.getWidth()*60/100),
+                (scene.getHeight()*90)/100-coefy*(scene.getHeight()*65/100),24);
 
         if(compM.getDebloque())
             compet.setFill(new ImagePattern(new Image("file:image\\CompetenceDebloque.png"), 0, 0, 1, 1, true));
@@ -51,11 +53,11 @@ public class CompetenceVue implements java.io.Serializable {
             if(compM.getEffet()[2] != 0) nomR.setText(nomR.getText()+"\ntemps :+"+compM.getEffet()[2]);
 
             nomR.setFont(Font.loadFont("file:Font.ttf", 24));
-            nomR.setX((Jeu.scene.getWidth() * 83.5) / 100);
-            nomR.setY((Jeu.scene.getHeight() * 45) / 100);
-            nomR.setWrappingWidth((Jeu.scene.getWidth() * 14) / 100);
+            nomR.setX((scene.getWidth() * 83.5) / 100);
+            nomR.setY((scene.getHeight() * 45) / 100);
+            nomR.setWrappingWidth((scene.getWidth() * 14) / 100);
 
-            Jeu.root.getChildren().add(nomR);
+            root.getChildren().add(nomR);
 
 
         });
@@ -64,7 +66,7 @@ public class CompetenceVue implements java.io.Serializable {
         compet.setOnMouseExited(mouseEvent -> {
 
             compet.setRadius(24);
-            Jeu.root.getChildren().remove(Jeu.root.getChildren().size()-1);
+            root.getChildren().remove(root.getChildren().size()-1);
 
 
         });
@@ -93,7 +95,7 @@ public class CompetenceVue implements java.io.Serializable {
             else ArbreDeCompetenceVue.aCliquer = ligne+","+colonne;
         });
 
-        Jeu.root.getChildren().add(compet);
+        root.getChildren().add(compet);
 
     }
 

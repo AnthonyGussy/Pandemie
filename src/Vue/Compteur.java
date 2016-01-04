@@ -19,15 +19,15 @@ public class Compteur implements java.io.Serializable {
         valeurMax = vMax;
         type = t;
     }
-    public void affichage(int x, int y){
+    public void affichage(int x, int y, Modele.Jeu jeu){
         text = new Text(String.valueOf(compte));
         //text.setFill(Color.AQUA);
         text.setX(x);
         text.setY(y);
-        Jeu.root.getChildren().add(text);
+        jeu.getVue().getRoot().getChildren().add(text);
     }
-    public void affichage(){
-        Jeu.root.getChildren().remove(text);
+    public void affichage(Modele.Jeu jeu){
+        jeu.getVue().getRoot().getChildren().remove(text);
     }
 
     public void modifCompte(int valeur){

@@ -3,6 +3,8 @@ package Vue;
 import Modele.ArbreDeCompetenceModele;
 import Modele.CompetenceModele;
 import Modele.Jeu;
+import javafx.scene.Group;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Line;
@@ -22,7 +24,6 @@ public class ArbreDeCompetenceVue implements java.io.Serializable {
     public static String aCliquer;
 
     ArbreDeCompetenceVue(ArbreDeCompetenceModele ac){
-
         aC = ac;
         aCliquer="";
         competences = new HashMap<>();
@@ -34,18 +35,19 @@ public class ArbreDeCompetenceVue implements java.io.Serializable {
         }
         nom = new Text(aC.getNom());
         nom.setFont(Font.loadFont("file:Font.ttf", 40));
-        nom.setX(Jeu.scene.getWidth() * 35 / 100);
-        nom.setY(Jeu.scene.getHeight()*35/100);
-
     }
 
 
-    void affichage(int afficher) {
+    void affichage(Modele.Jeu jeu, int afficher) {
+        Scene scene = jeu.getVue().getScene();
+        Group root = jeu.getVue().getRoot();
         switch(afficher) {
             case 0:
                 affiche = true;
-                Jeu.scene.setFill(new ImagePattern(new Image("file:image\\PandemieCompetenceJournal.jpg"), 0, 0, 1, 1, true));
-                Jeu.root.getChildren().add(nom);
+                nom.setX(scene.getWidth() * 35 / 100);
+                nom.setY(scene.getHeight()*35/100);
+                scene.setFill(new ImagePattern(new Image("file:image\\PandemieCompetenceJournal.jpg"), 0, 0, 1, 1, true));
+                root.getChildren().add(nom);
                 HashMap<String, ArrayList<CompetenceModele>> temporaire = aC.getComp();
                 for (Map.Entry<String, ArrayList<CompetenceModele>> competence : temporaire.entrySet()) {
                     if(competence.getValue().size() > 1) {
@@ -57,28 +59,28 @@ public class ArbreDeCompetenceVue implements java.io.Serializable {
                             double coefy2 = (double) 1 / competence.getValue().get(i).getNbColonnes() * (competence.getValue().get(i).getColonne() - 1);
 
                             Line l = new Line();
-                            l.setStartX((Jeu.scene.getWidth() * 15) / 100 + coefx1 * (Jeu.scene.getWidth() * 60 / 100));
-                            l.setStartY((Jeu.scene.getHeight() * 90) / 100 - coefy1 * (Jeu.scene.getHeight() * 65 / 100));
-                            l.setEndX((Jeu.scene.getWidth() * 15) / 100 + coefx2 * (Jeu.scene.getWidth() * 60 / 100));
-                            l.setEndY((Jeu.scene.getHeight() * 90) / 100 - coefy2 * (Jeu.scene.getHeight() * 65 / 100));
-                            Jeu.root.getChildren().add(l);
+                            l.setStartX((scene.getWidth() * 15) / 100 + coefx1 * (scene.getWidth() * 60 / 100));
+                            l.setStartY((scene.getHeight() * 90) / 100 - coefy1 * (scene.getHeight() * 65 / 100));
+                            l.setEndX((scene.getWidth() * 15) / 100 + coefx2 * (scene.getWidth() * 60 / 100));
+                            l.setEndY((scene.getHeight() * 90) / 100 - coefy2 * (scene.getHeight() * 65 / 100));
+                            root.getChildren().add(l);
                         }
                     }
 
                 }
                 for (Map.Entry<String, CompetenceVue> comp : competences.entrySet()) {
-                    comp.getValue().affichage();
+                    comp.getValue().affichage(jeu);
                 }
                 break;
             case 1:
                 if(affiche) {
                     affiche = false;
-                    Jeu.root.getChildren().clear();
+                    root.getChildren().clear();
                 }
                 break;
             default:
                 if(affiche) {
-                    affichage(0);
+                    affichage(jeu, 0);
                 }
         }
 

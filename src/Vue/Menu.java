@@ -1,6 +1,8 @@
 package Vue;
 
 import Enumerations.BoutonType;
+import javafx.scene.Group;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 import java.util.ArrayList;
@@ -15,11 +17,9 @@ public class Menu {
     //Champs
     private boolean affiche = false;
     private List<Rectangle> boutons;
-    private Modele.Jeu jeu;
 
     // Constructeur
     public Menu (BoutonType[] boutonTypes, Modele.Jeu jeu){
-        this.jeu = jeu;
         boutons = new ArrayList<>();
         for(BoutonType type : boutonTypes) {
             Rectangle b = new Rectangle();
@@ -56,7 +56,7 @@ public class Menu {
                         jeu.charger();
                         break;
                     case Jouer:
-                        affichage(1);
+                        affichage(jeu, 1);
                         jeu.commencerPartie();
                         break;
                     default:
@@ -68,31 +68,33 @@ public class Menu {
         }
     }
 
-    public void affichage(int afficher){
+    public void affichage(Modele.Jeu jeu, int afficher) {
+        Scene scene = jeu.getVue().getScene();
+        Group root = jeu.getVue().getRoot();
         switch(afficher){
             case 0:
                 affiche = true;
                 jeu.getVue().getScene().setFill(new ImagePattern(new Image("file:image\\PandemieAccueil.jpg"), 0, 0, 1, 1, true));
                 int i = 1;
                 for (Rectangle b : boutons) {
-                    jeu.getVue().getRoot().getChildren().remove(b);
-                    b.setX(((jeu.getVue().getScene().getWidth() * 21 *i) / 100 ));
-                    b.setY((jeu.getVue().getScene().getHeight() * 50) / 100);
+                    root.getChildren().remove(b);
+                    b.setX(((scene.getWidth() * 21 *i) / 100 ));
+                    b.setY((scene.getHeight() * 50) / 100);
                     b.setHeight(77);
                     b.setWidth(152);
-                    jeu.getVue().getRoot().getChildren().add(b);
+                    root.getChildren().add(b);
                     ++i;
                 }
                 break;
             case 1:
                 if(affiche) {
                     affiche = false;
-                    jeu.getVue().getRoot().getChildren().clear();
+                    root.getChildren().clear();
                 }
                 break;
             default:
                 if(affiche) {
-                    affichage(0);
+                    affichage(jeu, 0);
                 }
         }
     }

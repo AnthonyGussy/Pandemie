@@ -37,7 +37,7 @@ public class Jeu implements java.io.Serializable {
         vue = new Vue.Jeu(primaryStage, this);
         BoutonType[] boutons = new BoutonType[]{BoutonType.Jouer, BoutonType.Charger, BoutonType.Regles, BoutonType.Quitter};
         menus.add(new Menu(boutons, this));
-        menus.get(0).affichage(0);
+        menus.get(0).affichage(this, 0);
     }
 
     // Méthodes
@@ -62,7 +62,7 @@ public class Jeu implements java.io.Serializable {
 
         evenements.add(new EvenementArticleModele(DepartementNom.Gmc, "Facile", 0));
         EvenementArticleModele test = (EvenementArticleModele) evenements.get(0);
-        test.getEAV().affichage(0);
+        test.getEAV().affichage(this, 0);
     }
 
     /**
@@ -142,14 +142,14 @@ public class Jeu implements java.io.Serializable {
      */
     public void redimensionner() {
         for(Menu menu : menus) {
-            menu.affichage(2);
+            menu.affichage(this, 2);
         }
         for(Modele.Evenement evenement : evenements) {
             String type = evenement.getClass().getName();
             switch(type) {
                 case "Modele.EvenementArticleModele":
                     EvenementArticleModele temp = (EvenementArticleModele) evenement;
-                    temp.getEAV().affichage(2);
+                    temp.getEAV().affichage(this, 2);
                     break;
                 case "Modele.EvenementAccomplissementModele":
                     break;
