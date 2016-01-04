@@ -116,7 +116,7 @@ public class ArbreDeCompetence implements java.io.Serializable {
     // Méthodes
 
     /**
-     * Getter de departement
+     * Getter du département
      * @return Departement
      */
     public Departement getDepartement() { return depart; }
