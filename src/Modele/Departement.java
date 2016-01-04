@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Departement implements java.io.Serializable {
-    Enumerations.DepartementNom nom;
-    int nbPersonne;
-    List<Compteur> compteurs;
-    List<Modele.Tache> taches;
-    Modele.ArbreDeCompetence arbre;
+    private Enumerations.DepartementNom nom;
+    private int nbPersonne;
+    private List<Compteur> compteurs;
+    private List<Modele.Tache> taches;
+    private Modele.ArbreDeCompetence arbre;
 
     public Departement(DepartementNom depNom){
         this.nom = depNom;

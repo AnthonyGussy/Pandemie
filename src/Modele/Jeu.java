@@ -23,7 +23,7 @@ public class Jeu implements java.io.Serializable {
     //Champs
     private Vue.Jeu vue;
     private List<Menu> menus;
-    private List<Departement> departements;
+    private ArrayList<Modele.Departement> departements;
     private List<Compteur> compteurs;
     private List<Modele.Evenement> evenements;
 
@@ -55,13 +55,14 @@ public class Jeu implements java.io.Serializable {
         List<DepartementNom> departementNoms = new ArrayList<>(Arrays.asList(DepartementNom.Edim, DepartementNom.Energie, DepartementNom.Gmc, DepartementNom.Imsi, DepartementNom.Informatique));
         for(int i = 0; i<5; ++i) {
             int alea = (int)(Math.random()*departementNoms.size());
-            departements.add(new Departement(departementNoms.get(alea)));
+            departements.add(new Modele.Departement(departementNoms.get(alea)));
             departementNoms.remove(alea);
         }
-
-        evenements.add(new EvenementArticle(DepartementNom.Gmc, "Facile", 0));
+        Vue.Departement vueDepart = new Vue.Departement(departements);
+        vueDepart.affichage(this, 0);
+        /*evenements.add(new EvenementArticle(DepartementNom.Gmc, "Facile", 0));
         EvenementArticle test = (EvenementArticle) evenements.get(0);
-        test.getEAV().affichage(this, 0);
+        test.getEAV().affichage(this, 0);*/
     }
 
     /**
