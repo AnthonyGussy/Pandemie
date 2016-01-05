@@ -2,22 +2,21 @@ package Modele;
 
 public class Competence implements java.io.Serializable {
 
-    String nom;
-    String description;
-    int ligne;
-    int colonne;
-    int[] effet;  //contient 3 valeurs correspondant a l'efficacite, le moral et le temps
-    int cout;
-    int nbLignes;
-    int nbColonnes;
-    boolean debloque;
-    boolean achete;
-    String sommetLie;   //la liste des sommets lie de forme ligne,colonne separer par des points virgules
+    private String nom;
+    private String description;
+    private int ligne;
+    private int colonne;
+    private int[] effet;  //contient 3 valeurs correspondant a l'efficacite, le moral et le temps
+    private int cout;
+    private int nbLignes;
+    private int nbColonnes;
+    private boolean debloque;
+    private boolean achete;
+    private String sommetLie;   //la liste des sommets lie de forme ligne,colonne separer par des points virgules
 
     ArbreDeCompetence arbreDeCompetence;
 
     Competence(String _nom, String _description, int _ligne, int _colonne, int[] _effet, int _cout, String _sommetLie, int _nbColonnes, int _nbLignes, ArbreDeCompetence arbre){
-
         arbreDeCompetence = arbre;
         achete = false;
         nom = _nom;
@@ -30,10 +29,6 @@ public class Competence implements java.io.Serializable {
         nbLignes = _nbLignes;
         sommetLie = _sommetLie;
         debloque = ligne == 1;
-
-
-
-
     }
 
     public void applicationCompetenceDepartement(){
@@ -67,5 +62,7 @@ public class Competence implements java.io.Serializable {
     public boolean getDebloque(){ return debloque;}
 
     public boolean getAchete(){ return achete;}
+
+    public int getCout() { return cout; }
 
 }

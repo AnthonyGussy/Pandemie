@@ -1,5 +1,6 @@
 package Vue;
 
+import Constantes.Constantes;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -22,22 +23,15 @@ public class ArbreDeCompetence implements java.io.Serializable {
     private String aCliquer;
     private Polygon retour;
 
-    public ArbreDeCompetence(Modele.ArbreDeCompetence ac){
-
-        aC = ac;
-        aCliquer="";
+    public ArbreDeCompetence(Modele.ArbreDeCompetence aC){
+        this.aC = aC;
+        aCliquer = "";
         competences = new HashMap<>();
         HashMap<String, ArrayList<Modele.Competence>> temporaire = aC.getComp();
         for (Map.Entry<String, ArrayList<Modele.Competence>> competence : temporaire.entrySet()) {
-
             competences.put(competence.getKey(), new Competence(competence.getValue().get(0), this));
-
         }
         nom = new Text(aC.getDepartement().getNom());
-        nom.setFont(Font.loadFont("file:Font.ttf", 40));
-
-
-
     }
 
 
@@ -48,7 +42,8 @@ public class ArbreDeCompetence implements java.io.Serializable {
             case 0:
                 affiche = true;
                 nom.setX(scene.getWidth() * 35 / 100);
-                nom.setY(scene.getHeight()*35/100);
+                nom.setY(scene.getHeight() * 35 / 100);
+                nom.setFont(Font.loadFont("file:Font.ttf", scene.getWidth() * Constantes.TAILLE_POLICE_TITRE));
                 scene.setFill(new ImagePattern(new Image("file:image\\PandemieCompetenceJournal.jpg"), 0, 0, 1, 1, true));
                 root.getChildren().add(nom);
                 HashMap<String, ArrayList<Modele.Competence>> temporaire = aC.getComp();
@@ -92,13 +87,16 @@ public class ArbreDeCompetence implements java.io.Serializable {
 
                 root.getChildren().add(retour);
                 for (Map.Entry<String, Competence> comp : competences.entrySet()) {
-                    comp.getValue().affichage(jeu);
+                    comp.getValue().affichage(jeu, 0);
                 }
                 break;
             case 1:
                 if(affiche) {
                     affiche = false;
-                    root.getChildren().clear();
+                    root.getChildren().removeAll();
+                    for (Map.Entry<String, Competence> comp : competences.entrySet()) {
+                        comp.getValue().affichage(jeu, 1);
+                    }
                 }
                 break;
             default:

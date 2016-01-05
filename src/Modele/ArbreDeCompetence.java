@@ -123,6 +123,12 @@ public class ArbreDeCompetence implements java.io.Serializable {
     public Departement getDepartement() { return depart; }
 
     /**
+     * Getter de la vue de l'arbre de compétence
+     * @return La vue de l'arbre de compétence
+     */
+    public Vue.ArbreDeCompetence getVue() { return vue; }
+
+    /**
      * Getter des compétences
      * @return Les compétences
      */

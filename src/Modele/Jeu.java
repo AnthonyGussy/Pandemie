@@ -1,5 +1,7 @@
 package Modele;
 
+import Constantes.Constantes;
+import Enumerations.CompteurType;
 import Enumerations.DepartementNom;
 import Enumerations.BoutonType;
 import Vue.Compteur;
@@ -64,6 +66,7 @@ public class Jeu implements java.io.Serializable {
             departements.add(new Modele.Departement(departementNoms.get(alea)));
             departementNoms.remove(alea);
         }
+        compteurs.add(new Compteur(0, CompteurType.Points_de_competence));
         for(Modele.Departement dep : departements) {
             dep.getVue().affichage(this, 0);
         }
@@ -73,12 +76,28 @@ public class Jeu implements java.io.Serializable {
         test.getEAV().affichage(this, 0);*/
     }
 
+    /**
+     *
+     */
     public void retourJeu() {
         for(Modele.Departement dep : departements) {
             dep.getVue().affichage(this, 0);
         }
     }
 
+    /**
+     *
+     * @return
+     */
+    public int getPtsCompetence() { return compteurs.get(Constantes.PTS_COMPETENCE).getCompte(); }
+
+    /**
+     *
+     * @param pts
+     */
+    public void setPtsCompetence(int pts) {
+        compteurs.get(Constantes.PTS_COMPETENCE).modifCompte(pts);
+    }
 
     /**
      * Cette méthode va sauvegarder le jeu en sérialisant les différents composants du jeu

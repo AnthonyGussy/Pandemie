@@ -10,9 +10,11 @@ import java.util.List;
 public final class Constantes {
 	// Le tableau "effets"
 	public static final int TAILLE_EFFETS = 3;
-	public static final int INDEX_MORAL = 0;
-	public static final int INDEX_EFFICACITE = 1;
-	public static final int INDEX_TEMPS = 2;
+	public static final int MORAL = 0;
+	public static final int EFFICACITE = 1;
+
+	public static final int PTS_COMPETENCE = 0;
+	public static final int TEMPS = 1;
 	
 	// Les chemins
 	public static final String PATH_XML = System.getProperty("user.dir" )+"/xml/";
@@ -40,6 +42,9 @@ public final class Constantes {
 	public static final double HAUTEUR_BOUTON = 0.1;
 	public static final double LARGEUR_BOUTON_SURVOL = 0.155;
 	public static final double HAUTEUR_BOUTON_SURVOL = 0.105;
+
+	// Affichage arbre de compétences
+	public static final double TAILLE_POLICE_TITRE = 0.062;
 
 	// Positions départements
 	public static final double POS_X_INFO = 0.269;
