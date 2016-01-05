@@ -44,7 +44,7 @@ public final class Constantes {
 	public static final double HAUTEUR_BOUTON_SURVOL = 0.105;
 
 	// Affichage arbre de compétences
-	public static final double TAILLE_POLICE_TITRE = 0.058;
+	public static final double TAILLE_POLICE_TITRE = 0.030;
 
 	// Positions départements
 	public static final double POS_X_INFO = 0.269;

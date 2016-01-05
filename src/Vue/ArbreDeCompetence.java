@@ -33,7 +33,6 @@ public class ArbreDeCompetence implements java.io.Serializable {
             competences.put(competence.getKey(), new Competence(competence.getValue().get(0), this));
         }
         nom = new Text(aC.getDepartement().getNom());
-        lignes = new Group();
     }
 
 
@@ -48,6 +47,8 @@ public class ArbreDeCompetence implements java.io.Serializable {
                 nom.setFont(Font.loadFont("file:Font.ttf", scene.getWidth() * Constantes.TAILLE_POLICE_TITRE));
                 scene.setFill(new ImagePattern(new Image("file:image\\PandemieCompetenceJournal.jpg"), 0, 0, 1, 1, true));
                 root.getChildren().add(nom);
+
+                lignes = new Group();
                 HashMap<String, ArrayList<Modele.Competence>> temporaire = aC.getComp();
                 for (Map.Entry<String, ArrayList<Modele.Competence>> competence : temporaire.entrySet()) {
                     if(competence.getValue().size() > 1) {
@@ -82,7 +83,7 @@ public class ArbreDeCompetence implements java.io.Serializable {
 
                 retour.setOnMouseClicked(event -> {
 
-                    this.affichage(jeu,1);
+                    this.affichage(jeu, 1);
                     jeu.retourJeu();
 
                 });
@@ -104,6 +105,7 @@ public class ArbreDeCompetence implements java.io.Serializable {
                 break;
             default:
                 if(affiche) {
+                    root.getChildren().removeAll(retour, nom, lignes);
                     affichage(jeu, 0);
                 }
         }

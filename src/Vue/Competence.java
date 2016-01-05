@@ -46,6 +46,7 @@ public class Competence implements java.io.Serializable {
         Group root = jeu.getVue().getRoot();
         switch(afficher) {
             case 0:
+                root.getChildren().removeAll(compet);
                 double coefx = (double) 1 / modele.getNbLignes() * (ligne - 1);
                 double coefy = (double) 1 / modele.getNbColonnes() * (colonne - 1);
                 compet = new Circle((scene.getWidth() * 15) / 100 + coefx * (scene.getWidth() * 60 / 100),

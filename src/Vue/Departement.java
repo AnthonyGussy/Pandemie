@@ -92,6 +92,7 @@ public class Departement{
                 if(affiche) {
                     affichage(jeu, 0);
                 }
+                break;
         }
     }
     private Group genePoint(Modele.Jeu jeu, Polygon polygon) {
@@ -150,7 +151,6 @@ public class Departement{
     private void eventArbreDeCompetence(Modele.Jeu jeu){
         eventRemoveInformation(jeu);
         jeu.getVue().affichage(1);
-        Vue.ArbreDeCompetence ac = new ArbreDeCompetence(departement.getArbre());
-        ac.affichage(jeu, 0);
+        departement.getArbre().getVue().affichage(jeu, 0);
     }
 }
