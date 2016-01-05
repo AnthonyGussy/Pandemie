@@ -74,6 +74,7 @@ public class Jeu implements java.io.Serializable {
             dep.getVue().affichage(this, 0);
         }
         vue.affichage(0);
+
         /*evenements.add(new EvenementArticle(DepartementNom.Gmc, "Facile", 0));
         EvenementArticle test = (EvenementArticle) evenements.get(0);
         test.getEAV().affichage(this, 0);*/

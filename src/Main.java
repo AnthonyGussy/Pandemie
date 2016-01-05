@@ -1,4 +1,5 @@
 import Modele.Jeu;
+import Modele.Timeline;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -11,6 +12,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         Jeu j = new Jeu(primaryStage);
+        Timeline t = new Timeline("timeline", j);
     }
 
     public static void main(String[] args) { launch(args); }

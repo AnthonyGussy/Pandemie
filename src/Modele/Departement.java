@@ -4,6 +4,7 @@ import Constantes.Constantes;
 import Enumerations.CompteurType;
 import Enumerations.DepartementNom;
 import Vue.Compteur;
+import javafx.application.Platform;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -87,11 +88,17 @@ public class Departement implements java.io.Serializable {
         compteurs.get(3).modifCompte(-taches.get(0).getCompteurs().get(1).getCompte());
         compteurs.get(2).modifCompte(taches.get(0).getCompteurs().get(1).getCompte());
     }
-    void infection(){
+    void infection(Modele.Jeu jeu){
         int nbTaches = taches.size();
         int infection = nbTaches + (100-compteurs.get(1).getCompte())/100*nbTaches;
         compteurs.get(3).modifCompte(-infection);
         compteurs.get(2).modifCompte(infection);
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                vue.affichage(jeu, 2);
+            }
+        });
     }
     void supprimerTache(){
         for(Tache tache :  taches){
