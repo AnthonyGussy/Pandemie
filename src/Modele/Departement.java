@@ -26,7 +26,6 @@ public class Departement implements java.io.Serializable {
     private List<Modele.Tache> tachesStockage;
     private Modele.ArbreDeCompetence arbre;
     private Vue.Departement vue;
-    private boolean batInitial;
 
     public Departement(DepartementNom depNom, boolean depart){
 
@@ -45,8 +44,7 @@ public class Departement implements java.io.Serializable {
         taches = new ArrayList<>();
         tachesStockage = new ArrayList<>();
         creeListeTache();
-        batInitial = depart;
-        if(batInitial) creerTache();
+        if(depart) creerTache();
         vue = new Vue.Departement(this);
     }
 
