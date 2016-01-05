@@ -141,8 +141,8 @@ public class Departement{
     }
     private void eventRemoveInformation(Modele.Jeu jeu){
         Group root = jeu.getVue().getRoot();
-        if(root.getChildren().contains(information)) root.getChildren().remove(information);
-        if(root.getChildren().contains(nomR)) root.getChildren().remove(nomR);
+        /*if(root.getChildren().contains(information)) root.getChildren().remove(information); Ligne qui pose problème n°1
+        if(root.getChildren().contains(nomR)) root.getChildren().remove(nomR); Ligne qui pose problème n°2 */
         String nom = departement.getNom();
         departementPoly.setFill(new ImagePattern(new Image("file:image\\" + nom + "Dep.jpg"), 0, 0, 1, 1, true));
         jeu.getVue().affichagePlateau(0);

@@ -68,7 +68,6 @@ public class Departement implements java.io.Serializable {
                     for (int k = 0; k < difNoeuds.getLength(); k++) {
                         if (difNoeuds.item(k).getNodeType() == Node.ELEMENT_NODE && difNoeuds.item(k).getNodeName().equals("projet")) {
                             Element elementTache = (Element) difNoeuds.item(k);
-                            System.out.print( elementTache.getElementsByTagName("temps").item(0).getTextContent());
                             String nom = elementTache.getElementsByTagName("nom").item(0).getTextContent();
                             String description = elementTache.getElementsByTagName("description").item(0).getTextContent();
 

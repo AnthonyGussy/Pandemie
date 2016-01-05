@@ -46,7 +46,6 @@ public class Competence implements java.io.Serializable {
         Group root = jeu.getVue().getRoot();
         switch(afficher) {
             case 0:
-                root.getChildren().removeAll(compet);
                 double coefx = (double) 1 / modele.getNbLignes() * (ligne - 1);
                 double coefy = (double) 1 / modele.getNbColonnes() * (colonne - 1);
                 compet = new Circle((scene.getWidth() * 15) / 100 + coefx * (scene.getWidth() * 60 / 100),
@@ -66,13 +65,14 @@ public class Competence implements java.io.Serializable {
                     nomR.setX((scene.getWidth() * 83.5) / 100);
                     nomR.setY((scene.getHeight() * 45) / 100);
                     nomR.setWrappingWidth((scene.getWidth() * 14) / 100);
+                    if(root.getChildren().contains(nomR)) root.getChildren().remove(nomR);
                     root.getChildren().add(nomR);
                 });
 
                 // Quand la souris sort de la zone du cercle, la fenêtre de description est enlevée
                 compet.setOnMouseExited(mouseEvent -> {
                     compet.setRadius(24);
-                    root.getChildren().remove(nomR);
+                    if(root.getChildren().contains(nomR)) root.getChildren().remove(nomR);
                 });
 
                 // Achète la compétence lors d'un double clic sur le cercle si elle est déblocable et que le joueur dispose d'assez de points de compétence
@@ -89,10 +89,11 @@ public class Competence implements java.io.Serializable {
                         }
                     } else vueArbre.setACliquer(ligne + "," + colonne);
                 });
+                if(root.getChildren().contains(compet)) root.getChildren().remove(compet);
                 root.getChildren().add(compet);
                 break;
             default:
-                root.getChildren().removeAll(compet);
+                if(root.getChildren().contains(compet)) root.getChildren().remove(compet);
         }
     }
 

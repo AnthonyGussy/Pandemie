@@ -184,7 +184,7 @@ public class Jeu implements java.io.Serializable {
      */
     public void redimensionner() {
         vue.affichagePlateau(2);
-        coin.affichage(this, 2);
+        //coin.affichage(this, 2);
         for(Menu menu : menus) {
             menu.affichage(this, 2);
         }

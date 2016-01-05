@@ -79,7 +79,7 @@ public class Jeu {
                 texte.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE));
                 if(root.getChildren().contains(liste)) root.getChildren().remove(liste);
                 if(root.getChildren().contains(texte)) root.getChildren().remove(texte);
-                root.getChildren().addAll(liste, texte);
+                //root.getChildren().addAll(liste, texte); Ligne qui pose problème n°3
                 break;
             case 1:
                 if(affichePlateau) {
