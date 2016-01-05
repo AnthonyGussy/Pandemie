@@ -4,10 +4,6 @@ import Enumerations.DepartementNom;
 import Enumerations.BoutonType;
 import Vue.Compteur;
 import Vue.Menu;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -26,10 +22,10 @@ public class Jeu implements java.io.Serializable {
 
     //Champs
     private Vue.Jeu vue;
-    private List<Menu> menus;
+    private ArrayList<Menu> menus;
     private ArrayList<Modele.Departement> departements;
-    private List<Compteur> compteurs;
-    private List<Modele.Evenement> evenements;
+    private ArrayList<Compteur> compteurs;
+    private ArrayList<Modele.Evenement> evenements;
 
     // Constructeur
     public Jeu(Stage primaryStage) {
@@ -51,6 +47,12 @@ public class Jeu implements java.io.Serializable {
     public Vue.Jeu getVue() { return vue; }
 
     /**
+     * Cette méthode renvoie la liste des départements
+     * @return Liste des départements
+     */
+    public ArrayList<Modele.Departement> getDepartements() { return departements; }
+
+    /**
      * Méthode qui va mettre dans un ordre aléatoire la liste des départements,
      * le département à l'index 0 étant considéré comme le département d'origine du projet.
      * Cette méthode va aussi afficher le plateau de jeu et lancer les événements aléatoires.
@@ -65,21 +67,10 @@ public class Jeu implements java.io.Serializable {
         for(Modele.Departement dep : departements) {
             dep.getVue().affichage(this, 0);
         }
+        vue.affichage(0);
         /*evenements.add(new EvenementArticle(DepartementNom.Gmc, "Facile", 0));
         EvenementArticle test = (EvenementArticle) evenements.get(0);
         test.getEAV().affichage(this, 0);*/
-    }
-
-    public void affichage(int afficher) {
-        /*liste = new ImageView(new Image("file:image\\Liste.jpg"));
-        liste.setTranslateX(scene.getWidth() * 84.5 / 100);
-        liste.setTranslateY(scene.getHeight() * 50.8 / 100);
-
-        texte = new Text("Departements :");
-        texte.setX((scene.getWidth() * 83.5) / 100);
-        texte.setY((scene.getHeight() * 45) / 100);
-        texte.setWrappingWidth((scene.getWidth() * 14) / 100);
-        texte.setFont(Font.loadFont("file:Font.ttf", 24));*/
     }
 
     public void retourJeu() {
@@ -165,6 +156,7 @@ public class Jeu implements java.io.Serializable {
      * Cette méthode redimensionne les éléments actifs de l'affichage lorsque la fenêtre est redimensionnée
      */
     public void redimensionner() {
+        vue.affichage(2);
         for(Menu menu : menus) {
             menu.affichage(this, 2);
         }

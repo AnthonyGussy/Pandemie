@@ -139,7 +139,7 @@ public class Departement{
     }
     private void eventArbreDeCompetence(Modele.Jeu jeu){
         eventRemoveInformation(jeu);
-        this.affichage(jeu, 1);
+        jeu.getVue().affichage(1);
         Vue.ArbreDeCompetence ac = new ArbreDeCompetence(departement.getArbre());
         ac.affichage(jeu, 0);
     }
