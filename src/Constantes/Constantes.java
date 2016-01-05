@@ -24,9 +24,14 @@ public final class Constantes {
 	public static final double POS_X_LISTE = 0.84;
 	public static final double POS_Y_LISTE = 0.5;
 	public static final double LARGEUR_LISTE = 0.14;
-	public static final double HAUTEUR_LISTE = 0.16;
+	public static final double HAUTEUR_LISTE = 0.18;
 	public static final double POS_X_TEXTE = 0.85;
-	public static final double POS_Y_TEXTE = 0.45;
+	public static final double POS_Y_TEXTE = 0.47;
+	public static final double TAILLE_POLICE = 0.037;
+	public static final double POS_X_NOM_DEP = 0.83;
+	public static final double POS_Y_NOM_DEP = 0.48;
+	public static final double POS_X_INFOS = 0.835;
+	public static final double POS_Y_INFOS = 0.55;
 
 	// Affichage menu
 	public static final double POS_X_BOUTON = 0.17;

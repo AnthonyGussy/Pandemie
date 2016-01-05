@@ -11,7 +11,7 @@ import Constantes.Constantes;
 
 /**
  * Partie Vue de la classe Jeu
- * Cette classe sert à instancier l'affichage du jeu
+ * Cette classe sert Ã  instancier l'affichage du jeu
  */
 
 public class Jeu {
@@ -30,8 +30,8 @@ public class Jeu {
         root = new Group();
         scene = new Scene(root, 1024, 650);
         liste = new ImageView(new Image("file:image\\Liste.jpg"));
-        texte = new Text("Départements :");
-        texte.setFont(Font.loadFont("file:Font.ttf", 24));
+        texte = new Text("DÃ©partements :");
+
         primaryStage.setTitle("Study Project Simulator");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
@@ -45,7 +45,7 @@ public class Jeu {
         });
     }
 
-    // Méthodes
+    // MÃ©thodes
     /**
      * Getter du groupe racine
      * @return Groupe racine
@@ -59,9 +59,9 @@ public class Jeu {
     public Scene getScene() { return scene; }
 
     /**
-     * Méthode qui affiche le "plateau de jeu"
-     * @param afficher Entier qui détermine l'action à effectuer. 0 pour afficher, 1 pour désafficher, 2 pour mettre à jour l'affichage
-     *                 et 3 pour enlever uniquement les informations, pas les départements
+     * MÃ©thode qui affiche le "plateau de jeu"
+     * @param afficher Entier qui dÃ©termine l'action Ã  effectuer. 0 pour afficher, 1 pour dÃ©safficher, 2 pour mettre Ã  jour l'affichage
+     *                 et 3 pour enlever uniquement les informations, pas les dÃ©partements
      */
     public void affichage(int afficher) {
         switch(afficher) {
@@ -74,6 +74,7 @@ public class Jeu {
                 liste.setFitHeight(scene.getHeight() * Constantes.HAUTEUR_LISTE);
                 texte.setX(scene.getWidth() * Constantes.POS_X_TEXTE);
                 texte.setY(scene.getHeight() * Constantes.POS_Y_TEXTE);
+                texte.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE));
                 //texte.setWrappingWidth((scene.getWidth() * 14) / 100);
                 root.getChildren().addAll(liste, texte);
                 break;
