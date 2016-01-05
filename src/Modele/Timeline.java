@@ -5,13 +5,14 @@ package Modele;
  */
 public class Timeline extends Thread {
     Modele.Jeu jeu;
+    boolean End;
     public Timeline(String nom, Modele.Jeu jeu) {
         super(nom);
         this.jeu = jeu;
         this.start();
     }
     public void run() {
-        while(true) {
+        while(!End) {
             try {
                 this.sleep(1000);
             }
@@ -22,5 +23,9 @@ public class Timeline extends Thread {
                 jeu.getDepartements().get(0).infection(jeu);
             }
         }
+    }
+
+    public void setEnd(boolean end) {
+        End = end;
     }
 }
