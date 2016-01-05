@@ -73,8 +73,8 @@ public class Departement implements java.io.Serializable {
     }
     public int getEfficacite() { return compteurs.get(0).getCompte(); }
     public void setEfficacite(int ajout) { compteurs.get(0).modifCompte(ajout); }
-    public int getMorale() { return compteurs.get(1).getCompte(); }
-    public void setMorale(int ajout) { compteurs.get(1).modifCompte(ajout); }
+    public int getMoral() { return compteurs.get(1).getCompte(); }
+    public void setMoral(int ajout) { compteurs.get(1).modifCompte(ajout); }
     public String getNom(){ return String.valueOf(nom);}
     public ArbreDeCompetence getArbre(){ return arbre;}
     public DepartementNom getNomEnum(){ return nom;}

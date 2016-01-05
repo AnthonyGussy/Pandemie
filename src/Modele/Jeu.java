@@ -74,8 +74,12 @@ public class Jeu implements java.io.Serializable {
         /*liste = new ImageView(new Image("file:image\\Liste.jpg"));
         liste.setTranslateX(scene.getWidth() * 84.5 / 100);
         liste.setTranslateY(scene.getHeight() * 50.8 / 100);
+
         texte = new Text("Departements :");
-        text.setFont(Font.loadFont("file:Font.ttf", 24));*/
+        texte.setX((scene.getWidth() * 83.5) / 100);
+        texte.setY((scene.getHeight() * 45) / 100);
+        texte.setWrappingWidth((scene.getWidth() * 14) / 100);
+        texte.setFont(Font.loadFont("file:Font.ttf", 24));*/
     }
 
     public void retourJeu() {

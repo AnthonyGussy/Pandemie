@@ -55,6 +55,7 @@ public class Departement{
                 departementPoly.getPoints().addAll(Constantes.POLYGONE_EDIM);
         }
         departementPoly.setFill(new ImagePattern(new Image("file:image\\" + departement.getNom() + "Dep.jpg"), 0, 0, 1, 1, true));
+        nomR = new Text();
     }
 
     public void affichage(Modele.Jeu jeu, int afficher) {
@@ -68,20 +69,18 @@ public class Departement{
                 departementPoly.setTranslateX(scene.getWidth() * posX);
                 departementPoly.setTranslateY(scene.getHeight() * posY);
 
-                nomR.setX((scene.getWidth() * 83.5) / 100);
-                nomR.setY((scene.getHeight() * 45) / 100);
-                nomR.setWrappingWidth((scene.getWidth() * 14) / 100);
+
                 personne.getChildren().add(departementPoly);
                 personne.getChildren().add(genePoint(jeu, departementPoly));
                 personne.setOnMouseEntered(mouseEvent -> eventInformation(jeu));
                 personne.setOnMouseExited(mouseEvent -> eventRemoveInformation(jeu));
                 personne.setOnMouseClicked(mouseEvent -> eventArbreDeCompetence(jeu));
-                root.getChildren().addAll(nomR, liste, personne);
+                root.getChildren().add(personne);
                 break;
             case 1:
                 if(affiche) {
                     affiche = false;
-                    root.getChildren().removeAll(nomR, personne, information);
+                    root.getChildren().removeAll(personne, information);
                     //root.getChildren().clear();
                 }
                 break;
@@ -118,10 +117,10 @@ public class Departement{
         String nom = departement.getNom();
         nomR.setText(nom);
         int efficacite = departement.getEfficacite();
-        int morale = departement.getMorale();
+        int moral = departement.getMoral();
         int taches = departement.getNbTaches();
         int infecte = departement.getNbActif();
-        information = new Text("Efficacite : " + Integer.toString(efficacite) + "%\nMorale : " + Integer.toString(morale) + "%\n" +
+        information = new Text("Efficacite : " + Integer.toString(efficacite) + "%\nMoral : " + Integer.toString(moral) + "%\n" +
                 "Nb taches : " + Integer.toString(taches) + "\n" + "Nb infectes : " + Integer.toString(infecte));
         information.setFont(Font.loadFont("file:Font.ttf", 24));
         information.setX((scene.getWidth() * 83.5) / 100);
