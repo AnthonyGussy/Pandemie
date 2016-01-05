@@ -117,27 +117,30 @@ public class Departement{
         jeu.getVue().affichage(3);
         Scene scene = jeu.getVue().getScene();
         Group root = jeu.getVue().getRoot();
-        root.getChildren().remove(liste);
         String nom = departement.getNom();
         nomR.setText(nom);
+        nomR.setX((scene.getWidth() * 83.5) / 100);
+        nomR.setY((scene.getHeight() * 45) / 100);
+        nomR.setWrappingWidth((scene.getWidth() * 14) / 100);
+        nomR.setFont(Font.loadFont("file:Font.ttf", 24));
         int efficacite = departement.getEfficacite();
         int moral = departement.getMoral();
         int taches = departement.getNbTaches();
         int infecte = departement.getNbActif();
-        information = new Text("Efficacite : " + Integer.toString(efficacite) + "%\nMoral : " + Integer.toString(moral) + "%\n" +
-                "Nb taches : " + Integer.toString(taches) + "\n" + "Nb infectes : " + Integer.toString(infecte));
+        information = new Text("Efficacité : " + Integer.toString(efficacite) + "%\nMoral : " + Integer.toString(moral) + "%\n" +
+                "Nb tâches : " + Integer.toString(taches) + "\n" + "Nb infectés : " + Integer.toString(infecte));
         information.setFont(Font.loadFont("file:Font.ttf", 24));
         information.setX((scene.getWidth() * 83.5) / 100);
         information.setY((scene.getHeight() * 52) / 100);
         information.setWrappingWidth((scene.getWidth() * 14) / 100);
         departementPoly.setFill(new ImagePattern(new Image("file:image\\"+ nom +"DepSelec.jpg"), 0, 0, 1, 1, true));
-        root.getChildren().add(information);
+        root.getChildren().addAll(information, nomR);
     }
     private void eventRemoveInformation(Modele.Jeu jeu){
         if(affiche) {
             jeu.getVue().affichage(0);
             Group root = jeu.getVue().getRoot();
-            root.getChildren().remove(information);
+            root.getChildren().removeAll(information, nomR);
             String nom = departement.getNom();
             departementPoly.setFill(new ImagePattern(new Image("file:image\\" + nom + "Dep.jpg"), 0, 0, 1, 1, true));
         }

@@ -29,7 +29,7 @@ public class Jeu {
         root = new Group();
         scene = new Scene(root, 1024, 768);
         liste = new ImageView(new Image("file:image\\Liste.jpg"));
-        texte = new Text("Departements :");
+        texte = new Text("Départements :");
         primaryStage.setTitle("Study Project Simulator");
         primaryStage.setScene(scene);
         primaryStage.show();
