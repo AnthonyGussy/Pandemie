@@ -63,7 +63,10 @@ public class Jeu implements java.io.Serializable {
         List<DepartementNom> departementNoms = new ArrayList<>(Arrays.asList(DepartementNom.Edim, DepartementNom.Energie, DepartementNom.Gmc, DepartementNom.Imsi, DepartementNom.Informatique));
         for(int i = 0; i<5; ++i) {
             int alea = (int)(Math.random()*departementNoms.size());
-            departements.add(new Modele.Departement(departementNoms.get(alea)));
+            if(i == 0)
+                departements.add(new Modele.Departement(departementNoms.get(alea),true));
+            else
+                departements.add(new Modele.Departement(departementNoms.get(alea),false));
             departementNoms.remove(alea);
         }
         compteurs.add(new Compteur(0, CompteurType.Points_de_competence));
@@ -103,7 +106,7 @@ public class Jeu implements java.io.Serializable {
      * Cette méthode va sauvegarder le jeu en sérialisant les différents composants du jeu
      */
     public void sauvegarder() {
-        departements.add(new Departement(DepartementNom.Edim));
+        //departements.add(new Departement(DepartementNom.Edim));
         serialiser(departements, "departements");
     }
 

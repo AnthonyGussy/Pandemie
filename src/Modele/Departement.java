@@ -29,8 +29,7 @@ public class Departement implements java.io.Serializable {
     private boolean batInitial;
 
     public Departement(DepartementNom depNom, boolean depart){
-        batInitial = depart;
-        if(batInitial) creerTache();
+
         this.nom = depNom;
         this.nbPersonne = 200 + (int)(Math.random() * 201);
         this.arbre = new ArbreDeCompetence(this);
@@ -46,6 +45,8 @@ public class Departement implements java.io.Serializable {
         taches = new ArrayList<>();
         tachesStockage = new ArrayList<>();
         creeListeTache();
+        batInitial = depart;
+        if(batInitial) creerTache();
         vue = new Vue.Departement(this);
     }
 
@@ -68,6 +69,7 @@ public class Departement implements java.io.Serializable {
                     for (int k = 0; k < difNoeuds.getLength(); k++) {
                         if (difNoeuds.item(k).getNodeType() == Node.ELEMENT_NODE && difNoeuds.item(k).getNodeName().equals("projet")) {
                             Element elementTache = (Element) difNoeuds.item(k);
+                            System.out.print( elementTache.getElementsByTagName("temps").item(0).getTextContent());
                             String nom = elementTache.getElementsByTagName("nom").item(0).getTextContent();
                             String description = elementTache.getElementsByTagName("description").item(0).getTextContent();
 
