@@ -68,14 +68,18 @@ public class Coin {
         switch(afficher) {
             case 0:
                 affiche = true;
-                root.getChildren().removeAll(coin, polyMenu, polyAffichage);
                 coin.setFitWidth(scene.getWidth() * Constantes.LARGEUR_COIN);
                 coin.setFitHeight(scene.getHeight() * Constantes.HAUTEUR_COIN);
+                if(root.getChildren().contains(coin)) root.getChildren().remove(coin);
+                if(root.getChildren().contains(polyAffichage)) root.getChildren().remove(polyAffichage);
+                if(root.getChildren().contains(polyMenu)) root.getChildren().remove(polyMenu);
                 root.getChildren().addAll(coin, polyAffichage, polyMenu);
                 break;
             case 1:
                 affiche = false;
-                root.getChildren().removeAll(coin, polyMenu, polyAffichage);
+                if(root.getChildren().contains(coin)) root.getChildren().remove(coin);
+                if(root.getChildren().contains(polyAffichage)) root.getChildren().remove(polyAffichage);
+                if(root.getChildren().contains(polyMenu)) root.getChildren().remove(polyMenu);
                 break;
             default:
                 if (affiche) {

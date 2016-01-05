@@ -47,19 +47,17 @@ public class EvenementArticle implements java.io.Serializable {
                 departement.setX((int)(scene.getWidth() * 28 / 100));
                 departement.setY((int)(scene.getHeight() * 20 / 100));
 
-                root.getChildren().remove(nom);
-                root.getChildren().remove(description);
-                root.getChildren().remove(departement);
-                root.getChildren().add(nom);
-                root.getChildren().add(description);
-                root.getChildren().add(departement);
+                if(root.getChildren().contains(nom)) root.getChildren().remove(nom);
+                if(root.getChildren().contains(description)) root.getChildren().remove(description);
+                if(root.getChildren().contains(departement)) root.getChildren().remove(departement);
+                root.getChildren().addAll(nom, description, departement);
                 break;
             case 1:
                 if(affiche) {
                     affiche = false;
-                    root.getChildren().remove(nom);
-                    root.getChildren().remove(description);
-                    root.getChildren().remove(departement);
+                    if(root.getChildren().contains(nom)) root.getChildren().remove(nom);
+                    if(root.getChildren().contains(description)) root.getChildren().remove(description);
+                    if(root.getChildren().contains(departement)) root.getChildren().remove(departement);
                 }
                 break;
             default:
@@ -67,9 +65,5 @@ public class EvenementArticle implements java.io.Serializable {
                     affichage(jeu, 0);
                 }
         }
-    }
-    
-    public void changerAffichage() { 
-    	// Changer affichagePlateau au bout d'un certain temps ou bouton ok
     }
 }

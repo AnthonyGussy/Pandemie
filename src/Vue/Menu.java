@@ -18,13 +18,14 @@ public class Menu {
     //Champs
     private boolean affiche = false;
     private List<Rectangle> boutons;
+    private Group boutonsGroup;
 
     // Constructeur
     public Menu (BoutonType[] boutonTypes, Modele.Jeu jeu){
         boutons = new ArrayList<>();
+        boutonsGroup = new Group();
         for(BoutonType type : boutonTypes) {
             Rectangle b = new Rectangle();
-
             ImagePattern imagePattern = new ImagePattern(new Image("file:image\\Pandemie" + type + ".jpg"), 0, 0, 1, 1, true);
 
             if(!imagePattern.getImage().isError()) {
@@ -81,14 +82,17 @@ public class Menu {
                     b.setY(scene.getHeight() * Constantes.POS_Y_BOUTON);
                     b.setWidth(scene.getWidth() * Constantes.LARGEUR_BOUTON);
                     b.setHeight(scene.getHeight() * Constantes.HAUTEUR_BOUTON);
-                    root.getChildren().add(b);
+                    if(boutonsGroup.getChildren().contains(b)) boutonsGroup.getChildren().remove(b);
+                    boutonsGroup.getChildren().add(b);
                     ++i;
                 }
+                if(root.getChildren().contains(boutonsGroup)) root.getChildren().remove(boutonsGroup);
+                root.getChildren().add(boutonsGroup);
                 break;
             case 1:
                 if(affiche) {
                     affiche = false;
-                    root.getChildren().clear();
+                    if(root.getChildren().contains(boutonsGroup)) root.getChildren().remove(boutonsGroup);
                 }
                 break;
             default:

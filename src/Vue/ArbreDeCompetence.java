@@ -25,6 +25,7 @@ public class ArbreDeCompetence implements java.io.Serializable {
     private Group lignes;
 
     public ArbreDeCompetence(Modele.ArbreDeCompetence aC){
+        retour = new Polygon();
         this.aC = aC;
         aCliquer = "";
         competences = new HashMap<>();
@@ -42,7 +43,6 @@ public class ArbreDeCompetence implements java.io.Serializable {
         switch(afficher) {
             case 0:
                 affiche = true;
-                root.getChildren().removeAll(nom, lignes, retour);
 
                 nom.setX(scene.getWidth() * 35 / 100);
                 nom.setY(scene.getHeight() * 35 / 100);
@@ -65,38 +65,40 @@ public class ArbreDeCompetence implements java.io.Serializable {
                             l.setStartY((scene.getHeight() * 90) / 100 - coefy1 * (scene.getHeight() * 65 / 100));
                             l.setEndX((scene.getWidth() * 15) / 100 + coefx2 * (scene.getWidth() * 60 / 100));
                             l.setEndY((scene.getHeight() * 90) / 100 - coefy2 * (scene.getHeight() * 65 / 100));
+                            if(lignes.getChildren().contains(l)) lignes.getChildren().remove(l);
                             lignes.getChildren().add(l);
                         }
                     }
-
                 }
 
-                retour = new Polygon();
-                retour.getPoints().addAll(new Double[]{
-                        60.0,scene.getHeight()-30,
-                        80.0, scene.getHeight()-50,
-                        80.0, scene.getHeight()-40,
-                        100.0, scene.getHeight()-40,
-                        100.0, scene.getHeight()-20,
-                        80.0, scene.getHeight()-20,
-                        80.0, scene.getHeight()-10 });
+                retour.getPoints().clear();
+                retour.getPoints().addAll(60.0, scene.getHeight() - 30.0,
+                        80.0, scene.getHeight() - 50.0,
+                        80.0, scene.getHeight() - 40.0,
+                        100.0, scene.getHeight() - 40.0,
+                        100.0, scene.getHeight() - 20.0,
+                        80.0, scene.getHeight() - 20.0,
+                        80.0, scene.getHeight() - 10.0);
                 retour.setFill(new ImagePattern(new Image("file:image\\Retour.png"), 0, 0, 1, 1, true));
 
                 retour.setOnMouseClicked(event -> {
-
                     this.affichage(jeu, 1);
                     jeu.retourJeu();
-
                 });
                 for (Map.Entry<String, Competence> comp : competences.entrySet()) {
                     comp.getValue().affichage(jeu, 0);
                 }
+                if(root.getChildren().contains(nom)) root.getChildren().remove(nom);
+                if(root.getChildren().contains(lignes)) root.getChildren().remove(lignes);
+                if(root.getChildren().contains(retour)) root.getChildren().remove(retour);
                 root.getChildren().addAll(nom, lignes, retour);
                 break;
             case 1:
                 if(affiche) {
                     affiche = false;
-                    root.getChildren().removeAll(retour, nom, lignes);
+                    if(root.getChildren().contains(nom)) root.getChildren().remove(nom);
+                    if(root.getChildren().contains(lignes)) root.getChildren().remove(lignes);
+                    if(root.getChildren().contains(retour)) root.getChildren().remove(retour);
                     for (Map.Entry<String, Competence> comp : competences.entrySet()) {
                         comp.getValue().affichage(jeu, 1);
                     }
