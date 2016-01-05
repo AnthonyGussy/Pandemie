@@ -102,9 +102,4 @@ public class Tache implements java.io.Serializable {
     public boolean getTermine() { return termine; }
     
     public void setTermine(boolean termine) { this.termine = termine; }
-    
-    public static void main(String[] args) {
-    	Tache t = new Tache("Informatique", "Facile", 0);
-    	t.affichage();
-    }
 }
