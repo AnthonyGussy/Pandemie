@@ -22,6 +22,7 @@ public class ArbreDeCompetence implements java.io.Serializable {
     private boolean affiche = false;
     private String aCliquer;
     private Polygon retour;
+    private Group lignes;
 
     public ArbreDeCompetence(Modele.ArbreDeCompetence aC){
         this.aC = aC;
@@ -32,6 +33,7 @@ public class ArbreDeCompetence implements java.io.Serializable {
             competences.put(competence.getKey(), new Competence(competence.getValue().get(0), this));
         }
         nom = new Text(aC.getDepartement().getNom());
+        lignes = new Group();
     }
 
 
@@ -61,7 +63,7 @@ public class ArbreDeCompetence implements java.io.Serializable {
                             l.setStartY((scene.getHeight() * 90) / 100 - coefy1 * (scene.getHeight() * 65 / 100));
                             l.setEndX((scene.getWidth() * 15) / 100 + coefx2 * (scene.getWidth() * 60 / 100));
                             l.setEndY((scene.getHeight() * 90) / 100 - coefy2 * (scene.getHeight() * 65 / 100));
-                            root.getChildren().add(l);
+                            lignes.getChildren().add(l);
                         }
                     }
 
@@ -85,6 +87,7 @@ public class ArbreDeCompetence implements java.io.Serializable {
 
                 });
 
+                root.getChildren().add(lignes);
                 root.getChildren().add(retour);
                 for (Map.Entry<String, Competence> comp : competences.entrySet()) {
                     comp.getValue().affichage(jeu, 0);
@@ -93,7 +96,7 @@ public class ArbreDeCompetence implements java.io.Serializable {
             case 1:
                 if(affiche) {
                     affiche = false;
-                    root.getChildren().removeAll();
+                    root.getChildren().removeAll(retour, nom, lignes);
                     for (Map.Entry<String, Competence> comp : competences.entrySet()) {
                         comp.getValue().affichage(jeu, 1);
                     }

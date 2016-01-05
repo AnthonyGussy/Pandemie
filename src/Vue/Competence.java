@@ -1,5 +1,6 @@
 package Vue;
 
+import Constantes.Constantes;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -24,7 +25,6 @@ public class Competence implements java.io.Serializable {
 
     // Constructeur
     Competence(Modele.Competence c, ArbreDeCompetence arbreDeCompetenceVue){
-
         vueArbre = arbreDeCompetenceVue;
         modele = c;
         ligne = c.getLigne();
@@ -61,7 +61,7 @@ public class Competence implements java.io.Serializable {
                     if (modele.getEffet()[1] != 0) nomR.setText(nomR.getText() + "\nmoral :+" + modele.getEffet()[1]);
                     if (modele.getEffet()[2] != 0) nomR.setText(nomR.getText() + "\ntemps :+" + modele.getEffet()[2]);
 
-                    nomR.setFont(Font.loadFont("file:Font.ttf", 24));
+                    nomR.setFont(Font.loadFont("file:Font.ttf", scene.getWidth() * Constantes.TAILLE_POLICE));
                     nomR.setX((scene.getWidth() * 83.5) / 100);
                     nomR.setY((scene.getHeight() * 45) / 100);
                     //nomR.setWrappingWidth((scene.getWidth() * 14) / 100);
@@ -70,7 +70,7 @@ public class Competence implements java.io.Serializable {
 
                 // Quand la souris sort de la zone du cercle, la fenêtre de description est enlevée
                 compet.setOnMouseExited(mouseEvent -> {
-                    compet.setRadius(24);
+                    compet.setRadius(scene.getWidth() * Constantes.TAILLE_POLICE);
                     root.getChildren().remove(nomR);
                 });
 
