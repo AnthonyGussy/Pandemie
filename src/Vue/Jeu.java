@@ -65,7 +65,7 @@ public class Jeu {
      * @param afficher Entier qui détermine l'action à effectuer. 0 pour afficher, 1 pour désafficher, 2 pour mettre à jour l'affichagePlateau
      *                 et 3 pour enlever uniquement les informations, pas les départements
      */
-    public void affichagePlateau(int afficher) {
+    public void  affichagePlateau(int afficher) {
         switch(afficher) {
             case 0:
                 scene.setFill(new ImagePattern(new Image("file:image\\PandemieDep.jpg"), 0, 0, 1, 1, true));
@@ -77,9 +77,9 @@ public class Jeu {
                 texte.setX(scene.getWidth() * Constantes.POS_X_TEXTE);
                 texte.setY(scene.getHeight() * Constantes.POS_Y_TEXTE);
                 texte.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE));
-                if(root.getChildren().contains(liste)) root.getChildren().remove(liste);
-                if(root.getChildren().contains(texte)) root.getChildren().remove(texte);
-                //root.getChildren().addAll(liste, texte); Ligne qui pose problème n°3
+
+                root.getChildren().removeAll(liste,texte);
+                root.getChildren().addAll(liste, texte);
                 break;
             case 1:
                 if(affichePlateau) {
