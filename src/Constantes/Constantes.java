@@ -20,6 +20,34 @@ public final class Constantes {
 	public static final String PATH_TACHES = PATH_XML+"tache.xml";
 	public static final String PATH_PROJET = PATH_XML+"projet.xml";
 
+	// Affichage jeu
+	public static final double POS_X_LISTE = 0.84;
+	public static final double POS_Y_LISTE = 0.5;
+	public static final double LARGEUR_LISTE = 0.14;
+	public static final double HAUTEUR_LISTE = 0.16;
+	public static final double POS_X_TEXTE = 0.85;
+	public static final double POS_Y_TEXTE = 0.45;
+
+	// Affichage menu
+	public static final double POS_X_BOUTON = 0.17;
+	public static final double POS_Y_BOUTON = 0.5;
+	public static final double LARGEUR_BOUTON = 0.15;
+	public static final double HAUTEUR_BOUTON = 0.1;
+	public static final double LARGEUR_BOUTON_SURVOL = 0.155;
+	public static final double HAUTEUR_BOUTON_SURVOL = 0.105;
+
+	// Positions départements
+	public static final double POS_X_INFO = 0.269;
+	public static final double POS_Y_INFO = 0.528;
+	public static final double POS_X_ENERGIE = 0.069;
+	public static final double POS_Y_ENERGIE = 0.361;
+	public static final double POS_X_IMSI = 0.537;
+	public static final double POS_Y_IMSI = 0.375;
+	public static final double POS_X_GMC = 0.500;
+	public static final double POS_Y_GMC = 0.798;
+	public static final double POS_X_EDIM = 0.046;
+	public static final double POS_Y_EDIM = 0.729;
+
 	// Polygones départements
 	public static final ArrayList<Double> POLYGONE_INFO = new ArrayList<>(Arrays.asList(15.0, 35.0,
 			104.0, 5.0,
@@ -57,16 +85,4 @@ public final class Constantes {
 			225.0, 68.0,
 			229.0, 160.0,
 			6.0, 161.0));
-
-	// Positions départements
-	public static final double POS_X_INFO = 0.269;
-	public static final double POS_Y_INFO = 0.528;
-	public static final double POS_X_ENERGIE = 0.069;
-	public static final double POS_Y_ENERGIE = 0.361;
-	public static final double POS_X_IMSI = 0.537;
-	public static final double POS_Y_IMSI = 0.375;
-	public static final double POS_X_GMC = 0.500;
-	public static final double POS_Y_GMC = 0.798;
-	public static final double POS_X_EDIM = 0.046;
-	public static final double POS_Y_EDIM = 0.729;
 }

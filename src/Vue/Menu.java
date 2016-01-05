@@ -8,6 +8,7 @@ import javafx.scene.paint.ImagePattern;
 import java.util.ArrayList;
 import java.util.List;
 import javafx.scene.shape.Rectangle;
+import Constantes.Constantes;
 
 /**
  * Cette classe sert à instancier un menu avec différents boutons
@@ -69,17 +70,17 @@ public class Menu {
                 for (Rectangle b : boutons) {
                     root.getChildren().remove(b);
                     b.setOnMouseEntered(event -> {
-                        b.setWidth(scene.getWidth() * 15.5 / 100);
-                        b.setHeight(scene.getHeight() * 10.5 / 100);
+                        b.setWidth(scene.getWidth() * Constantes.LARGEUR_BOUTON_SURVOL);
+                        b.setHeight(scene.getHeight() * Constantes.HAUTEUR_BOUTON_SURVOL);
                     });
                     b.setOnMouseExited(event -> {
-                        b.setWidth(scene.getWidth() * 15 / 100);
-                        b.setHeight(scene.getHeight() * 10 / 100);
+                        b.setWidth(scene.getWidth() * Constantes.LARGEUR_BOUTON);
+                        b.setHeight(scene.getHeight() * Constantes.HAUTEUR_BOUTON);
                     });
-                    b.setX(((scene.getWidth() * 17 *i) / 100 ));
-                    b.setY((scene.getHeight() * 50) / 100);
-                    b.setWidth(scene.getWidth() * 15 / 100);
-                    b.setHeight(scene.getHeight() * 10 / 100);
+                    b.setX(scene.getWidth() * i * Constantes.POS_X_BOUTON);
+                    b.setY(scene.getHeight() * Constantes.POS_Y_BOUTON);
+                    b.setWidth(scene.getWidth() * Constantes.LARGEUR_BOUTON);
+                    b.setHeight(scene.getHeight() * Constantes.HAUTEUR_BOUTON);
                     root.getChildren().add(b);
                     ++i;
                 }

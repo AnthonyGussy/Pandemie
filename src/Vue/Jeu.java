@@ -7,6 +7,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import Constantes.Constantes;
 
 /**
  * Partie Vue de la classe Jeu
@@ -27,12 +28,14 @@ public class Jeu {
     public Jeu(Stage primaryStage, Modele.Jeu modele) {
         this.modele = modele;
         root = new Group();
-        scene = new Scene(root, 1024, 768);
+        scene = new Scene(root, 1024, 650);
         liste = new ImageView(new Image("file:image\\Liste.jpg"));
         texte = new Text("Départements :");
         texte.setFont(Font.loadFont("file:Font.ttf", 24));
         primaryStage.setTitle("Study Project Simulator");
         primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
+        primaryStage.setFullScreen(true);
         primaryStage.show();
         scene.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> {
             modele.redimensionner();
@@ -65,11 +68,13 @@ public class Jeu {
             case 0:
                 root.getChildren().removeAll(liste, texte);
                 affiche = true;
-                liste.setTranslateX(scene.getWidth() * 84.5 / 100);
-                liste.setTranslateY(scene.getHeight() * 50.8 / 100);
-                texte.setX((scene.getWidth() * 83.5) / 100);
-                texte.setY((scene.getHeight() * 45) / 100);
-                texte.setWrappingWidth((scene.getWidth() * 14) / 100);
+                liste.setTranslateX(scene.getWidth() * Constantes.POS_X_LISTE);
+                liste.setTranslateY(scene.getHeight() * Constantes.POS_Y_LISTE);
+                liste.setFitWidth(scene.getWidth() * Constantes.LARGEUR_LISTE);
+                liste.setFitHeight(scene.getHeight() * Constantes.HAUTEUR_LISTE);
+                texte.setX(scene.getWidth() * Constantes.POS_X_TEXTE);
+                texte.setY(scene.getHeight() * Constantes.POS_Y_TEXTE);
+                //texte.setWrappingWidth((scene.getWidth() * 14) / 100);
                 root.getChildren().addAll(liste, texte);
                 break;
             case 1:
