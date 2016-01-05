@@ -69,7 +69,6 @@ public class Departement{
         Group root = jeu.getVue().getRoot();
         switch(afficher) {
             case 0:
-                root.getChildren().remove(personne);
                 personne.getChildren().clear();
                 affiche = true;
                 departementPoly.setTranslateX(scene.getWidth() * posX);
@@ -79,12 +78,13 @@ public class Departement{
                 personne.setOnMouseEntered(mouseEvent -> eventInformation(jeu));
                 personne.setOnMouseExited(mouseEvent -> eventRemoveInformation(jeu));
                 personne.setOnMouseClicked(mouseEvent -> eventArbreDeCompetence(jeu));
+                if(root.getChildren().contains(personne)) root.getChildren().remove(personne);
                 root.getChildren().add(personne);
                 break;
             case 1:
                 if(affiche) {
                     affiche = false;
-                    root.getChildren().removeAll(personne, information);
+                    if(root.getChildren().contains(personne)) root.getChildren().remove(personne);
                 }
                 break;
             default:
@@ -109,6 +109,7 @@ public class Departement{
                 circle.setCenterX(scene.getWidth() * posX + Math.random() * polygon.getLayoutBounds().getWidth());
                 circle.setCenterY(scene.getHeight() * posY + Math.random() * polygon.getLayoutBounds().getHeight());
             } while(!polygon.contains(circle.getCenterX() - scene.getWidth() * posX, circle.getCenterY() - scene.getHeight() * posY));
+            if(depPersonne.getChildren().contains(circle)) depPersonne.getChildren().remove(circle);
             depPersonne.getChildren().add(circle);
         }
         return depPersonne;
@@ -118,7 +119,6 @@ public class Departement{
         jeu.getVue().affichagePlateau(3);
         Scene scene = jeu.getVue().getScene();
         Group root = jeu.getVue().getRoot();
-        root.getChildren().removeAll(information, nomR);
         String nom = departement.getNom();
         nomR.setText(nom);
         nomR.setX(scene.getWidth() * Constantes.POS_X_NOM_DEP);
@@ -135,16 +135,17 @@ public class Departement{
         information.setX(scene.getWidth() * Constantes.POS_X_INFOS);
         information.setY(scene.getHeight() * Constantes.POS_Y_INFOS);
         departementPoly.setFill(new ImagePattern(new Image("file:image\\"+ nom +"DepSelec.jpg"), 0, 0, 1, 1, true));
+        if(root.getChildren().contains(information)) root.getChildren().remove(information);
+        if(root.getChildren().contains(nomR)) root.getChildren().remove(nomR);
         root.getChildren().addAll(information, nomR);
     }
     private void eventRemoveInformation(Modele.Jeu jeu){
-        if(affiche) {
-            jeu.getVue().affichagePlateau(0);
-            Group root = jeu.getVue().getRoot();
-            root.getChildren().removeAll(information, nomR);
-            String nom = departement.getNom();
-            departementPoly.setFill(new ImagePattern(new Image("file:image\\" + nom + "Dep.jpg"), 0, 0, 1, 1, true));
-        }
+        Group root = jeu.getVue().getRoot();
+        if(root.getChildren().contains(information)) root.getChildren().remove(information);
+        if(root.getChildren().contains(nomR)) root.getChildren().remove(nomR);
+        String nom = departement.getNom();
+        departementPoly.setFill(new ImagePattern(new Image("file:image\\" + nom + "Dep.jpg"), 0, 0, 1, 1, true));
+        jeu.getVue().affichagePlateau(0);
     }
     private void eventArbreDeCompetence(Modele.Jeu jeu){
         eventRemoveInformation(jeu);
