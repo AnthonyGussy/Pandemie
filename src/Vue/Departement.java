@@ -130,7 +130,7 @@ public class Departement{
         int infecte = departement.getNbActif();
         information = new Text("Efficacité : " + Integer.toString(efficacite) + "%\nMoral : " + Integer.toString(moral) + "%\n" +
                 "Nb tâches : " + Integer.toString(taches) + "\n" + "Nb actifs : " + Integer.toString(infecte));
-        information.setFont(Font.loadFont("file:Font.ttf", 24));
+        information.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE));
         information.setX(scene.getWidth() * Constantes.POS_X_INFOS);
         information.setY(scene.getHeight() * Constantes.POS_Y_INFOS);
         //information.setWrappingWidth((scene.getWidth() * 14) / 100);
