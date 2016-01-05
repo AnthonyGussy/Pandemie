@@ -24,16 +24,6 @@ public class Menu {
         for(BoutonType type : boutonTypes) {
             Rectangle b = new Rectangle();
 
-            b.setOnMouseEntered(event -> {
-                b.setHeight(79);
-                b.setWidth(154);
-            });
-
-            b.setOnMouseExited(event -> {
-                b.setHeight(77);
-                b.setWidth(152);
-            });
-
             ImagePattern imagePattern = new ImagePattern(new Image("file:image\\Pandemie" + type + ".jpg"), 0, 0, 1, 1, true);
 
             if(!imagePattern.getImage().isError()) {
@@ -78,10 +68,18 @@ public class Menu {
                 int i = 1;
                 for (Rectangle b : boutons) {
                     root.getChildren().remove(b);
+                    b.setOnMouseEntered(event -> {
+                        b.setWidth(scene.getWidth() * 15.5 / 100);
+                        b.setHeight(scene.getHeight() * 10.5 / 100);
+                    });
+                    b.setOnMouseExited(event -> {
+                        b.setWidth(scene.getWidth() * 15 / 100);
+                        b.setHeight(scene.getHeight() * 10 / 100);
+                    });
                     b.setX(((scene.getWidth() * 17 *i) / 100 ));
                     b.setY((scene.getHeight() * 50) / 100);
-                    b.setHeight(77);
-                    b.setWidth(152);
+                    b.setWidth(scene.getWidth() * 15 / 100);
+                    b.setHeight(scene.getHeight() * 10 / 100);
                     root.getChildren().add(b);
                     ++i;
                 }

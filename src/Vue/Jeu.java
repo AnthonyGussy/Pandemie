@@ -30,6 +30,7 @@ public class Jeu {
         scene = new Scene(root, 1024, 768);
         liste = new ImageView(new Image("file:image\\Liste.jpg"));
         texte = new Text("Départements :");
+        texte.setFont(Font.loadFont("file:Font.ttf", 24));
         primaryStage.setTitle("Study Project Simulator");
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -54,6 +55,11 @@ public class Jeu {
      */
     public Scene getScene() { return scene; }
 
+    /**
+     * Méthode qui affiche le "plateau de jeu"
+     * @param afficher Entier qui détermine l'action à effectuer. 0 pour afficher, 1 pour désafficher, 2 pour mettre à jour l'affichage
+     *                 et 3 pour enlever uniquement les informations, pas les départements
+     */
     public void affichage(int afficher) {
         switch(afficher) {
             case 0:
@@ -64,7 +70,6 @@ public class Jeu {
                 texte.setX((scene.getWidth() * 83.5) / 100);
                 texte.setY((scene.getHeight() * 45) / 100);
                 texte.setWrappingWidth((scene.getWidth() * 14) / 100);
-                texte.setFont(Font.loadFont("file:Font.ttf", 24));
                 root.getChildren().addAll(liste, texte);
                 break;
             case 1:
