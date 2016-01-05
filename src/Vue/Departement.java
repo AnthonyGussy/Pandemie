@@ -57,6 +57,7 @@ public class Departement{
                 departementPoly.getPoints().addAll(Constantes.POLYGONE_EDIM);
         }
         departementPoly.setFill(new ImagePattern(new Image("file:image\\" + departement.getNom() + "Dep.jpg"), 0, 0, 1, 1, true));
+        information = new Text();
         nomR = new Text();
         personne = new Group();
         pointInfecte = new ImagePattern(new Image("file:image\\PointInfecte.png"));
@@ -71,7 +72,6 @@ public class Departement{
                 root.getChildren().remove(personne);
                 personne.getChildren().clear();
                 affiche = true;
-                scene.setFill(new ImagePattern(new Image("file:image\\PandemieDep.jpg"), 0, 0, 1, 1, true));
                 departementPoly.setTranslateX(scene.getWidth() * posX);
                 departementPoly.setTranslateY(scene.getHeight() * posY);
                 personne.getChildren().add(departementPoly);
@@ -129,12 +129,11 @@ public class Departement{
         int moral = departement.getMoral();
         int taches = departement.getNbTaches();
         int infecte = departement.getNbActif();
-        information = new Text("Efficacité : " + Integer.toString(efficacite) + "%\nMoral : " + Integer.toString(moral) + "%\n" +
+        information.setText("Efficacité : " + Integer.toString(efficacite) + "%\nMoral : " + Integer.toString(moral) + "%\n" +
                 "Nb tâches : " + Integer.toString(taches) + "\n" + "Nb actifs : " + Integer.toString(infecte));
         information.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE));
         information.setX(scene.getWidth() * Constantes.POS_X_INFOS);
         information.setY(scene.getHeight() * Constantes.POS_Y_INFOS);
-        //information.setWrappingWidth((scene.getWidth() * 14) / 100);
         departementPoly.setFill(new ImagePattern(new Image("file:image\\"+ nom +"DepSelec.jpg"), 0, 0, 1, 1, true));
         root.getChildren().addAll(information, nomR);
     }

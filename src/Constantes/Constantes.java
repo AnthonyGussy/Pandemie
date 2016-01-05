@@ -43,6 +43,33 @@ public final class Constantes {
 	public static final double LARGEUR_BOUTON_SURVOL = 0.155;
 	public static final double HAUTEUR_BOUTON_SURVOL = 0.105;
 
+	// Affichage coin
+	public static final double LARGEUR_COIN = 0.205;
+	public static final double HAUTEUR_COIN = 0.14;
+	public static final double POS_X_COIN_MENU = 0.068;
+	public static final double POS_Y_COIN_MENU = 0.068;
+	public static final double POS_X_COIN_AFFICHAGE = 0.0;
+	public static final double POS_Y_COIN_AFFICHAGE = 0.089;
+	public static final ArrayList<Double> POLYGONE_COIN_MENU_FS = new ArrayList<>(Arrays.asList(224.0, 32.0,
+			210.0, 52.0,
+			116.0, 66.0,
+			94.0, 52.0));
+	public static final ArrayList<Double> POLYGONE_COIN_AFFICHAGE_FS = new ArrayList<>(Arrays.asList(116.0, 66.0,
+			94.0, 52.0,
+			0.0, 67.0,
+			0.0, 77.0,
+			11.0, 87.0,
+			106.0, 74.0));
+	public static final ArrayList<Double> POLYGONE_COIN_MENU_W = new ArrayList<>(Arrays.asList(170.0, 27.0,
+			159.0, 44.0,
+			87.0, 57.0,
+			70.0, 44.0));
+	public static final ArrayList<Double> POLYGONE_COIN_AFFICHAGE_W = new ArrayList<>(Arrays.asList(87.0, 57.0,
+			70.0, 44.0,
+			0.0, 58.0,
+			0.0, 67.0,
+			10.0, 74.0,
+			79.0, 63.0));
 	// Affichage arbre de compétences
 	public static final double TAILLE_POLICE_TITRE = 0.030;
 
