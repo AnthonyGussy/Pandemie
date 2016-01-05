@@ -63,13 +63,12 @@ public class Departement{
         Group root = jeu.getVue().getRoot();
         switch(afficher) {
             case 0:
+                root.getChildren().removeAll(personne, information);
                 affiche = true;
                 personne = new Group();
                 scene.setFill(new ImagePattern(new Image("file:image\\PandemieDep.jpg"), 0, 0, 1, 1, true));
                 departementPoly.setTranslateX(scene.getWidth() * posX);
                 departementPoly.setTranslateY(scene.getHeight() * posY);
-
-
                 personne.getChildren().add(departementPoly);
                 personne.getChildren().add(genePoint(jeu, departementPoly));
                 personne.setOnMouseEntered(mouseEvent -> eventInformation(jeu));
