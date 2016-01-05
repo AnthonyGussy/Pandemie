@@ -75,7 +75,6 @@ public class Jeu {
                 texte.setX(scene.getWidth() * Constantes.POS_X_TEXTE);
                 texte.setY(scene.getHeight() * Constantes.POS_Y_TEXTE);
                 texte.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE));
-                //texte.setWrappingWidth((scene.getWidth() * 14) / 100);
                 root.getChildren().addAll(liste, texte);
                 break;
             case 1:

@@ -58,6 +58,7 @@ public class Departement{
         }
         departementPoly.setFill(new ImagePattern(new Image("file:image\\" + departement.getNom() + "Dep.jpg"), 0, 0, 1, 1, true));
         nomR = new Text();
+        personne = new Group();
         pointInfecte = new ImagePattern(new Image("file:image\\PointInfecte.png"));
         pointNormal = new ImagePattern(new Image("file:image\\PointNormal.png"));
     }
@@ -67,9 +68,9 @@ public class Departement{
         Group root = jeu.getVue().getRoot();
         switch(afficher) {
             case 0:
-                root.getChildren().removeAll(personne, information);
+                root.getChildren().remove(personne);
+                personne.getChildren().clear();
                 affiche = true;
-                personne = new Group();
                 scene.setFill(new ImagePattern(new Image("file:image\\PandemieDep.jpg"), 0, 0, 1, 1, true));
                 departementPoly.setTranslateX(scene.getWidth() * posX);
                 departementPoly.setTranslateY(scene.getHeight() * posY);
