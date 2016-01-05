@@ -114,6 +114,7 @@ public class Departement{
     }
 
     private void eventInformation(Modele.Jeu jeu){
+        jeu.getVue().affichage(3);
         Scene scene = jeu.getVue().getScene();
         Group root = jeu.getVue().getRoot();
         root.getChildren().remove(liste);
@@ -134,6 +135,7 @@ public class Departement{
     }
     private void eventRemoveInformation(Modele.Jeu jeu){
         if(affiche) {
+            jeu.getVue().affichage(0);
             Group root = jeu.getVue().getRoot();
             root.getChildren().remove(information);
             String nom = departement.getNom();

@@ -57,6 +57,7 @@ public class Jeu {
     public void affichage(int afficher) {
         switch(afficher) {
             case 0:
+                root.getChildren().removeAll(liste, texte);
                 affiche = true;
                 liste.setTranslateX(scene.getWidth() * 84.5 / 100);
                 liste.setTranslateY(scene.getHeight() * 50.8 / 100);
@@ -64,6 +65,7 @@ public class Jeu {
                 texte.setY((scene.getHeight() * 45) / 100);
                 texte.setWrappingWidth((scene.getWidth() * 14) / 100);
                 texte.setFont(Font.loadFont("file:Font.ttf", 24));
+                root.getChildren().addAll(liste, texte);
                 break;
             case 1:
                 if(affiche) {
@@ -74,12 +76,17 @@ public class Jeu {
                     root.getChildren().removeAll(liste, texte);
                 }
                 break;
-            default:
+            case 2:
                 if(affiche) {
                     affichage(0);
                     for(Modele.Departement departement : modele.getDepartements()) {
                         departement.getVue().affichage(modele, 2);
                     }
+                }
+                break;
+            case 3:
+                if(affiche) {
+                    root.getChildren().removeAll(liste, texte);
                 }
         }
     }
