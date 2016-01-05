@@ -9,6 +9,8 @@
 		<projet>
 			<nom></nom>
 			<description></description>
+			<temps>400</temps>
+			<infecte>5</infecte>
 		</projet>
 		
 	</Informatique>
@@ -18,6 +20,8 @@
 		<projet>
 			<nom></nom>
 			<description></description>
+			<temps>400</temps>
+			<infecte>5</infecte>
 		</projet>
 		
 	</Energie>
@@ -27,6 +31,8 @@
 		<projet>
 			<nom></nom>
 			<description></description>
+			<temps>400</temps>
+			<infecte>5</infecte>
 		</projet>
 		
 	</Imsi>
@@ -36,6 +42,8 @@
 		<projet>
 			<nom></nom>
 			<description></description>
+			<temps>400</temps>
+			<infecte>5</infecte>
 		</projet>
 		
 	</Gmc>
@@ -45,6 +53,8 @@
 		<projet>
 			<nom></nom>
 			<description></description>
+			<temps>400</temps>
+			<infecte>5</infecte>
 		</projet>
 		
 	</Edim>
