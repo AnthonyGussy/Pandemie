@@ -2,19 +2,18 @@ package Modele;
 
 public class Competence implements java.io.Serializable {
 
-    private String nom;
-    private String description;
-    private int ligne;
-    private int colonne;
-    private int[] effet;  //contient 3 valeurs correspondant a l'efficacite, le moral et le temps
-    private int cout;
-    private int nbLignes;
-    private int nbColonnes;
-    private boolean debloque;
-    private boolean achete;
-    private String sommetLie;   //la liste des sommets lie de forme ligne,colonne separer par des points virgules
-
-    ArbreDeCompetence arbreDeCompetence;
+    protected String nom;
+    protected String description;
+    protected int ligne;
+    protected int colonne;
+    protected int[] effet;  //contient 3 valeurs correspondant a l'efficacite, le moral et le temps
+    protected int cout;
+    protected int nbLignes;
+    protected int nbColonnes;
+    protected boolean debloque;
+    protected boolean achete;
+    protected String sommetLie;   //la liste des sommets lie de forme ligne,colonne separer par des points virgules
+    protected ArbreDeCompetence arbreDeCompetence;
 
     Competence(String _nom, String _description, int _ligne, int _colonne, int[] _effet, int _cout, String _sommetLie, int _nbColonnes, int _nbLignes, ArbreDeCompetence arbre){
         arbreDeCompetence = arbre;
