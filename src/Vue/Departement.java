@@ -23,7 +23,9 @@ public class Departement{
     private Group personne;
     private double posX;
     private double posY;
-    Modele.Departement departement;
+    private Modele.Departement departement;
+    private ImagePattern pointInfecte;
+    private ImagePattern pointNormal;
 
     public Departement(Modele.Departement departement){
         this.departement = departement;
@@ -56,6 +58,8 @@ public class Departement{
         }
         departementPoly.setFill(new ImagePattern(new Image("file:image\\" + departement.getNom() + "Dep.jpg"), 0, 0, 1, 1, true));
         nomR = new Text();
+        pointInfecte = new ImagePattern(new Image("file:image\\PointInfecte.png"));
+        pointNormal = new ImagePattern(new Image("file:image\\PointNormal.png"));
     }
 
     public void affichage(Modele.Jeu jeu, int afficher) {
@@ -96,9 +100,9 @@ public class Departement{
             Circle circle = new Circle();
             circle.setRadius(4);
             if (i < departement.getNbActif()) {
-                circle.setFill(new ImagePattern(new Image("file:image\\PointInfecte.png")));
+                circle.setFill(pointInfecte);
             } else {
-                circle.setFill(new ImagePattern(new Image("file:image\\PointNormal.png")));
+                circle.setFill(pointNormal);
             }
             do {
                 circle.setCenterX(scene.getWidth() * posX + Math.random() * polygon.getLayoutBounds().getWidth());
