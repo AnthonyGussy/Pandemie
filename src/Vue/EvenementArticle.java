@@ -70,6 +70,6 @@ public class EvenementArticle implements java.io.Serializable {
     }
     
     public void changerAffichage() { 
-    	// Changer affichage au bout d'un certain temps ou bouton ok
+    	// Changer affichagePlateau au bout d'un certain temps ou bouton ok
     }
 }

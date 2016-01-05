@@ -73,11 +73,11 @@ public class Jeu implements java.io.Serializable {
         for(Modele.Departement dep : departements) {
             dep.getVue().affichage(this, 0);
         }
-        vue.affichage(0);
+        vue.affichagePlateau(0);
 
         /*evenements.add(new EvenementArticle(DepartementNom.Gmc, "Facile", 0));
         EvenementArticle test = (EvenementArticle) evenements.get(0);
-        test.getEAV().affichage(this, 0);*/
+        test.getEAV().affichagePlateau(this, 0);*/
     }
 
     /**
@@ -176,10 +176,10 @@ public class Jeu implements java.io.Serializable {
     }
 
     /**
-     * Cette méthode redimensionne les éléments actifs de l'affichage lorsque la fenêtre est redimensionnée
+     * Cette méthode redimensionne les éléments actifs de l'affichagePlateau lorsque la fenêtre est redimensionnée
      */
     public void redimensionner() {
-        vue.affichage(2);
+        vue.affichagePlateau(2);
         for(Menu menu : menus) {
             menu.affichage(this, 2);
         }

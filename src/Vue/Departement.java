@@ -85,7 +85,6 @@ public class Departement{
                 if(affiche) {
                     affiche = false;
                     root.getChildren().removeAll(personne, information);
-                    //root.getChildren().clear();
                 }
                 break;
             default:
@@ -116,7 +115,7 @@ public class Departement{
     }
 
     private void eventInformation(Modele.Jeu jeu){
-        jeu.getVue().affichage(3);
+        jeu.getVue().affichagePlateau(3);
         Scene scene = jeu.getVue().getScene();
         Group root = jeu.getVue().getRoot();
         root.getChildren().removeAll(information, nomR);
@@ -141,7 +140,7 @@ public class Departement{
     }
     private void eventRemoveInformation(Modele.Jeu jeu){
         if(affiche) {
-            jeu.getVue().affichage(0);
+            jeu.getVue().affichagePlateau(0);
             Group root = jeu.getVue().getRoot();
             root.getChildren().removeAll(information, nomR);
             String nom = departement.getNom();
@@ -150,7 +149,7 @@ public class Departement{
     }
     private void eventArbreDeCompetence(Modele.Jeu jeu){
         eventRemoveInformation(jeu);
-        jeu.getVue().affichage(1);
+        jeu.getVue().affichagePlateau(1);
         departement.getArbre().getVue().affichage(jeu, 0);
     }
 }

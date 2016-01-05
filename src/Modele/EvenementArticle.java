@@ -85,8 +85,8 @@ public class EvenementArticle extends Evenement implements java.io.Serializable 
 	}
 
 	// temporaire
-/*	public void affichage(){
-    	super.affichage();
+/*	public void affichagePlateau(){
+    	super.affichagePlateau();
     	System.out.println("nom : "+nom);
     	System.out.println("description : "+description);
     	System.out.println("moral : "+effets[0]);
@@ -103,8 +103,8 @@ public class EvenementArticle extends Evenement implements java.io.Serializable 
 		EvenementArticle b = new EvenementArticle(a.departement, a.nom, a.description, a.effets);
 		a.effets[0] = 1000;
 		b.effets[1] = -5;
-		a.affichage();
-		b.affichage();
+		a.affichagePlateau();
+		b.affichagePlateau();
 	}
 */
 	public String getNom() { return nom; }

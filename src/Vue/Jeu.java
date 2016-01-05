@@ -11,7 +11,7 @@ import Constantes.Constantes;
 
 /**
  * Partie Vue de la classe Jeu
- * Cette classe sert à instancier l'affichage du jeu
+ * Cette classe sert à instancier l'affichagePlateau du jeu
  */
 
 public class Jeu {
@@ -23,6 +23,8 @@ public class Jeu {
     private ImageView liste;
     private Text texte;
     private boolean affiche = false;
+    private Image[] coinImages;
+    private Image coin;
 
     // Constructeur
     public Jeu(Stage primaryStage, Modele.Jeu modele) {
@@ -31,6 +33,14 @@ public class Jeu {
         scene = new Scene(root, 1024, 650);
         liste = new ImageView(new Image("file:image\\Liste.jpg"));
         texte = new Text("Départements :");
+
+        coinImages = new Image[]{ new Image("file:image\\FullScreen\\PandemieNoSelection.jpg"),
+                new Image("file:image\\FullScreen\\PandemieMenuSelection.jpg"),
+                new Image("file:image\\FullScreen\\PandemieAffichageSelection.jpg"),
+                new Image("file:image\\Fenêtré\\PandemieNoSelection.jpg"),
+                new Image("file:image\\Fenêtré\\PandemieMenuSelection.jpg"),
+                new Image("file:image\\Fenêtré\\PandemieAffichageSelection.jpg") };
+        coin = coinImages[0];
 
         primaryStage.setTitle("Study Project Simulator");
         primaryStage.setScene(scene);
@@ -60,10 +70,10 @@ public class Jeu {
 
     /**
      * Méthode qui affiche le "plateau de jeu"
-     * @param afficher Entier qui détermine l'action à effectuer. 0 pour afficher, 1 pour désafficher, 2 pour mettre à jour l'affichage
+     * @param afficher Entier qui détermine l'action à effectuer. 0 pour afficher, 1 pour désafficher, 2 pour mettre à jour l'affichagePlateau
      *                 et 3 pour enlever uniquement les informations, pas les départements
      */
-    public void affichage(int afficher) {
+    public void affichagePlateau(int afficher) {
         switch(afficher) {
             case 0:
                 root.getChildren().removeAll(liste, texte);
@@ -88,7 +98,7 @@ public class Jeu {
                 break;
             case 2:
                 if(affiche) {
-                    affichage(0);
+                    affichagePlateau(0);
                     for(Modele.Departement departement : modele.getDepartements()) {
                         departement.getVue().affichage(modele, 2);
                     }
@@ -106,5 +116,9 @@ public class Jeu {
                     root.getChildren().removeAll(liste, texte);
                 }
         }
+    }
+
+    public void affichageCoin() {
+
     }
 }
