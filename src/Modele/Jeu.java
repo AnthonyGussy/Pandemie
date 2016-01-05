@@ -4,6 +4,10 @@ import Enumerations.DepartementNom;
 import Enumerations.BoutonType;
 import Vue.Compteur;
 import Vue.Menu;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -66,12 +70,18 @@ public class Jeu implements java.io.Serializable {
         test.getEAV().affichage(this, 0);*/
     }
 
-    public void retourJeu() {
+    public void affichage(int afficher) {
+        /*liste = new ImageView(new Image("file:image\\Liste.jpg"));
+        liste.setTranslateX(scene.getWidth() * 84.5 / 100);
+        liste.setTranslateY(scene.getHeight() * 50.8 / 100);
+        texte = new Text("Departements :");
+        text.setFont(Font.loadFont("file:Font.ttf", 24));*/
+    }
 
+    public void retourJeu() {
         for(Modele.Departement dep : departements) {
             dep.getVue().affichage(this, 0);
         }
-
     }
 
 

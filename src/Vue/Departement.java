@@ -55,9 +55,6 @@ public class Departement{
                 departementPoly.getPoints().addAll(Constantes.POLYGONE_EDIM);
         }
         departementPoly.setFill(new ImagePattern(new Image("file:image\\" + departement.getNom() + "Dep.jpg"), 0, 0, 1, 1, true));
-        liste = new ImageView(new Image("file:image\\Liste.jpg"));
-        nomR = new Text("Departements :");
-        nomR.setFont(Font.loadFont("file:Font.ttf", 24));
     }
 
     public void affichage(Modele.Jeu jeu, int afficher) {
@@ -70,8 +67,7 @@ public class Departement{
                 scene.setFill(new ImagePattern(new Image("file:image\\PandemieDep.jpg"), 0, 0, 1, 1, true));
                 departementPoly.setTranslateX(scene.getWidth() * posX);
                 departementPoly.setTranslateY(scene.getHeight() * posY);
-                liste.setTranslateX(scene.getWidth() * 84.5 / 100);
-                liste.setTranslateY(scene.getHeight() * 50.8 / 100);
+
                 nomR.setX((scene.getWidth() * 83.5) / 100);
                 nomR.setY((scene.getHeight() * 45) / 100);
                 nomR.setWrappingWidth((scene.getWidth() * 14) / 100);
@@ -85,8 +81,8 @@ public class Departement{
             case 1:
                 if(affiche) {
                     affiche = false;
-                    //root.getChildren().removeAll(nomR, liste, personne, information);
-                    root.getChildren().clear();
+                    root.getChildren().removeAll(nomR, personne, information);
+                    //root.getChildren().clear();
                 }
                 break;
             default:
@@ -106,12 +102,10 @@ public class Departement{
             } else {
                 circle.setFill(new ImagePattern(new Image("file:image\\PointNormal.png")));
             }
-            do{
-
+            do {
                 circle.setCenterX(scene.getWidth() * posX + Math.random() * polygon.getLayoutBounds().getWidth());
                 circle.setCenterY(scene.getHeight() * posY + Math.random() * polygon.getLayoutBounds().getHeight());
-
-            }while(!polygon.contains(circle.getCenterX() - scene.getWidth() * posX, circle.getCenterY() - scene.getHeight() * posY));
+            } while(!polygon.contains(circle.getCenterX() - scene.getWidth() * posX, circle.getCenterY() - scene.getHeight() * posY));
             depPersonne.getChildren().add(circle);
         }
         return depPersonne;
@@ -140,8 +134,6 @@ public class Departement{
         if(affiche) {
             Group root = jeu.getVue().getRoot();
             root.getChildren().remove(information);
-            nomR.setText("Departements :");
-            root.getChildren().add(liste);
             String nom = departement.getNom();
             departementPoly.setFill(new ImagePattern(new Image("file:image\\" + nom + "Dep.jpg"), 0, 0, 1, 1, true));
         }
