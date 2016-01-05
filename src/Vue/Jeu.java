@@ -68,7 +68,6 @@ public class Jeu {
     public void affichagePlateau(int afficher) {
         switch(afficher) {
             case 0:
-                root.getChildren().removeAll(liste, texte);
                 scene.setFill(new ImagePattern(new Image("file:image\\PandemieDep.jpg"), 0, 0, 1, 1, true));
                 affichePlateau = true;
                 liste.setX(scene.getWidth() * Constantes.POS_X_LISTE);
@@ -78,15 +77,17 @@ public class Jeu {
                 texte.setX(scene.getWidth() * Constantes.POS_X_TEXTE);
                 texte.setY(scene.getHeight() * Constantes.POS_Y_TEXTE);
                 texte.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE));
+                if(root.getChildren().contains(liste)) root.getChildren().remove(liste);
+                if(root.getChildren().contains(texte)) root.getChildren().remove(texte);
                 root.getChildren().addAll(liste, texte);
                 break;
             case 1:
                 if(affichePlateau) {
-                    affichePlateau = false;
                     for(Modele.Departement departement : modele.getDepartements()) {
                         departement.getVue().affichage(modele, 1);
                     }
-                    root.getChildren().removeAll(liste, texte);
+                    affichagePlateau(3);
+                    affichePlateau = false;
                 }
                 break;
             case 2:
@@ -106,7 +107,8 @@ public class Jeu {
                 break;
             case 3:
                 if(affichePlateau) {
-                    root.getChildren().removeAll(liste, texte);
+                    if(root.getChildren().contains(liste)) root.getChildren().remove(liste);
+                    if(root.getChildren().contains(texte)) root.getChildren().remove(texte);
                 }
         }
     }
