@@ -29,8 +29,8 @@ public class Regles {
         this.jeu = jeu;
         retour.getPoints().addAll(Constantes.POLYGONE_RETOUR);
         retour.setFill(new ImagePattern(new Image("file:image\\RetourMenu.jpg"), 0, 0, 1, 1, true));
-        posRetour[0]=Constantes.POS_X_RETOUR;
-        posRetour[1]=Constantes.POS_Y_RETOUR;
+        posRetour[0] = Constantes.POS_X_RETOUR;
+        posRetour[1] = Constantes.POS_Y_RETOUR;
 
         retour.setOnMouseEntered(mouseEvent -> eventRetour(1));
         retour.setOnMouseExited(mouseEvent -> eventRetour(2));
@@ -91,18 +91,13 @@ public class Regles {
                 affichage(jeu, 2);
                 retour.setVisible(true);
                 fleche.setVisible(true);
+                scene.setFill(page);
                 break;
             case 1 :
                 fleche.setVisible(false);
                 retour.setVisible(false);
                 break;
             default :
-                fleche.setTranslateX(scene.getWidth() * posFleche[0]);
-                fleche.setTranslateY(scene.getHeight() * posFleche[1]);
-                flecheOmbre.setTranslateX(scene.getWidth() * posFleche[0]);
-                flecheOmbre.setTranslateY(scene.getHeight() * posFleche[1]);
-                retour.setTranslateX(scene.getWidth() * posRetour[0]);
-                retour.setTranslateY(scene.getHeight() * posRetour[1]);
                 switch(pageActive){
                     case 1 :
                         page = new ImagePattern(new Image("file:image\\PandemieRegleP1.jpg"), 0, 0, 1, 1, true);
@@ -129,7 +124,12 @@ public class Regles {
                         pageActive = 2;
                         break;
                 }
-                scene.setFill(page);
+                fleche.setTranslateX(scene.getWidth() * posFleche[0]);
+                fleche.setTranslateY(scene.getHeight() * posFleche[1]);
+                flecheOmbre.setTranslateX(scene.getWidth() * posFleche[0]);
+                flecheOmbre.setTranslateY(scene.getHeight() * posFleche[1]);
+                retour.setTranslateX(scene.getWidth() * posRetour[0]);
+                retour.setTranslateY(scene.getHeight() * posRetour[1]);
         }
     }
 }
