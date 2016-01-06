@@ -86,10 +86,10 @@ public class Jeu {
                 texte.setVisible(true);
                 break;
             case 1:
+                affichagePlateau(3);
                 for(Modele.Departement departement : modele.getDepartements()) {
                     departement.getVue().affichage(scene, 1);
                 }
-                affichagePlateau(3);
                 break;
             case 2:
                 liste.setVisible(true);
