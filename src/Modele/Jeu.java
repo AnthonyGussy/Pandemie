@@ -200,7 +200,7 @@ public class Jeu implements java.io.Serializable {
             switch(type) {
                 case "Modele.EvenementArticle":
                     EvenementArticle temp = (EvenementArticle) evenement;
-                    //temp.getEAV().affichage(this, 2);
+                    temp.getVue().affichage(this, 2);
                     break;
                 case "Modele.EvenementAccomplissementModele":
                     break;
