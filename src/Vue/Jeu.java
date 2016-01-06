@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import Constantes.Constantes;
+import Modele.TacheList;
 
 /**
  * Partie Vue de la classe Jeu
@@ -34,7 +35,7 @@ public class Jeu {
         root = new Group();
         scene = new Scene(root, Constantes.LARGEUR_FENETRE, Constantes.HAUTEUR_FENETRE);
         liste = new ImageView(new Image("file:image\\Liste.jpg"));
-        texte = new Text("DÃ©partements :");
+        texte = new Text("départements :");
         liste.setVisible(false);
         texte.setVisible(false);
         root.getChildren().addAll(liste, texte);
@@ -115,6 +116,12 @@ public class Jeu {
                 texte.setY(scene.getHeight() * Constantes.POS_Y_TEXTE);
                 texte.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE));
                 break;
+             // Pour tester l'affichage des tâches
+            case 4:
+            	scene.setFill(new ImagePattern(new Image("file:image\\PandemieCompetenceJournal.jpg"), 0, 0, 1, 1, true));
+            	TacheList a = new TacheList("Informatique", "Facile");
+            	Vue.Tache b = new Vue.Tache(a, root);
+            	b.affichage(1, scene);
             default:
                 liste.setVisible(false);
                 texte.setVisible(false);
