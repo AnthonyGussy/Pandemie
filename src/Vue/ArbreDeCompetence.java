@@ -5,6 +5,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Polygon;
@@ -23,8 +24,12 @@ public class ArbreDeCompetence implements java.io.Serializable {
     private String aCliquer;
     private Polygon retour;
     private Group lignes;
+    protected Text noPoint;
 
     public ArbreDeCompetence(Modele.ArbreDeCompetence aC, Modele.Jeu jeu){
+
+        noPoint = new Text("Vous n'avez pas assez de points");
+        noPoint.setFill(Color.ORANGERED);
         retour = new Polygon();
         this.aC = aC;
         aCliquer = "";
@@ -39,7 +44,9 @@ public class ArbreDeCompetence implements java.io.Serializable {
         nom.setVisible(false);
         lignes.setVisible(false);
         retour.setVisible(false);
-        jeu.getVue().getRoot().getChildren().addAll(nom, lignes, retour);
+        noPoint.setVisible(false);
+
+        jeu.getVue().getRoot().getChildren().addAll(nom, lignes, retour,noPoint);
         HashMap<String, ArrayList<Modele.Competence>> temporaire = aC.getComp();
         for (Map.Entry<String, ArrayList<Modele.Competence>> competence : temporaire.entrySet()) {
             competences.put(competence.getKey(), new Competence(competence.getValue().get(0), this,jeu));
@@ -76,6 +83,7 @@ public class ArbreDeCompetence implements java.io.Serializable {
                 nom.setVisible(false);
                 lignes.setVisible(false);
                 retour.setVisible(false);
+                noPoint.setVisible(false);
         }
 
     }
@@ -133,6 +141,20 @@ public class ArbreDeCompetence implements java.io.Serializable {
 
     }
 
+
+
     public String getACliquer() { return aCliquer; }
     public void setACliquer(String aCliquer) { this.aCliquer = aCliquer; }
+
+    public void setNoPoint(boolean visible) {
+        noPoint.setVisible(visible);
+    }
+
+    public void manquePoint(Modele.Jeu jeu) {
+        noPoint.setFont(Font.loadFont("file:Font.ttf", jeu.getVue().getScene().getHeight() * Constantes.TAILLE_POLICE));
+        noPoint.setX((jeu.getVue().getScene().getWidth() * 83.5) / 100);
+        noPoint.setY((jeu.getVue().getScene().getHeight() * 50) / 100);
+        noPoint.setWrappingWidth((jeu.getVue().getScene().getWidth() * 14) / 100);
+        noPoint.setVisible(true);
+    }
 }

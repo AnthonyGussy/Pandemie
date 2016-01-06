@@ -4,6 +4,7 @@ import Constantes.Constantes;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.*;
@@ -22,6 +23,7 @@ public class Competence implements java.io.Serializable {
     protected int colonne;
     protected int ligne;
     protected Text nomR;
+
 
     // Constructeur
     Competence(Modele.Competence c, ArbreDeCompetence arbreDeCompetenceVue,Modele.Jeu jeu) {
@@ -69,6 +71,7 @@ public class Competence implements java.io.Serializable {
                 compet.setOnMouseEntered(mouseEvent -> {
                     if (modele.getDebloque()) compet.setRadius(26);
 
+                    vueArbre.setNoPoint(false);
                     nomR.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE));
                     nomR.setX((scene.getWidth() * 83.5) / 100);
                     nomR.setY((scene.getHeight() * 45) / 100);
@@ -83,7 +86,8 @@ public class Competence implements java.io.Serializable {
                 });
 
 
-                compet.setOnMouseClicked(mouseEvent -> { eventAchat(jeu); });
+                compet.setOnMouseClicked(mouseEvent -> {
+                    eventAchat(jeu); });
                 break;
             case 2:
 
@@ -123,7 +127,8 @@ public class Competence implements java.io.Serializable {
                 compet.setFill(new ImagePattern(new Image("file:image\\CompetenceAchete.png"), 0, 0, 1, 1, true));
                 vueArbre.changementAffichage(ligne);
             } else if (jeu.getPtsCompetence() < modele.getCout()) {
-                System.out.println("Pas assez de points de compétence");
+                nomR.setVisible(false);
+                vueArbre.manquePoint(jeu);
             }
         } else vueArbre.setACliquer(ligne + "," + colonne);
 
