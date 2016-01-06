@@ -31,6 +31,7 @@ public class Jeu implements java.io.Serializable {
     private ArrayList<Modele.Departement> departements;
     private ArrayList<Compteur> compteurs;
     private ArrayList<Modele.Evenement> evenements;
+    private Modele.EvenementPopUp popUp;
 
     // Constructeur
     public Jeu(Stage primaryStage) {
@@ -203,5 +204,13 @@ public class Jeu implements java.io.Serializable {
             }
         }
     }
+
+    public void setPopUp() {
+
+        popUp = new EvenementPopUp(departements.get(((int)Math.random()*5)),this);
+
+    }
+
+    public Modele.EvenementPopUp getPopUp() { return popUp;}
 }
 

@@ -8,7 +8,7 @@
 			<tache>
 				<nom>Site Web statique</nom>
 				<description>Création d'une site Web statique</description>
-				<temps>8</temps>
+				<temps>12</temps>
 				<infecte>4</infecte>
 			</tache>
 
@@ -22,7 +22,7 @@
 			<tache>
 				<nom>Calculatrice</nom>
 				<description>Réalisation d'une calculatrice avec interface graphique</description>
-				<temps>4</temps>
+				<temps>14</temps>
 				<infecte>5</infecte>
 			</tache>
 			

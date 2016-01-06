@@ -27,7 +27,7 @@ public class EvenementArticle extends Evenement implements java.io.Serializable 
 	public Vue.EvenementArticle getEAV() { return eAV; }
 
 	// Constructeurs
-	public EvenementArticle(DepartementNom departement, String nom, String description, int effets[], Group group) {
+	public EvenementArticle(Modele.Departement departement, String nom, String description, int effets[], Group group) {
 		super(departement);
 		this.nom = nom;
 		this.description = description;
@@ -35,7 +35,7 @@ public class EvenementArticle extends Evenement implements java.io.Serializable 
 		eAV = new Vue.EvenementArticle(this, group);
 	}
 	
-	public EvenementArticle(DepartementNom departement, String difficulte, int index, Group group) {
+	public EvenementArticle(Modele.Departement departement, String difficulte, int index, Group group) {
 		
 		super(departement);
         effets = new int[3];
