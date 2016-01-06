@@ -33,6 +33,7 @@ public class Competence implements java.io.Serializable {
         if (modele.getEffet()[0] != 0) nomR.setText(nomR.getText() + "\nefficacité :+" + modele.getEffet()[0]);
         if (modele.getEffet()[1] != 0) nomR.setText(nomR.getText() + "\nmoral :+" + modele.getEffet()[1]);
         if (modele.getEffet()[2] != 0) nomR.setText(nomR.getText() + "\ntemps :+" + modele.getEffet()[2]);
+        compet = new Circle();
     }
 
     // Méthodes
@@ -48,8 +49,10 @@ public class Competence implements java.io.Serializable {
             case 0:
                 double coefx = (double) 1 / modele.getNbLignes() * (ligne - 1);
                 double coefy = (double) 1 / modele.getNbColonnes() * (colonne - 1);
-                compet = new Circle((scene.getWidth() * 15) / 100 + coefx * (scene.getWidth() * 60 / 100),
-                        (scene.getHeight() * 90) / 100 - coefy * (scene.getHeight() * 65 / 100), 24);
+                compet.setCenterX((scene.getWidth() * 15) / 100 + coefx * (scene.getWidth() * 60 / 100));
+                compet.setCenterY((scene.getHeight() * 90) / 100 - coefy * (scene.getHeight() * 65 / 100));
+                compet.setRadius(24);
+
                 if (modele.getAchete())
                     compet.setFill(new ImagePattern(new Image("file:image\\CompetenceAchete.png"), 0, 0, 1, 1, true));
                 else if (modele.getDebloque())
