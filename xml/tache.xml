@@ -345,7 +345,7 @@
 			</tache>
 			
 			<tache>
-				<nom>Reffroidissement</nom>
+				<nom>Refroidissement</nom>
 				<description>Travaux de refroidissement cryogénique pour l'usinage des plastiques</description>
 				<temps>38</temps>
 				<infecte>35</infecte>
