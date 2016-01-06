@@ -43,6 +43,7 @@ public class Coin {
         });
         polyMenu.setOnMouseClicked(mouseEvent -> {
             jeu.affichageMenuJeu(0);
+            jeu.affichagePlateau(1);
         });
         polyAffichage = new Polygon();
         polyAffichage.getPoints().addAll(Constantes.POLYGONE_COIN_AFFICHAGE_FS);

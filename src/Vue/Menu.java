@@ -51,7 +51,11 @@ public class Menu {
                         affichage(jeu, 1);
                         jeu.commencerPartie();
                         break;
-                    default:
+                    case Regles:
+                        break;
+                    case Retour_Jeu:
+                        affichage(jeu, 1);
+                        jeu.getVue().affichagePlateau(0);
                         break;
                 }
             });

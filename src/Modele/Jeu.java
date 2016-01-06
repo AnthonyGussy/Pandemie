@@ -40,7 +40,7 @@ public class Jeu implements java.io.Serializable {
         BoutonType[] boutons = new BoutonType[]{BoutonType.Jouer, BoutonType.Charger, BoutonType.Regles, BoutonType.Quitter};
         menuPrincipal = new Menu(boutons, this);
         menuPrincipal.affichage(this, 0);
-        boutons = new BoutonType[]{BoutonType.Sauvegarder, BoutonType.Charger, BoutonType.Regles, BoutonType.Quitter};
+        boutons = new BoutonType[]{BoutonType.Sauvegarder, BoutonType.Regles, BoutonType.Retour_Jeu, BoutonType.Quitter};
         menuJeu = new Menu(boutons, this);
     }
 

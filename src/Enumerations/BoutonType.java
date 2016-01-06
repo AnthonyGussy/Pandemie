@@ -8,5 +8,6 @@ public enum BoutonType {
     Sauvegarder,
     Charger,
     Regles,
+    Retour_Jeu,
     Quitter
 }
