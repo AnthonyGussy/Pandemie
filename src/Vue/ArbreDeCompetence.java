@@ -29,10 +29,6 @@ public class ArbreDeCompetence implements java.io.Serializable {
         this.aC = aC;
         aCliquer = "";
         competences = new HashMap<>();
-        HashMap<String, ArrayList<Modele.Competence>> temporaire = aC.getComp();
-        for (Map.Entry<String, ArrayList<Modele.Competence>> competence : temporaire.entrySet()) {
-            competences.put(competence.getKey(), new Competence(competence.getValue().get(0), this,jeu));
-        }
         nom = new Text(aC.getDepartement().getNom());
         lignes = new Group();
         retour.setOnMouseClicked(event -> {
@@ -44,20 +40,23 @@ public class ArbreDeCompetence implements java.io.Serializable {
         lignes.setVisible(false);
         retour.setVisible(false);
         jeu.getVue().getRoot().getChildren().addAll(nom, lignes, retour);
+        HashMap<String, ArrayList<Modele.Competence>> temporaire = aC.getComp();
+        for (Map.Entry<String, ArrayList<Modele.Competence>> competence : temporaire.entrySet()) {
+            competences.put(competence.getKey(), new Competence(competence.getValue().get(0), this,jeu));
+        }
     }
 
 
     void affichage(Modele.Jeu jeu, int afficher) {
         Scene scene = jeu.getVue().getScene();
-        Group root = jeu.getVue().getRoot();
         switch(afficher) {
             case 0:
-                dimensionnement(scene);
-                scene.setFill(new ImagePattern(new Image("file:image\\PandemieCompetenceJournal.jpg"), 0, 0, 1, 1, true));
-
                 for (Map.Entry<String, Competence> comp : competences.entrySet()) {
                     comp.getValue().affichage(jeu, 0);
                 }
+                dimensionnement(scene);
+                scene.setFill(new ImagePattern(new Image("file:image\\PandemieCompetenceJournal.jpg"), 0, 0, 1, 1, true));
+
                 nom.setVisible(true);
                 lignes.setVisible(true);
                 retour.setVisible(true);
@@ -66,7 +65,7 @@ public class ArbreDeCompetence implements java.io.Serializable {
 
                 dimensionnement(scene);
                 for (Map.Entry<String, Competence> comp : competences.entrySet()) {
-                    comp.getValue().affichage(jeu, 0);
+                    comp.getValue().affichage(jeu, 2);
                 }
 
                 break;

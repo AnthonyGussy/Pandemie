@@ -91,6 +91,7 @@ public class Competence implements java.io.Serializable {
                 double coeffy = (double) 1 / modele.getNbColonnes() * (colonne - 1);
                 compet.setCenterX((scene.getWidth() * 15) / 100 + coeffx * (scene.getWidth() * 60 / 100));
                 compet.setCenterY((scene.getHeight() * 90) / 100 - coeffy * (scene.getHeight() * 65 / 100));
+
                 break;
             default:
                 compet.setVisible(false);
