@@ -40,7 +40,7 @@ public class ArbreDeCompetence implements java.io.Serializable {
             this.affichage(jeu, 1);
             jeu.retourJeu();
         });
-        retour.setFill(new ImagePattern(new Image("file:image\\FlecheP2.jpg"), 0, 0, 1, 1, true));
+        retour.setFill(new ImagePattern(new Image("file:image\\Retour.png"), 0, 0, 1, 1, true));
         nom.setVisible(false);
         lignes.setVisible(false);
         retour.setVisible(false);

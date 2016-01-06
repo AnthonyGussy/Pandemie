@@ -27,15 +27,15 @@ public class EvenementArticle extends Evenement implements java.io.Serializable 
 	public Vue.EvenementArticle getEAV() { return eAV; }
 
 	// Constructeurs
-	public EvenementArticle(Modele.Departement departement, String nom, String description, int effets[], Group group) {
+	public EvenementArticle(Modele.Departement departement, String nom, String description, int effets[], Modele.Jeu jeu) {
 		super(departement);
 		this.nom = nom;
 		this.description = description;
 		this.effets = effets;
-		eAV = new Vue.EvenementArticle(this, group);
+		eAV = new Vue.EvenementArticle(this, jeu);
 	}
 	
-	public EvenementArticle(Modele.Departement departement, String difficulte, int index, Group group) {
+	public EvenementArticle(Modele.Departement departement, String difficulte, int index, Modele.Jeu jeu) {
 		
 		super(departement);
         effets = new int[3];
@@ -82,7 +82,7 @@ public class EvenementArticle extends Evenement implements java.io.Serializable 
         catch (final ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }
-		eAV = new Vue.EvenementArticle(this, group);
+		eAV = new Vue.EvenementArticle(this, jeu);
 	}
 
 	// temporaire

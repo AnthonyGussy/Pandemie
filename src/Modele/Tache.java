@@ -11,6 +11,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import javafx.application.Platform;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -24,15 +25,18 @@ public class Tache implements java.io.Serializable {
 
 	// Attributs
 
+	private final String description;
 	private String nom;
-	private String description;
 	private List<Compteur> compteurs; // de temps (avancement) et d'infectés
 	private int tempsInitial;
 	private boolean termine;
+	private Modele.EvenementAccomplissement event;
+	private Modele.Departement departement;
 
 	// Méthodes
 
-	public Tache(String nom, String description, Compteur temps, Compteur infectes) {
+	public Tache(Modele.Departement depart,String nom, String description, Compteur temps, Compteur infectes) {
+		departement = depart;
 		this.nom = nom;
 		this.description = description;
 		this.compteurs = new ArrayList<>();
@@ -42,7 +46,7 @@ public class Tache implements java.io.Serializable {
 		termine = false;
 	}
 
-	public Tache(String departement, String difficulte, int index) {
+	/*public Tache(Modele.Departement depart, String difficulte, int index) {
 
 		termine = false;
 		compteurs = new ArrayList<>();
@@ -82,7 +86,7 @@ public class Tache implements java.io.Serializable {
 		} catch (final ParserConfigurationException | SAXException | IOException e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 
 	public void affichage() {
 		System.out.println("nom : " + nom);
@@ -112,7 +116,9 @@ public class Tache implements java.io.Serializable {
 		return tempsInitial;
 	}
 
-	public void setTermine(boolean termine) {
+	public void setTermine(boolean termine,Modele.Jeu jeu) {
 		this.termine = termine;
+		event = new EvenementAccomplissement(departement,this,jeu);
+		Platform.runLater(() -> event.getVue().affichage(jeu, 0));
 	}
 }

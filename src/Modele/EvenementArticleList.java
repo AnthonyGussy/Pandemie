@@ -22,7 +22,7 @@ public class EvenementArticleList implements java.io.Serializable{
 	
 	List<EvenementArticle> liste;
 	
-	public EvenementArticleList(Modele.Departement departement, String difficulte, Group group) {
+	public EvenementArticleList(Modele.Departement departement, String difficulte, Modele.Jeu jeu) {
 		liste = new ArrayList<>();
 		final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         
@@ -49,7 +49,7 @@ public class EvenementArticleList implements java.io.Serializable{
 			                effets[1] = Integer.parseInt(elementEven.getElementsByTagName("efficacite").item(0).getTextContent());
 			                effets[2] = Integer.parseInt(elementEven.getElementsByTagName("temps").item(0).getTextContent());
 			                
-			                a = new EvenementArticle(departement, nom, description, effets, group);
+			                a = new EvenementArticle(departement, nom, description, effets, jeu);
 			                liste.add(a);
                     	}
                     }

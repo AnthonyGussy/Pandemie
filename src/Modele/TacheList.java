@@ -22,7 +22,7 @@ public class TacheList implements java.io.Serializable {
 
 	List<Tache> listeTaches;
 	
-	public TacheList(String departement, String difficulte) {
+	/*public TacheList(String departement, String difficulte) {
 		int temps;
 		int infectes;
 		listeTaches = new ArrayList<>();
@@ -77,5 +77,5 @@ public class TacheList implements java.io.Serializable {
 			tmp2Elm.affichage();
 			System.out.println("\n");
 		}
-	}
+	}*/
 }

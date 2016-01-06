@@ -73,7 +73,7 @@ public class Departement implements java.io.Serializable {
                             int temps = Integer.parseInt(elementTache.getElementsByTagName("temps").item(0).getTextContent());
                             int infectes = Integer.parseInt(elementTache.getElementsByTagName("infecte").item(0).getTextContent());
 
-                            taches.add(new Tache(nom, description, new Compteur(temps, CompteurType.Temps), new Compteur(infectes, CompteurType.Infectes)));
+                            taches.add(new Tache(this,nom, description, new Compteur(temps, CompteurType.Temps), new Compteur(infectes, CompteurType.Infectes)));
                         }
                     }
                 }
@@ -86,11 +86,15 @@ public class Departement implements java.io.Serializable {
         compteurs.get(3).modifCompte(-taches.get(0).getCompteurs().get(1).getCompte());
         compteurs.get(2).modifCompte(taches.get(0).getCompteurs().get(1).getCompte());
     }
+
     void infection(Modele.Jeu jeu){
         int nbTaches = taches.size();
         int infection = nbTaches + (100-compteurs.get(1).getCompte())/100*nbTaches;
         compteurs.get(3).modifCompte(-infection);
         compteurs.get(2).modifCompte(infection);
+        for(Tache t:taches){
+            t.setInfectes(infection);
+        }
         Platform.runLater(() -> vue.affichage(jeu.getVue().getScene(), 2));
     }
     void supprimerTache(){
@@ -140,7 +144,7 @@ public class Departement implements java.io.Serializable {
                                     temps = Integer.parseInt(elementTache.getElementsByTagName("temps").item(0).getTextContent());
                                     infectes = Integer.parseInt(elementTache.getElementsByTagName("infecte").item(0).getTextContent());
 
-                                    a = new Tache(nom, description, new Compteur(temps, CompteurType.Temps), new Compteur(infectes, CompteurType.Infectes));
+                                    a = new Tache(this,nom, description, new Compteur(temps, CompteurType.Temps), new Compteur(infectes, CompteurType.Infectes));
                                     tachesStockage.add(a);
                                 }
                             }
