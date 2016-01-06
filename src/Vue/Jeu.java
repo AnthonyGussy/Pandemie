@@ -24,7 +24,6 @@ public class Jeu {
     private static Scene scene;
     private ImageView liste;
     private Text texte;
-    private boolean affichePlateau = false;
     private Stage primaryStage;
     private Coin coin;
 
