@@ -89,7 +89,7 @@ public class Jeu {
                 for(Modele.Departement departement : modele.getDepartements()) {
                     departement.getVue().affichage(scene, 1);
                 }
-                affichagePlateau(2);
+                affichagePlateau(3);
                 break;
             case 2:
                 liste.setVisible(true);
