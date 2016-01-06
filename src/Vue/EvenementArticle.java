@@ -15,6 +15,30 @@ public class EvenementArticle implements java.io.Serializable {
     private Text nom;
     private Text description;
     private Text departement;
+
+    public EvenementArticle(Modele.Evenement event, Modele.Jeu jeu) {
+
+        nom = new Text(event.getNom());
+        nom.setFont(Font.loadFont("file:Font.ttf", 20));
+        nom.setFill(Color.WHITE);
+        description = new Text(event.getDescription());
+        description.setFont(Font.loadFont("file:Font.ttf", 18));
+        description.setFill(Color.WHITE);
+        String texte;
+        if(event.isAccomplissement())
+             texte = "Le projet final avance petit a petit.";
+        else
+            texte = "Evenement sans effet.";
+        departement = new Text(texte);
+        departement.setFont(Font.loadFont("file:Font.ttf", 18));
+        departement.setFill(Color.WHITE);
+        nom.setVisible(false);
+        description.setVisible(false);
+        departement.setVisible(false);
+        jeu.getVue().getRoot().getChildren().addAll(nom, description, departement);
+
+    }
+
 	public EvenementArticle(Modele.EvenementArticle eam, Modele.Jeu jeu) {
         nom = new Text(eam.getNom());
         nom.setFont(Font.loadFont("file:Font.ttf", 20));
@@ -34,25 +58,6 @@ public class EvenementArticle implements java.io.Serializable {
         departement.setVisible(false);
         jeu.getVue().getRoot().getChildren().addAll(nom, description, departement);
 	}
-
-    public EvenementArticle(Modele.EvenementAccomplissement popUp, Modele.Jeu jeu){
-
-        nom = new Text("Tâche terminée !");
-        nom.setFont(Font.loadFont("file:Font.ttf", jeu.getVue().getScene().getHeight() * Constantes.TAILLE_POLICE));
-        nom.setFill(Color.WHITE);
-        description = new Text("Une tâche a été terminée dans le département : "+popUp.getDepartement().getNom());
-        description.setFont(Font.loadFont("file:Font.ttf",jeu.getVue().getScene().getHeight() * Constantes.TAILLE_POLICE));
-        description.setFill(Color.WHITE);
-        String effets = "Le projet principal se termine petit à petit !";
-        departement = new Text(effets);
-        departement.setFont(Font.loadFont("file:Font.ttf",jeu.getVue().getScene().getHeight() * Constantes.TAILLE_POLICE));
-        departement.setFill(Color.WHITE);
-        nom.setVisible(false);
-        description.setVisible(false);
-        departement.setVisible(false);
-        Platform.runLater(() -> jeu.getVue().getRoot().getChildren().addAll(nom, description, departement));
-
-    }
 	
     public void affichage(Modele.Jeu jeu, int afficher) {
     	Scene scene = jeu.getVue().getScene();
