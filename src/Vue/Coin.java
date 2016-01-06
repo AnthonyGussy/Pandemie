@@ -26,7 +26,7 @@ public class Coin {
                 new Image("file:image\\Fenetre\\PandemieNoSelection.jpg"),
                 new Image("file:image\\Fenetre\\PandemieMenuSelection.jpg"),
                 new Image("file:image\\Fenetre\\PandemieAffichageSelection.jpg") };
-        coinImages = new Image[]{coinImagesStock[0], coinImagesStock[1], coinImagesStock[2]};
+        coinImages = new Image[]{coinImagesStock[3], coinImagesStock[4], coinImagesStock[5]};
         coin = new ImageView(coinImages[0]);
         coin.setX(0);
         coin.setY(0);
@@ -55,7 +55,10 @@ public class Coin {
             affichage(jeu, 2);
         });
         polyAffichage.setOnMouseClicked(mouseEvent -> {
-
+            if(jeu.getPrimaryStage().isFullScreen())
+                jeu.getPrimaryStage().setFullScreen(false);
+            else
+                jeu.getPrimaryStage().setFullScreen(true);
         });
         coin.setVisible(false);
         jeu.getRoot().getChildren().addAll(coin, polyAffichage, polyMenu);
@@ -81,13 +84,13 @@ public class Coin {
                     polyMenu.getPoints().addAll(Constantes.POLYGONE_COIN_MENU_FS);
                     polyAffichage.getPoints().clear();
                     polyAffichage.getPoints().addAll(Constantes.POLYGONE_COIN_AFFICHAGE_FS);
-                    coinImages = new Image[]{coinImagesStock[0], coinImagesStock[1], coinImagesStock[2]};
+                    coinImages = new Image[]{coinImagesStock[3], coinImagesStock[4], coinImagesStock[5]};
                 } else {
                     polyMenu.getPoints().clear();
                     polyMenu.getPoints().addAll(Constantes.POLYGONE_COIN_MENU_W);
                     polyAffichage.getPoints().clear();
                     polyAffichage.getPoints().addAll(Constantes.POLYGONE_COIN_AFFICHAGE_W);
-                    coinImages = new Image[]{coinImagesStock[3], coinImagesStock[4], coinImagesStock[5]};
+                    coinImages = new Image[]{coinImagesStock[0], coinImagesStock[1], coinImagesStock[2]};
                     coin.setImage(coinImages[0]);
                 }
                 affichage(jeu, 2);
