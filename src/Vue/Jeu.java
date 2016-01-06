@@ -46,7 +46,7 @@ public class Jeu {
         primaryStage.show();
         scene.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> modele.redimensionner());
         scene.heightProperty().addListener((observableValue, oldSceneHeight, newSceneHeight) -> modele.redimensionner());
-        //scene.setOnMouseClicked(mouseEvent -> System.out.println(mouseEvent.getX() + " " + mouseEvent.getY()));
+        scene.setOnMouseClicked(mouseEvent -> System.out.println(scene.getWidth() + " " + scene.getHeight()));
 
     }
 

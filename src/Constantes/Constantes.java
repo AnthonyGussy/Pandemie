@@ -46,10 +46,6 @@ public final class Constantes {
 	// Affichage coin
 	public static final double LARGEUR_COIN = 0.205;
 	public static final double HAUTEUR_COIN = 0.14;
-	public static final double POS_X_COIN_MENU = 0.068;
-	public static final double POS_Y_COIN_MENU = 0.068;
-	public static final double POS_X_COIN_AFFICHAGE = 0.0;
-	public static final double POS_Y_COIN_AFFICHAGE = 0.089;
 	public static final ArrayList<Double> POLYGONE_COIN_MENU_FS = new ArrayList<>(Arrays.asList(224.0, 32.0,
 			210.0, 52.0,
 			116.0, 66.0,
