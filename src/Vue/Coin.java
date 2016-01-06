@@ -90,6 +90,7 @@ public class Coin {
                     coinImages = new Image[]{coinImagesStock[3], coinImagesStock[4], coinImagesStock[5]};
                     coin.setImage(coinImages[0]);
                 }
+                affichage(jeu, 2);
         }
     }
 }

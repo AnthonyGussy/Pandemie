@@ -99,7 +99,7 @@ public class Jeu {
                 texte.setVisible(true);
                 break;
             case 3:
-                coin.affichage(this, 2);
+                coin.affichage(this, 3);
                 for(Modele.Departement departement : modele.getDepartements()) {
                     departement.getVue().affichage(scene, 2);
                 }
