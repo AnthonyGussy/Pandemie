@@ -73,16 +73,19 @@ public class Departement{
         switch(afficher) {
             case 0:
                 personne.setVisible(true);
+                affichage(scene, 2);
+                break;
+            case 1:
+                personne.setVisible(false);
+                information.setVisible(false);
+                nomR.setVisible(false);
+                break;
+            default:
                 personne.getChildren().clear();
                 departementPoly.setTranslateX(scene.getWidth() * posX);
                 departementPoly.setTranslateY(scene.getHeight() * posY);
                 personne.getChildren().add(departementPoly);
                 personne.getChildren().add(genePoint(scene));
-                break;
-            default:
-                personne.setVisible(false);
-                information.setVisible(false);
-                nomR.setVisible(false);
         }
     }
     public Group genePoint(Scene scene) {
