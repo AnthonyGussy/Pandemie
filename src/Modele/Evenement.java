@@ -3,19 +3,15 @@ package Modele;
 import Enumerations.DepartementNom;
 
 public class Evenement implements java.io.Serializable {
-    protected DepartementNom departement;
+    protected Modele.Departement departement;
     
     public Evenement() {
     	this.departement = null;
     }
     
-    public Evenement(DepartementNom departement) {
+    public Evenement(Modele.Departement departement) {
     	this.departement = departement;
     }
-    
-    public void affichage(){
-    	System.out.println("lieu : "+departement);
-    }
-    
-    public DepartementNom getDepartement() { return departement; }
+
+    public Modele.Departement getDepartement() {return departement;}
 }

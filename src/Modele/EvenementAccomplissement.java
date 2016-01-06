@@ -4,12 +4,16 @@ import Enumerations.DepartementNom;
 
 public class EvenementAccomplissement extends Evenement implements java.io.Serializable {
 	
-	private int effet; // Calculé en fonction de la tâche
+	private int point; // Calculé en fonction de la tâche
 
-    //public EvenementAccomplissement()
+    public EvenementAccomplissement(Modele.Tache tache){
+
+        point = (int)(Math.random()*(tache.getTempsInitial()/10))+1;
+
+    }
+
+    public void appliquerEffet(Modele.Jeu jeu){ jeu.setPtsCompetence(point); }
     
-    public void appliquerEffet(){}
-    
-    public int getEffet() { return effet; }
+    public int getPoint() { return point; }
    
 }

@@ -22,7 +22,7 @@ public class EvenementArticleList implements java.io.Serializable{
 	
 	List<EvenementArticle> liste;
 	
-	public EvenementArticleList(DepartementNom departement, String difficulte, Group group) {
+	public EvenementArticleList(Modele.Departement departement, String difficulte, Group group) {
 		liste = new ArrayList<>();
 		final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         
