@@ -42,7 +42,7 @@ public class Jeu implements java.io.Serializable {
         BoutonType[] boutons = new BoutonType[]{BoutonType.Jouer, BoutonType.Charger, BoutonType.Regles, BoutonType.Quitter};
         menuPrincipal = new Menu(boutons, this);
         menuPrincipal.affichage(this, 0);
-        boutons = new BoutonType[]{BoutonType.Sauvegarder, BoutonType.Regles, BoutonType.Retour_Jeu, BoutonType.Quitter};
+        boutons = new BoutonType[]{BoutonType.Retour_Jeu, BoutonType.Sauvegarder, BoutonType.Regles, BoutonType.Quitter};
         menuJeu = new Menu(boutons, this);
         regles = new Regles(this);
     }
@@ -192,6 +192,7 @@ public class Jeu implements java.io.Serializable {
         regles.affichage(this, 2, 0);
         vue.affichagePlateau(3);
         menuPrincipal.affichage(this, 2);
+        menuJeu.affichage(this, 2);
         for(Modele.Evenement evenement : evenements) {
             String type = evenement.getClass().getName();
             switch(type) {
@@ -208,7 +209,7 @@ public class Jeu implements java.io.Serializable {
 
     public void setPopUp() {
 
-        popUp = new EvenementPopUp(departements.get(((int)Math.random()*5)),this);
+        popUp = new EvenementPopUp(departements.get((int)(Math.random()*5)),this);
 
     }
 

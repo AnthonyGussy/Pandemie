@@ -93,6 +93,7 @@ public class Jeu {
                 affichagePlateau(4);
                 for(Modele.Departement departement : modele.getDepartements()) {
                     departement.getVue().affichage(modele, 1);
+                    departement.getArbre().getVue().affichage(modele, 1);
                 }
                 break;
             case 2:
