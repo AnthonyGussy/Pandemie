@@ -20,7 +20,6 @@ public class Coin {
     private Polygon polyAffichage;
 
     public Coin(Modele.Jeu jeu) {
-        Scene scene = jeu.getVue().getScene();
         coinImagesStock = new Image[]{ new Image("file:image\\FullScreen\\PandemieNoSelection.jpg"),
                 new Image("file:image\\FullScreen\\PandemieMenuSelection.jpg"),
                 new Image("file:image\\FullScreen\\PandemieAffichageSelection.jpg"),
@@ -34,42 +33,40 @@ public class Coin {
 
         polyMenu = new Polygon();
         polyMenu.getPoints().addAll(Constantes.POLYGONE_COIN_MENU_FS);
-        //polyMenu.setFill(Color.TRANSPARENT);
+        polyMenu.setFill(Color.TRANSPARENT);
         polyMenu.setOnMouseEntered(mouseEvent -> {
             coin.setImage(coinImages[1]);
-            affichage(jeu, 2);
+            affichage(jeu, 0);
         });
         polyMenu.setOnMouseExited(mouseEvent -> {
             coin.setImage(coinImages[0]);
-            affichage(jeu, 2);
+            affichage(jeu, 0);
         });
         polyMenu.setOnMouseClicked(mouseEvent -> {
-
         });
         polyAffichage = new Polygon();
         polyAffichage.getPoints().addAll(Constantes.POLYGONE_COIN_AFFICHAGE_FS);
+        polyAffichage.setFill(Color.TRANSPARENT);
         polyAffichage.setOnMouseEntered(mouseEvent -> {
             coin.setImage(coinImages[2]);
-            affichage(jeu, 2);
+            affichage(jeu, 0);
         });
         polyAffichage.setOnMouseExited(mouseEvent -> {
             coin.setImage(coinImages[0]);
-            affichage(jeu, 2);
+            affichage(jeu, 0);
         });
         polyAffichage.setOnMouseClicked(mouseEvent -> {
 
         });
-        polyAffichage.setVisible(false);
-        polyMenu.setVisible(false);
         coin.setVisible(false);
-        jeu.getVue().getRoot().getChildren().addAll(polyAffichage, polyMenu, coin);
+        jeu.getVue().getRoot().getChildren().addAll(coin, polyAffichage, polyMenu);
     }
 
     public void affichage(Modele.Jeu jeu, int afficher) {
         Scene scene = jeu.getVue().getScene();
         switch(afficher) {
             case 0:
-                if (jeu.getVue().getPrimaryStage().isFullScreen()) {
+                /*if (jeu.getVue().getPrimaryStage().isFullScreen()) {
                     polyMenu.getPoints().clear();
                     polyMenu.getPoints().addAll(Constantes.POLYGONE_COIN_MENU_FS);
                     polyAffichage.getPoints().clear();
@@ -81,7 +78,7 @@ public class Coin {
                     polyAffichage.getPoints().clear();
                     polyAffichage.getPoints().addAll(Constantes.POLYGONE_COIN_AFFICHAGE_W);
                     coinImages = new Image[]{coinImagesStock[3], coinImagesStock[4], coinImagesStock[5]};
-                }
+                }*/
                 coin.setFitWidth(scene.getWidth() * Constantes.LARGEUR_COIN);
                 coin.setFitHeight(scene.getHeight() * Constantes.HAUTEUR_COIN);
                 coin.setVisible(true);
