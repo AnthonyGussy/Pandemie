@@ -56,7 +56,7 @@ public class Jeu implements java.io.Serializable {
 
     public Vue.Menu getMenuJeu() { return menuJeu; }
 
-    public Vue.Menu getMenuPrincipal() { return menuJeu; }
+    public Vue.Menu getMenuPrincipal() { return menuPrincipal; }
 
     /**
      * Cette méthode renvoie la liste des départements
