@@ -4,7 +4,6 @@ import javafx.scene.Scene;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * Les différentes constantes utilisées dans le programme
