@@ -1,6 +1,7 @@
 package Vue;
 
 import Constantes.Constantes;
+import Modele.Tache;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -74,12 +75,12 @@ public class Departement{
         jeu.getVue().getRoot().getChildren().addAll(information, nomR, personne);
     }
 
-    public void affichage(Scene scene, int afficher) {
+    public void affichage(Modele.Jeu jeu, int afficher) {
         switch(afficher) {
             case 0:
                 affiche = true;
                 personne.setVisible(true);
-                affichage(scene, 2);
+                affichage(jeu, 2);
                 break;
             case 1:
                 affiche = false;
@@ -89,10 +90,17 @@ public class Departement{
                 break;
             default:
                 personne.getChildren().clear();
-                departementPoly.setTranslateX(scene.getWidth() * posX);
-                departementPoly.setTranslateY(scene.getHeight() * posY);
+                departementPoly.setTranslateX(jeu.getVue().getScene().getWidth() * posX);
+                departementPoly.setTranslateY(jeu.getVue().getScene().getHeight() * posY);
                 personne.getChildren().add(departementPoly);
-                personne.getChildren().add(genePoint(scene));
+                personne.getChildren().add(genePoint(jeu.getVue().getScene()));
+                for(Tache t: departement.getTaches()) {
+                    if (t.getEvent() != null) {
+
+                        t.getEvent().getVue().affichage(jeu,2);
+
+                    }
+                }
         }
     }
     public Group genePoint(Scene scene) {
@@ -137,11 +145,11 @@ public class Departement{
         nomR.setVisible(true);
     }
     private void eventRemoveInformation(Modele.Jeu jeu){
+        String nom = departement.getNom();
+        departementPoly.setFill(new ImagePattern(new Image("file:image\\" + nom + "Dep.jpg"), 0, 0, 1, 1, true));
         if (affiche) {
             information.setVisible(false);
             nomR.setVisible(false);
-            String nom = departement.getNom();
-            departementPoly.setFill(new ImagePattern(new Image("file:image\\" + nom + "Dep.jpg"), 0, 0, 1, 1, true));
             jeu.getVue().affichagePlateau(2);
         }
     }

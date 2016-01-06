@@ -95,7 +95,7 @@ public class Departement implements java.io.Serializable {
         for(Tache t:taches){
             t.setInfectes(infection);
         }
-        Platform.runLater(() -> vue.affichage(jeu.getVue().getScene(), 2));
+        Platform.runLater(() -> vue.affichage(jeu, 2));
     }
     void supprimerTache(){
         for(Tache tache :  taches){
@@ -162,4 +162,6 @@ public class Departement implements java.io.Serializable {
 
     public int getNbActif(){ return compteurs.get(2).getCompte();}
     public int getNbPersonne() {return nbPersonne;}
+
+    public List<Modele.Tache> getTaches() { return taches; }
 }

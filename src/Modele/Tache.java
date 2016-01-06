@@ -121,4 +121,6 @@ public class Tache implements java.io.Serializable {
 		event = new EvenementAccomplissement(departement,this,jeu);
 		Platform.runLater(() -> event.getVue().affichage(jeu, 0));
 	}
+
+	public Modele.EvenementAccomplissement getEvent() { return event;}
 }

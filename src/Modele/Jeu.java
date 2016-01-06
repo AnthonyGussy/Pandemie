@@ -79,7 +79,7 @@ public class Jeu implements java.io.Serializable {
         }
         compteurs.add(new Compteur(0, CompteurType.Points_de_competence));
         for(Modele.Departement dep : departements) {
-            dep.getVue().affichage(vue.getScene(), 0);
+            dep.getVue().affichage(this, 0);
         }
         vue.affichagePlateau(0);
 

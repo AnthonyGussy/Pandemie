@@ -76,7 +76,7 @@ public class Jeu {
             case 0:
                 scene.setFill(new ImagePattern(new Image("file:image\\PandemieDep.jpg"), 0, 0, 1, 1, true));
                 for(Modele.Departement departement : modele.getDepartements()) {
-                    departement.getVue().affichage(scene, 0);
+                    departement.getVue().affichage(modele, 0);
                 }
                 liste.setX(scene.getWidth() * Constantes.POS_X_LISTE);
                 liste.setY(scene.getHeight() * Constantes.POS_Y_LISTE);
@@ -92,7 +92,7 @@ public class Jeu {
             case 1:
                 affichagePlateau(4);
                 for(Modele.Departement departement : modele.getDepartements()) {
-                    departement.getVue().affichage(scene, 1);
+                    departement.getVue().affichage(modele, 1);
                 }
                 break;
             case 2:
@@ -102,7 +102,7 @@ public class Jeu {
             case 3:
                 coin.affichage(this, 3);
                 for(Modele.Departement departement : modele.getDepartements()) {
-                    departement.getVue().affichage(scene, 2);
+                    departement.getVue().affichage(modele, 2);
                 }
                 for(Modele.Departement departement : modele.getDepartements()) {
                     departement.getArbre().getVue().affichage(modele,2);
