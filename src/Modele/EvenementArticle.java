@@ -7,6 +7,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import javafx.scene.Group;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -26,12 +27,12 @@ public class EvenementArticle extends Evenement implements java.io.Serializable 
 	public Vue.EvenementArticle getEAV() { return eAV; }
 
 	// Constructeurs
-	public EvenementArticle(DepartementNom departement, String nom, String description, int effets[]) {
+	public EvenementArticle(DepartementNom departement, String nom, String description, int effets[], Group group) {
 		super(departement);
 		this.nom = nom;
 		this.description = description;
 		this.effets = effets;
-		eAV = new Vue.EvenementArticle(this);
+		eAV = new Vue.EvenementArticle(this, group);
 	}
 	
 	public EvenementArticle(DepartementNom departement, String difficulte, int index) {

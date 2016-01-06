@@ -66,14 +66,14 @@ public class Jeu implements java.io.Serializable {
         for(int i = 0; i<5; ++i) {
             int alea = (int)(Math.random()*departementNoms.size());
             if(i == 0)
-                departements.add(new Modele.Departement(departementNoms.get(alea),true));
+                departements.add(new Modele.Departement(departementNoms.get(alea),true, this));
             else
-                departements.add(new Modele.Departement(departementNoms.get(alea),false));
+                departements.add(new Modele.Departement(departementNoms.get(alea),false, this));
             departementNoms.remove(alea);
         }
         compteurs.add(new Compteur(0, CompteurType.Points_de_competence));
         for(Modele.Departement dep : departements) {
-            dep.getVue().affichage(this, 0);
+            dep.getVue().affichage(vue.getScene(), 0);
         }
         coin = new Coin(this);
         coin.affichage(this, 0);
@@ -89,7 +89,7 @@ public class Jeu implements java.io.Serializable {
      */
     public void retourJeu() {
         for(Modele.Departement dep : departements) {
-            dep.getVue().affichage(this, 0);
+            dep.getVue().affichage(vue.getScene(), 0);
         }
     }
 

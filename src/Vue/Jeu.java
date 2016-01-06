@@ -34,6 +34,9 @@ public class Jeu {
         scene = new Scene(root, 1024, 650);
         liste = new ImageView(new Image("file:image\\Liste.jpg"));
         texte = new Text("Départements :");
+        liste.setVisible(false);
+        texte.setVisible(false);
+        root.getChildren().addAll(liste, texte);
 
         primaryStage.setTitle("Study Project Simulator");
         primaryStage.setScene(scene);
@@ -69,7 +72,9 @@ public class Jeu {
         switch(afficher) {
             case 0:
                 scene.setFill(new ImagePattern(new Image("file:image\\PandemieDep.jpg"), 0, 0, 1, 1, true));
-                affichePlateau = true;
+                for(Modele.Departement departement : modele.getDepartements()) {
+                    departement.getVue().affichage(scene, 0);
+                }
                 liste.setX(scene.getWidth() * Constantes.POS_X_LISTE);
                 liste.setY(scene.getHeight() * Constantes.POS_Y_LISTE);
                 liste.setFitWidth(scene.getWidth() * Constantes.LARGEUR_LISTE);
@@ -77,39 +82,18 @@ public class Jeu {
                 texte.setX(scene.getWidth() * Constantes.POS_X_TEXTE);
                 texte.setY(scene.getHeight() * Constantes.POS_Y_TEXTE);
                 texte.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE));
-
-                root.getChildren().removeAll(liste,texte);
-                root.getChildren().addAll(liste, texte);
+                liste.setVisible(true);
+                texte.setVisible(true);
                 break;
             case 1:
-                if(affichePlateau) {
-                    for(Modele.Departement departement : modele.getDepartements()) {
-                        departement.getVue().affichage(modele, 1);
-                    }
-                    affichagePlateau(3);
-                    affichePlateau = false;
+                for(Modele.Departement departement : modele.getDepartements()) {
+                    departement.getVue().affichage(scene, 1);
                 }
+                affichagePlateau(2);
                 break;
-            case 2:
-                if(affichePlateau) {
-                    affichagePlateau(0);
-                    for(Modele.Departement departement : modele.getDepartements()) {
-                        departement.getVue().affichage(modele, 2);
-                    }
-                }
-                else {
-
-                    for(Modele.Departement departement : modele.getDepartements()) {
-                        departement.getArbre().getVue().affichage(modele, 2);
-                    }
-
-                }
-                break;
-            case 3:
-                if(affichePlateau) {
-                    if(root.getChildren().contains(liste)) root.getChildren().remove(liste);
-                    if(root.getChildren().contains(texte)) root.getChildren().remove(texte);
-                }
+            default:
+                liste.setVisible(false);
+                texte.setVisible(false);
         }
     }
 }

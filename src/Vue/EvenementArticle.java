@@ -1,5 +1,6 @@
 package Vue;
 
+import Constantes.Constantes;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -15,7 +16,7 @@ public class EvenementArticle implements java.io.Serializable {
     private Text nom;
     private Text description;
     private Text departement;
-	public EvenementArticle(Modele.EvenementArticle eam) {
+	public EvenementArticle(Modele.EvenementArticle eam, Group root) {
         this.eam = eam;
         nom = new Text(eam.getNom());
         nom.setFont(Font.loadFont("file:Font.ttf", 20));
@@ -28,42 +29,31 @@ public class EvenementArticle implements java.io.Serializable {
         departement = new Text(effets);
         departement.setFont(Font.loadFont("file:Font.ttf", 18));
         departement.setFill(Color.WHITE);
+        nom.setVisible(false);
+        description.setVisible(false);
+        departement.setVisible(false);
+        root.getChildren().addAll(nom, description, departement);
 	}
 	
     public void affichage(Modele.Jeu jeu, int afficher) {
     	Scene scene = jeu.getVue().getScene();
-        Group root = jeu.getVue().getRoot();
     	switch(afficher) {
             case 0:
-                affiche = true;
                 scene.setFill(new ImagePattern(new Image("file:image\\PandemieCompetenceJournal.jpg"), 0, 0, 1, 1, true));
-
-                nom.setX((int)(scene.getWidth() * 30 / 100));
-                nom.setY((int)(scene.getHeight() * 7 / 100));
-
-                description.setX((int)(scene.getWidth() * 28 / 100));
-                description.setY((int)(scene.getHeight() * 10 / 100));
-
-                departement.setX((int)(scene.getWidth() * 28 / 100));
-                departement.setY((int)(scene.getHeight() * 20 / 100));
-
-                if(root.getChildren().contains(nom)) root.getChildren().remove(nom);
-                if(root.getChildren().contains(description)) root.getChildren().remove(description);
-                if(root.getChildren().contains(departement)) root.getChildren().remove(departement);
-                root.getChildren().addAll(nom, description, departement);
-                break;
-            case 1:
-                if(affiche) {
-                    affiche = false;
-                    if(root.getChildren().contains(nom)) root.getChildren().remove(nom);
-                    if(root.getChildren().contains(description)) root.getChildren().remove(description);
-                    if(root.getChildren().contains(departement)) root.getChildren().remove(departement);
-                }
+                nom.setX((int)(scene.getWidth() * Constantes.POS_X_EV_ART_NOM));
+                nom.setY((int)(scene.getHeight() * Constantes.POS_Y_EV_ART_NOM));
+                description.setX((int)(scene.getWidth() * Constantes.POS_X_EV_ART_DESC));
+                description.setY((int)(scene.getHeight() * Constantes.POS_Y_EV_ART_DESC));
+                departement.setX((int)(scene.getWidth() * Constantes.POS_X_EV_ART_DEP));
+                departement.setY((int)(scene.getHeight() * Constantes.POS_Y_EV_ART_DEP));
+                nom.setVisible(true);
+                description.setVisible(true);
+                departement.setVisible(true);
                 break;
             default:
-                if(affiche) {
-                    affichage(jeu, 0);
-                }
+                nom.setVisible(false);
+                description.setVisible(false);
+                departement.setVisible(false);
         }
     }
 }

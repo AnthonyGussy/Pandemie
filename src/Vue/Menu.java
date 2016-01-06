@@ -55,21 +55,20 @@ public class Menu {
                         break;
                 }
             });
-
             boutons.add(b);
+            boutonsGroup.setVisible(false);
+            jeu.getVue().getRoot().getChildren().add(boutonsGroup);
         }
     }
 
     public void affichage(Modele.Jeu jeu, int afficher) {
         Scene scene = jeu.getVue().getScene();
-        Group root = jeu.getVue().getRoot();
         switch(afficher){
             case 0:
-                affiche = true;
-                jeu.getVue().getScene().setFill(new ImagePattern(new Image("file:image\\PandemieAccueil.jpg"), 0, 0, 1, 1, true));
+                scene.setFill(new ImagePattern(new Image("file:image\\PandemieAccueil.jpg"), 0, 0, 1, 1, true));
                 int i = 1;
+                boutonsGroup.getChildren().clear();
                 for (Rectangle b : boutons) {
-                    root.getChildren().remove(b);
                     b.setOnMouseEntered(event -> {
                         b.setWidth(scene.getWidth() * Constantes.LARGEUR_BOUTON_SURVOL);
                         b.setHeight(scene.getHeight() * Constantes.HAUTEUR_BOUTON_SURVOL);
@@ -82,23 +81,13 @@ public class Menu {
                     b.setY(scene.getHeight() * Constantes.POS_Y_BOUTON);
                     b.setWidth(scene.getWidth() * Constantes.LARGEUR_BOUTON);
                     b.setHeight(scene.getHeight() * Constantes.HAUTEUR_BOUTON);
-                    if(boutonsGroup.getChildren().contains(b)) boutonsGroup.getChildren().remove(b);
                     boutonsGroup.getChildren().add(b);
-                    ++i;
+                    i++;
                 }
-                if(root.getChildren().contains(boutonsGroup)) root.getChildren().remove(boutonsGroup);
-                root.getChildren().add(boutonsGroup);
-                break;
-            case 1:
-                if(affiche) {
-                    affiche = false;
-                    if(root.getChildren().contains(boutonsGroup)) root.getChildren().remove(boutonsGroup);
-                }
+                boutonsGroup.setVisible(true);
                 break;
             default:
-                if(affiche) {
-                    affichage(jeu, 0);
-                }
+                boutonsGroup.setVisible(false);
         }
     }
 }

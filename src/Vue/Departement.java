@@ -15,9 +15,7 @@ import javafx.scene.text.Text;
  *
  */
 public class Departement{
-    private boolean affiche = false;
     private Text information;
-    private ImageView liste;
     private Text nomR;
     private Polygon departementPoly;
     private Group personne;
@@ -27,7 +25,7 @@ public class Departement{
     private ImagePattern pointInfecte;
     private ImagePattern pointNormal;
 
-    public Departement(Modele.Departement departement){
+    public Departement(Modele.Departement departement, Modele.Jeu jeu){
         this.departement = departement;
         departementPoly = new Polygon();
         switch(departement.getNom()) {
@@ -62,33 +60,31 @@ public class Departement{
         personne = new Group();
         pointInfecte = new ImagePattern(new Image("file:image\\PointInfecte.png"));
         pointNormal = new ImagePattern(new Image("file:image\\PointNormal.png"));
+        personne.setOnMouseEntered(mouseEvent -> eventInformation(jeu));
+        personne.setOnMouseExited(mouseEvent -> eventRemoveInformation(jeu));
+        personne.setOnMouseClicked(mouseEvent -> eventArbreDeCompetence(jeu));
+        personne.setVisible(false);
+        information.setVisible(false);
+        nomR.setVisible(false);
+        jeu.getVue().getRoot().getChildren().addAll(information, nomR, personne);
     }
 
-    public void affichage(Modele.Jeu jeu, int afficher) {
-        Scene scene = jeu.getVue().getScene();
-        Group root = jeu.getVue().getRoot();
+    public void affichage(Scene scene, int afficher) {
         switch(afficher) {
             case 0:
-                departementPoly.setTranslateX(scene.getWidth() * posX);
-                departementPoly.setTranslateY(scene.getHeight() * posY);
-                personne.getChildren().add(departementPoly);
-                personne.getChildren().add(genePoint(scene));
-                personne.setOnMouseEntered(mouseEvent -> eventInformation(jeu));
-                personne.setOnMouseExited(mouseEvent -> eventRemoveInformation(jeu));
-                personne.setOnMouseClicked(mouseEvent -> eventArbreDeCompetence(jeu));
-                root.getChildren().addAll(information, nomR, personne);
-                break;
-            case 1:
-                personne.setVisible(false);
-                information.setVisible(false);
-                nomR.setVisible(false);
-                break;
-            default:
+                personne.setVisible(true);
+                information.setVisible(true);
+                nomR.setVisible(true);
                 personne.getChildren().clear();
                 departementPoly.setTranslateX(scene.getWidth() * posX);
                 departementPoly.setTranslateY(scene.getHeight() * posY);
                 personne.getChildren().add(departementPoly);
                 personne.getChildren().add(genePoint(scene));
+                break;
+            default:
+                personne.setVisible(false);
+                information.setVisible(false);
+                nomR.setVisible(false);
         }
     }
     public Group genePoint(Scene scene) {
@@ -112,7 +108,7 @@ public class Departement{
     }
 
     private void eventInformation(Modele.Jeu jeu){
-        jeu.getVue().affichagePlateau(3);
+        jeu.getVue().affichagePlateau(2);
         Scene scene = jeu.getVue().getScene();
         String nom = departement.getNom();
         nomR.setText(nom);

@@ -48,7 +48,6 @@ public class Coin {
         });
         polyAffichage = new Polygon();
         polyAffichage.getPoints().addAll(Constantes.POLYGONE_COIN_AFFICHAGE_FS);
-        polyAffichage.setFill(Color.TRANSPARENT);
         polyAffichage.setOnMouseEntered(mouseEvent -> {
             coin.setImage(coinImages[2]);
             affichage(jeu, 2);
@@ -60,44 +59,35 @@ public class Coin {
         polyAffichage.setOnMouseClicked(mouseEvent -> {
 
         });
+        polyAffichage.setVisible(false);
+        polyMenu.setVisible(false);
+        coin.setVisible(false);
+        jeu.getVue().getRoot().getChildren().addAll(polyAffichage, polyMenu, coin);
     }
 
     public void affichage(Modele.Jeu jeu, int afficher) {
         Scene scene = jeu.getVue().getScene();
-        Group root = jeu.getVue().getRoot();
         switch(afficher) {
             case 0:
-                affiche = true;
+                if (jeu.getVue().getPrimaryStage().isFullScreen()) {
+                    polyMenu.getPoints().clear();
+                    polyMenu.getPoints().addAll(Constantes.POLYGONE_COIN_MENU_FS);
+                    polyAffichage.getPoints().clear();
+                    polyAffichage.getPoints().addAll(Constantes.POLYGONE_COIN_AFFICHAGE_FS);
+                    coinImages = new Image[]{coinImagesStock[0], coinImagesStock[1], coinImagesStock[2]};
+                } else {
+                    polyMenu.getPoints().clear();
+                    polyMenu.getPoints().addAll(Constantes.POLYGONE_COIN_MENU_W);
+                    polyAffichage.getPoints().clear();
+                    polyAffichage.getPoints().addAll(Constantes.POLYGONE_COIN_AFFICHAGE_W);
+                    coinImages = new Image[]{coinImagesStock[3], coinImagesStock[4], coinImagesStock[5]};
+                }
                 coin.setFitWidth(scene.getWidth() * Constantes.LARGEUR_COIN);
                 coin.setFitHeight(scene.getHeight() * Constantes.HAUTEUR_COIN);
-                if(root.getChildren().contains(coin)) root.getChildren().remove(coin);
-                if(root.getChildren().contains(polyAffichage)) root.getChildren().remove(polyAffichage);
-                if(root.getChildren().contains(polyMenu)) root.getChildren().remove(polyMenu);
-                root.getChildren().addAll(coin, polyAffichage, polyMenu);
-                break;
-            case 1:
-                affiche = false;
-                if(root.getChildren().contains(coin)) root.getChildren().remove(coin);
-                if(root.getChildren().contains(polyAffichage)) root.getChildren().remove(polyAffichage);
-                if(root.getChildren().contains(polyMenu)) root.getChildren().remove(polyMenu);
+                coin.setVisible(true);
                 break;
             default:
-                if (affiche) {
-                    if (jeu.getVue().getPrimaryStage().isFullScreen()) {
-                        polyMenu.getPoints().clear();
-                        polyMenu.getPoints().addAll(Constantes.POLYGONE_COIN_MENU_FS);
-                        polyAffichage.getPoints().clear();
-                        polyAffichage.getPoints().addAll(Constantes.POLYGONE_COIN_AFFICHAGE_FS);
-                        coinImages = new Image[]{coinImagesStock[0], coinImagesStock[1], coinImagesStock[2]};
-                    } else {
-                        polyMenu.getPoints().clear();
-                        polyMenu.getPoints().addAll(Constantes.POLYGONE_COIN_MENU_W);
-                        polyAffichage.getPoints().clear();
-                        polyAffichage.getPoints().addAll(Constantes.POLYGONE_COIN_AFFICHAGE_W);
-                        coinImages = new Image[]{coinImagesStock[3], coinImagesStock[4], coinImagesStock[5]};
-                    }
-                    affichage(jeu, 0);
-                }
+                coin.setVisible(false);
         }
     }
 }

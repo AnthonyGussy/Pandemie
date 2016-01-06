@@ -70,6 +70,15 @@ public final class Constantes {
 			0.0, 67.0,
 			10.0, 74.0,
 			79.0, 63.0));
+
+	// Affichage événement article
+	public static final double POS_X_EV_ART_NOM = 0.3;
+	public static final double POS_Y_EV_ART_NOM  = 0.07;
+	public static final double POS_X_EV_ART_DESC = 0.28;
+	public static final double POS_Y_EV_ART_DESC = 0.10;
+	public static final double POS_X_EV_ART_DEP = 0.28;
+	public static final double POS_Y_EV_ART_DEP  = 0.20;
+
 	// Affichage arbre de compétences
 	public static final double TAILLE_POLICE_TITRE = 0.030;
 

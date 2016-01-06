@@ -28,7 +28,7 @@ public class Departement implements java.io.Serializable {
     private Modele.ArbreDeCompetence arbre;
     private Vue.Departement vue;
 
-    public Departement(DepartementNom depNom, boolean depart){
+    public Departement(DepartementNom depNom, boolean depart, Modele.Jeu jeu){
 
         this.nom = depNom;
         this.nbPersonne = 200 + (int)(Math.random() * 201);
@@ -46,7 +46,7 @@ public class Departement implements java.io.Serializable {
         tachesStockage = new ArrayList<>();
         creeListeTache();
         if(depart) creerTache();
-        vue = new Vue.Departement(this);
+        vue = new Vue.Departement(this, jeu);
     }
 
     public Vue.Departement getVue() { return vue; }
@@ -92,7 +92,7 @@ public class Departement implements java.io.Serializable {
         int infection = nbTaches + (100-compteurs.get(1).getCompte())/100*nbTaches;
         compteurs.get(3).modifCompte(-infection);
         compteurs.get(2).modifCompte(infection);
-        Platform.runLater(() -> vue.affichage(jeu, 2));
+        Platform.runLater(() -> vue.affichage(jeu.getVue().getScene(), 0));
     }
     void supprimerTache(){
         for(Tache tache :  taches){
