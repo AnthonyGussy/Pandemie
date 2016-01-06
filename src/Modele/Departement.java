@@ -91,7 +91,7 @@ public class Departement implements java.io.Serializable {
         int infection = nbTaches + (100-compteurs.get(1).getCompte())/100*nbTaches;
         compteurs.get(3).modifCompte(-infection);
         compteurs.get(2).modifCompte(infection);
-        Platform.runLater(() -> vue.affichage(jeu.getVue().getScene(), 0));
+        Platform.runLater(() -> vue.affichage(jeu.getVue().getScene(), 2));
     }
     void supprimerTache(){
         for(Tache tache :  taches){
