@@ -52,6 +52,8 @@ public class Menu {
                         jeu.commencerPartie();
                         break;
                     case Regles:
+                        affichage(jeu, 1);
+                        jeu.regles();
                         break;
                     case Retour_Jeu:
                         affichage(jeu, 1);

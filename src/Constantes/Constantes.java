@@ -71,6 +71,32 @@ public final class Constantes {
 			10.0, 74.0,
 			79.0, 63.0));
 
+
+	// Affichage règles
+	public static final ArrayList<Double> POLYGONE_RPAGE1 = new ArrayList<>(Arrays.asList(0.0, 0.0,
+			9.0, 0.0,
+			30.0, 14.0,
+			30.0, 16.0,
+			9.0, 27.0,
+			0.0, 27.0,
+			0.0, 23.0,
+			9.0, 15.0,
+			0.0, 7.0));
+	public static final double POS_X_FLECHENEXTRPAGE1 = 0.860;
+	public static final double POS_Y_FLECHENEXTRPAGE1 = 0.803;
+	public static final ArrayList<Double> POLYGONE_RPAGE2 = new ArrayList<>(Arrays.asList(27.0, 0.0,
+			22.0, 0.0,
+			0.0, 11.0,
+			0.0, 14.0,
+			24.0, 25.0,
+			27.0, 25.0,
+			27.0, 21.0,
+			21.0, 13.0,
+			21.0, 12.0,
+			27.0, 4.0));
+	public static final double POS_X_FLECHENEXTRPAGE2 = 0.830;
+	public static final double POS_Y_FLECHENEXTRPAGE2 = 0.803;
+
 	// Affichage événement article
 	public static final double POS_X_EV_ART_NOM = 0.3;
 	public static final double POS_Y_EV_ART_NOM  = 0.07;

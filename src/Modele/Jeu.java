@@ -6,6 +6,7 @@ import Enumerations.DepartementNom;
 import Enumerations.BoutonType;
 import Vue.Compteur;
 import Vue.Menu;
+import Vue.Regles;
 import javafx.stage.Stage;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -26,13 +27,13 @@ public class Jeu implements java.io.Serializable {
     private Vue.Jeu vue;
     private Menu menuPrincipal;
     private Menu menuJeu;
+    private Regles regles;
     private ArrayList<Modele.Departement> departements;
     private ArrayList<Compteur> compteurs;
     private ArrayList<Modele.Evenement> evenements;
 
     // Constructeur
     public Jeu(Stage primaryStage) {
-
         departements = new ArrayList<>();
         evenements = new ArrayList<>();
         compteurs = new ArrayList<>();
@@ -42,6 +43,7 @@ public class Jeu implements java.io.Serializable {
         menuPrincipal.affichage(this, 0);
         boutons = new BoutonType[]{BoutonType.Sauvegarder, BoutonType.Regles, BoutonType.Retour_Jeu, BoutonType.Quitter};
         menuJeu = new Menu(boutons, this);
+        regles = new Regles(this);
     }
 
     // Méthodes
@@ -83,6 +85,10 @@ public class Jeu implements java.io.Serializable {
         /*evenements.add(new EvenementArticle(DepartementNom.Gmc, "Facile", 0));
         EvenementArticle test = (EvenementArticle) evenements.get(0);
         test.getEAV().affichagePlateau(this, 0);*/
+    }
+
+    public void regles() {
+        regles.affichage(this, 0, 1);
     }
 
     /**
