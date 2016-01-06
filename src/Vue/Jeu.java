@@ -35,7 +35,7 @@ public class Jeu {
         root = new Group();
         scene = new Scene(root, Constantes.LARGEUR_FENETRE, Constantes.HAUTEUR_FENETRE);
         liste = new ImageView(new Image("file:image\\Liste.jpg"));
-        texte = new Text("départements :");
+        texte = new Text("Départements :");
         liste.setVisible(false);
         texte.setVisible(false);
         root.getChildren().addAll(liste, texte);
