@@ -246,10 +246,38 @@
 		<Facile>
 		
 			<tache>
-				<nom>Système logistique</nom>
-				<description>Mise en place d'un système logistique</description>
+				<nom>Convoyeurs</nom>
+				<description>Optimisation et installation de convoyeur</description>
 				<temps>10</temps>
 				<infecte>7</infecte>
+			</tache>
+		
+			<tache>
+				<nom>Système logistique</nom>
+				<description>Mise en place d'un système logistique basique</description>
+				<temps>10</temps>
+				<infecte>7</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Coordinations des différents départements</nom>
+				<description>Travaux de coordinations des différents départements</description>
+				<temps>60</temps>
+				<infecte>4</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Agrafages</nom>
+				<description>Travaux d'optimsation d'agrafage de calendriers et réalisation d'une machine</description>
+				<temps>12</temps>
+				<infecte>9</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Cours</nom>
+				<description>Enseignements de méthodologies de travail et d'organisation aux élèves des autres départements</description>
+				<temps>14</temps>
+				<infecte>9</infecte>
 			</tache>
 			
 		</Facile>
@@ -257,10 +285,38 @@
 		<Moyenne>
 		
 			<tache>
-				<nom>Cellule de Production</nom>
-				<description>Mise en place d'une cellule de production</description>
-				<temps>50</temps>
+				<nom>Méthodologies</nom>
+				<description>Recherches de méthodologies de travail innovantes</description>
+				<temps>28</temps>
 				<infecte>15</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Cellule de Production</nom>
+				<description>Mise en place d'une cellule de production moyenne</description>
+				<temps>17</temps>
+				<infecte>15</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Flux d'approvisionnements</nom>
+				<description>Travaux d'amélioration de la maîtrise des flux d'approvisionnement</description>
+				<temps>19</temps>
+				<infecte>18</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Gestion des stocks</nom>
+				<description>Travaux d'amélioration de la gestion des stocks</description>
+				<temps>25</temps>
+				<infecte>14</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Perçage céramique</nom>
+				<description>Développement autour du perçage de céramique</description>
+				<temps>22</temps>
+				<infecte>22</infecte>
 			</tache>
 			
 		</Moyenne>
@@ -270,8 +326,36 @@
 			<tache>
 				<nom>Optimisations</nom>
 				<description>Optimisation de la qualité et de la performance industrielle</description>
-				<temps>100</temps>
+				<temps>40</temps>
 				<infecte>30</infecte>
+			</tache>
+			
+			<tache>
+				<nom>CAO</nom>
+				<description>Conception assistée par ordinateur de vélos électriques</description>
+				<temps>35</temps>
+				<infecte>25</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Robotisation</nom>
+				<description>Conception, fabrication et programmations de robots de production</description>
+				<temps>80</temps>
+				<infecte>45</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Reffroidissement</nom>
+				<description>Travaux de refroidissement cryogénique pour l'usinage des plastiques</description>
+				<temps>38</temps>
+				<infecte>35</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Outils de mesure</nom>
+				<description>Recherches améliorer les outils de mesure</description>
+				<temps>45</temps>
+				<infecte>39</infecte>
 			</tache>
 			
 		</Avancee>
