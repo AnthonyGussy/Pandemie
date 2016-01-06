@@ -38,28 +38,29 @@ public class Departement{
             case "Informatique":
                 posX = Constantes.POS_X_INFO;
                 posY = Constantes.POS_Y_INFO;
-                departementPoly.getPoints().addAll(Constantes.adaptPolygone(Constantes.POLYGONE_INFO, scene));
+                polygone = Constantes.POLYGONE_INFO;
                 break;
             case "Energie":
                 posX = Constantes.POS_X_ENERGIE;
                 posY = Constantes.POS_Y_ENERGIE;
-                departementPoly.getPoints().addAll(Constantes.adaptPolygone(Constantes.POLYGONE_ENERGIE,scene));
+                polygone = Constantes.POLYGONE_ENERGIE;
                 break;
             case "Imsi":
                 posX = Constantes.POS_X_IMSI;
                 posY = Constantes.POS_Y_IMSI;
-                departementPoly.getPoints().addAll(Constantes.adaptPolygone(Constantes.POLYGONE_IMSI, scene));
+                polygone = Constantes.POLYGONE_IMSI;
                 break;
             case "Gmc":
                 posX = Constantes.POS_X_GMC;
                 posY = Constantes.POS_Y_GMC;
-                departementPoly.getPoints().addAll(Constantes.adaptPolygone(Constantes.POLYGONE_GMC, scene));
+                polygone = Constantes.POLYGONE_GMC;
                 break;
             default:
                 posX = Constantes.POS_X_EDIM;
                 posY = Constantes.POS_Y_EDIM;
-                departementPoly.getPoints().addAll(Constantes.adaptPolygone(Constantes.POLYGONE_EDIM, scene));
+                polygone = Constantes.POLYGONE_EDIM;
         }
+        departementPoly.getPoints().addAll(Constantes.adaptPolygone(polygone, scene));
         departementPoly.setFill(new ImagePattern(new Image("file:image\\" + departement.getNom() + "Dep.jpg"), 0, 0, 1, 1, true));
         information = new Text();
         nomR = new Text();
@@ -90,6 +91,8 @@ public class Departement{
                 break;
             default:
                 personne.getChildren().clear();
+                departementPoly.getPoints().clear();
+                departementPoly.getPoints().addAll(Constantes.adaptPolygone(polygone, jeu.getVue().getScene()));
                 departementPoly.setTranslateX(jeu.getVue().getScene().getWidth() * posX);
                 departementPoly.setTranslateY(jeu.getVue().getScene().getHeight() * posY);
                 personne.getChildren().add(departementPoly);
