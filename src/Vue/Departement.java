@@ -24,6 +24,7 @@ public class Departement{
     private Modele.Departement departement;
     private ImagePattern pointInfecte;
     private ImagePattern pointNormal;
+    private boolean affiche = false;
 
     public Departement(Modele.Departement departement, Modele.Jeu jeu){
         this.departement = departement;
@@ -72,10 +73,12 @@ public class Departement{
     public void affichage(Scene scene, int afficher) {
         switch(afficher) {
             case 0:
+                affiche = true;
                 personne.setVisible(true);
                 affichage(scene, 2);
                 break;
             case 1:
+                affiche = false;
                 personne.setVisible(false);
                 information.setVisible(false);
                 nomR.setVisible(false);
@@ -109,7 +112,7 @@ public class Departement{
     }
 
     private void eventInformation(Modele.Jeu jeu){
-        jeu.getVue().affichagePlateau(2);
+        jeu.getVue().affichagePlateau(4);
         Scene scene = jeu.getVue().getScene();
         String nom = departement.getNom();
         nomR.setText(nom);
@@ -130,11 +133,13 @@ public class Departement{
         nomR.setVisible(true);
     }
     private void eventRemoveInformation(Modele.Jeu jeu){
-        information.setVisible(false);
-        nomR.setVisible(false);
-        String nom = departement.getNom();
-        departementPoly.setFill(new ImagePattern(new Image("file:image\\" + nom + "Dep.jpg"), 0, 0, 1, 1, true));
-        jeu.getVue().affichagePlateau(2);
+        if (affiche) {
+            information.setVisible(false);
+            nomR.setVisible(false);
+            String nom = departement.getNom();
+            departementPoly.setFill(new ImagePattern(new Image("file:image\\" + nom + "Dep.jpg"), 0, 0, 1, 1, true));
+            jeu.getVue().affichagePlateau(2);
+        }
     }
     private void eventArbreDeCompetence(Modele.Jeu jeu){
         jeu.getVue().affichagePlateau(1);
