@@ -189,6 +189,7 @@ public class Jeu implements java.io.Serializable {
      * Cette méthode redimensionne les éléments actifs de l'affichagePlateau lorsque la fenêtre est redimensionnée
      */
     public void redimensionner() {
+        regles.affichage(this, 2, 0);
         vue.affichagePlateau(3);
         menuPrincipal.affichage(this, 2);
         for(Modele.Evenement evenement : evenements) {
