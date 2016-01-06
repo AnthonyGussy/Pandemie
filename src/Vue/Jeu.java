@@ -25,7 +25,7 @@ public class Jeu {
     private Text texte;
     private boolean affichePlateau = false;
     private Stage primaryStage;
-
+    private Coin coin;
     // Constructeur
     public Jeu(Stage primaryStage, Modele.Jeu modele) {
         this.primaryStage = primaryStage;
@@ -42,10 +42,12 @@ public class Jeu {
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.setFullScreen(true);
+        coin = new Coin(this);
         primaryStage.show();
         scene.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> modele.redimensionner());
         scene.heightProperty().addListener((observableValue, oldSceneHeight, newSceneHeight) -> modele.redimensionner());
         //scene.setOnMouseClicked(mouseEvent -> System.out.println(mouseEvent.getX() + " " + mouseEvent.getY()));
+
     }
 
     // Méthodes
@@ -84,6 +86,7 @@ public class Jeu {
                 texte.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE));
                 liste.setVisible(true);
                 texte.setVisible(true);
+                coin.affichage(this, 0);
                 break;
             case 1:
                 affichagePlateau(4);
@@ -96,6 +99,7 @@ public class Jeu {
                 texte.setVisible(true);
                 break;
             case 3:
+                coin.affichage(this, 2);
                 for(Modele.Departement departement : modele.getDepartements()) {
                     departement.getVue().affichage(scene, 2);
                 }
@@ -109,7 +113,6 @@ public class Jeu {
                 texte.setX(scene.getWidth() * Constantes.POS_X_TEXTE);
                 texte.setY(scene.getHeight() * Constantes.POS_Y_TEXTE);
                 texte.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE));
-
                 break;
             default:
                 liste.setVisible(false);

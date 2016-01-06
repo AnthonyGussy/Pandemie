@@ -29,7 +29,6 @@ public class Jeu implements java.io.Serializable {
     private ArrayList<Modele.Departement> departements;
     private ArrayList<Compteur> compteurs;
     private ArrayList<Modele.Evenement> evenements;
-    private Coin coin;
 
     // Constructeur
     public Jeu(Stage primaryStage) {
@@ -75,8 +74,6 @@ public class Jeu implements java.io.Serializable {
         for(Modele.Departement dep : departements) {
             dep.getVue().affichage(vue.getScene(), 0);
         }
-        coin = new Coin(this);
-        coin.affichage(this, 0);
         vue.affichagePlateau(0);
 
         /*evenements.add(new EvenementArticle(DepartementNom.Gmc, "Facile", 0));
@@ -182,7 +179,6 @@ public class Jeu implements java.io.Serializable {
      */
     public void redimensionner() {
         vue.affichagePlateau(3);
-        //coin.affichage(this, 2);
         for(Menu menu : menus) {
             menu.affichage(this, 2);
         }
