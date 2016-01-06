@@ -160,4 +160,6 @@ public class Departement{
         jeu.getVue().affichagePlateau(1);
         departement.getArbre().getVue().affichage(jeu, 0);
     }
+
+    public Polygon getDepartementPoly() { return departementPoly; }
 }

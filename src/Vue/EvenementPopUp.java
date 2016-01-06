@@ -52,12 +52,19 @@ public class EvenementPopUp {
 
         Scene scene = jeu.getVue().getScene();
         popUp.setRadius(22);
-        popUp.setCenterX(scene.getWidth() * posX);
-        popUp.setCenterY(scene.getHeight() * posY);
+        genePopUp(scene);
         popUp.setOnMouseClicked(event1 -> {
             event.appliquerEffet(jeu);
             jeu.getVue().getRoot().getChildren().removeAll(popUp);
         });
+
+    }
+
+    public void genePopUp(Scene scene) {
+            do {
+                popUp.setCenterX(scene.getWidth() * posX + Math.random() * event.getDepartement().getVue().getDepartementPoly().getLayoutBounds().getWidth());
+                popUp.setCenterY(scene.getHeight() * posY + Math.random() * event.getDepartement().getVue().getDepartementPoly().getLayoutBounds().getHeight());
+            } while(!event.getDepartement().getVue().getDepartementPoly().contains(popUp.getCenterX() - scene.getWidth() * posX, popUp.getCenterY() - scene.getHeight() * posY));
 
     }
 }

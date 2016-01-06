@@ -7,6 +7,7 @@ import Vue.EvenementArticle;
 public class EvenementAccomplissement extends Evenement implements java.io.Serializable {
 	
 	private int point; // Calculé en fonction de la tâche
+    private int duree;
     private Vue.EvenementArticle event;
 
     public EvenementAccomplissement(Modele.Departement departement, Modele.Tache tache,Modele.Jeu jeu){
@@ -23,5 +24,7 @@ public class EvenementAccomplissement extends Evenement implements java.io.Seria
     public int getPoint() { return point; }
 
     public Vue.EvenementArticle getVue() { return event; }
+
+    public int getDuree() { return duree;}
    
 }
