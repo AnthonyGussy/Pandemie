@@ -129,7 +129,7 @@ public class Competence implements java.io.Serializable {
             }
             else if(!modele.getDebloque()){
                 nomR.setVisible(false);
-                vueArbre.erreurAchat(jeu, "La compétence est bloqué");
+                vueArbre.erreurAchat(jeu, "La compétence est bloquée");
             }
             else if(!modele.getAchete()) {
                 nomR.setVisible(false);
