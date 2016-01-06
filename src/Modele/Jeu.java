@@ -4,7 +4,6 @@ import Constantes.Constantes;
 import Enumerations.CompteurType;
 import Enumerations.DepartementNom;
 import Enumerations.BoutonType;
-import Vue.Coin;
 import Vue.Compteur;
 import Vue.Menu;
 import javafx.stage.Stage;
@@ -25,21 +24,24 @@ public class Jeu implements java.io.Serializable {
 
     //Champs
     private Vue.Jeu vue;
-    private ArrayList<Menu> menus;
+    private Menu menuPrincipal;
+    private Menu menuJeu;
     private ArrayList<Modele.Departement> departements;
     private ArrayList<Compteur> compteurs;
     private ArrayList<Modele.Evenement> evenements;
 
     // Constructeur
     public Jeu(Stage primaryStage) {
-        menus = new ArrayList<>();
+
         departements = new ArrayList<>();
         evenements = new ArrayList<>();
         compteurs = new ArrayList<>();
         vue = new Vue.Jeu(primaryStage, this);
         BoutonType[] boutons = new BoutonType[]{BoutonType.Jouer, BoutonType.Charger, BoutonType.Regles, BoutonType.Quitter};
-        menus.add(new Menu(boutons, this));
-        menus.get(0).affichage(this, 0);
+        menuPrincipal = new Menu(boutons, this);
+        menuPrincipal.affichage(this, 0);
+        boutons = new BoutonType[]{BoutonType.Sauvegarder, BoutonType.Charger, BoutonType.Regles, BoutonType.Quitter};
+        menuJeu = new Menu(boutons, this);
     }
 
     // Méthodes
@@ -48,6 +50,8 @@ public class Jeu implements java.io.Serializable {
      * @return Vue de Jeu
      */
     public Vue.Jeu getVue() { return vue; }
+
+    public Vue.Menu getMenuJeu() { return menuJeu; }
 
     /**
      * Cette méthode renvoie la liste des départements
@@ -179,10 +183,7 @@ public class Jeu implements java.io.Serializable {
      */
     public void redimensionner() {
         vue.affichagePlateau(3);
-        for(Menu menu : menus) {
-            menu.affichage(this, 2);
-        }
-
+        menuPrincipal.affichage(this, 2);
         for(Modele.Evenement evenement : evenements) {
             String type = evenement.getClass().getName();
             switch(type) {

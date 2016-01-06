@@ -87,7 +87,9 @@ public class Menu {
                 }
                 boutonsGroup.setVisible(true);
                 break;
-            case 2:
+            case 1:
+                boutonsGroup.setVisible(false);
+            default:
                 int j = 1;
                 for (Rectangle b : boutons) {
                     b.setX(scene.getWidth() * j * Constantes.POS_X_BOUTON);
@@ -97,8 +99,6 @@ public class Menu {
                     j++;
                 }
                 break;
-            default:
-                boutonsGroup.setVisible(false);
         }
     }
 }

@@ -119,4 +119,14 @@ public class Jeu {
                 texte.setVisible(false);
         }
     }
+
+    public void affichageMenuJeu(int afficher) {
+        switch(afficher) {
+            case 0:
+                modele.getMenuJeu().affichage(modele, 0);
+                break;
+            default:
+                modele.getMenuJeu().affichage(modele, 1);
+        }
+    }
 }
