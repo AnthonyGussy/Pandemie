@@ -24,16 +24,16 @@ public class Departement{
     private double posX;
     private double posY;
     ArrayList<Double> polygone;
-    private Modele.Departement departement;
+    private Modele.Departement modele;
     private ImagePattern pointInfecte;
     private ImagePattern pointNormal;
     private boolean affiche = false;
 
-    public Departement(Modele.Departement departement, Modele.Jeu jeu){
-        this.departement = departement;
+    public Departement(Modele.Departement modele, Modele.Jeu jeu){
+        this.modele = modele;
         Scene scene = jeu.getVue().getScene();
         departementPoly = new Polygon();
-        switch(departement.getNom()) {
+        switch(modele.getNom()) {
             case "Informatique":
                 posX = Constantes.POS_X_INFO;
                 posY = Constantes.POS_Y_INFO;
@@ -60,7 +60,7 @@ public class Departement{
                 polygone = Constantes.POLYGONE_EDIM;
         }
         departementPoly.getPoints().addAll(Constantes.adaptPolygone(polygone, scene));
-        departementPoly.setFill(new ImagePattern(new Image("file:image\\" + departement.getNom() + "Dep.jpg"), 0, 0, 1, 1, true));
+        departementPoly.setFill(new ImagePattern(new Image("file:image\\" + modele.getNom() + "Dep.jpg"), 0, 0, 1, 1, true));
         information = new Text();
         nomR = new Text();
         personne = new Group();
@@ -98,7 +98,7 @@ public class Departement{
                 departementPoly.setTranslateY(jeu.getVue().getScene().getHeight() * posY);
                 personne.getChildren().add(departementPoly);
                 personne.getChildren().add(genePoint(jeu.getVue().getScene()));
-                for(Tache t: departement.getTaches()) {
+                for(Tache t: modele.getTaches()) {
                     if (t.getEvent() != null) {
 
                         t.getEvent().getVue().affichage(jeu,2);
@@ -109,10 +109,10 @@ public class Departement{
     }
     public Group genePoint(Scene scene) {
         Group depPersonne = new Group();
-        for (int i = 0; i < departement.getNbPersonne(); i++) {
+        for (int i = 0; i < modele.getNbPersonne(); i++) {
             Circle circle = new Circle();
             circle.setRadius(4);
-            if (i < departement.getNbActif()) {
+            if (i < modele.getNbActif()) {
                 circle.setFill(pointInfecte);
             } else {
                 circle.setFill(pointNormal);
@@ -128,15 +128,15 @@ public class Departement{
     }
 
     private void updateInformation(Scene scene) {
-        String nom = departement.getNom();
+        String nom = modele.getNom();
         nomR.setText(nom);
         nomR.setX(scene.getWidth() * Constantes.POS_X_NOM_DEP);
         nomR.setY(scene.getHeight() * Constantes.POS_Y_NOM_DEP);
         nomR.setFont(Font.loadFont("file:Font.ttf", scene.getWidth() * Constantes.TAILLE_POLICE));
-        int efficacite = departement.getEfficacite();
-        int moral = departement.getMoral();
-        int taches = departement.getNbTaches();
-        int infecte = departement.getNbActif();
+        int efficacite = modele.getEfficacite();
+        int moral = modele.getMoral();
+        int taches = modele.getNbTaches();
+        int infecte = modele.getNbActif();
         information.setText("Efficacité : " + Integer.toString(efficacite) + "%\nMoral : " + Integer.toString(moral) + "%\n" +
                 "Nb tâches : " + Integer.toString(taches) + "\n" + "Nb actifs : " + Integer.toString(infecte));
         information.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE));
@@ -146,13 +146,13 @@ public class Departement{
 
     private void eventInformation(Modele.Jeu jeu){
         jeu.getVue().affichagePlateau(4);
-        String nom = departement.getNom();
+        String nom = modele.getNom();
         departementPoly.setFill(new ImagePattern(new Image("file:image\\"+ nom +"DepSelec.jpg"), 0, 0, 1, 1, true));
         information.setVisible(true);
         nomR.setVisible(true);
     }
     private void eventRemoveInformation(Modele.Jeu jeu){
-        String nom = departement.getNom();
+        String nom = modele.getNom();
         departementPoly.setFill(new ImagePattern(new Image("file:image\\" + nom + "Dep.jpg"), 0, 0, 1, 1, true));
         if (affiche) {
             information.setVisible(false);
@@ -162,7 +162,8 @@ public class Departement{
     }
     private void eventArbreDeCompetence(Modele.Jeu jeu){
         jeu.getVue().affichagePlateau(1);
-        departement.getArbre().getVue().affichage(jeu, 0);
+        modele.getArbre().getVue().affichage(jeu, 0);
+        modele.afficherTaches(jeu.getVue().getScene(), 0);
     }
 
     public Polygon getDepartementPoly() { return departementPoly; }
