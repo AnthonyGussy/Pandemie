@@ -35,7 +35,7 @@ public class EvenementArticle extends Evenement implements java.io.Serializable 
 		eAV = new Vue.EvenementArticle(this, group);
 	}
 	
-	public EvenementArticle(DepartementNom departement, String difficulte, int index) {
+	public EvenementArticle(DepartementNom departement, String difficulte, int index, Group group) {
 		
 		super(departement);
         effets = new int[3];
@@ -82,7 +82,7 @@ public class EvenementArticle extends Evenement implements java.io.Serializable 
         catch (final ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }
-		eAV = new Vue.EvenementArticle(this);
+		eAV = new Vue.EvenementArticle(this, group);
 	}
 
 	// temporaire

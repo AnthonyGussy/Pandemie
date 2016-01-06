@@ -57,8 +57,9 @@ public class Menu {
             });
             boutons.add(b);
             boutonsGroup.setVisible(false);
-            jeu.getVue().getRoot().getChildren().add(boutonsGroup);
+
         }
+        jeu.getVue().getRoot().getChildren().add(boutonsGroup);
     }
 
     public void affichage(Modele.Jeu jeu, int afficher) {

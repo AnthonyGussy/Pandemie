@@ -9,6 +9,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import javafx.scene.Group;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -21,7 +22,7 @@ public class EvenementArticleList implements java.io.Serializable{
 	
 	List<EvenementArticle> liste;
 	
-	public EvenementArticleList(DepartementNom departement, String difficulte) {
+	public EvenementArticleList(DepartementNom departement, String difficulte, Group group) {
 		liste = new ArrayList<>();
 		final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         
@@ -48,7 +49,7 @@ public class EvenementArticleList implements java.io.Serializable{
 			                effets[1] = Integer.parseInt(elementEven.getElementsByTagName("efficacite").item(0).getTextContent());
 			                effets[2] = Integer.parseInt(elementEven.getElementsByTagName("temps").item(0).getTextContent());
 			                
-			                a = new EvenementArticle(departement, nom, description, effets);
+			                a = new EvenementArticle(departement, nom, description, effets, group);
 			                liste.add(a);
                     	}
                     }
@@ -64,14 +65,5 @@ public class EvenementArticleList implements java.io.Serializable{
 	public List<EvenementArticle> getListEvenement() {
 		return liste;
 	}
-	
-	public static void main(String[] args) {
-		EvenementArticleList tmp = new EvenementArticleList(DepartementNom.Informatique, "Facile");
-		List<EvenementArticle> tmp2 = tmp.getListEvenement();
-		for (EvenementArticle tmp2Elm : tmp2) {
-			tmp2Elm.affichage();
-			System.out.println("\n");
-		}
-	}
-	
+
 }
