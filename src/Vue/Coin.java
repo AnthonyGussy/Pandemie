@@ -35,11 +35,11 @@ public class Coin {
         polyMenu.setFill(Color.TRANSPARENT);
         polyMenu.setOnMouseEntered(mouseEvent -> {
             coin.setImage(coinImages[1]);
-            affichage(jeu, 0);
+            affichage(jeu, 2);
         });
         polyMenu.setOnMouseExited(mouseEvent -> {
             coin.setImage(coinImages[0]);
-            affichage(jeu, 0);
+            affichage(jeu, 2);
         });
         polyMenu.setOnMouseClicked(mouseEvent -> {
         });
@@ -48,11 +48,11 @@ public class Coin {
         polyAffichage.setFill(Color.TRANSPARENT);
         polyAffichage.setOnMouseEntered(mouseEvent -> {
             coin.setImage(coinImages[2]);
-            affichage(jeu, 0);
+            affichage(jeu, 2);
         });
         polyAffichage.setOnMouseExited(mouseEvent -> {
             coin.setImage(coinImages[0]);
-            affichage(jeu, 0);
+            affichage(jeu, 2);
         });
         polyAffichage.setOnMouseClicked(mouseEvent -> {
 
@@ -72,7 +72,7 @@ public class Coin {
                 coin.setVisible(false);
                 break;
             default:
-                if (jeu.getPrimaryStage().isFullScreen()) {
+                if (jeu.getPrimaryStage().getX() == 0) {
                     polyMenu.getPoints().clear();
                     polyMenu.getPoints().addAll(Constantes.POLYGONE_COIN_MENU_FS);
                     polyAffichage.getPoints().clear();
