@@ -103,6 +103,10 @@ public class Tache implements java.io.Serializable {
 	public void setInfectes(int incr) {
 		compteurs.get(1).modifCompte(incr);
 	}
+	
+    public String getNom() { return nom; }
+	    
+	public String getDescription() { return description; }
 
 	public List<Compteur> getCompteurs() {
 		return compteurs;
@@ -121,6 +125,6 @@ public class Tache implements java.io.Serializable {
 		event = new EvenementAccomplissement(departement,this,jeu);
 		Platform.runLater(() -> event.getVue().affichage(jeu, 0));
 	}
-
+	
 	public Modele.EvenementAccomplissement getEvent() { return event;}
 }

@@ -78,4 +78,16 @@ public class TacheList implements java.io.Serializable {
 			System.out.println("\n");
 		}
 	}*/
+	
+	public List<Tache> getListTache() {
+		return listeTaches;
+	}
+	
+	public Tache getTache(int index) {
+		return listeTaches.get(index);
+	}
+	
+	public int size() {
+		return listeTaches.size();
+	}
 }
