@@ -109,7 +109,7 @@ public class Departement{
     }
 
     private void eventInformation(Modele.Jeu jeu){
-        jeu.getVue().affichagePlateau(3);
+        jeu.getVue().affichagePlateau(2);
         Scene scene = jeu.getVue().getScene();
         String nom = departement.getNom();
         nomR.setText(nom);

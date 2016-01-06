@@ -24,7 +24,7 @@ public class Competence implements java.io.Serializable {
     protected Text nomR;
 
     // Constructeur
-    Competence(Modele.Competence c, ArbreDeCompetence arbreDeCompetenceVue){
+    Competence(Modele.Competence c, ArbreDeCompetence arbreDeCompetenceVue,Modele.Jeu jeu) {
         vueArbre = arbreDeCompetenceVue;
         modele = c;
         ligne = c.getLigne();
@@ -34,19 +34,24 @@ public class Competence implements java.io.Serializable {
         if (modele.getEffet()[1] != 0) nomR.setText(nomR.getText() + "\nmoral :+" + modele.getEffet()[1]);
         if (modele.getEffet()[2] != 0) nomR.setText(nomR.getText() + "\ntemps :+" + modele.getEffet()[2]);
         compet = new Circle();
+        compet.setVisible(false);
+        nomR.setVisible(false);
+        jeu.getVue().getRoot().getChildren().addAll(compet,nomR);
     }
 
     // Méthodes
+
     /**
-     *
      * @param jeu
      * @param afficher
      */
     void affichage(Modele.Jeu jeu, int afficher) {
         Scene scene = jeu.getVue().getScene();
         Group root = jeu.getVue().getRoot();
-        switch(afficher) {
+        switch (afficher) {
             case 0:
+                compet.setVisible(true);
+
                 double coefx = (double) 1 / modele.getNbLignes() * (ligne - 1);
                 double coefy = (double) 1 / modele.getNbColonnes() * (colonne - 1);
                 compet.setCenterX((scene.getWidth() * 15) / 100 + coefx * (scene.getWidth() * 60 / 100));
@@ -68,47 +73,58 @@ public class Competence implements java.io.Serializable {
                     nomR.setX((scene.getWidth() * 83.5) / 100);
                     nomR.setY((scene.getHeight() * 45) / 100);
                     nomR.setWrappingWidth((scene.getWidth() * 14) / 100);
-                    if(root.getChildren().contains(nomR)) root.getChildren().remove(nomR);
-                    root.getChildren().add(nomR);
+                    nomR.setVisible(true);
                 });
 
                 // Quand la souris sort de la zone du cercle, la fenêtre de description est enlevée
                 compet.setOnMouseExited(mouseEvent -> {
                     compet.setRadius(24);
-                    if(root.getChildren().contains(nomR)) root.getChildren().remove(nomR);
+                    nomR.setVisible(false);
                 });
 
-                // Achète la compétence lors d'un double clic sur le cercle si elle est déblocable et que le joueur dispose d'assez de points de compétence
-                compet.setOnMouseClicked(mouseEvent -> {
-                    if (vueArbre.getACliquer().equals(ligne + "," + colonne)) {
-                        if (modele.getDebloque() && !modele.getAchete() && jeu.getPtsCompetence() >= modele.getCout()) {
-                            jeu.setPtsCompetence(-modele.getCout());
-                            modele.getArbreDeCompetence().debloquerCompetence(ligne, colonne);
-                            compet.setFill(new ImagePattern(new Image("file:image\\CompetenceAchete.png"), 0, 0, 1, 1, true));
-                            vueArbre.changementAffichage(ligne);
-                        }
-                        else if(jeu.getPtsCompetence() < modele.getCout()){
-                            System.out.println("Pas assez de points de compétence");
-                        }
-                    } else vueArbre.setACliquer(ligne + "," + colonne);
-                });
-                if(root.getChildren().contains(compet)) root.getChildren().remove(compet);
-                root.getChildren().add(compet);
+
+                compet.setOnMouseClicked(mouseEvent -> { eventAchat(jeu); });
+                break;
+            case 2:
+
+                double coeffx = (double) 1 / modele.getNbLignes() * (ligne - 1);
+                double coeffy = (double) 1 / modele.getNbColonnes() * (colonne - 1);
+                compet.setCenterX((scene.getWidth() * 15) / 100 + coeffx * (scene.getWidth() * 60 / 100));
+                compet.setCenterY((scene.getHeight() * 90) / 100 - coeffy * (scene.getHeight() * 65 / 100));
                 break;
             default:
-                if(root.getChildren().contains(compet)) root.getChildren().remove(compet);
+                compet.setVisible(false);
         }
     }
 
     /**
-     *
      * @return
      */
-    public Circle getCompet(){ return compet;}
+    public Circle getCompet() {
+        return compet;
+    }
 
     /**
-     *
      * @param group
      */
-    public void setGroup(Group group){ g = group; }
+    public void setGroup(Group group) {
+        g = group;
+    }
+
+
+    // Achète la compétence lors d'un double clic sur le cercle si elle est déblocable et que le joueur dispose d'assez de points de compétence
+    public void eventAchat(Modele.Jeu jeu){
+
+        if (vueArbre.getACliquer().equals(ligne + "," + colonne)) {
+            if (modele.getDebloque() && !modele.getAchete() && jeu.getPtsCompetence() >= modele.getCout()) {
+                jeu.setPtsCompetence(-modele.getCout());
+                modele.getArbreDeCompetence().debloquerCompetence(ligne, colonne);
+                compet.setFill(new ImagePattern(new Image("file:image\\CompetenceAchete.png"), 0, 0, 1, 1, true));
+                vueArbre.changementAffichage(ligne);
+            } else if (jeu.getPtsCompetence() < modele.getCout()) {
+                System.out.println("Pas assez de points de compétence");
+            }
+        } else vueArbre.setACliquer(ligne + "," + colonne);
+
+    }
 }

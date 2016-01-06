@@ -86,7 +86,7 @@ public class Jeu {
                 texte.setVisible(true);
                 break;
             case 1:
-                affichagePlateau(3);
+                affichagePlateau(4);
                 for(Modele.Departement departement : modele.getDepartements()) {
                     departement.getVue().affichage(scene, 1);
                 }
@@ -94,6 +94,22 @@ public class Jeu {
             case 2:
                 liste.setVisible(true);
                 texte.setVisible(true);
+                break;
+            case 3:
+                for(Modele.Departement departement : modele.getDepartements()) {
+                    departement.getVue().affichage(scene, 2);
+                }
+                for(Modele.Departement departement : modele.getDepartements()) {
+                    departement.getArbre().getVue().affichage(modele,2);
+                }
+                liste.setX(scene.getWidth() * Constantes.POS_X_LISTE);
+                liste.setY(scene.getHeight() * Constantes.POS_Y_LISTE);
+                liste.setFitWidth(scene.getWidth() * Constantes.LARGEUR_LISTE);
+                liste.setFitHeight(scene.getHeight() * Constantes.HAUTEUR_LISTE);
+                texte.setX(scene.getWidth() * Constantes.POS_X_TEXTE);
+                texte.setY(scene.getHeight() * Constantes.POS_Y_TEXTE);
+                texte.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE));
+
                 break;
             default:
                 liste.setVisible(false);
