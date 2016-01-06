@@ -150,7 +150,8 @@ public class ArbreDeCompetence implements java.io.Serializable {
         noPoint.setVisible(visible);
     }
 
-    public void manquePoint(Modele.Jeu jeu) {
+    public void erreurAchat(Modele.Jeu jeu,String nom) {
+        noPoint.setText(nom);
         noPoint.setFont(Font.loadFont("file:Font.ttf", jeu.getVue().getScene().getHeight() * Constantes.TAILLE_POLICE));
         noPoint.setX((jeu.getVue().getScene().getWidth() * 83.5) / 100);
         noPoint.setY((jeu.getVue().getScene().getHeight() * 50) / 100);

@@ -96,7 +96,7 @@ public final class Constantes {
 			62.0, 27.0,
 			62.0, 35.0,
 			0.0, 35.0));
-	public static final double POS_X_RETOUR = 0.150;
+	public static final double POS_X_RETOUR = 0.120;
 	public static final double POS_Y_RETOUR = 0.27;
 
 	// Affichage événement article

@@ -27,7 +27,8 @@ public class Regles {
         posFleche = new double[2];
         posRetour = new double[2];
         this.jeu = jeu;
-        retour.getPoints().addAll(Constantes.POLYGONE_RETOUR);
+        scene = jeu.getVue().getScene();
+        retour.getPoints().addAll(Constantes.adaptPolygone(Constantes.POLYGONE_RETOUR, scene));
         retour.setFill(new ImagePattern(new Image("file:image\\RetourMenu.jpg"), 0, 0, 1, 1, true));
         posRetour[0] = Constantes.POS_X_RETOUR;
         posRetour[1] = Constantes.POS_Y_RETOUR;
@@ -45,7 +46,7 @@ public class Regles {
         fleche.setVisible(false);
         flecheOmbre.setVisible(false);
         retour.setVisible(false);
-        scene = jeu.getVue().getScene();
+
         jeu.getVue().getRoot().getChildren().addAll(flecheOmbre, fleche, retour);
     }
     private void eventRetour(int event){
@@ -124,6 +125,8 @@ public class Regles {
                         pageActive = 2;
                         break;
                 }
+                retour.getPoints().clear();
+                retour.getPoints().addAll(Constantes.adaptPolygone(Constantes.POLYGONE_RETOUR, scene));
                 fleche.setTranslateX(scene.getWidth() * posFleche[0]);
                 fleche.setTranslateY(scene.getHeight() * posFleche[1]);
                 flecheOmbre.setTranslateX(scene.getWidth() * posFleche[0]);
