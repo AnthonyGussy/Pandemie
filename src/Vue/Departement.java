@@ -69,7 +69,7 @@ public class Departement{
         Group root = jeu.getVue().getRoot();
         switch(afficher) {
             case 0:
-                personne.getChildren().clear();
+
                 affiche = true;
                 departementPoly.setTranslateX(scene.getWidth() * posX);
                 departementPoly.setTranslateY(scene.getHeight() * posY);
@@ -78,7 +78,6 @@ public class Departement{
                 personne.setOnMouseEntered(mouseEvent -> eventInformation(jeu));
                 personne.setOnMouseExited(mouseEvent -> eventRemoveInformation(jeu));
                 personne.setOnMouseClicked(mouseEvent -> eventArbreDeCompetence(jeu));
-                if(root.getChildren().contains(personne)) root.getChildren().remove(personne);
                 root.getChildren().add(personne);
                 break;
             case 1:
@@ -88,10 +87,11 @@ public class Departement{
                 }
                 break;
             default:
-                if(affiche) {
-                    affichage(jeu, 0);
-                }
-                break;
+                personne.getChildren().clear();
+                departementPoly.setTranslateX(scene.getWidth() * posX);
+                departementPoly.setTranslateY(scene.getHeight() * posY);
+                personne.getChildren().add(departementPoly);
+                personne.getChildren().add(genePoint(jeu));
         }
     }
     public Group genePoint(Modele.Jeu jeu) {
