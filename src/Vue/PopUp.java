@@ -10,14 +10,15 @@ import javafx.scene.shape.Circle;
 /**
  * Created by Anthony on 06/01/2016.
  */
-public class EvenementPopUp {
+public class PopUp {
 
     private double posX;
     private double posY;
     protected Circle popUp;
-    protected Modele.EvenementPopUp event;
+    protected Modele.PopUp event;
 
-    public EvenementPopUp(Modele.EvenementPopUp modele, Modele.Jeu jeu) {
+    public PopUp(Modele.PopUp modele, Modele.Jeu jeu) {
+
         event = modele;
 
         switch (event.getDepartement().getNom()) {
@@ -61,10 +62,11 @@ public class EvenementPopUp {
     }
 
     public void genePopUp(Scene scene) {
-            do {
-                popUp.setCenterX(scene.getWidth() * posX + Math.random() * event.getDepartement().getVue().getDepartementPoly().getLayoutBounds().getWidth());
-                popUp.setCenterY(scene.getHeight() * posY + Math.random() * event.getDepartement().getVue().getDepartementPoly().getLayoutBounds().getHeight());
-            } while(!event.getDepartement().getVue().getDepartementPoly().contains(popUp.getCenterX() - scene.getWidth() * posX, popUp.getCenterY() - scene.getHeight() * posY));
+        do {
+            popUp.setCenterX(scene.getWidth() * posX + Math.random() * event.getDepartement().getVue().getDepartementPoly().getLayoutBounds().getWidth());
+            popUp.setCenterY(scene.getHeight() * posY + Math.random() * event.getDepartement().getVue().getDepartementPoly().getLayoutBounds().getHeight());
+        }
+        while (!event.getDepartement().getVue().getDepartementPoly().contains(popUp.getCenterX() - scene.getWidth() * posX, popUp.getCenterY() - scene.getHeight() * posY));
 
     }
 }

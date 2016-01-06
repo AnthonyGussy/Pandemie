@@ -1,20 +1,16 @@
 package Modele;
 
-import Enumerations.DepartementNom;
-import Vue.*;
 import Vue.EvenementArticle;
 
 public class EvenementAccomplissement extends Evenement implements java.io.Serializable {
 	
 	private int point; // Calculé en fonction de la tâche
-    private int duree;
-    private Vue.EvenementArticle event;
+
 
     public EvenementAccomplissement(Modele.Departement departement, Modele.Tache tache,Modele.Jeu jeu){
 
-        super(departement);
+        super(departement,"Tâche terminée !","Une tâche a été terminée dans le département : "+departement.getNom(),jeu);
         point = (int)(Math.random()*(tache.getTempsInitial()/10))+1;
-        event = new EvenementArticle(this,jeu);
         appliquerEffet(jeu);
 
     }
@@ -23,8 +19,6 @@ public class EvenementAccomplissement extends Evenement implements java.io.Seria
     
     public int getPoint() { return point; }
 
-    public Vue.EvenementArticle getVue() { return event; }
-
-    public int getDuree() { return duree;}
+    public boolean isAccomplissement(){ return true;}
    
 }
