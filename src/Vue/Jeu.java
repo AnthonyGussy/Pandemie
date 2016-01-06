@@ -26,12 +26,13 @@ public class Jeu {
     private boolean affichePlateau = false;
     private Stage primaryStage;
     private Coin coin;
+
     // Constructeur
     public Jeu(Stage primaryStage, Modele.Jeu modele) {
         this.primaryStage = primaryStage;
         this.modele = modele;
         root = new Group();
-        scene = new Scene(root, 1024, 650);
+        scene = new Scene(root, Constantes.LARGEUR_FENETRE, Constantes.HAUTEUR_FENETRE);
         liste = new ImageView(new Image("file:image\\Liste.jpg"));
         texte = new Text("Départements :");
         liste.setVisible(false);
@@ -42,12 +43,12 @@ public class Jeu {
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.setFullScreen(true);
-        coin = new Coin(this);
+
         primaryStage.show();
+        coin = new Coin(this);
         scene.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> modele.redimensionner());
         scene.heightProperty().addListener((observableValue, oldSceneHeight, newSceneHeight) -> modele.redimensionner());
-        scene.setOnMouseClicked(mouseEvent -> System.out.println(scene.getWidth() + " " + scene.getHeight()));
-
+        //scene.setOnMouseClicked(mouseEvent -> System.out.println(scene.getWidth() + " " + scene.getHeight()));
     }
 
     // Méthodes

@@ -1,5 +1,7 @@
 package Constantes;
 
+import javafx.scene.Scene;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -8,6 +10,9 @@ import java.util.List;
  * Les différentes constantes utilisées dans le programme
  */
 public final class Constantes {
+	// Taille de la fenêtre de base
+	public static final int LARGEUR_FENETRE = 1024;
+	public static final int HAUTEUR_FENETRE = 650;
 	// Le tableau "effets"
 	public static final int TAILLE_EFFETS = 3;
 	public static final int MORAL = 0;
@@ -46,21 +51,11 @@ public final class Constantes {
 	// Affichage coin
 	public static final double LARGEUR_COIN = 0.205;
 	public static final double HAUTEUR_COIN = 0.14;
-	public static final ArrayList<Double> POLYGONE_COIN_MENU_FS = new ArrayList<>(Arrays.asList(224.0, 32.0,
-			210.0, 52.0,
-			116.0, 66.0,
-			94.0, 52.0));
-	public static final ArrayList<Double> POLYGONE_COIN_AFFICHAGE_FS = new ArrayList<>(Arrays.asList(116.0, 66.0,
-			94.0, 52.0,
-			0.0, 67.0,
-			0.0, 77.0,
-			11.0, 87.0,
-			106.0, 74.0));
-	public static final ArrayList<Double> POLYGONE_COIN_MENU_W = new ArrayList<>(Arrays.asList(170.0, 27.0,
+	public static final ArrayList<Double> POLYGONE_COIN_MENU = new ArrayList<>(Arrays.asList(170.0, 27.0,
 			159.0, 44.0,
 			87.0, 57.0,
 			70.0, 44.0));
-	public static final ArrayList<Double> POLYGONE_COIN_AFFICHAGE_W = new ArrayList<>(Arrays.asList(87.0, 57.0,
+	public static final ArrayList<Double> POLYGONE_COIN_AFFICHAGE = new ArrayList<>(Arrays.asList(87.0, 57.0,
 			70.0, 44.0,
 			0.0, 58.0,
 			0.0, 67.0,
@@ -153,4 +148,20 @@ public final class Constantes {
 			225.0, 68.0,
 			229.0, 160.0,
 			6.0, 161.0));
+
+	public static ArrayList<Double> adaptPolygone(ArrayList<Double> poly, Scene scene) {
+		ArrayList<Double> newPoly = new ArrayList<>();
+		boolean x = true;
+		for(Double value : poly) {
+			if(x) {
+				newPoly.add(value * scene.getWidth() / Constantes.LARGEUR_FENETRE);
+				x = false;
+			}
+			else {
+				newPoly.add(value * scene.getHeight() / Constantes.HAUTEUR_FENETRE);
+				x = true;
+			}
+		}
+		return newPoly;
+	}
 }

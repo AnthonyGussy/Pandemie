@@ -1,12 +1,15 @@
 package Vue;
 
 import Constantes.Constantes;
+import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
+
+import java.util.ArrayList;
 
 /**
  *
@@ -31,7 +34,7 @@ public class Coin {
         coin.setX(0);
         coin.setY(0);
         polyMenu = new Polygon();
-        polyMenu.getPoints().addAll(Constantes.POLYGONE_COIN_MENU_FS);
+        polyMenu.getPoints().addAll(Constantes.adaptPolygone(Constantes.POLYGONE_COIN_MENU, jeu.getScene()));
         polyMenu.setFill(Color.TRANSPARENT);
         polyMenu.setOnMouseEntered(mouseEvent -> {
             coin.setImage(coinImages[1]);
@@ -46,7 +49,7 @@ public class Coin {
             jeu.affichagePlateau(1);
         });
         polyAffichage = new Polygon();
-        polyAffichage.getPoints().addAll(Constantes.POLYGONE_COIN_AFFICHAGE_FS);
+        polyAffichage.getPoints().addAll(Constantes.adaptPolygone(Constantes.POLYGONE_COIN_AFFICHAGE, jeu.getScene()));
         polyAffichage.setFill(Color.TRANSPARENT);
         polyAffichage.setOnMouseEntered(mouseEvent -> {
             coin.setImage(coinImages[2]);
@@ -83,15 +86,15 @@ public class Coin {
             default:
                 if (jeu.getPrimaryStage().getX() == 0) {
                     polyMenu.getPoints().clear();
-                    polyMenu.getPoints().addAll(Constantes.POLYGONE_COIN_MENU_FS);
+                    polyMenu.getPoints().addAll(Constantes.adaptPolygone(Constantes.POLYGONE_COIN_MENU, scene));
                     polyAffichage.getPoints().clear();
-                    polyAffichage.getPoints().addAll(Constantes.POLYGONE_COIN_AFFICHAGE_FS);
+                    polyAffichage.getPoints().addAll(Constantes.adaptPolygone(Constantes.POLYGONE_COIN_AFFICHAGE, scene));
                     coinImages = new Image[]{coinImagesStock[3], coinImagesStock[4], coinImagesStock[5]};
                 } else {
                     polyMenu.getPoints().clear();
-                    polyMenu.getPoints().addAll(Constantes.POLYGONE_COIN_MENU_W);
+                    polyMenu.getPoints().addAll(Constantes.POLYGONE_COIN_MENU);
                     polyAffichage.getPoints().clear();
-                    polyAffichage.getPoints().addAll(Constantes.POLYGONE_COIN_AFFICHAGE_W);
+                    polyAffichage.getPoints().addAll(Constantes.POLYGONE_COIN_AFFICHAGE);
                     coinImages = new Image[]{coinImagesStock[0], coinImagesStock[1], coinImagesStock[2]};
                     coin.setImage(coinImages[0]);
                 }

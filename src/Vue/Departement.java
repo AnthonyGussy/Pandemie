@@ -11,6 +11,8 @@ import javafx.scene.shape.Polygon;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
+import java.util.ArrayList;
+
 /**
  *
  */
@@ -21,6 +23,7 @@ public class Departement{
     private Group personne;
     private double posX;
     private double posY;
+    ArrayList<Double> polygone;
     private Modele.Departement departement;
     private ImagePattern pointInfecte;
     private ImagePattern pointNormal;
@@ -28,32 +31,33 @@ public class Departement{
 
     public Departement(Modele.Departement departement, Modele.Jeu jeu){
         this.departement = departement;
+        Scene scene = jeu.getVue().getScene();
         departementPoly = new Polygon();
         switch(departement.getNom()) {
             case "Informatique":
                 posX = Constantes.POS_X_INFO;
                 posY = Constantes.POS_Y_INFO;
-                departementPoly.getPoints().addAll(Constantes.POLYGONE_INFO);
+                departementPoly.getPoints().addAll(Constantes.adaptPolygone(Constantes.POLYGONE_INFO, scene));
                 break;
             case "Energie":
                 posX = Constantes.POS_X_ENERGIE;
                 posY = Constantes.POS_Y_ENERGIE;
-                departementPoly.getPoints().addAll(Constantes.POLYGONE_ENERGIE);
+                departementPoly.getPoints().addAll(Constantes.adaptPolygone(Constantes.POLYGONE_ENERGIE,scene));
                 break;
             case "Imsi":
                 posX = Constantes.POS_X_IMSI;
                 posY = Constantes.POS_Y_IMSI;
-                departementPoly.getPoints().addAll(Constantes.POLYGONE_IMSI);
+                departementPoly.getPoints().addAll(Constantes.adaptPolygone(Constantes.POLYGONE_IMSI, scene));
                 break;
             case "Gmc":
                 posX = Constantes.POS_X_GMC;
                 posY = Constantes.POS_Y_GMC;
-                departementPoly.getPoints().addAll(Constantes.POLYGONE_GMC);
+                departementPoly.getPoints().addAll(Constantes.adaptPolygone(Constantes.POLYGONE_GMC, scene));
                 break;
             default:
                 posX = Constantes.POS_X_EDIM;
                 posY = Constantes.POS_Y_EDIM;
-                departementPoly.getPoints().addAll(Constantes.POLYGONE_EDIM);
+                departementPoly.getPoints().addAll(Constantes.adaptPolygone(Constantes.POLYGONE_EDIM, scene));
         }
         departementPoly.setFill(new ImagePattern(new Image("file:image\\" + departement.getNom() + "Dep.jpg"), 0, 0, 1, 1, true));
         information = new Text();
