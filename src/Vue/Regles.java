@@ -124,8 +124,8 @@ public class Regles {
                         flecheOmbre.getPoints().clear();
                         flecheOmbre.getPoints().addAll(Constantes.adaptPolygone(Constantes.POLYGONE_RPAGE2, scene));
                         flecheOmbre.setFill(new ImagePattern(new Image("file:image\\FlecheP2Ombre.png"), 0, 0, 1, 1, true));
-                        posFleche[0]=Constantes.POS_X_FLECHENEXTRPAGE2;
-                        posFleche[1]=Constantes.POS_Y_FLECHENEXTRPAGE2;
+                        posFleche[0] = Constantes.POS_X_FLECHENEXTRPAGE2;
+                        posFleche[1] = Constantes.POS_Y_FLECHENEXTRPAGE2;
                         pageActive = 2;
                         break;
                 }
