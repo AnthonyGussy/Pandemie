@@ -71,6 +71,10 @@ public class Coin {
             case 1:
                 coin.setVisible(false);
                 break;
+            case 2:
+                coin.setFitWidth(scene.getWidth() * Constantes.LARGEUR_COIN);
+                coin.setFitHeight(scene.getHeight() * Constantes.HAUTEUR_COIN);
+                break;
             default:
                 if (jeu.getPrimaryStage().getX() == 0) {
                     polyMenu.getPoints().clear();
@@ -84,9 +88,8 @@ public class Coin {
                     polyAffichage.getPoints().clear();
                     polyAffichage.getPoints().addAll(Constantes.POLYGONE_COIN_AFFICHAGE_W);
                     coinImages = new Image[]{coinImagesStock[3], coinImagesStock[4], coinImagesStock[5]};
+                    coin.setImage(coinImages[0]);
                 }
-                coin.setFitWidth(scene.getWidth() * Constantes.LARGEUR_COIN);
-                coin.setFitHeight(scene.getHeight() * Constantes.HAUTEUR_COIN);
         }
     }
 }
