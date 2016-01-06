@@ -88,6 +88,16 @@ public final class Constantes {
 			27.0, 4.0));
 	public static final double POS_X_FLECHENEXTRPAGE2 = 0.830;
 	public static final double POS_Y_FLECHENEXTRPAGE2 = 0.803;
+	public static final ArrayList<Double> POLYGONE_RETOUR = new ArrayList<>(Arrays.asList(0.0, 0.0,
+			62.0, 0.0,
+			62.0, 8.0,
+			178.0, 8.0,
+			178.0, 27.0,
+			62.0, 27.0,
+			62.0, 35.0,
+			0.0, 35.0));
+	public static final double POS_X_RETOUR = 0.150;
+	public static final double POS_Y_RETOUR = 0.27;
 
 	// Affichage événement article
 	public static final double POS_X_EV_ART_NOM = 0.3;
