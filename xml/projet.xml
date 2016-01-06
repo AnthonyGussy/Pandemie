@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 
-<!--  A venir -->
-
 <projets>
 
 	<Informatique>
 	
 		<projet>
-			<nom></nom>
-			<description></description>
+			<nom>Projet Secret (Nom de code : 01011011)</nom>
+			<description>M. Professeur a donné à quelques uns de ses élèves d'Informatique un projet ambitieux. Cela ne
+va pas être facile, d'autant plus que le temps est compté, mais ce sera l'occasion de pratiquer 
+et d'apprendre énormément ! En plus, ils vont pouvoir faire appel à leurs collègues de l'UTBM !
+À vous de les aider et de les guider pour mener à bien leurs tâches !</description>
 			<temps>400</temps>
 			<infecte>5</infecte>
 		</projet>
@@ -18,19 +19,26 @@
 	<Energie>
 	
 		<projet>
-			<nom></nom>
-			<description></description>
+			<nom>Projet Secret (Nom de code : e = mc²)</nom>
+			<description>M. Professeur a donné quelques uns de à ses élèves d'Energie un projet ambitieux. Cela ne
+va pas être facile, d'autant plus que le temps est compté, mais ce sera l'occasion de pratiquer 
+et d'apprendre énormément ! En plus, ils vont pouvoir faire appel à leurs collègues de l'UTBM !
+À vous de les aider et de les guider pour mener à bien leurs tâches !</description>
 			<temps>400</temps>
 			<infecte>5</infecte>
 		</projet>
+		
 		
 	</Energie>
 	
 	<Imsi>
 	
 		<projet>
-			<nom></nom>
-			<description></description>
+			<nom>Projet Secret (Nom de code : Taylor)</nom>
+			<description>M. Professeur a donné à quelques uns de ses élèves d'Imsi un projet ambitieux. Cela ne
+va pas être facile, d'autant plus que le temps est compté, mais ce sera l'occasion de pratiquer 
+et d'apprendre énormément ! En plus, ils vont pouvoir faire appel à leurs collègues de l'UTBM !
+À vous de les aider et de les guider pour mener à bien leurs tâches !</description>
 			<temps>400</temps>
 			<infecte>5</infecte>
 		</projet>
@@ -40,8 +48,11 @@
 	<Gmc>
 
 		<projet>
-			<nom></nom>
-			<description></description>
+			<nom>Projet Secret (Nom de code : XYZ)</nom>
+			<description>M. Professeur a donné à quelques uns de ses élèves de Gmc un projet ambitieux. Cela ne
+va pas être facile, d'autant plus que le temps est compté, mais ce sera l'occasion de pratiquer 
+et d'apprendre énormément ! En plus, ils vont pouvoir faire appel à leurs collègues de l'UTBM !
+À vous de les aider et de les guider pour mener à bien leurs tâches !</description>
 			<temps>400</temps>
 			<infecte>5</infecte>
 		</projet>
@@ -51,8 +62,11 @@
 	<Edim>
 	
 		<projet>
-			<nom></nom>
-			<description></description>
+			<nom>Projet Secret (Nom de code : (R,G,B))</nom>
+			<description>M. Professeur a donné à quelques uns de ses élèves d'Edim un projet ambitieux. Cela ne
+va pas être facile, d'autant plus que le temps est compté, mais ce sera l'occasion de pratiquer 
+et d'apprendre énormément ! En plus, ils vont pouvoir faire appel à leurs collègues de l'UTBM !
+À vous de les aider et de les guider pour mener à bien leurs tâches !</description>
 			<temps>400</temps>
 			<infecte>5</infecte>
 		</projet>
