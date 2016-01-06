@@ -35,7 +35,7 @@ public class Jeu {
         root = new Group();
         scene = new Scene(root, Constantes.LARGEUR_FENETRE, Constantes.HAUTEUR_FENETRE);
         liste = new ImageView(new Image("file:image\\Liste.jpg"));
-        texte = new Text("départements :");
+        texte = new Text("dï¿½partements :");
         liste.setVisible(false);
         texte.setVisible(false);
         root.getChildren().addAll(liste, texte);
@@ -117,12 +117,12 @@ public class Jeu {
                 texte.setY(scene.getHeight() * Constantes.POS_Y_TEXTE);
                 texte.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE));
                 break;
-             // Pour tester l'affichage des tâches
-            case 4:
+             // Pour tester l'affichage des tÃ¢ches
+            /*case 4:
             	scene.setFill(new ImagePattern(new Image("file:image\\PandemieCompetenceJournal.jpg"), 0, 0, 1, 1, true));
-            	TacheList a = new TacheList("Informatique", "Facile");
+            	//TacheList a = new TacheList("Informatique", "Facile");
             	Vue.Tache b = new Vue.Tache(a, root);
-            	b.affichage(1, scene);
+            	b.affichage(1, scene);*/
             default:
                 liste.setVisible(false);
                 texte.setVisible(false);

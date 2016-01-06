@@ -77,6 +77,7 @@ public class Departement{
     }
 
     public void affichage(Modele.Jeu jeu, int afficher) {
+        Scene scene = jeu.getVue().getScene();
         switch(afficher) {
             case 0:
                 affiche = true;
@@ -91,8 +92,9 @@ public class Departement{
                 break;
             default:
                 personne.getChildren().clear();
+                updateInformation(scene);
                 departementPoly.getPoints().clear();
-                departementPoly.getPoints().addAll(Constantes.adaptPolygone(polygone, jeu.getVue().getScene()));
+                departementPoly.getPoints().addAll(Constantes.adaptPolygone(polygone, scene));
                 departementPoly.setTranslateX(jeu.getVue().getScene().getWidth() * posX);
                 departementPoly.setTranslateY(jeu.getVue().getScene().getHeight() * posY);
                 personne.getChildren().add(departementPoly);
@@ -126,9 +128,7 @@ public class Departement{
         return depPersonne;
     }
 
-    private void eventInformation(Modele.Jeu jeu){
-        jeu.getVue().affichagePlateau(4);
-        Scene scene = jeu.getVue().getScene();
+    private void updateInformation(Scene scene) {
         String nom = departement.getNom();
         nomR.setText(nom);
         nomR.setX(scene.getWidth() * Constantes.POS_X_NOM_DEP);
@@ -143,6 +143,11 @@ public class Departement{
         information.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE));
         information.setX(scene.getWidth() * Constantes.POS_X_INFOS);
         information.setY(scene.getHeight() * Constantes.POS_Y_INFOS);
+    }
+
+    private void eventInformation(Modele.Jeu jeu){
+        jeu.getVue().affichagePlateau(4);
+        String nom = departement.getNom();
         departementPoly.setFill(new ImagePattern(new Image("file:image\\"+ nom +"DepSelec.jpg"), 0, 0, 1, 1, true));
         information.setVisible(true);
         nomR.setVisible(true);
