@@ -88,9 +88,7 @@ public class Jeu implements java.io.Serializable {
      *
      */
     public void retourJeu() {
-        for(Modele.Departement dep : departements) {
-            dep.getVue().affichage(vue.getScene(), 0);
-        }
+        vue.affichagePlateau(0);
     }
 
     /**
