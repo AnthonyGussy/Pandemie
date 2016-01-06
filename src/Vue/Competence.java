@@ -126,9 +126,14 @@ public class Competence implements java.io.Serializable {
                 modele.getArbreDeCompetence().debloquerCompetence(ligne, colonne);
                 compet.setFill(new ImagePattern(new Image("file:image\\CompetenceAchete.png"), 0, 0, 1, 1, true));
                 vueArbre.changementAffichage(ligne);
-            } else if (jeu.getPtsCompetence() < modele.getCout()) {
+            }
+            else if(!modele.getDebloque()){
                 nomR.setVisible(false);
-                vueArbre.manquePoint(jeu);
+                vueArbre.erreurAchat(jeu, "La compétence est bloqué");
+            }
+            else if(!modele.getAchete()) {
+                nomR.setVisible(false);
+                vueArbre.erreurAchat(jeu, "Vous n'avez pas assez de points");
             }
         } else vueArbre.setACliquer(ligne + "," + colonne);
 
