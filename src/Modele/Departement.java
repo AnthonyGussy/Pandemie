@@ -5,6 +5,7 @@ import Enumerations.CompteurType;
 import Enumerations.DepartementNom;
 import Vue.Compteur;
 import javafx.application.Platform;
+import javafx.scene.Scene;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -43,16 +44,16 @@ public class Departement implements java.io.Serializable {
         compteurs.add(standBy);
         taches = new ArrayList<>();
         tachesStockage = new ArrayList<>();
-        creeListeTache();
-        if(depart) creerTache();
+        creeListeTache(jeu);
+        if(depart) creerTache(jeu);
         vue = new Vue.Departement(this, jeu);
     }
 
     public Vue.Departement getVue() { return vue; }
 
-    void creerTache(){
+    void creerTache(Modele.Jeu jeu) {
 
-        final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        /*final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 
         try {
             final DocumentBuilder builder = factory.newDocumentBuilder();
@@ -73,16 +74,18 @@ public class Departement implements java.io.Serializable {
                             int temps = Integer.parseInt(elementTache.getElementsByTagName("temps").item(0).getTextContent());
                             int infectes = Integer.parseInt(elementTache.getElementsByTagName("infecte").item(0).getTextContent());
 
-                            taches.add(new Tache(this,nom, description, new Compteur(temps, CompteurType.Temps), new Compteur(infectes, CompteurType.Infectes)));
+                            taches.add(new Tache(this,nom, description, new Compteur(temps, CompteurType.Temps), new Compteur(infectes, CompteurType.Infectes), jeu));
                         }
                     }
                 }
             }
+
         }
 
         catch (final ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
-        }
+        }*/
+        taches.add(tachesStockage.get((int)(Math.random() * tachesStockage.size())));
         compteurs.get(3).modifCompte(-taches.get(0).getCompteurs().get(1).getCompte());
         compteurs.get(2).modifCompte(taches.get(0).getCompteurs().get(1).getCompte());
     }
@@ -97,7 +100,7 @@ public class Departement implements java.io.Serializable {
         }
         Platform.runLater(() -> vue.affichage(jeu, 2));
     }
-    void supprimerTache(){
+    void supprimerTache() {
         for(Tache tache :  taches){
             if(tache.getTermine()){
                 compteurs.get(3).modifCompte(tache.getCompteurs().get(1).getCompte());
@@ -106,6 +109,26 @@ public class Departement implements java.io.Serializable {
             }
         }
     }
+
+    public void afficherTaches(Scene scene, int afficher) {
+        switch(afficher) {
+            case 0:
+                for (Modele.Tache tache : taches) {
+                    tache.getVue().affichage(scene, 0);
+                }
+                break;
+            case 1:
+                for (Modele.Tache tache : taches) {
+                    tache.getVue().affichage(scene, 1);
+                }
+                break;
+            default:
+                for (Modele.Tache tache : taches) {
+                    tache.getVue().affichage(scene, 2);
+                }
+        }
+    }
+
     public int getEfficacite() { return compteurs.get(0).getCompte(); }
     public void setEfficacite(int ajout) { compteurs.get(0).modifCompte(ajout); }
     public int getMoral() { return compteurs.get(1).getCompte(); }
@@ -115,7 +138,7 @@ public class Departement implements java.io.Serializable {
     public DepartementNom getNomEnum(){ return nom;}
     public int getNbTaches(){ return taches.size();}
 
-    private void creeListeTache(){
+    private void creeListeTache(Modele.Jeu jeu){
 
         int temps;
         int infectes;
@@ -144,7 +167,7 @@ public class Departement implements java.io.Serializable {
                                     temps = Integer.parseInt(elementTache.getElementsByTagName("temps").item(0).getTextContent());
                                     infectes = Integer.parseInt(elementTache.getElementsByTagName("infecte").item(0).getTextContent());
 
-                                    a = new Tache(this,nom, description, new Compteur(temps, CompteurType.Temps), new Compteur(infectes, CompteurType.Infectes));
+                                    a = new Tache(this,nom, description, new Compteur(temps, CompteurType.Temps), new Compteur(infectes, CompteurType.Infectes), jeu);
                                     tachesStockage.add(a);
                                 }
                             }

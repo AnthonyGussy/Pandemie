@@ -8,6 +8,7 @@ import Constantes.Constantes;
 import Modele.TacheList;
 import Modele.Jeu;
 
+import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -17,59 +18,37 @@ import javafx.scene.text.Text;
 public class Tache implements java.io.Serializable {
 	
 	private TacheList tacheList;
-	private Text titre;
-    private List<Text> nom;
-    private Text compteurTemps;
+	private Text nom;
     private Text description;
-    private Text compteurInfecte;
+	private Modele.Tache modele;
 
-	public Tache(TacheList tacheList, javafx.scene.Group root) {
-		this.tacheList = tacheList;
-		titre = new Text("");
-		nom = new ArrayList<>();
-		description = new Text();
-		compteurTemps = new Text();
-		compteurInfecte = new Text();
-		titre.setFont(Font.loadFont("file:Font.ttf", 24));
-		description.setFont(Font.loadFont("file:Font.ttf", 20));
-		compteurTemps.setFont(Font.loadFont("file:Font.ttf", 20));
-		compteurInfecte.setFont(Font.loadFont("file:Font.ttf", 20));
-		titre.setVisible(false);
-		//root.getChildren().add(titre);
-		for (int i = 0; i < tacheList.size(); i++) {
-			nom.add(new Text(tacheList.getTache(i).getNom()));
-			nom.get(i).setVisible(false);
-			//root.getChildren().add(nom.get(i));
-		}
+	public Tache(Modele.Tache modele, Modele.Jeu jeu) {
+		this.modele = modele;
+		nom = new Text(modele.getNom());
+		description = new Text(modele.getDescription());
+		nom.setFill(Color.BLACK);
+		description.setFill(Color.BLACK);
+		nom.setVisible(false);
+		description.setVisible(false);
 	}
 	
-	public void affichage(int afficher, Scene scene) {
+	public void affichage(Scene scene, int afficher) {
 		switch(afficher) {
+			case 0:
+				affichage(scene, 2);
+				nom.setVisible(true);
+				//description.setVisible(true);
 			case 1:
-				if(tacheList != null && tacheList.size() > 0) {
-					if(tacheList.size() > 1) { 
-						titre.setText("Tâche");
-					} else { 
-						titre.setText("Tâches");
-					}
-					titre.setX(scene.getWidth() * Constantes.POS_X_TACHE);
-					titre.setY(scene.getHeight() * Constantes.POS_Y_TACHE);
-					titre.setVisible(true);
-					int i = 1;
-					for (Text elementTache : nom) {
-						elementTache.setX(scene.getWidth() * Constantes.POS_X_TACHE + 9);
-						elementTache.setY(scene.getHeight() * Constantes.POS_Y_TACHE + 5+i*10);
-						i++;
-						elementTache.setVisible(true);
-						System.out.println("On rentre bien dans la boucle !");
-					}	
-				}
+				nom.setVisible(false);
+				//description.setVisible(false);
+				break;
 			default:
-				for (Text elementTache : nom) {
-					titre.setVisible(false);
-					elementTache.setVisible(false);
-				}	
-				
+				nom.setFont(Font.loadFont("file:Font.ttf", Constantes.TAILLE_POLICE * scene.getHeight()));
+				description.setFont(Font.loadFont("file:Font.ttf", Constantes.TAILLE_POLICE * scene.getHeight()));
+				nom.setX(Constantes.POS_X_TACHE_NOM);
+				nom.setY(Constantes.POS_Y_TACHE_NOM);
+				description.setX(Constantes.POS_X_TACHE_DESCRIPTION);
+				description.setY(Constantes.POS_Y_TACHE_DESCRIPTION);
 		}
 	}
 	

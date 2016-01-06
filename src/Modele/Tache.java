@@ -32,10 +32,11 @@ public class Tache implements java.io.Serializable {
 	private boolean termine;
 	private Modele.EvenementAccomplissement event;
 	private Modele.Departement departement;
+	private Vue.Tache vue;
 
 	// Méthodes
 
-	public Tache(Modele.Departement depart,String nom, String description, Compteur temps, Compteur infectes) {
+	public Tache(Modele.Departement depart, String nom, String description, Compteur temps, Compteur infectes, Modele.Jeu jeu) {
 		departement = depart;
 		this.nom = nom;
 		this.description = description;
@@ -44,7 +45,10 @@ public class Tache implements java.io.Serializable {
 		this.compteurs.add(infectes);
 		tempsInitial = temps.getCompte();
 		termine = false;
+		vue = new Vue.Tache(this, jeu);
 	}
+
+	public Vue.Tache getVue() { return vue; }
 
 	/*public Tache(Modele.Departement depart, String difficulte, int index) {
 
@@ -88,13 +92,13 @@ public class Tache implements java.io.Serializable {
 		}
 	}*/
 
-	public void affichage() {
+	/*public void affichage() {
 		System.out.println("nom : " + nom);
 		System.out.println("description : " + description);
 		System.out.println("termine : " + termine);
 		System.out.println("temps : " + compteurs.get(0).getCompte());
 		System.out.println("infectes : " + compteurs.get(1).getCompte());
-	}
+	}*/
 
 	public void setAvancement(int incr) {
 		compteurs.get(0).modifCompte(incr);
@@ -122,7 +126,7 @@ public class Tache implements java.io.Serializable {
 
 	public void setTermine(boolean termine,Modele.Jeu jeu) {
 		this.termine = termine;
-		event = new EvenementAccomplissement(departement,this,jeu);
+		event = new EvenementAccomplissement(departement, this, jeu);
 		Platform.runLater(() -> event.getVue().affichage(jeu, 0));
 	}
 	

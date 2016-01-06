@@ -38,8 +38,12 @@ public final class Constantes {
 	public static final double POS_Y_NOM_DEP = 0.48;
 	public static final double POS_X_INFOS = 0.835;
 	public static final double POS_Y_INFOS = 0.55;
-	public static final double POS_X_TACHE = 0.835;
-	public static final double POS_Y_TACHE = 0.70;
+
+	// Affichage liste tâches
+	public static final double POS_X_TACHE_NOM = 0.835;
+	public static final double POS_Y_TACHE_NOM = 0.70;
+	public static final double POS_X_TACHE_DESCRIPTION = 0.835;
+	public static final double POS_Y_TACHE_DESCRIPTION = 0.70;
 
 	// Affichage menu
 	public static final double POS_X_BOUTON = 0.17;
