@@ -69,33 +69,29 @@ public class Departement{
         Group root = jeu.getVue().getRoot();
         switch(afficher) {
             case 0:
-
-                affiche = true;
                 departementPoly.setTranslateX(scene.getWidth() * posX);
                 departementPoly.setTranslateY(scene.getHeight() * posY);
                 personne.getChildren().add(departementPoly);
-                personne.getChildren().add(genePoint(jeu));
+                personne.getChildren().add(genePoint(scene));
                 personne.setOnMouseEntered(mouseEvent -> eventInformation(jeu));
                 personne.setOnMouseExited(mouseEvent -> eventRemoveInformation(jeu));
                 personne.setOnMouseClicked(mouseEvent -> eventArbreDeCompetence(jeu));
-                root.getChildren().add(personne);
+                root.getChildren().addAll(information, nomR, personne);
                 break;
             case 1:
-                if(affiche) {
-                    affiche = false;
-                    if(root.getChildren().contains(personne)) root.getChildren().remove(personne);
-                }
+                personne.setVisible(false);
+                information.setVisible(false);
+                nomR.setVisible(false);
                 break;
             default:
                 personne.getChildren().clear();
                 departementPoly.setTranslateX(scene.getWidth() * posX);
                 departementPoly.setTranslateY(scene.getHeight() * posY);
                 personne.getChildren().add(departementPoly);
-                personne.getChildren().add(genePoint(jeu));
+                personne.getChildren().add(genePoint(scene));
         }
     }
-    public Group genePoint(Modele.Jeu jeu) {
-        Scene scene = jeu.getVue().getScene();
+    public Group genePoint(Scene scene) {
         Group depPersonne = new Group();
         for (int i = 0; i < departement.getNbPersonne(); i++) {
             Circle circle = new Circle();
@@ -118,12 +114,10 @@ public class Departement{
     private void eventInformation(Modele.Jeu jeu){
         jeu.getVue().affichagePlateau(3);
         Scene scene = jeu.getVue().getScene();
-        Group root = jeu.getVue().getRoot();
         String nom = departement.getNom();
         nomR.setText(nom);
         nomR.setX(scene.getWidth() * Constantes.POS_X_NOM_DEP);
         nomR.setY(scene.getHeight() * Constantes.POS_Y_NOM_DEP);
-        //nomR.setWrappingWidth((scene.getWidth() * 14) / 100);
         nomR.setFont(Font.loadFont("file:Font.ttf", scene.getWidth() * Constantes.TAILLE_POLICE));
         int efficacite = departement.getEfficacite();
         int moral = departement.getMoral();
@@ -135,22 +129,17 @@ public class Departement{
         information.setX(scene.getWidth() * Constantes.POS_X_INFOS);
         information.setY(scene.getHeight() * Constantes.POS_Y_INFOS);
         departementPoly.setFill(new ImagePattern(new Image("file:image\\"+ nom +"DepSelec.jpg"), 0, 0, 1, 1, true));
-        if(root.getChildren().contains(information)) root.getChildren().remove(information);
-        if(root.getChildren().contains(nomR)) root.getChildren().remove(nomR);
-        root.getChildren().addAll(information, nomR);
+        information.setVisible(true);
+        nomR.setVisible(true);
     }
     private void eventRemoveInformation(Modele.Jeu jeu){
-        if(affiche) {
-            Group root = jeu.getVue().getRoot();
-            if(root.getChildren().contains(information)) root.getChildren().remove(information);
-            if(root.getChildren().contains(nomR)) root.getChildren().remove(nomR);
-            String nom = departement.getNom();
-            departementPoly.setFill(new ImagePattern(new Image("file:image\\" + nom + "Dep.jpg"), 0, 0, 1, 1, true));
-            jeu.getVue().affichagePlateau(0);
-        }
+        information.setVisible(false);
+        nomR.setVisible(false);
+        String nom = departement.getNom();
+        departementPoly.setFill(new ImagePattern(new Image("file:image\\" + nom + "Dep.jpg"), 0, 0, 1, 1, true));
+        jeu.getVue().affichagePlateau(0);
     }
     private void eventArbreDeCompetence(Modele.Jeu jeu){
-        eventRemoveInformation(jeu);
         jeu.getVue().affichagePlateau(1);
         departement.getArbre().getVue().affichage(jeu, 0);
     }
