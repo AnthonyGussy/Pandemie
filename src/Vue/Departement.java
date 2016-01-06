@@ -131,7 +131,7 @@ public class Departement{
         nomR.setVisible(false);
         String nom = departement.getNom();
         departementPoly.setFill(new ImagePattern(new Image("file:image\\" + nom + "Dep.jpg"), 0, 0, 1, 1, true));
-        jeu.getVue().affichagePlateau(0);
+        jeu.getVue().affichagePlateau(2);
     }
     private void eventArbreDeCompetence(Modele.Jeu jeu){
         jeu.getVue().affichagePlateau(1);

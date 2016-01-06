@@ -29,10 +29,9 @@ public class Departement implements java.io.Serializable {
     private Vue.Departement vue;
 
     public Departement(DepartementNom depNom, boolean depart, Modele.Jeu jeu){
-
         this.nom = depNom;
         this.nbPersonne = 200 + (int)(Math.random() * 201);
-        this.arbre = new ArbreDeCompetence(this);
+        this.arbre = new ArbreDeCompetence(this, jeu);
         Compteur efficacite = new Compteur(40, 100, CompteurType.Efficacite);
         Compteur moral = new Compteur(80, 100, CompteurType.Moral);
         Compteur infecte = new Compteur(0,nbPersonne, CompteurType.Infectes);

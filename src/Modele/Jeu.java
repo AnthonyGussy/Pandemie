@@ -183,7 +183,7 @@ public class Jeu implements java.io.Serializable {
      * Cette méthode redimensionne les éléments actifs de l'affichagePlateau lorsque la fenêtre est redimensionnée
      */
     public void redimensionner() {
-        vue.affichagePlateau(2);
+        /*vue.affichagePlateau(0);
         //coin.affichage(this, 2);
         for(Menu menu : menus) {
             menu.affichage(this, 2);
@@ -199,7 +199,7 @@ public class Jeu implements java.io.Serializable {
                     break;
                 default:
             }
-        }
+        }*/
     }
 }
 

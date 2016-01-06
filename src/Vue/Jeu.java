@@ -91,6 +91,10 @@ public class Jeu {
                 }
                 affichagePlateau(2);
                 break;
+            case 2:
+                liste.setVisible(true);
+                texte.setVisible(true);
+                break;
             default:
                 liste.setVisible(false);
                 texte.setVisible(false);

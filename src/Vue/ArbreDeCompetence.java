@@ -24,7 +24,7 @@ public class ArbreDeCompetence implements java.io.Serializable {
     private Polygon retour;
     private Group lignes;
 
-    public ArbreDeCompetence(Modele.ArbreDeCompetence aC){
+    public ArbreDeCompetence(Modele.ArbreDeCompetence aC, Modele.Jeu jeu){
         retour = new Polygon();
         this.aC = aC;
         aCliquer = "";
@@ -34,6 +34,16 @@ public class ArbreDeCompetence implements java.io.Serializable {
             competences.put(competence.getKey(), new Competence(competence.getValue().get(0), this));
         }
         nom = new Text(aC.getDepartement().getNom());
+        lignes = new Group();
+        retour.setOnMouseClicked(event -> {
+            this.affichage(jeu, 1);
+            jeu.retourJeu();
+        });
+        retour.setFill(new ImagePattern(new Image("file:image\\Retour.png"), 0, 0, 1, 1, true));
+        nom.setVisible(false);
+        lignes.setVisible(false);
+        retour.setVisible(false);
+        jeu.getVue().getRoot().getChildren().addAll(nom, lignes, retour);
     }
 
 
@@ -42,15 +52,12 @@ public class ArbreDeCompetence implements java.io.Serializable {
         Group root = jeu.getVue().getRoot();
         switch(afficher) {
             case 0:
-                affiche = true;
-
                 nom.setX(scene.getWidth() * 35 / 100);
                 nom.setY(scene.getHeight() * 35 / 100);
                 nom.setFont(Font.loadFont("file:Font.ttf", scene.getWidth() * Constantes.TAILLE_POLICE_TITRE));
                 scene.setFill(new ImagePattern(new Image("file:image\\PandemieCompetenceJournal.jpg"), 0, 0, 1, 1, true));
-
-                lignes = new Group();
                 HashMap<String, ArrayList<Modele.Competence>> temporaire = aC.getComp();
+                lignes.getChildren().clear();
                 for (Map.Entry<String, ArrayList<Modele.Competence>> competence : temporaire.entrySet()) {
                     if(competence.getValue().size() > 1) {
                         for (int i = 1; i < competence.getValue().size(); ++i){
@@ -65,7 +72,6 @@ public class ArbreDeCompetence implements java.io.Serializable {
                             l.setStartY((scene.getHeight() * 90) / 100 - coefy1 * (scene.getHeight() * 65 / 100));
                             l.setEndX((scene.getWidth() * 15) / 100 + coefx2 * (scene.getWidth() * 60 / 100));
                             l.setEndY((scene.getHeight() * 90) / 100 - coefy2 * (scene.getHeight() * 65 / 100));
-                            if(lignes.getChildren().contains(l)) lignes.getChildren().remove(l);
                             lignes.getChildren().add(l);
                         }
                     }
@@ -79,35 +85,21 @@ public class ArbreDeCompetence implements java.io.Serializable {
                         100.0, scene.getHeight() - 20.0,
                         80.0, scene.getHeight() - 20.0,
                         80.0, scene.getHeight() - 10.0);
-                retour.setFill(new ImagePattern(new Image("file:image\\Retour.png"), 0, 0, 1, 1, true));
 
-                retour.setOnMouseClicked(event -> {
-                    this.affichage(jeu, 1);
-                    jeu.retourJeu();
-                });
                 for (Map.Entry<String, Competence> comp : competences.entrySet()) {
                     comp.getValue().affichage(jeu, 0);
                 }
-                if(root.getChildren().contains(nom)) root.getChildren().remove(nom);
-                if(root.getChildren().contains(lignes)) root.getChildren().remove(lignes);
-                if(root.getChildren().contains(retour)) root.getChildren().remove(retour);
-                root.getChildren().addAll(nom, lignes, retour);
+                nom.setVisible(true);
+                lignes.setVisible(true);
+                retour.setVisible(true);
                 break;
-            case 1:
-                if(affiche) {
-                    affiche = false;
-                    if(root.getChildren().contains(nom)) root.getChildren().remove(nom);
-                    if(root.getChildren().contains(lignes)) root.getChildren().remove(lignes);
-                    if(root.getChildren().contains(retour)) root.getChildren().remove(retour);
-                    for (Map.Entry<String, Competence> comp : competences.entrySet()) {
-                        comp.getValue().affichage(jeu, 1);
-                    }
+           default:
+                for (Map.Entry<String, Competence> comp : competences.entrySet()) {
+                    comp.getValue().affichage(jeu, 1);
                 }
-                break;
-            default:
-                if(affiche) {
-                    affichage(jeu, 0);
-                }
+               nom.setVisible(false);
+               lignes.setVisible(false);
+               retour.setVisible(false);
         }
 
     }

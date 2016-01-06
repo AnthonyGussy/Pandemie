@@ -25,7 +25,7 @@ public class ArbreDeCompetence implements java.io.Serializable {
     private Vue.ArbreDeCompetence vue;
 
     // Constructeur
-    public ArbreDeCompetence(Departement depart){
+    public ArbreDeCompetence(Departement depart, Modele.Jeu jeu){
         this.depart = depart;
         competencesMod = new HashMap<>();
 
@@ -111,7 +111,7 @@ public class ArbreDeCompetence implements java.io.Serializable {
             e.printStackTrace();
         }
 
-        vue = new Vue.ArbreDeCompetence(this);
+        vue = new Vue.ArbreDeCompetence(this, jeu);
     }
 
     // Méthodes
