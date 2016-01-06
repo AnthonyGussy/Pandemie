@@ -7,7 +7,7 @@ import javafx.application.Platform;
  */
 public class Timeline extends Thread {
     Modele.Jeu jeu;
-    boolean End;
+    boolean end;
 
 
     public Timeline(String nom, Modele.Jeu jeu) {
@@ -16,7 +16,7 @@ public class Timeline extends Thread {
         this.start();
     }
     public void run() {
-        while(!End) {
+        while(!end) {
             try {
                 this.sleep(1000);
 
@@ -39,6 +39,6 @@ public class Timeline extends Thread {
     }
 
     public void setEnd(boolean end) {
-        End = end;
+        this.end = end;
     }
 }

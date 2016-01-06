@@ -91,7 +91,7 @@ public class Jeu implements java.io.Serializable {
     }
 
     public void regles() {
-        regles.affichage(this, 0, 1);
+        regles.affichage(this, 0);
     }
 
     /**
@@ -191,7 +191,7 @@ public class Jeu implements java.io.Serializable {
      * Cette méthode redimensionne les éléments actifs de l'affichagePlateau lorsque la fenêtre est redimensionnée
      */
     public void redimensionner() {
-        regles.affichage(this, 2, 0);
+        regles.affichage(this, 2);
         vue.affichagePlateau(3);
         menuPrincipal.affichage(this, 2);
         menuJeu.affichage(this, 2);
