@@ -73,8 +73,6 @@ public class Departement{
         switch(afficher) {
             case 0:
                 personne.setVisible(true);
-                information.setVisible(true);
-                nomR.setVisible(true);
                 personne.getChildren().clear();
                 departementPoly.setTranslateX(scene.getWidth() * posX);
                 departementPoly.setTranslateY(scene.getHeight() * posY);
