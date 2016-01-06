@@ -97,12 +97,6 @@ public class Regles {
                 retour.setVisible(false);
                 break;
             default :
-                fleche.setTranslateX(scene.getWidth() * posFleche[0]);
-                fleche.setTranslateY(scene.getHeight() * posFleche[1]);
-                flecheOmbre.setTranslateX(scene.getWidth() * posFleche[0]);
-                flecheOmbre.setTranslateY(scene.getHeight() * posFleche[1]);
-                retour.setTranslateX(scene.getWidth() * posRetour[0]);
-                retour.setTranslateY(scene.getHeight() * posRetour[1]);
                 switch(pageActive){
                     case 1 :
                         page = new ImagePattern(new Image("file:image\\PandemieRegleP1.jpg"), 0, 0, 1, 1, true);
@@ -129,6 +123,12 @@ public class Regles {
                         pageActive = 2;
                         break;
                 }
+                fleche.setTranslateX(scene.getWidth() * posFleche[0]);
+                fleche.setTranslateY(scene.getHeight() * posFleche[1]);
+                flecheOmbre.setTranslateX(scene.getWidth() * posFleche[0]);
+                flecheOmbre.setTranslateY(scene.getHeight() * posFleche[1]);
+                retour.setTranslateX(scene.getWidth() * posRetour[0]);
+                retour.setTranslateY(scene.getHeight() * posRetour[1]);
                 scene.setFill(page);
         }
     }
