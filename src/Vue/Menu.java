@@ -87,6 +87,16 @@ public class Menu {
                 }
                 boutonsGroup.setVisible(true);
                 break;
+            case 2:
+                int j = 1;
+                for (Rectangle b : boutons) {
+                    b.setX(scene.getWidth() * j * Constantes.POS_X_BOUTON);
+                    b.setY(scene.getHeight() * Constantes.POS_Y_BOUTON);
+                    b.setWidth(scene.getWidth() * Constantes.LARGEUR_BOUTON);
+                    b.setHeight(scene.getHeight() * Constantes.HAUTEUR_BOUTON);
+                    j++;
+                }
+                break;
             default:
                 boutonsGroup.setVisible(false);
         }
