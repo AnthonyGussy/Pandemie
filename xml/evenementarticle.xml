@@ -193,6 +193,71 @@ l'établissement pour son travail.
             <temps>2</temps>
             
 		</evenement>
+		
+		<evenement>
+		
+			<nom>Grève des transports</nom>
+            <description>Pour contester l'augmentation des embouteillages en ville,
+les chauffeurs de bus Optymo ont décidé de faire une grève d'un jour. 
+Tronquez donc le bus pour le vélo et tout roulera !
+            </description>
+            <moral>-5</moral>
+            <efficacite>-5</efficacite>
+            <temps>1</temps>
+            
+		</evenement>
+		
+		<evenement>
+		
+			<nom>Coupure d'eau</nom>
+            <description>Aujourd'hui, une coupure d'eau généralisée à l'UTBM sera effectuée
+de 8h à 19h en raison de travaux de rénovation des sanitaires. Merci de votre
+compréhension.
+            </description>
+            <moral>-10</moral>
+            <efficacite>-5</efficacite>
+            <temps>1</temps>
+            
+		</evenement>
+		
+		<evenement>
+		
+			<nom>Cirque</nom>
+            <description>Le Cirque Zavatta est arrivé en ville et s'est installé sur le 
+parking de l'UTBM. Vous n'avez aucune raison de ne pas aller voir
+le spectable des frères Clownesques !
+            </description>
+            <moral>5</moral>
+            <efficacite>-5</efficacite>
+            <temps>1</temps>
+            
+		</evenement>
+		
+		<evenement>
+		
+			<nom>Matrix IV</nom>
+            <description>C'est le moment de retourner dans la matrice (même si vous 
+n'aimez pas les maths) car Néo est de retour pour un nouvel épisode 
+encore plus déjanté !
+            </description>
+            <moral>5</moral>
+            <efficacite>-5</efficacite>
+            <temps>2</temps>
+            
+		</evenement>
+		
+		<evenement>
+		
+			<nom>Sortie de GTA VII</nom>
+            <description>Le nouvel opus du célèbre titre produit par Rockstar Games 
+est dans les bacs ! Selon les critiques, le réalisme permit par le support 
+de la réalité virtuelle est inimaginable ! Bonne aventure !
+            </description>
+            <moral>10</moral>
+            <efficacite>-15</efficacite>
+            <temps>1</temps>
+            
+		</evenement>
 	
 	</Facile>
 	
@@ -351,6 +416,83 @@ pas à de telles retombées.
             
 		</evenement>
 		
+		<evenement>
+		
+			<nom>Grève des transports</nom>
+            <description>Pas de transport à Belfort en cette fin de semaine à cause 
+des manifestations contre le retard des bus, des trains et des taxis. Elles
+ont engendré des dégâts matériels et causé la colère des professionnels.
+            </description>
+            <moral>-10</moral>
+            <efficacite>-10</efficacite>
+            <temps>3</temps>
+            
+		</evenement>
+		
+		<evenement>
+		
+			<nom>Coupure d'eau</nom>
+            <description>La moitiée de Belfort est victime d'une coupure d'eau depuis
+deux jours. En effet, suite aux résultats alarmants de la qualité de celle-ci, 
+une partie du réseau est fermé le temps d'un retour à la normal.
+            </description>
+            <moral>-10</moral>
+            <efficacite>-10</efficacite>
+            <temps>3</temps>
+            
+		</evenement>
+		
+		<evenement>
+		
+			<nom>Louis de Funès</nom>
+            <description>M6 rediffuse les grandes réussites de Louis de Funès 
+durant 3 jours ! Ce serait un sacrilège de ne pas y jeter un coup d'oeil !
+            </description>
+            <moral>10</moral>
+            <efficacite>-15</efficacite>
+            <temps>3</temps>
+            
+		</evenement>
+		
+		<evenement>
+		
+			<nom>Sortie de Harry Potter VIII</nom>
+            <description>Le nouvel opus de la saga Harry Potter est arrivé ! Sorti 
+d'un chapeau par on ne sait quel enchantement, on vous jure qu'il
+va vous éblouir !
+            </description>
+            <moral>15</moral>
+            <efficacite>-5</efficacite>
+            <temps>2</temps>
+            
+		</evenement>
+		
+		<evenement>
+		
+			<nom>Foudre</nom>
+            <description>La foudre s'est abattue hier sur le Bâtiment Z de l'UTBM et 
+a grillé une bonne partie du matériel, compromettant les projets. Les 
+choses rentreront bientôt dans l'ordre
+            </description>
+            <moral>-10</moral>
+            <efficacite>-10</efficacite>
+            <temps>3</temps>
+            
+		</evenement>
+		
+		<evenement>
+		
+			<nom>Soldes Steam</nom>
+            <description>Avis aux amateurs, les soldes Steam ont débutés hier et 
+une fois n'est pas coutume, les prix sont vraiment attrayants ! On
+vous a concocté une liste aux petits ognons ! (cf. Zimbra)
+            </description>
+            <moral>10</moral>
+            <efficacite>-10</efficacite>
+            <temps>2</temps>
+            
+		</evenement>
+		
 	</Moyen>
 
 	<Avancee>
@@ -399,7 +541,7 @@ sur l'occasion. Nos meilleurs négociateurs sont sur le coup.
 			<nom>Alerte Virus !</nom>
             <description>L'heure est à la panique ! Un virus (cf. notre édition n°44a)
 s'annonce plus difficile à combattre et se répand très vite. Certains étudiants 
-voient leur propre matériel corrompu pour des raisons qu'ils
+voient leur propre matériel corrompu pour des raisons qu'ils 
 n'arrivent pas à expliquer.
             </description>
             <moral>-5</moral>
@@ -506,6 +648,57 @@ un prix nobel pour ses "travaux précursseurs"
             <moral>20</moral>
             <efficacite>10</efficacite>
             <temps>5</temps>
+            
+		</evenement>
+		
+		<evenement>
+		
+			<nom>Grève des transports</nom>
+            <description>Bus, Taxis, Trains, ... ! Tous les transports sont entrés en grève 
+contre le projet de "Taxe par Kilomètre" du gouvernement. Une liste
+de conseils et astuces pour voyager vous a été envoyée sur Zimbra.
+            </description>
+            <moral>-15</moral>
+            <efficacite>-15</efficacite>
+            <temps>4</temps>
+            
+		</evenement>
+		
+		<evenement>
+		
+			<nom>Coupure d'eau</nom>
+            <description>Alors que les résultats étaient revenus normaux,
+la qualité de l'eau a drastiquement chuté. C'est un désastre sanitaire.
+Le temps de l'enquête et de changements, l'eau est coupé à Belfort.
+            </description>
+            <moral>-20</moral>
+            <efficacite>-20</efficacite>
+            <temps>5</temps>
+            
+		</evenement>
+		
+		<evenement>
+		
+			<nom>Kev Adams</nom>
+            <description>Kev Adams, le jeune humouriste va être en spectable à
+Belfort cette semaine. C'est le moment d'aller rigoler un bon coup !
+            </description>
+            <moral>-5</moral>
+            <efficacite>-25</efficacite>
+            <temps>5</temps>
+            
+		</evenement>
+		
+		<evenement>
+		
+			<nom>Sortie de Star Wars VIII</nom>
+            <description>C'est cette semaine que sort le nouvel opus de la saga Star Wars !
+Et en 3D qui plus est ! On vous rappelle que le cinéma Pathé propose des réductions 
+pour les étudiants alors n'hésitez plus, elles ne sont pas pour les chiens !
+            </description>
+            <moral>25</moral>
+            <efficacite>-5</efficacite>
+            <temps>4</temps>
             
 		</evenement>
         
