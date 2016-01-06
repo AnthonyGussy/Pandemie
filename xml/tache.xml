@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 
-<!-- A compléter : http://www.utbm.fr/formations.html -->
-
 <taches>
 	<Informatique>
 		<Facile>
@@ -15,8 +13,8 @@
 			<tache>
 				<nom>Réseaux sociaux</nom>
 				<description>Gestion de la communication sur les réseaux sociaux</description>
-				<temps>10</temps>
-				<infecte>7</infecte>
+				<temps>40</temps>
+				<infecte>4</infecte>
 			</tache>
 			
 			<tache>
@@ -93,7 +91,7 @@
 			<tache>
 				<nom>Moteur physique</nom>
 				<description>Création d'un moteur physique</description>
-				<temps>35</temps>
+				<temps>60</temps>
 				<infecte>30</infecte>
 			</tache>
 			
@@ -107,7 +105,7 @@
 			<tache>
 				<nom>Logiciel de modélisation 3D</nom>
 				<description>Développement d'un logiciel de modélisation 3D</description>
-				<temps>40</temps>
+				<temps>45</temps>
 				<infecte>35</infecte>
 			</tache>
 			
@@ -133,6 +131,33 @@
 				<infecte>7</infecte>
 			</tache>
 			
+			<tache>
+				<nom>Moteurs à pétrole</nom>
+				<description>Création de petits moteurs fonctionnant avec du pétrole</description>
+				<temps>6</temps>
+				<infecte>4</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Bureaux intelligents</nom>
+				<description>Travaux de domotique pour un ensemble de bureaux</description>
+				<temps>10</temps>
+				<infecte>9</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Labels énergétiques</nom>
+				<description>Études et attributions de labels énergétiques à des constructions, frigos, etc..</description>
+				<temps>40</temps>
+				<infecte>7</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Supervisation d'un système industriel</nom>
+				<description>Supervisation d'un système industriel</description>
+				<temps>12</temps>
+				<infecte>4</infecte>
+			</tache>
 			
 		</Facile>
 		
@@ -141,8 +166,36 @@
 			<tache>
 				<nom>Chauffage</nom>
 				<description>Gestion optimisée des températures dans les salles des infectés</description>
-				<temps>50</temps>
+				<temps>19</temps>
 				<infecte>15</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Salle intelligente</nom>
+				<description>Travaux de domotique pour une salle</description>
+				<temps>20</temps>
+				<infecte>17</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Batteries</nom>
+				<description>Développement de batteries rechargeables</description>
+				<temps>24</temps>
+				<infecte>16</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Choix des matériaux</nom>
+				<description>Choix des matériaux pour une construction auto-suffisante énergétiquement</description>
+				<temps>27</temps>
+				<infecte>19</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Architecture bioclimatique</nom>
+				<description>Recherches d'une architecture bioclimatique pour une construction</description>
+				<temps>15</temps>
+				<infecte>19</infecte>
 			</tache>
 			
 		</Moyenne>
@@ -152,8 +205,36 @@
 			<tache>
 				<nom>Machines électriques</nom>
 				<description>Automatisation de machines électriques</description>
-				<temps>100</temps>
+				<temps>40</temps>
+				<infecte>32</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Bâtiment intelligent</nom>
+				<description>Travaux de domotique pour un bâtiment intelligent</description>
+				<temps>45</temps>
 				<infecte>30</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Géothermie</nom>
+				<description>Création de pompes à chaleur géothermique</description>
+				<temps>37</temps>
+				<infecte>27</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Stockage énergie dans l'embarqué</nom>
+				<description>Travaux de stockages d'energie pour des voitures autonomes</description>
+				<temps>72</temps>
+				<infecte>48</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Vélos électriques</nom>
+				<description>Conception et réalisation de vélos électriques</description>
+				<temps>30</temps>
+				<infecte>32</infecte>
 			</tache>
 			
 		</Avancee>
@@ -165,10 +246,38 @@
 		<Facile>
 		
 			<tache>
-				<nom>Système logistique</nom>
-				<description>Mise en place d'un système logistique</description>
+				<nom>Convoyeurs</nom>
+				<description>Optimisation et installation de convoyeur</description>
 				<temps>10</temps>
 				<infecte>7</infecte>
+			</tache>
+		
+			<tache>
+				<nom>Système logistique</nom>
+				<description>Mise en place d'un système logistique basique</description>
+				<temps>10</temps>
+				<infecte>7</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Coordinations des différents départements</nom>
+				<description>Travaux de coordinations des différents départements</description>
+				<temps>60</temps>
+				<infecte>4</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Agrafages</nom>
+				<description>Travaux d'optimsation d'agrafage de calendriers et réalisation d'une machine</description>
+				<temps>12</temps>
+				<infecte>9</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Cours</nom>
+				<description>Enseignements de méthodologies de travail et d'organisation aux élèves des autres départements</description>
+				<temps>14</temps>
+				<infecte>9</infecte>
 			</tache>
 			
 		</Facile>
@@ -176,10 +285,38 @@
 		<Moyenne>
 		
 			<tache>
-				<nom>Cellule de Production</nom>
-				<description>Mise en place d'une cellule de production</description>
-				<temps>50</temps>
+				<nom>Méthodologies</nom>
+				<description>Recherches de méthodologies de travail innovantes</description>
+				<temps>28</temps>
 				<infecte>15</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Cellule de Production</nom>
+				<description>Mise en place d'une cellule de production moyenne</description>
+				<temps>17</temps>
+				<infecte>15</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Flux d'approvisionnements</nom>
+				<description>Travaux d'amélioration de la maîtrise des flux d'approvisionnement</description>
+				<temps>19</temps>
+				<infecte>18</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Gestion des stocks</nom>
+				<description>Travaux d'amélioration de la gestion des stocks</description>
+				<temps>25</temps>
+				<infecte>14</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Perçage céramique</nom>
+				<description>Développement autour du perçage de céramique</description>
+				<temps>22</temps>
+				<infecte>22</infecte>
 			</tache>
 			
 		</Moyenne>
@@ -189,8 +326,36 @@
 			<tache>
 				<nom>Optimisations</nom>
 				<description>Optimisation de la qualité et de la performance industrielle</description>
-				<temps>100</temps>
+				<temps>40</temps>
 				<infecte>30</infecte>
+			</tache>
+			
+			<tache>
+				<nom>CAO</nom>
+				<description>Conception assistée par ordinateur de vélos électriques</description>
+				<temps>35</temps>
+				<infecte>25</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Robotisation</nom>
+				<description>Conception, fabrication et programmations de robots de production</description>
+				<temps>80</temps>
+				<infecte>45</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Reffroidissement</nom>
+				<description>Travaux de refroidissement cryogénique pour l'usinage des plastiques</description>
+				<temps>38</temps>
+				<infecte>35</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Outils de mesure</nom>
+				<description>Recherches améliorer les outils de mesure</description>
+				<temps>45</temps>
+				<infecte>39</infecte>
 			</tache>
 			
 		</Avancee>
