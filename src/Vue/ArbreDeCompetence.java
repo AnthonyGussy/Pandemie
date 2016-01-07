@@ -30,9 +30,9 @@ public class ArbreDeCompetence implements java.io.Serializable {
 
         noPoint = new Text("Vous n'avez pas assez de points");
         noPoint.setFill(Color.ORANGERED);
-        retour = new ImageView(new Image("file:image\\Retour.jpg"));
-        retour.setOnMouseEntered(mouseEvent -> retour.setImage(new Image("file:image\\RetourActif.jpg")));
-        retour.setOnMouseExited(mouseEvent -> retour.setImage(new Image("file:image\\Retour.jpg")));
+        retour = new ImageView(new Image("file:image\\RetourActif.jpg"));
+        retour.setOnMouseEntered(mouseEvent -> retour.setImage(new Image("file:image\\Retour.jpg")));
+        retour.setOnMouseExited(mouseEvent -> retour.setImage(new Image("file:image\\RetourActif.jpg")));
         this.modele = modele;
         aCliquer = "";
         competences = new HashMap<>();

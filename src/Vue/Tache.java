@@ -27,9 +27,9 @@ public class Tache implements java.io.Serializable {
 		switch(afficher) {
 			case 0:
 				affichage(scene, 2);
-				System.out.print("ici");
 				nom.setVisible(true);
 				description.setVisible(true);
+				break;
 			case 1:
 				nom.setVisible(false);
 				description.setVisible(false);
