@@ -98,8 +98,8 @@ public class Jeu implements java.io.Serializable {
         evenements.add(new EvenementTextuel(contexte, description, this));
         vue.affichagePlateau(0);
 
-        /*evenements.add(new EvenementArticle(DepartementNom.Gmc, "Facile", 0));
-        EvenementArticle test = (EvenementArticle) evenements.get(0);
+        /*evenements.add(new Evenement(DepartementNom.Gmc, "Facile", 0));
+        Evenement test = (Evenement) evenements.get(0);
         test.getEAV().affichagePlateau(this, 0);*/
     }
 
@@ -214,7 +214,7 @@ public class Jeu implements java.io.Serializable {
         for(Modele.Evenement evenement : evenements) {
             String type = evenement.getClass().getName();
             switch(type) {
-                case "Modele.EvenementArticle":
+                case "Modele.Evenement":
                     EvenementArticle temp = (EvenementArticle) evenement;
                     temp.getVue().affichage(this, 2);
                     break;

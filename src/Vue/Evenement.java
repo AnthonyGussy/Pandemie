@@ -9,13 +9,13 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 
-public class EvenementArticle implements java.io.Serializable {
+public class Evenement implements java.io.Serializable {
     private Text nom;
     private Text description;
     private Text departement;
     private ImageView journal;
 
-    public EvenementArticle(Modele.Evenement event, Modele.Jeu jeu) {
+    public Evenement(Modele.Evenement event, Modele.Jeu jeu) {
         journal = new ImageView(new Image("file:image\\PandemieJournal.jpg"));
         nom = new Text(event.getNom());
         nom.setFill(Color.WHITE);
@@ -24,7 +24,7 @@ public class EvenementArticle implements java.io.Serializable {
         String classe = event.getClass().getSimpleName();
         String texte="";
         switch(classe) {
-            case "EvenementArticle":
+            case "Evenement":
                 Modele.EvenementArticle modele = (Modele.EvenementArticle) event;
                 texte = "Effets sur les départements : ";
                 texte += "moral => " + modele.getMoral()+" / ";

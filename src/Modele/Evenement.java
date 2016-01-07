@@ -4,7 +4,7 @@ import javafx.application.Platform;
 
 public class Evenement implements java.io.Serializable {
 
-    protected Vue.EvenementArticle event;
+    protected Vue.Evenement event;
 
     protected String nom;
     protected String description;
@@ -16,7 +16,7 @@ public class Evenement implements java.io.Serializable {
         duree = 15;
     }
 
-    public Vue.EvenementArticle getVue() { return event; }
+    public Vue.Evenement getVue() { return event; }
 
     public int getDuree() { return duree;}
 

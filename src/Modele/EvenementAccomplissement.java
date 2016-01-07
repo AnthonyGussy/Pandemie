@@ -1,7 +1,5 @@
 package Modele;
 
-import Vue.EvenementArticle;
-
 public class EvenementAccomplissement extends Evenement implements java.io.Serializable {
 	
 	private int point; // Calculé en fonction de la tâche
