@@ -9,7 +9,6 @@ public class Timeline extends Thread {
     Modele.Jeu jeu;
     boolean end;
 
-
     public Timeline(String nom, Modele.Jeu jeu) {
         super(nom);
         this.jeu = jeu;
