@@ -13,7 +13,7 @@ public abstract class Evenement implements java.io.Serializable {
     public Evenement(String nom, String description, Modele.Jeu jeu) {
         this.nom = nom;
         this.description = description;
-        duree = 15;
+        duree = 20;
     }
 
     public Vue.Evenement getVue() { return event; }
@@ -27,8 +27,6 @@ public abstract class Evenement implements java.io.Serializable {
     public String getDescription() { return description; }
 
     public void setDescription(String description) { this.description = description; }
-
-    public boolean isAccomplissement(){ return false;}
 
     public void setDuree(Modele.Jeu jeu){
         --duree;
