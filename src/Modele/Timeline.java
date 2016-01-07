@@ -16,12 +16,9 @@ public class Timeline extends Thread {
         this.start();
     }
     public void run() {
-
-        int numero = (int)(Math.random()*15);
         while(!end) {
             try {
                 this.sleep(1000);
-
             }
             catch(java.lang.InterruptedException e) {
                 e.printStackTrace();
@@ -38,8 +35,13 @@ public class Timeline extends Thread {
                 if(jeu.getPopUps().size() != 0){
                     jeu.getVue().affichagePopUp(2);
                 }
-                if (numero == (int)(Math.random()*15)){
+                if ((int)(Math.random() * 15) == 0){
                     jeu.ajoutPopUp();
+                }
+                if(jeu.getEvenements().size() == 0) {
+                    if((int)(Math.random() * 15) == 0) {
+                        //jeu.
+                    }
                 }
                 jeu.getVue().affichageEvenement(2);
             }
