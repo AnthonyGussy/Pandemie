@@ -12,7 +12,7 @@ public class PopUp implements java.io.Serializable {
     public PopUp(Modele.Departement depart, Modele.Jeu jeu){
 
         departement = depart;
-        duree = 20;
+        duree = 10;
         point = (int)(Math.random()*2)+1;
         event = new Vue.PopUp(this,jeu);
 

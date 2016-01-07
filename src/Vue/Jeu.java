@@ -142,8 +142,8 @@ public class Jeu {
             for(Modele.PopUp popUp : popUps) {
                 popUp.getVue().affichage(modele, 0);
                 popUp.setDuree(modele);
-                if (popUp.getDuree() == 0) modele.enleverPopUp();
             }
+            modele.enleverPopUp();
         });
     }
 
