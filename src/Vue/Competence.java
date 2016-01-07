@@ -32,6 +32,7 @@ public class Competence implements java.io.Serializable {
         ligne = c.getLigne();
         colonne = c.getColonne();
         nomR = new Text(modele.getNom() + "\n \n" + modele.getDescription());
+        nomR.setText(nomR.getText() + "\ncout :+" + modele.getCout());
         if (modele.getEffet()[0] != 0) nomR.setText(nomR.getText() + "\nefficacité :+" + modele.getEffet()[0]);
         if (modele.getEffet()[1] != 0) nomR.setText(nomR.getText() + "\nmoral :+" + modele.getEffet()[1]);
         if (modele.getEffet()[2] != 0) nomR.setText(nomR.getText() + "\ntemps :+" + modele.getEffet()[2]);
@@ -72,7 +73,7 @@ public class Competence implements java.io.Serializable {
                     if (modele.getDebloque()) compet.setRadius(26);
 
                     vueArbre.setNoPoint(false);
-                    nomR.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE));
+                    nomR.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE_COMPETENCE));
                     nomR.setX((scene.getWidth() * 83.5) / 100);
                     nomR.setY((scene.getHeight() * 45) / 100);
                     nomR.setWrappingWidth((scene.getWidth() * 14) / 100);
@@ -95,6 +96,7 @@ public class Competence implements java.io.Serializable {
                 double coeffy = (double) 1 / modele.getNbColonnes() * (colonne - 1);
                 compet.setCenterX((scene.getWidth() * 15) / 100 + coeffx * (scene.getWidth() * 60 / 100));
                 compet.setCenterY((scene.getHeight() * 90) / 100 - coeffy * (scene.getHeight() * 65 / 100));
+                nomR.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE_COMPETENCE));
 
                 break;
             default:

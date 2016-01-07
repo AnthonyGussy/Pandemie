@@ -35,6 +35,7 @@ public final class Constantes {
 	public static final double POS_X_TEXTE = 0.85;
 	public static final double POS_Y_TEXTE = 0.47;
 	public static final double TAILLE_POLICE = 0.032;
+	public static final double TAILLE_POLICE_COMPETENCE = 0.029;
 	public static final double POS_X_NOM_DEP = 0.83;
 	public static final double POS_Y_NOM_DEP = 0.48;
 	public static final double POS_X_INFOS = 0.835;
@@ -171,6 +172,10 @@ public final class Constantes {
 			225.0, 68.0,
 			229.0, 160.0,
 			6.0, 161.0));
+	
+	//Fleche de retour de arbre de compétence
+	public static final double POS_Y_FLECHEARBRE = 0.931;
+	public static final double POS_X_FLECHEARBRE = 0.023;
 
 	public static ArrayList<Double> adaptPolygone(ArrayList<Double> poly, Scene scene) {
 		ArrayList<Double> newPoly = new ArrayList<>();

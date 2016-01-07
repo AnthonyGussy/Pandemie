@@ -4,6 +4,7 @@ import Constantes.Constantes;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Line;
@@ -21,7 +22,7 @@ public class ArbreDeCompetence implements java.io.Serializable {
     private Text nom;
     private boolean affiche = false;
     private String aCliquer;
-    private Polygon retour;
+    private ImageView retour;
     private Group lignes;
     protected Text noPoint;
 
@@ -29,7 +30,9 @@ public class ArbreDeCompetence implements java.io.Serializable {
 
         noPoint = new Text("Vous n'avez pas assez de points");
         noPoint.setFill(Color.ORANGERED);
-        retour = new Polygon();
+        retour = new ImageView(new Image("file:image\\Retour.jpg"));
+        retour.setOnMouseEntered(mouseEvent -> retour.setImage(new Image("file:image\\RetourActif.jpg")));
+        retour.setOnMouseExited(mouseEvent -> retour.setImage(new Image("file:image\\Retour.jpg")));
         this.modele = modele;
         aCliquer = "";
         competences = new HashMap<>();
@@ -40,7 +43,7 @@ public class ArbreDeCompetence implements java.io.Serializable {
             modele.getDepartement().afficherTaches(jeu.getVue().getScene(), 1);
             jeu.retourJeu();
         });
-        retour.setFill(new ImagePattern(new Image("file:image\\Retour.png"), 0, 0, 1, 1, true));
+        retour.setVisible(false);
         nom.setVisible(false);
         lignes.setVisible(false);
         retour.setVisible(false);
@@ -94,6 +97,9 @@ public class ArbreDeCompetence implements java.io.Serializable {
         nom.setY(scene.getHeight() * 35 / 100);
         nom.setFont(Font.loadFont("file:Font.ttf", scene.getWidth() * Constantes.TAILLE_POLICE_TITRE));
 
+        retour.setTranslateX(scene.getWidth() * Constantes.POS_X_FLECHEARBRE);
+        retour.setTranslateY(scene.getHeight() * Constantes.POS_Y_FLECHEARBRE);
+
         HashMap<String, ArrayList<Modele.Competence>> temporaire = modele.getComp();
         lignes.getChildren().clear();
         for (Map.Entry<String, ArrayList<Modele.Competence>> competence : temporaire.entrySet()) {
@@ -114,15 +120,6 @@ public class ArbreDeCompetence implements java.io.Serializable {
                 }
             }
         }
-
-        retour.getPoints().clear();
-        retour.getPoints().addAll(60.0, scene.getHeight() - 30.0,
-                80.0, scene.getHeight() - 50.0,
-                80.0, scene.getHeight() - 40.0,
-                100.0, scene.getHeight() - 40.0,
-                100.0, scene.getHeight() - 20.0,
-                80.0, scene.getHeight() - 20.0,
-                80.0, scene.getHeight() - 10.0);
 
     }
 
