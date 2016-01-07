@@ -34,6 +34,7 @@ public class Timeline extends Thread {
                     Platform.runLater(() -> jeu.getPopUp().getVue().affichage(jeu));*/
             }
 
+            jeu.affichageEvenement();
 
         }
     }

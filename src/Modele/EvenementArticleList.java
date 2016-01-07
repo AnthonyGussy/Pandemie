@@ -49,7 +49,7 @@ public class EvenementArticleList implements java.io.Serializable{
 			                effets[1] = Integer.parseInt(elementEven.getElementsByTagName("efficacite").item(0).getTextContent());
 			                effets[2] = Integer.parseInt(elementEven.getElementsByTagName("temps").item(0).getTextContent());
 			                
-			                a = new EvenementArticle(departement, nom, description, effets, jeu);
+			                a = new EvenementArticle(nom, description, effets, jeu);
 			                liste.add(a);
                     	}
                     }

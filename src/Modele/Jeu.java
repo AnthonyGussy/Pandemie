@@ -7,19 +7,25 @@ import Enumerations.BoutonType;
 import Vue.Compteur;
 import Vue.Menu;
 import Vue.Regles;
+import javafx.application.Platform;
 import javafx.stage.Stage;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.io.FileInputStream;
-import java.io.ObjectInputStream;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 /**
  * Partie Modele de la classe Jeu
- * Cette classe sert ‡ instancier les composantes du jeu
+ * Cette classe sert √† instancier les composantes du jeu
  */
 public class Jeu implements java.io.Serializable {
 
@@ -32,9 +38,11 @@ public class Jeu implements java.io.Serializable {
     private ArrayList<Compteur> compteurs;
     private ArrayList<Modele.Evenement> evenements;
     private PopUp popUp;
+    private ArrayList<EvenementArticle> eventStockage;
 
     // Constructeur
     public Jeu(Stage primaryStage) {
+        eventStockage = new ArrayList<>();
         departements = new ArrayList<>();
         evenements = new ArrayList<>();
         compteurs = new ArrayList<>();
@@ -45,11 +53,12 @@ public class Jeu implements java.io.Serializable {
         boutons = new BoutonType[]{BoutonType.Retour_Jeu, BoutonType.Sauvegarder, BoutonType.Regles, BoutonType.Quitter};
         menuJeu = new Menu(boutons, this);
         regles = new Regles(this);
+        setListeEvenementStockage();
     }
 
-    // MÈthodes
+    // M√©thodes
     /**
-     * Cette mÈthode renvoie la Vue de Jeu
+     * Cette m√©thode renvoie la Vue de Jeu
      * @return Vue de Jeu
      */
     public Vue.Jeu getVue() { return vue; }
@@ -59,18 +68,19 @@ public class Jeu implements java.io.Serializable {
     public Vue.Menu getMenuPrincipal() { return menuPrincipal; }
 
     /**
-     * Cette mÈthode renvoie la liste des dÈpartements
-     * @return Liste des dÈpartements
+     * Cette m√©thode renvoie la liste des d√©partements
+     * @return Liste des d√©partements
      */
     public ArrayList<Modele.Departement> getDepartements() { return departements; }
 
     /**
-     * MÈthode qui va mettre dans un ordre alÈatoire la liste des dÈpartements,
-     * le dÈpartement ‡ l'index 0 Ètant considÈrÈ comme le dÈpartement d'origine du projet.
-     * Cette mÈthode va aussi afficher le plateau de jeu et lancer les ÈvÈnements alÈatoires.
+     * M√©thode qui va mettre dans un ordre al√©atoire la liste des d√©partements,
+     * le d√©partement √† l'index 0 √©tant consid√©r√© comme le d√©partement d'origine du projet.
+     * Cette m√©thode va aussi afficher le plateau de jeu et lancer les √©v√©nements al√©atoires.
      */
     public void commencerPartie() {
         List<DepartementNom> departementNoms = new ArrayList<>(Arrays.asList(DepartementNom.Edim, DepartementNom.Energie, DepartementNom.Gmc, DepartementNom.Imsi, DepartementNom.Informatique));
+        evenements.add(new Evenement("Bienvenue dans Pand√©mie", "Vous controlez un groupe d'√©tudiant devant rendre leur projet.", this));
         for(int i = 0; i<5; ++i) {
             int alea = (int)(Math.random()*departementNoms.size());
             if(i == 0)
@@ -116,7 +126,7 @@ public class Jeu implements java.io.Serializable {
     }
 
     /**
-     * Cette mÈthode va sauvegarder le jeu en sÈrialisant les diffÈrents composants du jeu
+     * Cette m√©thode va sauvegarder le jeu en s√©rialisant les diff√©rents composants du jeu
      */
     public void sauvegarder() {
         //departements.add(new Departement(DepartementNom.Edim));
@@ -124,7 +134,7 @@ public class Jeu implements java.io.Serializable {
     }
 
     /**
-     * Cette mÈthode va charger le jeu en desÈrialisant les diffÈrents composants du jeu
+     * Cette m√©thode va charger le jeu en des√©rialisant les diff√©rents composants du jeu
      */
     public void charger() {
         departements = deserialiser("departements");
@@ -132,10 +142,10 @@ public class Jeu implements java.io.Serializable {
     }
 
     /**
-     * Cette mÈthode va enregistrer tous les composants sÈrialisables d'un objet dans un fichier du nom de l'objet
-     * @param objet L'objet ‡ sÈrialiser
-     * @param nom Le nom de l'objet ‡ sÈrialiser
-     * @param <T> Le type de l'objet ‡ sÈrialiser
+     * Cette m√©thode va enregistrer tous les composants s√©rialisables d'un objet dans un fichier du nom de l'objet
+     * @param objet L'objet √† s√©rialiser
+     * @param nom Le nom de l'objet √† s√©rialiser
+     * @param <T> Le type de l'objet √† s√©rialiser
      */
     public <T> void serialiser(T objet, String nom) {
         ObjectOutputStream oos = null;
@@ -159,10 +169,10 @@ public class Jeu implements java.io.Serializable {
     }
 
     /**
-     * Cette mÈthode va renvoyer un objet crÈÈ ‡ partir d'un fichier prÈcÈdement enregistrÈ au nom de l'objet
-     * @param nom Nom de l'objet ‡ desÈrialiser
-     * @param <T> Type de l'objet ‡ desÈrialiser
-     * @return L'objet crÈÈ ‡ partir des donnÈes du fichier
+     * Cette m√©thode va renvoyer un objet cr√©√© √† partir d'un fichier pr√©c√©dement enregistr√© au nom de l'objet
+     * @param nom Nom de l'objet √† des√©rialiser
+     * @param <T> Type de l'objet √† des√©rialiser
+     * @return L'objet cr√©√© √† partir des donn√©es du fichier
      */
     public <T> T deserialiser(String nom) {
         ObjectInputStream ois = null;
@@ -188,7 +198,7 @@ public class Jeu implements java.io.Serializable {
     }
 
     /**
-     * Cette mÈthode redimensionne les ÈlÈments actifs de l'affichagePlateau lorsque la fenÍtre est redimensionnÈe
+     * Cette m√©thode redimensionne les √©l√©ments actifs de l'affichagePlateau lorsque la fen√™tre est redimensionn√©e
      */
     public void redimensionner() {
         regles.affichage(this, 2);
@@ -216,5 +226,60 @@ public class Jeu implements java.io.Serializable {
     }
 
     public PopUp getPopUp() { return popUp;}
+
+    public void affichageEvenement() {
+
+        if(evenements.size()>0){
+            
+            Platform.runLater(() -> {
+                evenements.get(0).getVue().affichage(this, 0);
+                if (evenements.get(0).getDuree() == 0) evenements.remove(0);
+            });
+            evenements.get(0).setDuree(this);
+
+        }
+
+    }
+
+    public void setListeEvenementStockage(){
+
+        final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+
+        try {
+            final DocumentBuilder builder = factory.newDocumentBuilder();
+            final Document doc = builder.parse(new File(Constantes.PATH_EVEN_ARTICLE_MODELE));
+            Element racine = doc.getDocumentElement();
+            NodeList racineNoeuds = racine.getChildNodes();
+            EvenementArticle a;
+            int effets[] = {0,0,0};
+
+            for (int i = 0; i < racineNoeuds.getLength(); i++) {
+                if(racineNoeuds.item(i).getNodeType() == Node.ELEMENT_NODE) {
+                    NodeList evenNoeuds = racineNoeuds.item(i).getChildNodes();
+                    for (int j = 0; j < evenNoeuds.getLength(); j++) {
+
+                        if(evenNoeuds.item(j).getNodeType() == Node.ELEMENT_NODE && evenNoeuds.item(j).getNodeName().equals("evenement")) {
+
+                            Element elementEven = (Element) evenNoeuds.item(j);
+
+                            String nom = elementEven.getElementsByTagName("nom").item(0).getTextContent();
+                            String description = elementEven.getElementsByTagName("description").item(0).getTextContent();
+                            effets[0] = Integer.parseInt(elementEven.getElementsByTagName("moral").item(0).getTextContent());
+                            effets[1] = Integer.parseInt(elementEven.getElementsByTagName("efficacite").item(0).getTextContent());
+                            effets[2] = Integer.parseInt(elementEven.getElementsByTagName("temps").item(0).getTextContent());
+
+                            a = new EvenementArticle(nom, description, effets, this);
+                            eventStockage.add(a);
+                        }
+                    }
+                }
+            }
+        }
+
+        catch (final ParserConfigurationException | SAXException | IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 }
 

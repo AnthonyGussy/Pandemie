@@ -19,18 +19,18 @@ public class EvenementArticle implements java.io.Serializable {
     public EvenementArticle(Modele.Evenement event, Modele.Jeu jeu) {
 
         nom = new Text(event.getNom());
-        nom.setFont(Font.loadFont("file:Font.ttf", 20));
+        nom.setFont(Font.loadFont("file:Font.ttf", jeu.getVue().getScene().getHeight() * Constantes.TAILLE_POLICE_TITRE));
         nom.setFill(Color.WHITE);
         description = new Text(event.getDescription());
-        description.setFont(Font.loadFont("file:Font.ttf", 18));
+        description.setFont(Font.loadFont("file:Font.ttf", jeu.getVue().getScene().getHeight() * Constantes.TAILLE_POLICE));
         description.setFill(Color.WHITE);
         String texte;
         if(event.isAccomplissement())
              texte = "Le projet final avance petit a petit.";
         else
-            texte = "Evenement sans effet.";
+            texte = "";
         departement = new Text(texte);
-        departement.setFont(Font.loadFont("file:Font.ttf", 18));
+        departement.setFont(Font.loadFont("file:Font.ttf", jeu.getVue().getScene().getHeight() * Constantes.TAILLE_POLICE));
         departement.setFill(Color.WHITE);
         nom.setVisible(false);
         description.setVisible(false);
@@ -41,17 +41,17 @@ public class EvenementArticle implements java.io.Serializable {
 
 	public EvenementArticle(Modele.EvenementArticle eam, Modele.Jeu jeu) {
         nom = new Text(eam.getNom());
-        nom.setFont(Font.loadFont("file:Font.ttf", 20));
+        nom.setFont(Font.loadFont("file:Font.ttf", jeu.getVue().getScene().getHeight() * Constantes.TAILLE_POLICE_TITRE));
         nom.setFill(Color.WHITE);
         description = new Text(eam.getDescription());
-        description.setFont(Font.loadFont("file:Font.ttf", 18));
+        description.setFont(Font.loadFont("file:Font.ttf", jeu.getVue().getScene().getHeight() * Constantes.TAILLE_POLICE));
         description.setFill(Color.WHITE);
-        String effets = "Effets sur "+eam.getDepartement()+" : ";
+        String effets = "Effets sur les départements : ";
         effets += "moral => "+eam.getMoral()+" / ";
         effets += "efficacite => "+eam.getEfficacite()+" / ";
         effets += "temps => "+eam.getTemps();
         departement = new Text(effets);
-        departement.setFont(Font.loadFont("file:Font.ttf", 18));
+        departement.setFont(Font.loadFont("file:Font.ttf", jeu.getVue().getScene().getHeight() * Constantes.TAILLE_POLICE));
         departement.setFill(Color.WHITE);
         nom.setVisible(false);
         description.setVisible(false);
@@ -75,6 +75,7 @@ public class EvenementArticle implements java.io.Serializable {
                 departement.setVisible(true);
                 break;
             case 1:
+                scene.setFill(new ImagePattern(new Image("file:image\\PandemieDep.jpg"), 0, 0, 1, 1, true));
                 nom.setVisible(false);
                 description.setVisible(false);
                 departement.setVisible(false);

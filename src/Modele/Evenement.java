@@ -1,32 +1,22 @@
 package Modele;
 
-import Constantes.Constantes;
-import Enumerations.DepartementNom;
+import javafx.application.Platform;
 
 public class Evenement implements java.io.Serializable {
 
-    protected Modele.Departement departement;
     protected Vue.EvenementArticle event;
 
     protected String nom;
     protected String description;
     protected int duree;
 
-    public Evenement() {
-    	this.departement = null;
-    }
-
-    public Evenement(Modele.Departement departement,String nom,String description,Modele.Jeu jeu) {
-
-    	this.departement = departement;
+    public Evenement(String nom,String description,Modele.Jeu jeu) {
         this.nom = nom;
         this.description = description;
-        duree = 10;
+        duree = 7;
         event = new Vue.EvenementArticle(this,jeu);
-
     }
 
-    public Modele.Departement getDepartement() {return departement;}
 
     public Vue.EvenementArticle getVue() { return event; }
 
@@ -41,4 +31,9 @@ public class Evenement implements java.io.Serializable {
     public void setDescription(String description) { this.description = description; }
 
     public boolean isAccomplissement(){ return false;}
+
+    public void setDuree(Modele.Jeu jeu){
+        --duree;
+        if(duree == 0) Platform.runLater(() -> event.affichage(jeu, 1));
+    }
 }
