@@ -96,6 +96,8 @@ public class ArbreDeCompetence implements java.io.Serializable {
         nom.setFont(Font.loadFont("file:Font.ttf", scene.getWidth() * Constantes.TAILLE_POLICE_TITRE));
         retour.setTranslateX(scene.getWidth() * Constantes.POS_X_FLECHEARBRE);
         retour.setTranslateY(scene.getHeight() * Constantes.POS_Y_FLECHEARBRE);
+        retour.setFitWidth(scene.getWidth() * Constantes.LARGEUR_RETOUR);
+        retour.setFitHeight(scene.getHeight() * Constantes.HAUTEUR_RETOUR);
 
         HashMap<String, ArrayList<Modele.Competence>> temporaire = modele.getComp();
         lignes.getChildren().clear();
