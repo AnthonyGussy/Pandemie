@@ -1,5 +1,7 @@
 package Vue;
 
+import Modele.*;
+import Modele.PopUp;
 import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -10,7 +12,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import Constantes.Constantes;
-import Modele.TacheList;
+
+import java.util.ArrayList;
 
 /**
  * Partie Vue de la classe Jeu
@@ -134,13 +137,13 @@ public class Jeu {
     }
 
     public void affichagePopUp(){
-
-        Platform.runLater(() -> {
-            modele.getPopUp().getVue().affichage(modele, 0);
+        /*Platform.runLater(() -> {
+            ArrayList<Modele.PopUp> popUps = modele.getPopUps()
+            for(Modele.PopUp popUp : popUps)
+            popUp.getVue().affichage(modele, 0);
             if (modele.getPopUp().getDuree() == 0) modele.setPopUp(false);
         });
-        modele.getPopUp().setDuree(modele);
-
+        modele.getPopUp().setDuree(modele);*/
     }
 
     public void affichageEvenement() {

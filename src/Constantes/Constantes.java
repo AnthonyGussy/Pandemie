@@ -10,8 +10,8 @@ import java.util.Arrays;
  */
 public final class Constantes {
 	// Taille de la fenêtre de base
-	public static final int LARGEUR_FENETRE = 1024;
-	public static final int HAUTEUR_FENETRE = 650;
+	public static final int LARGEUR_FENETRE = 1080;
+	public static final int HAUTEUR_FENETRE = 720;
 	// Le tableau "effets"
 	public static final int TAILLE_EFFETS = 3;
 	public static final int MORAL = 0;
@@ -80,16 +80,16 @@ public final class Constantes {
 			0.0, 7.0));
 	public static final double POS_X_FLECHENEXTRPAGE1 = 0.860;
 	public static final double POS_Y_FLECHENEXTRPAGE1 = 0.803;
-	public static final ArrayList<Double> POLYGONE_RPAGE2 = new ArrayList<>(Arrays.asList(27.0, 0.0,
-			22.0, 0.0,
-			0.0, 11.0,
-			0.0, 14.0,
-			24.0, 25.0,
-			27.0, 25.0,
-			27.0, 21.0,
-			21.0, 13.0,
-			21.0, 12.0,
-			27.0, 4.0));
+	public static final ArrayList<Double> POLYGONE_RPAGE2 = new ArrayList<>(Arrays.asList(24.0, 0.0,
+			18.0, 0.0,
+			0.0, 9.0,
+			0.0, 12.0,
+			20.0, 23.0,
+			23.0, 23.0,
+			23.0, 19.0,
+			17.0, 11.0,
+			17.0, 10.0,
+			23.0, 2.0));
 	public static final double POS_X_FLECHENEXTRPAGE2 = 0.830;
 	public static final double POS_Y_FLECHENEXTRPAGE2 = 0.803;
 	public static final ArrayList<Double> POLYGONE_RETOUR = new ArrayList<>(Arrays.asList(0.0, 0.0,

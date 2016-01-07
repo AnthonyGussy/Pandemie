@@ -31,10 +31,8 @@ public class Timeline extends Thread {
             }
             if (jeu.getDepartements().size() > 0) {
                 jeu.getDepartements().get(0).infection(jeu);
-                if(jeu.getPopUp() != null){
-
+                if(jeu.getPopUps().size() != 0){
                     jeu.getVue().affichagePopUp();
-
                 }
                 else if (numero == (int)(Math.random()*10)){
 

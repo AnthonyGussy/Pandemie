@@ -37,11 +37,12 @@ public class Jeu implements java.io.Serializable {
     private ArrayList<Modele.Departement> departements;
     private ArrayList<Compteur> compteurs;
     private ArrayList<Modele.Evenement> evenements;
-    private PopUp popUp;
+    private ArrayList<PopUp> popUps;
     private ArrayList<EvenementArticle> eventStockage;
 
     // Constructeur
     public Jeu(Stage primaryStage) {
+        popUps = new ArrayList<>();
         eventStockage = new ArrayList<>();
         departements = new ArrayList<>();
         evenements = new ArrayList<>();
@@ -220,14 +221,19 @@ public class Jeu implements java.io.Serializable {
     }
 
     public void setPopUp(boolean reste) {
-
-        if(reste)
-            popUp = new PopUp(departements.get((int)(Math.random()*5)),this);
-        else
-            popUp = null;
+        if(reste) {
+            Departement depPopUp;
+            do
+            {
+                depPopUp = departements.get((int)(Math.random()*5));
+            } while(depPopUp.getNbActif() == 0);
+            popUps.add(new PopUp(departements.get((int)(Math.random()*5)),this));
+        }
+        /*else
+            popUp = null;*/
     }
 
-    public PopUp getPopUp() { return popUp;}
+    public ArrayList<PopUp> getPopUps() { return popUps;}
 
     public void setListeEvenementStockage(){
 
