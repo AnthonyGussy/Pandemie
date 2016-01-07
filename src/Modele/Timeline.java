@@ -46,8 +46,8 @@ public class Timeline extends Thread {
                     for(Modele.Departement departement : jeu.getDepartements()) {
                         departement.supprimerTache(jeu);
                     }
-                    if(jeu.getEvenements().size() == 0 && (int)(Math.random() * 10) == 0) {
-                        if((int)(Math.random() * 3) == 0) {
+                    if(jeu.getEvenements().size() == 0 && (int)(Math.random() * 0) == 0) {
+                        if((int)(Math.random() * 0) == 0) {
                             int depAlea = (int) (Math.random() * jeu.getDepartements().size());
                             Modele.Departement departement = jeu.getDepartements().get(depAlea);
                             departement.creerTache();

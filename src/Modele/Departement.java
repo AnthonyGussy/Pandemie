@@ -121,18 +121,18 @@ public class Departement implements java.io.Serializable {
     public void afficherTaches(Scene scene, int afficher) {
         switch(afficher) {
             case 0:
-                for (Modele.Tache tache : taches) {
-                    tache.getVue().affichage(scene, 0);
+                for (int i = 0; i < taches.size(); i++) {
+                    taches.get(i).getVue().affichage(scene, 0, i);
                 }
                 break;
             case 1:
-                for (Modele.Tache tache : taches) {
-                    tache.getVue().affichage(scene, 1);
+                for (int i = 0; i < taches.size(); i++) {
+                    taches.get(i).getVue().affichage(scene, 1, i);
                 }
                 break;
             default:
-                for (Modele.Tache tache : taches) {
-                    tache.getVue().affichage(scene, 2);
+                for (int i = 0; i < taches.size(); i++) {
+                    taches.get(i).getVue().affichage(scene, 2, i);
                 }
         }
     }

@@ -215,9 +215,7 @@ public class Jeu implements java.io.Serializable {
         menuPrincipal.affichage(this, 2);
         menuJeu.affichage(this, 2);
         for(Modele.Departement departement : departements) {
-            for(Modele.Tache tache : departement.getTaches()) {
-                tache.getVue().affichage(vue.getScene(), 2);
-            }
+            departement.afficherTaches(vue.getScene(), 2);
         }
         for(Modele.Evenement evenement : evenements) {
             evenement.getVue().affichage(this, 2);

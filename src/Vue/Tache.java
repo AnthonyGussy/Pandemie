@@ -20,19 +20,19 @@ public class Tache implements java.io.Serializable {
 		jeu.getVue().getRoot().getChildren().add(nom);
 	}
 	
-	public void affichage(Scene scene, int afficher) {
+	public void affichage(Scene scene, int afficher, int index) {
 		switch(afficher) {
 			case 0:
-				affichage(scene, 2);
+				affichage(scene, 2, index);
 				nom.setVisible(true);
 				break;
 			case 1:
 				nom.setVisible(false);
 				break;
 			default:
-				nom.setFont(Font.loadFont("file:Font.ttf", Constantes.TAILLE_POLICE * scene.getHeight()));
+				nom.setFont(Font.loadFont("file:Font.ttf", Constantes.TAILLE_POLICE_TACHE * scene.getHeight()));
 				nom.setX(scene.getWidth() * Constantes.POS_X_TACHE_NOM);
-				nom.setY(scene.getHeight() * Constantes.POS_Y_TACHE_NOM);
+				nom.setY(scene.getHeight() * Constantes.POS_Y_TACHE_NOM + index * scene.getHeight() * Constantes.ESPACEMENT_LIGNES);
 				nom.setWrappingWidth(scene.getWidth() * Constantes.LARGEUR_POST_IT);
 		}
 	}
