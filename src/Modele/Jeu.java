@@ -291,6 +291,7 @@ public class Jeu implements java.io.Serializable {
         Platform.runLater(() -> {
             Modele.EvenementArticle  evenement = new EvenementArticle(eventStockage.get((int) (Math.random() * eventStockage.size())), this);
             evenement.getVue().affichage(this, 0);
+            evenement.appliquerEffet(this);
             evenements.add(evenement);
         });
     }

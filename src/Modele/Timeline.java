@@ -31,6 +31,10 @@ public class Timeline extends Thread {
                     if(departement.getTaches().size() > 0) {
                         departement.infection(jeu);
                     }
+                    departement.affichage(jeu);
+                    for(Modele.Tache tache : departement.getTaches()) {
+                        tache.setAvancement(1);
+                    }
                 }
                 if(jeu.getPopUps().size() != 0){
                     jeu.getVue().affichagePopUp(2);

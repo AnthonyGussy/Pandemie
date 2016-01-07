@@ -101,6 +101,9 @@ public class Departement implements java.io.Serializable {
         for(Tache t:taches){
             t.setInfectes(infection);
         }
+    }
+
+    void affichage(Modele.Jeu jeu) {
         Platform.runLater(() -> vue.affichage(jeu, 2));
     }
 
