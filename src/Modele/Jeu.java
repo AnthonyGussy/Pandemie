@@ -232,7 +232,7 @@ public class Jeu implements java.io.Serializable {
     public void enleverPopUp() {
         for(int i = 0; i < popUps.size(); i++) {
             if(popUps.get(i).getDuree() == 0) {
-                popUps.get(i).getVue().affichage(this, 1);
+                popUps.get(i).getVue().affichage(this, 3);
                 popUps.remove(i);
             }
         }

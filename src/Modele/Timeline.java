@@ -30,7 +30,11 @@ public class Timeline extends Thread {
                 e.printStackTrace();
             }
             if (jeu.getDepartements().size() > 0) {
-                jeu.getDepartements().get(0).infection(jeu);
+                for(Modele.Departement departement : jeu.getDepartements()) {
+                    if(departement.getTaches().size() > 0) {
+                        departement.infection(jeu);
+                    }
+                }
                 if(jeu.getPopUps().size() != 0){
                     jeu.getVue().affichagePopUp(2);
                 }
@@ -39,9 +43,6 @@ public class Timeline extends Thread {
                 }
                 jeu.getVue().affichageEvenement(2);
             }
-
-
-
         }
     }
 

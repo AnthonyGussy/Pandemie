@@ -47,6 +47,10 @@ public class PopUp {
         }
         popUp = new Circle();
         popUp.setFill(new ImagePattern(new Image("file:image\\PopUp.png"), 0, 0, 1, 1, true));
+        popUp.setOnMouseClicked(event1 -> {
+            modele.appliquerEffet(jeu);
+            jeu.getVue().getRoot().getChildren().remove(popUp);
+        });
         genePopUp(jeu.getVue().getScene());
         Platform.runLater(() -> jeu.getVue().getRoot().getChildren().add(popUp));
     }
@@ -56,18 +60,19 @@ public class PopUp {
         Group root = jeu.getVue().getRoot();
         switch (affichage){
             case 0:
-                popUp.setRadius(scene.getWidth() * Constantes.RAYON);
-                popUp.setOnMouseClicked(event1 -> {
-                    modele.appliquerEffet(jeu);
-                    root.getChildren().remove(popUp);
-                });
+                affichage(jeu, 2);
+                popUp.setVisible(true);
                 break;
             case 1:
-                root.getChildren().remove(popUp);
+                popUp.setVisible(false);
                 break;
-            default:
+            case 2:
+                popUp.setRadius(scene.getWidth() * Constantes.RAYON);
                 popUp.setCenterX(scene.getWidth() * posX + randomX * modele.getDepartement().getVue().getDepartementPoly().getLayoutBounds().getWidth());
                 popUp.setCenterY(scene.getHeight() * posY + randomY * modele.getDepartement().getVue().getDepartementPoly().getLayoutBounds().getHeight());
+                break;
+            default:
+                root.getChildren().remove(popUp);
         }
 
 
