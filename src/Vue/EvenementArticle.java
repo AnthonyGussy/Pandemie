@@ -5,19 +5,23 @@ import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+
 
 public class EvenementArticle implements java.io.Serializable {
 
     private Text nom;
     private Text description;
     private Text departement;
+    private ImageView journal;
 
     public EvenementArticle(Modele.Evenement event, Modele.Jeu jeu) {
 
+        journal = new ImageView(new Image("file:image\\PandemieJournal.jpg"));
         nom = new Text(event.getNom());
         nom.setFont(Font.loadFont("file:Font.ttf", jeu.getVue().getScene().getHeight() * Constantes.TAILLE_POLICE_TITRE));
         nom.setFill(Color.WHITE);
@@ -35,11 +39,13 @@ public class EvenementArticle implements java.io.Serializable {
         nom.setVisible(false);
         description.setVisible(false);
         departement.setVisible(false);
-        jeu.getVue().getRoot().getChildren().addAll(nom, description, departement);
+        journal.setVisible(false);
+        jeu.getVue().getRoot().getChildren().addAll(journal,nom, description, departement);
 
     }
 
 	public EvenementArticle(Modele.EvenementArticle eam, Modele.Jeu jeu) {
+        journal = new ImageView(new Image("file:image\\PandemieJournal.jpg"));
         nom = new Text(eam.getNom());
         nom.setFont(Font.loadFont("file:Font.ttf", jeu.getVue().getScene().getHeight() * Constantes.TAILLE_POLICE_TITRE));
         nom.setFill(Color.WHITE);
@@ -56,30 +62,33 @@ public class EvenementArticle implements java.io.Serializable {
         nom.setVisible(false);
         description.setVisible(false);
         departement.setVisible(false);
-        jeu.getVue().getRoot().getChildren().addAll(nom, description, departement);
+        journal.setVisible(false);
+        jeu.getVue().getRoot().getChildren().addAll(journal,nom, description, departement);
 	}
 	
     public void affichage(Modele.Jeu jeu, int afficher) {
     	Scene scene = jeu.getVue().getScene();
     	switch(afficher) {
             case 0:
-                scene.setFill(new ImagePattern(new Image("file:image\\PandemieCompetence.jpg"), 0, 0, 1, 1, true));
-                nom.setX((int)(scene.getWidth() * Constantes.POS_X_EV_ART_NOM));
-                nom.setY((int)(scene.getHeight() * Constantes.POS_Y_EV_ART_NOM));
-                description.setX((int)(scene.getWidth() * Constantes.POS_X_EV_ART_DESC));
-                description.setY((int)(scene.getHeight() * Constantes.POS_Y_EV_ART_DESC));
-                departement.setX((int)(scene.getWidth() * Constantes.POS_X_EV_ART_DEP));
-                departement.setY((int)(scene.getHeight() * Constantes.POS_Y_EV_ART_DEP));
+                journal.setTranslateX(jeu.getVue().getScene().getWidth() * 0.2574);
+                nom.setX((int) (scene.getWidth() * Constantes.POS_X_EV_ART_NOM));
+                nom.setY((int) (scene.getHeight() * Constantes.POS_Y_EV_ART_NOM));
+                description.setX((int) (scene.getWidth() * Constantes.POS_X_EV_ART_DESC));
+                description.setY((int) (scene.getHeight() * Constantes.POS_Y_EV_ART_DESC));
+                departement.setX((int) (scene.getWidth() * Constantes.POS_X_EV_ART_DEP));
+                departement.setY((int) (scene.getHeight() * Constantes.POS_Y_EV_ART_DEP));
                 nom.setVisible(true);
                 description.setVisible(true);
                 departement.setVisible(true);
+                journal.setVisible(true);
                 break;
             case 1:
-                scene.setFill(new ImagePattern(new Image("file:image\\PandemieDep.jpg"), 0, 0, 1, 1, true));
+                journal.setVisible(false);
                 nom.setVisible(false);
                 description.setVisible(false);
                 departement.setVisible(false);
             default:
+                journal.setTranslateX(jeu.getVue().getScene().getWidth() * 0.2574);
                 nom.setX((int)(scene.getWidth() * Constantes.POS_X_EV_ART_NOM));
                 nom.setY((int)(scene.getHeight() * Constantes.POS_Y_EV_ART_NOM));
                 description.setX((int)(scene.getWidth() * Constantes.POS_X_EV_ART_DESC));
