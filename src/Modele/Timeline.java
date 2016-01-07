@@ -33,7 +33,7 @@ public class Timeline extends Thread {
                     departement.supprimerTache(jeu);
                     departement.affichage(jeu);
                     for(Modele.Tache tache : departement.getTaches()) {
-                        tache.setAvancement(1);
+                        tache.setAvancement(-1);
                     }
                 }
                 if(jeu.getPopUps().size() != 0){

@@ -153,9 +153,9 @@ public class Jeu {
                 break;
             case 2:
                 Platform.runLater(() -> {
-                    for(Modele.PopUp popUp : popUps) {
-                        popUp.getVue().affichage(modele, 2);
-                        popUp.setDuree(modele);
+                    for(int i = 0; i < popUps.size(); i++) {
+                        popUps.get(i).getVue().affichage(modele, 2);
+                        popUps.get(i).setDuree(modele);
                     }
                     modele.enleverPopUp();
                 });
