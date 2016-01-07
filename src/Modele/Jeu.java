@@ -4,9 +4,7 @@ import Constantes.Constantes;
 import Enumerations.CompteurType;
 import Enumerations.DepartementNom;
 import Enumerations.BoutonType;
-import Vue.Compteur;
-import Vue.Menu;
-import Vue.Regles;
+import Vue.*;
 import javafx.application.Platform;
 import javafx.stage.Stage;
 import org.w3c.dom.Document;
@@ -34,6 +32,7 @@ public class Jeu implements java.io.Serializable {
     private Menu menuPrincipal;
     private Menu menuJeu;
     private Regles regles;
+    private Coin coin;
     private ArrayList<Modele.Departement> departements;
     private ArrayList<Compteur> compteurs;
     private ArrayList<Modele.Evenement> evenements;
@@ -48,12 +47,13 @@ public class Jeu implements java.io.Serializable {
         evenements = new ArrayList<>();
         compteurs = new ArrayList<>();
         vue = new Vue.Jeu(primaryStage, this);
+        regles = new Regles(this);
+        coin = new Coin(this);
         BoutonType[] boutons = new BoutonType[]{BoutonType.Jouer, BoutonType.Charger, BoutonType.Regles, BoutonType.Quitter};
         menuPrincipal = new Menu(boutons, this);
         menuPrincipal.affichage(this, 0);
         boutons = new BoutonType[]{BoutonType.Retour_Jeu, BoutonType.Sauvegarder, BoutonType.Regles, BoutonType.Quitter};
         menuJeu = new Menu(boutons, this);
-        regles = new Regles(this);
         setListeEvenementStockage();
     }
 
@@ -67,6 +67,8 @@ public class Jeu implements java.io.Serializable {
     public Vue.Menu getMenuJeu() { return menuJeu; }
 
     public Vue.Menu getMenuPrincipal() { return menuPrincipal; }
+
+    public Vue.Regles getRegles() { return regles; }
 
     /**
      * Cette méthode renvoie la liste des départements
@@ -98,12 +100,17 @@ public class Jeu implements java.io.Serializable {
         evenements.add(new EvenementTextuel(contexte, description, this));
         evenements.get(0).setDuree(20);
         evenements.get(0).getVue().affichage(this, 0);
+        /*Date timeProjet = new Date(this.getDepartements().get(0).getTaches().get(0).getCompteurs().get(0).getCompte(), CompteurType.Temps);
+        System.out.println(timeProjet.getCompte());
+        timeProjet.affichage(this.getVue().getScene(),0);*/
         vue.affichagePlateau(0);
 
         /*evenements.add(new Evenement(DepartementNom.Gmc, "Facile", 0));
         Evenement test = (Evenement) evenements.get(0);
         test.getEAV().affichagePlateau(this, 0);*/
     }
+
+    public Coin getCoin() { return coin; }
 
     public void regles() {
         regles.affichage(this, 0);

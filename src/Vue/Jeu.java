@@ -29,7 +29,6 @@ public class Jeu {
     private ImageView liste;
     private Text texte;
     private Stage primaryStage;
-    private Coin coin;
     private boolean affiche = false;
 
     // Constructeur
@@ -48,9 +47,7 @@ public class Jeu {
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.setFullScreen(true);
-
         primaryStage.show();
-        coin = new Coin(this);
         scene.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> modele.redimensionner());
         scene.heightProperty().addListener((observableValue, oldSceneHeight, newSceneHeight) -> modele.redimensionner());
         //scene.setOnMouseClicked(mouseEvent -> System.out.println(scene.getWidth() + " " + scene.getHeight()));
@@ -95,7 +92,7 @@ public class Jeu {
                 texte.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE));
                 liste.setVisible(true);
                 texte.setVisible(true);
-                coin.affichage(this, 0);
+                modele.getCoin().affichage(modele, 0);
                 break;
             case 1:
                 affiche = false;
@@ -110,7 +107,7 @@ public class Jeu {
                 texte.setVisible(true);
                 break;
             case 3:
-                coin.affichage(this, 3);
+                modele.getCoin().affichage(modele, 3);
                 for(Modele.Departement departement : modele.getDepartements()) {
                     departement.getVue().affichage(modele, 2);
                 }

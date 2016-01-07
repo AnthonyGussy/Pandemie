@@ -8,11 +8,10 @@ import java.util.concurrent.TimeUnit;
 
 public class Date extends Compteur implements java.io.Serializable {
     Text text;
-    Date(int c, CompteurType t){
+    public Date(int c, CompteurType t){
         super(c, t);
-
     }
-    Date(int c, int vMax, CompteurType t, Vue.Jeu jeu){
+    public Date(int c, int vMax, CompteurType t, Vue.Jeu jeu){
         super(c, vMax, t);
         text = new Text("");
         text.setVisible(false);
@@ -28,11 +27,11 @@ public class Date extends Compteur implements java.io.Serializable {
                 text.setVisible(false);
                 break;
             default:
-                int day = (int) TimeUnit.SECONDS.toDays(compte);
+/*                int day = (int) TimeUnit.SECONDS.toDays(compte);
                 long hours = TimeUnit.SECONDS.toHours(compte) - (day * 24);
                 long minute = TimeUnit.SECONDS.toMinutes(compte) - (TimeUnit.SECONDS.toHours(compte) * 60);
                 long second = TimeUnit.SECONDS.toSeconds(compte) - (TimeUnit.SECONDS.toMinutes(compte) * 60);
-                text.setText(day + ":" + hours + ":" + minute + ":" + second);
+                text.setText(day + ":" + hours + ":" + minute + ":" + second);*/
         }
     }
 }
