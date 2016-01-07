@@ -34,12 +34,9 @@ public class Timeline extends Thread {
                 if(jeu.getPopUps().size() != 0){
                     jeu.getVue().affichagePopUp();
                 }
-                else if (numero == (int)(Math.random()*10)){
-
-                    jeu.setPopUp(true);
-
+                if (numero == (int)(Math.random()*10)){
+                    jeu.ajoutPopUp();
                 }
-
                 jeu.getVue().affichageEvenement();
             }
 

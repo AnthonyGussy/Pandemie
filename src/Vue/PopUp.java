@@ -8,7 +8,7 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
 /**
- * Created by Anthony on 06/01/2016.
+ *
  */
 public class PopUp {
 
@@ -18,9 +18,7 @@ public class PopUp {
     protected Modele.PopUp event;
 
     public PopUp(Modele.PopUp modele, Modele.Jeu jeu) {
-
         event = modele;
-
         switch (event.getDepartement().getNom()) {
             case "Informatique":
                 posX = Constantes.POS_X_INFO;
@@ -57,12 +55,11 @@ public class PopUp {
                 popUp.setRadius(22);
                 popUp.setOnMouseClicked(event1 -> {
                     event.appliquerEffet(jeu);
-                    jeu.getVue().getRoot().getChildren().removeAll(popUp);
-                    jeu.setPopUp(false);
+                    jeu.getVue().getRoot().getChildren().remove(popUp);
                 });
                 break;
             case 1:
-                jeu.getVue().getRoot().getChildren().removeAll(popUp);
+                jeu.getVue().getRoot().getChildren().remove(popUp);
                 break;
             default:
                 genePopUp(jeu.getVue().getScene());

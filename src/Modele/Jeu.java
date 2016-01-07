@@ -220,16 +220,21 @@ public class Jeu implements java.io.Serializable {
         }
     }
 
-    public void setPopUp(boolean reste) {
+    public void ajoutPopUp() {
         Departement depPopUp;
         do
         {
             depPopUp = departements.get((int)(Math.random()*5));
         } while(depPopUp.getNbActif() == 0);
         popUps.add(new PopUp(depPopUp,this));
+    }
+
+    public void enleverPopUp() {
         for(int i = 0; i < popUps.size(); i++) {
-            if(popUps.get(i).getDuree() == 0)
+            if(popUps.get(i).getDuree() == 0) {
+                popUps.get(i).getVue().affichage(this, 1);
                 popUps.remove(i);
+            }
         }
     }
 
