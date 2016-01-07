@@ -95,7 +95,7 @@ public class Jeu implements java.io.Serializable {
         }
         String contexte = "Vous dirigez un groupe d'étudiant en " + departements.get(0).getNom();
         String description = "Vous devez réaliser le projet suivant : " + departements.get(0).getTaches().get(0).getNom() + "\n" + departements.get(0).getTaches().get(0).getDescription();
-        evenements.add(new Evenement(contexte, description, this));
+        evenements.add(new EvenementTextuel(contexte, description, this));
         vue.affichagePlateau(0);
 
         /*evenements.add(new EvenementArticle(DepartementNom.Gmc, "Facile", 0));

@@ -10,7 +10,6 @@ import javafx.scene.text.Text;
 
 
 public class EvenementArticle implements java.io.Serializable {
-
     private Text nom;
     private Text description;
     private Text departement;
@@ -44,6 +43,7 @@ public class EvenementArticle implements java.io.Serializable {
         journal.setVisible(false);
         jeu.getVue().getRoot().getChildren().addAll(journal, nom, description, departement);
     }
+
 
     public void affichage(Modele.Jeu jeu, int afficher) {
     	Scene scene = jeu.getVue().getScene();
