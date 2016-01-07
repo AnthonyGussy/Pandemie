@@ -16,8 +16,7 @@ import javafx.scene.text.Text;
 
 
 public class Tache implements java.io.Serializable {
-	
-	private TacheList tacheList;
+
 	private Text nom;
     private Text description;
 	private Modele.Tache modele;
@@ -30,17 +29,19 @@ public class Tache implements java.io.Serializable {
 		description.setFill(Color.BLACK);
 		nom.setVisible(false);
 		description.setVisible(false);
+		jeu.getVue().getRoot().getChildren().addAll(nom,description);
 	}
 	
 	public void affichage(Scene scene, int afficher) {
 		switch(afficher) {
 			case 0:
 				affichage(scene, 2);
+				System.out.print("ici");
 				nom.setVisible(true);
-				//description.setVisible(true);
+				description.setVisible(true);
 			case 1:
 				nom.setVisible(false);
-				//description.setVisible(false);
+				description.setVisible(false);
 				break;
 			default:
 				nom.setFont(Font.loadFont("file:Font.ttf", Constantes.TAILLE_POLICE * scene.getHeight()));
