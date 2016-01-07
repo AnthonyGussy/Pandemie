@@ -70,15 +70,26 @@ public final class Constantes {
 
 
 	// Affichage règles
+	public static final ArrayList<Double> POLYGONE_RETOUR = new ArrayList<>(Arrays.asList(0.0, 0.0,
+			62.0, 0.0,
+			62.0, 8.0,
+			178.0, 8.0,
+			178.0, 27.0,
+			62.0, 27.0,
+			62.0, 35.0,
+			0.0, 35.0));
+	public static final double POS_X_RETOUR = 0.120;
+	public static final double POS_Y_RETOUR = 0.27;
+
 	public static final ArrayList<Double> POLYGONE_RPAGE1 = new ArrayList<>(Arrays.asList(0.0, 0.0,
-			9.0, 0.0,
-			30.0, 14.0,
-			30.0, 16.0,
-			9.0, 27.0,
-			0.0, 27.0,
+			5.0, 0.0,
+			26.0, 10.0,
+			26.0, 12.0,
+			5.0, 23.0,
 			0.0, 23.0,
-			9.0, 15.0,
-			0.0, 7.0));
+			0.0, 20.0,
+			5.0, 11.0,
+			0.0, 3.0));
 	public static final double POS_X_FLECHENEXTRPAGE1 = 0.860;
 	public static final double POS_Y_FLECHENEXTRPAGE1 = 0.803;
 	public static final ArrayList<Double> POLYGONE_RPAGE2 = new ArrayList<>(Arrays.asList(24.0, 0.0,
@@ -93,16 +104,6 @@ public final class Constantes {
 			23.0, 2.0));
 	public static final double POS_X_FLECHENEXTRPAGE2 = 0.830;
 	public static final double POS_Y_FLECHENEXTRPAGE2 = 0.803;
-	public static final ArrayList<Double> POLYGONE_RETOUR = new ArrayList<>(Arrays.asList(0.0, 0.0,
-			62.0, 0.0,
-			62.0, 8.0,
-			178.0, 8.0,
-			178.0, 27.0,
-			62.0, 27.0,
-			62.0, 35.0,
-			0.0, 35.0));
-	public static final double POS_X_RETOUR = 0.120;
-	public static final double POS_Y_RETOUR = 0.27;
 
 	// Affichage événement article
 	public static final double POS_X_EV_ART_NOM = 0.3;
