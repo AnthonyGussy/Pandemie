@@ -136,9 +136,9 @@ public class Departement{
         int efficacite = modele.getEfficacite();
         int moral = modele.getMoral();
         int taches = modele.getNbTaches();
-        int infecte = modele.getNbActif();
+        int infecte = (int) ((modele.getNbActif() * 100.0) / modele.getNbPersonne());
         information.setText("Efficacité : " + Integer.toString(efficacite) + "%\nMoral : " + Integer.toString(moral) + "%\n" +
-                "Nb tâches : " + Integer.toString(taches) + "\n" + "Nb actifs : " + Integer.toString(infecte));
+                "Nb tâches : " + Integer.toString(taches) + "\n" + "Nb actifs : " + Integer.toString(infecte) + "%");
         information.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE));
         information.setX(scene.getWidth() * Constantes.POS_X_INFOS);
         information.setY(scene.getHeight() * Constantes.POS_Y_INFOS);
