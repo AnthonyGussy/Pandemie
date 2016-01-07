@@ -42,8 +42,9 @@ public final class Constantes {
 	public static final double POS_Y_INFOS = 0.55;
 
 	// Affichage liste tâches
-	public static final double POS_X_TACHE_NOM = 0.835;
-	public static final double POS_Y_TACHE_NOM = 0.70;
+	public static final double LARGEUR_POST_IT = 0.15;
+	public static final double POS_X_TACHE_NOM = 0.84;
+	public static final double POS_Y_TACHE_NOM = 0.80;
 	public static final double POS_X_TACHE_DESCRIPTION = 0.835;
 	public static final double POS_Y_TACHE_DESCRIPTION = 0.70;
 

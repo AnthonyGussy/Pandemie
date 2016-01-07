@@ -14,13 +14,10 @@ public class Tache implements java.io.Serializable {
     private Text description;
 
 	public Tache(Modele.Tache modele, Modele.Jeu jeu) {
-		nom = new Text(modele.getNom());
-		description = new Text(modele.getDescription());
+		nom = new Text("- " + modele.getNom());
 		nom.setFill(Color.BLACK);
-		description.setFill(Color.BLACK);
 		nom.setVisible(false);
-		description.setVisible(false);
-		jeu.getVue().getRoot().getChildren().addAll(nom,description);
+		jeu.getVue().getRoot().getChildren().add(nom);
 	}
 	
 	public void affichage(Scene scene, int afficher) {
@@ -28,19 +25,15 @@ public class Tache implements java.io.Serializable {
 			case 0:
 				affichage(scene, 2);
 				nom.setVisible(true);
-				description.setVisible(true);
 				break;
 			case 1:
 				nom.setVisible(false);
-				description.setVisible(false);
 				break;
 			default:
 				nom.setFont(Font.loadFont("file:Font.ttf", Constantes.TAILLE_POLICE * scene.getHeight()));
-				description.setFont(Font.loadFont("file:Font.ttf", Constantes.TAILLE_POLICE * scene.getHeight()));
-				nom.setX(Constantes.POS_X_TACHE_NOM);
-				nom.setY(Constantes.POS_Y_TACHE_NOM);
-				description.setX(Constantes.POS_X_TACHE_DESCRIPTION);
-				description.setY(Constantes.POS_Y_TACHE_DESCRIPTION);
+				nom.setX(scene.getWidth() * Constantes.POS_X_TACHE_NOM);
+				nom.setY(scene.getHeight() * Constantes.POS_Y_TACHE_NOM);
+				nom.setWrappingWidth(scene.getWidth() * Constantes.LARGEUR_POST_IT);
 		}
 	}
 	
