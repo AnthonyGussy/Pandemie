@@ -222,11 +222,12 @@ public class Jeu implements java.io.Serializable {
 
     public void ajoutPopUp() {
         Departement depPopUp;
-        do
-        {
+        do {
             depPopUp = departements.get((int)(Math.random()*5));
         } while(depPopUp.getNbActif() == 0);
-        popUps.add(new PopUp(depPopUp,this));
+        PopUp popUp = new PopUp(depPopUp,this);
+        popUps.add(popUp);
+        if(vue.getAffiche()) popUp.getVue().affichage(this, 0);
     }
 
     public void enleverPopUp() {

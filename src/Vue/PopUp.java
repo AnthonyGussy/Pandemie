@@ -46,6 +46,7 @@ public class PopUp {
 
         }
         popUp = new Circle();
+        popUp.setVisible(false);
         popUp.setFill(new ImagePattern(new Image("file:image\\PopUp.png"), 0, 0, 1, 1, true));
         popUp.setOnMouseClicked(event1 -> {
             modele.appliquerEffet(jeu);

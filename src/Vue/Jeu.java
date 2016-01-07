@@ -30,6 +30,7 @@ public class Jeu {
     private Text texte;
     private Stage primaryStage;
     private Coin coin;
+    private boolean affiche = false;
 
     // Constructeur
     public Jeu(Stage primaryStage, Modele.Jeu modele) {
@@ -70,6 +71,8 @@ public class Jeu {
 
     public Stage getPrimaryStage() { return primaryStage; }
 
+    public boolean getAffiche() { return affiche; }
+
     /**
      * Méthode qui affichePlateau le "plateau de jeu"
      * @param afficher Entier qui détermine l'action à effectuer. 0 pour afficher, 1 pour désafficher, 2 pour mettre à jour l'affichagePlateau
@@ -78,6 +81,7 @@ public class Jeu {
     public void  affichagePlateau(int afficher) {
         switch(afficher) {
             case 0:
+                affiche = true;
                 scene.setFill(new ImagePattern(new Image("file:image\\PandemieDep.jpg"), 0, 0, 1, 1, true));
                 for(Modele.Departement departement : modele.getDepartements()) {
                     departement.getVue().affichage(modele, 0);
@@ -94,6 +98,7 @@ public class Jeu {
                 coin.affichage(this, 0);
                 break;
             case 1:
+                affiche = false;
                 affichagePlateau(4);
                 for(Modele.Departement departement : modele.getDepartements()) {
                     departement.getVue().affichage(modele, 1);
