@@ -302,5 +302,11 @@ public class Jeu implements java.io.Serializable {
             evenements.add(evenement);
         });
     }
+
+    public void ajoutEvenement(Modele.Departement departement, Modele.Tache tache) {
+        Modele.EvenementAccomplissement  evenement = new EvenementAccomplissement(departement, tache, this);
+        evenement.getVue().affichage(this, 0);
+        evenements.add(evenement);
+    }
 }
 

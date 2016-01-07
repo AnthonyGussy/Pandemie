@@ -31,7 +31,7 @@ public class Timeline extends Thread {
                     if(departement.getTaches().size() > 0) {
                         departement.infection(jeu);
                     }
-                    departement.supprimerTache();
+                    departement.supprimerTache(jeu);
                     departement.affichage(jeu);
                     for(Modele.Tache tache : departement.getTaches()) {
                         tache.setAvancement(1);
@@ -44,7 +44,10 @@ public class Timeline extends Thread {
                     jeu.ajoutPopUp();
                 }
                 if(jeu.getEvenements().size() == 0) {
-                    if((int)(Math.random() * 10) == 0) {
+                    for(Modele.Departement departement : jeu.getDepartements()) {
+                        departement.supprimerTache(jeu);
+                    }
+                    if(jeu.getEvenements().size() == 0 && (int)(Math.random() * 10) == 0) {
                         if((int)(Math.random() * 3) == 0) {
                             int depAlea = (int) (Math.random() * jeu.getDepartements().size());
                             Modele.Departement departement = jeu.getDepartements().get(depAlea);

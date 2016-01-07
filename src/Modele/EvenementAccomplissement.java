@@ -5,7 +5,7 @@ public class EvenementAccomplissement extends Evenement implements java.io.Seria
 	private int point; // Calculé en fonction de la tâche
 
 
-    public EvenementAccomplissement(Modele.Departement departement, Modele.Tache tache,Modele.Jeu jeu){
+    public EvenementAccomplissement(Modele.Departement departement, Modele.Tache tache, Modele.Jeu jeu){
 
         super("Tâche terminée !","Une tâche a été terminée dans le département : "+departement.getNom(),jeu);
         point = (int)(Math.random()*(tache.getTempsInitial()/10))+1;

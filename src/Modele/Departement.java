@@ -107,11 +107,12 @@ public class Departement implements java.io.Serializable {
         Platform.runLater(() -> vue.affichage(jeu, 2));
     }
 
-    void supprimerTache() {
+    void supprimerTache(Modele.Jeu jeu) {
         for(int i = 0; i < taches.size(); i++) {
             if(taches.get(i).getTermine()){
                 compteurs.get(3).modifCompte(taches.get(i).getCompteurs().get(1).getCompte());
                 compteurs.get(2).modifCompte(-taches.get(i).getCompteurs().get(1).getCompte());
+                jeu.ajoutEvenement(this, taches.get(i));
                 taches.remove(taches.get(i));
             }
         }
