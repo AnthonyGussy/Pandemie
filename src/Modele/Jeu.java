@@ -34,7 +34,7 @@ public class Jeu implements java.io.Serializable {
     private Regles regles;
     private Coin coin;
     private ArrayList<Modele.Departement> departements;
-    private ArrayList<Compteur> compteurs;
+    private Compteur compteur;
     private ArrayList<Modele.Evenement> evenements;
     private ArrayList<PopUp> popUps;
     private ArrayList<EvenementArticle> eventStockage;
@@ -45,7 +45,7 @@ public class Jeu implements java.io.Serializable {
         eventStockage = new ArrayList<>();
         departements = new ArrayList<>();
         evenements = new ArrayList<>();
-        compteurs = new ArrayList<>();
+
         vue = new Vue.Jeu(primaryStage, this);
         regles = new Regles(this);
         coin = new Coin(this);
@@ -54,7 +54,6 @@ public class Jeu implements java.io.Serializable {
         menuPrincipal.affichage(this, 0);
         boutons = new BoutonType[]{BoutonType.Retour_Jeu, BoutonType.Sauvegarder, BoutonType.Regles, BoutonType.Quitter};
         menuJeu = new Menu(boutons, this);
-        setListeEvenementStockage();
     }
 
     // Méthodes
@@ -91,7 +90,8 @@ public class Jeu implements java.io.Serializable {
                 departements.add(new Modele.Departement(departementNoms.get(alea),false, this));
             departementNoms.remove(alea);
         }
-        compteurs.add(new Compteur(0, CompteurType.Points_de_competence));
+        compteur = new Compteur(0, CompteurType.Points_de_competence);
+        setListeEvenementStockage();
         for(Modele.Departement dep : departements) {
             dep.getVue().affichage(this, 0);
         }
@@ -100,14 +100,7 @@ public class Jeu implements java.io.Serializable {
         evenements.add(new EvenementTextuel(contexte, description, this));
         evenements.get(0).setDuree(20);
         evenements.get(0).getVue().affichage(this, 0);
-        /*Date timeProjet = new Date(this.getDepartements().get(0).getTaches().get(0).getCompteurs().get(0).getCompte(), CompteurType.Temps);
-        System.out.println(timeProjet.getCompte());
-        timeProjet.affichage(this.getVue().getScene(),0);*/
         vue.affichagePlateau(0);
-
-        /*evenements.add(new Evenement(DepartementNom.Gmc, "Facile", 0));
-        Evenement test = (Evenement) evenements.get(0);
-        test.getEAV().affichagePlateau(this, 0);*/
     }
 
     public Coin getCoin() { return coin; }
@@ -129,15 +122,17 @@ public class Jeu implements java.io.Serializable {
      *
      * @return
      */
-    public int getPtsCompetence() { return compteurs.get(Constantes.PTS_COMPETENCE).getCompte(); }
+    public int getPtsCompetence() { return compteur.getCompte(); }
 
     /**
      *
      * @param pts
      */
     public void setPtsCompetence(int pts) {
-        compteurs.get(Constantes.PTS_COMPETENCE).modifCompte(pts);
+        compteur.modifCompte(pts);
     }
+
+    public void setTemps(int ajout) { departements.get(0).getTaches().get(0).setAvancement(ajout);}
 
     /**
      * Cette méthode va sauvegarder le jeu en sérialisant les différents composants du jeu

@@ -179,7 +179,7 @@ public class Jeu {
                     Platform.runLater(() -> {
                         if (modele.getEvenements().get(0).getDuree() == 0) modele.getEvenements().remove(0);
                     });
-                    modele.getEvenements().get(0).setDuree(modele);
+                    modele.getEvenements().get(0).diminuerTemps(modele);
                 }
         }
     }

@@ -25,6 +25,7 @@ public class EvenementArticle extends Evenement implements java.io.Serializable 
 	public EvenementArticle(String nom, String description, int effets[], Modele.Jeu jeu) {
 		super(nom, description, jeu);
 		this.effets = effets;
+		appliquerEffet(jeu);
 		event = new Vue.Evenement(this, jeu);
 	}
 
@@ -35,7 +36,13 @@ public class EvenementArticle extends Evenement implements java.io.Serializable 
 	}
 
 	// Méthodes
-	public void appliquerEffet(){}
+	public void appliquerEffet(Modele.Jeu jeu) {
+		for(Modele.Departement departement : jeu.getDepartements()) {
+			departement.setMoral(effets[0]);
+			departement.setEfficacite(effets[1]);
+		}
+		jeu.setTemps(effets[2]);
+	}
 
 	public int[] getEffets() { return effets; }
 

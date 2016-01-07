@@ -30,7 +30,7 @@ public abstract class Evenement implements java.io.Serializable {
 
     public void setDescription(String description) { this.description = description; }
 
-    public void setDuree(Modele.Jeu jeu){
+    public void diminuerTemps(Modele.Jeu jeu){
         --duree;
         if(duree == 0) Platform.runLater(() -> event.affichage(jeu, 1));
     }
