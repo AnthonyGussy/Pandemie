@@ -13,12 +13,14 @@ public abstract class Evenement implements java.io.Serializable {
     public Evenement(String nom, String description, Modele.Jeu jeu) {
         this.nom = nom;
         this.description = description;
-        duree = 20;
+        duree = 10;
     }
 
     public Vue.Evenement getVue() { return event; }
 
     public int getDuree() { return duree;}
+
+    public void setDuree(int duree) { this.duree = duree; }
 
     public String getNom() { return nom; }
 

@@ -3,7 +3,7 @@ package Modele;
 import javafx.application.Platform;
 
 /**
- * Classe qui va faire progresser "l'infection" et gÈnÈrer les ÈvÈnements alÈatoires
+ * Classe qui va faire progresser "l'infection" et g√©n√©rer les √©v√©nements al√©atoires
  */
 public class Timeline extends Thread {
     Modele.Jeu jeu;
@@ -39,12 +39,19 @@ public class Timeline extends Thread {
                     jeu.ajoutPopUp();
                 }
                 if(jeu.getEvenements().size() == 0) {
-                    if((int)(Math.random() * 15) == 0) {
-                        jeu.ajoutEvenement();
+                    if((int)(Math.random() * 10) == 0) {
+                        if((int)(Math.random() * 3) == 0) {
+                            int depAlea = (int) (Math.random() * jeu.getDepartements().size());
+                            Modele.Departement departement = jeu.getDepartements().get(depAlea);
+                            departement.creerTache();
+                            Modele.Tache tache = departement.getTaches().get(departement.getTaches().size() - 1);
+                            String nom = tache.getNom();
+                            jeu.ajoutEvenement(nom, "Vous avez demand√© de l'aide au d√©partement " + departement.getNom() + " :");
+                        }
+                        else {
+                            jeu.ajoutEvenement();
+                        }
                     }
-                }
-                if((int)(Math.random() * 15) == 0) {
-                    jeu.getDepartements().get((int)(Math.random() * jeu.getDepartements().size())).creerTache();
                 }
                 jeu.getVue().affichageEvenement(2);
             }

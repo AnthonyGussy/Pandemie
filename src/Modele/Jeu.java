@@ -96,6 +96,7 @@ public class Jeu implements java.io.Serializable {
         String contexte = "Vous dirigez un groupe d'étudiant en " + departements.get(0).getNom();
         String description = "Vous devez réaliser le projet suivant : " + departements.get(0).getTaches().get(0).getNom() + "\n" + departements.get(0).getTaches().get(0).getDescription();
         evenements.add(new EvenementTextuel(contexte, description, this));
+        evenements.get(0).setDuree(20);
         evenements.get(0).getVue().affichage(this, 0);
         vue.affichagePlateau(0);
 
@@ -286,7 +287,14 @@ public class Jeu implements java.io.Serializable {
 
     public void ajoutEvenement() {
         Platform.runLater(() -> {
-            Modele.Evenement  evenement = new EvenementArticle(eventStockage.get((int) (Math.random() * eventStockage.size())), this);
+            Modele.EvenementArticle  evenement = new EvenementArticle(eventStockage.get((int) (Math.random() * eventStockage.size())), this);
+            evenement.getVue().affichage(this, 0);
+            evenements.add(evenement);
+        });
+    }
+    public void ajoutEvenement(String nom, String description) {
+        Platform.runLater(() -> {
+            Modele.EvenementTextuel  evenement = new EvenementTextuel(nom, description, this);
             evenement.getVue().affichage(this, 0);
             evenements.add(evenement);
         });
