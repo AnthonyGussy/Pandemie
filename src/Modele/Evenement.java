@@ -13,8 +13,8 @@ public class Evenement implements java.io.Serializable {
     public Evenement(String nom,String description,Modele.Jeu jeu) {
         this.nom = nom;
         this.description = description;
-        duree = 7;
-        event = new Vue.EvenementArticle(this,jeu);
+        duree = 15;
+        event = new Vue.EvenementArticle(this, jeu);
     }
 
 

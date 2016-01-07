@@ -81,7 +81,6 @@ public class Jeu implements java.io.Serializable {
      */
     public void commencerPartie() {
         List<DepartementNom> departementNoms = new ArrayList<>(Arrays.asList(DepartementNom.Edim, DepartementNom.Energie, DepartementNom.Gmc, DepartementNom.Imsi, DepartementNom.Informatique));
-        evenements.add(new Evenement("Bienvenue dans Pandémie", "Vous controlez un groupe d'étudiant devant rendre leur projet.", this));
         for(int i = 0; i<5; ++i) {
             int alea = (int)(Math.random()*departementNoms.size());
             if(i == 0)
@@ -94,6 +93,9 @@ public class Jeu implements java.io.Serializable {
         for(Modele.Departement dep : departements) {
             dep.getVue().affichage(this, 0);
         }
+        String contexte = "Vous dirigez un groupe d'étudiant en " + departements.get(0).getNom();
+        String description = "Vous devez réaliser le projet suivant : " + departements.get(0).getTaches().get(0).getNom() + "\n" + departements.get(0).getTaches().get(0).getDescription();
+        evenements.add(new Evenement(contexte, description, this));
         vue.affichagePlateau(0);
 
         /*evenements.add(new EvenementArticle(DepartementNom.Gmc, "Facile", 0));
