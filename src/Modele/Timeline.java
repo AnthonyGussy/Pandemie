@@ -31,6 +31,7 @@ public class Timeline extends Thread {
                     if(departement.getTaches().size() > 0) {
                         departement.infection(jeu);
                     }
+                    departement.supprimerTache();
                     departement.affichage(jeu);
                     for(Modele.Tache tache : departement.getTaches()) {
                         tache.setAvancement(1);

@@ -108,11 +108,11 @@ public class Departement implements java.io.Serializable {
     }
 
     void supprimerTache() {
-        for(Tache tache :  taches){
-            if(tache.getTermine()){
-                compteurs.get(3).modifCompte(tache.getCompteurs().get(1).getCompte());
-                compteurs.get(2).modifCompte(-tache.getCompteurs().get(1).getCompte());
-                taches.remove(tache);
+        for(int i = 0; i < taches.size(); i++) {
+            if(taches.get(i).getTermine()){
+                compteurs.get(3).modifCompte(taches.get(i).getCompteurs().get(1).getCompte());
+                compteurs.get(2).modifCompte(-taches.get(i).getCompteurs().get(1).getCompte());
+                taches.remove(taches.get(i));
             }
         }
     }
