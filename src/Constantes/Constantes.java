@@ -123,7 +123,13 @@ public final class Constantes {
 	public static final double POS_Y_EV_ART_DEP  = 0.20;
 
 	// Affichage arbre de compétences
+	public static final double POS_X_NOM_DEPARTEMENT_ARBRE = 0.35;
+	public static final double POS_Y_NOM_DEPARTEMENT_ARBRE = 0.35;
 	public static final double TAILLE_POLICE_TITRE = 0.040;
+	public static final double X_LIGNE_1 = 0.15;
+	public static final double X_LIGNE_2 = 0.60;
+	public static final double Y_LIGNE_1 = 0.90;
+	public static final double Y_LIGNE_2 = 0.65;
 
 	// Affichage départements
 	public static final double POS_X_INFO = 0.269;

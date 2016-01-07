@@ -71,15 +71,7 @@ public class ArbreDeCompetence implements java.io.Serializable {
                 lignes.setVisible(true);
                 retour.setVisible(true);
                 break;
-            case 2:
-
-                dimensionnement(scene);
-                for (Map.Entry<String, Competence> comp : competences.entrySet()) {
-                    comp.getValue().affichage(jeu, 2);
-                }
-
-                break;
-            default:
+            case 1:
                 for (Map.Entry<String, Competence> comp : competences.entrySet()) {
                     comp.getValue().affichage(jeu, 1);
                 }
@@ -87,16 +79,21 @@ public class ArbreDeCompetence implements java.io.Serializable {
                 lignes.setVisible(false);
                 retour.setVisible(false);
                 noPoint.setVisible(false);
+                break;
+            default:
+                dimensionnement(scene);
+                for (Map.Entry<String, Competence> comp : competences.entrySet()) {
+                    comp.getValue().affichage(jeu, 2);
+                }
         }
 
     }
 
     void dimensionnement(Scene scene){
 
-        nom.setX(scene.getWidth() * 35 / 100);
-        nom.setY(scene.getHeight() * 35 / 100);
+        nom.setX(scene.getWidth() * Constantes.POS_X_NOM_DEPARTEMENT_ARBRE);
+        nom.setY(scene.getHeight() * Constantes.POS_Y_NOM_DEPARTEMENT_ARBRE);
         nom.setFont(Font.loadFont("file:Font.ttf", scene.getWidth() * Constantes.TAILLE_POLICE_TITRE));
-
         retour.setTranslateX(scene.getWidth() * Constantes.POS_X_FLECHEARBRE);
         retour.setTranslateY(scene.getHeight() * Constantes.POS_Y_FLECHEARBRE);
 
@@ -110,12 +107,11 @@ public class ArbreDeCompetence implements java.io.Serializable {
                     double coefy1 = (double) 1 / competence.getValue().get(0).getNbColonnes() * (competence.getValue().get(0).getColonne() - 1);
                     double coefx2 = (double) 1 / competence.getValue().get(i).getNbLignes() * (competence.getValue().get(i).getLigne() - 1);
                     double coefy2 = (double) 1 / competence.getValue().get(i).getNbColonnes() * (competence.getValue().get(i).getColonne() - 1);
-
                     Line l = new Line();
-                    l.setStartX((scene.getWidth() * 15) / 100 + coefx1 * (scene.getWidth() * 60 / 100));
-                    l.setStartY((scene.getHeight() * 90) / 100 - coefy1 * (scene.getHeight() * 65 / 100));
-                    l.setEndX((scene.getWidth() * 15) / 100 + coefx2 * (scene.getWidth() * 60 / 100));
-                    l.setEndY((scene.getHeight() * 90) / 100 - coefy2 * (scene.getHeight() * 65 / 100));
+                    l.setStartX(scene.getWidth() * Constantes.X_LIGNE_1 + coefx1 * scene.getWidth() * Constantes.X_LIGNE_2);
+                    l.setStartY(scene.getHeight() * Constantes.Y_LIGNE_1 - coefy1 * scene.getHeight() * Constantes.Y_LIGNE_2);
+                    l.setEndX(scene.getWidth() * Constantes.X_LIGNE_1  + coefx2 * scene.getWidth() * Constantes.X_LIGNE_2);
+                    l.setEndY(scene.getHeight() * Constantes.Y_LIGNE_1 - coefy2 * scene.getHeight() * Constantes.Y_LIGNE_2);
                     lignes.getChildren().add(l);
                 }
             }
