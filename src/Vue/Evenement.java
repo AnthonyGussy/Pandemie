@@ -60,6 +60,7 @@ public class Evenement implements java.io.Serializable {
                 nom.setVisible(false);
                 description.setVisible(false);
                 departement.setVisible(false);
+                break;
             default:
                 description.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE_EVENEMENT));
                 nom.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE));
