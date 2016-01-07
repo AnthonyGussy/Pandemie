@@ -2,7 +2,7 @@ package Modele;
 
 import javafx.application.Platform;
 
-public class Evenement implements java.io.Serializable {
+public abstract class Evenement implements java.io.Serializable {
 
     protected Vue.Evenement event;
 
