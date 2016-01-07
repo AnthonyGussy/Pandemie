@@ -10,8 +10,9 @@ import java.util.Arrays;
  */
 public final class Constantes {
 	// Taille de la fenêtre de base
-	public static final int LARGEUR_FENETRE = 1080;
-	public static final int HAUTEUR_FENETRE = 720;
+	public static final int LARGEUR_FENETRE = 1024;
+	public static final int HAUTEUR_FENETRE = 650;
+
 	// Le tableau "effets"
 	public static final int TAILLE_EFFETS = 3;
 	public static final int MORAL = 0;

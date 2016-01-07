@@ -158,7 +158,7 @@ encouragés à venir faire découvrir l'établissement et échanger.
         <evenement>
     	
     		<nom>Météo capricieuse</nom>
-            <description>Compte tenu des plus diluviennes qui s'abattent depuis quelques jours
+            <description>Compte tenu des pluies diluviennes qui s'abattent depuis quelques jours
 sur Belfort, rendant la circulation très difficile, il a été décidé de suspendre
 les cours jusqu'à un retour à la normal (après-demain d'après Météo France)
             </description>
@@ -184,9 +184,9 @@ Comme chaque année, ce sera l'occasion d'écouter de la bonne musique un verre
 		<evenement>
 		
 			<nom>Un projet récompensé</nom>
-            <description>C'est la surprise ! Par on ne quelle façon, la région
-a eu vent du projet ainsi que ses travaux et a décidé de récompenser
-l'établissement pour son travail.
+            <description>C'est la surprise ! Par on ne sait quel moyen, la région
+a eu vent du projet ainsi que de ses travaux et a décidé de récompenser
+les élèves pour leur travail.
             </description>
             <moral>5</moral>
             <efficacite>5</efficacite>

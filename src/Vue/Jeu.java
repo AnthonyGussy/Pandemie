@@ -137,13 +137,14 @@ public class Jeu {
     }
 
     public void affichagePopUp(){
-        /*Platform.runLater(() -> {
-            ArrayList<Modele.PopUp> popUps = modele.getPopUps()
-            for(Modele.PopUp popUp : popUps)
-            popUp.getVue().affichage(modele, 0);
-            if (modele.getPopUp().getDuree() == 0) modele.setPopUp(false);
+        Platform.runLater(() -> {
+            ArrayList<Modele.PopUp> popUps = modele.getPopUps();
+            for(Modele.PopUp popUp : popUps) {
+                popUp.getVue().affichage(modele, 0);
+                popUp.setDuree(modele);
+                if (popUp.getDuree() == 0) modele.setPopUp(false);
+            }
         });
-        modele.getPopUp().setDuree(modele);*/
     }
 
     public void affichageEvenement() {
