@@ -358,6 +358,13 @@
 				<infecte>39</infecte>
 			</tache>
 			
+			<tache>
+				<nom>Fabrication d'éoliennes</nom>
+				<description>Recherches pour améliorer les outils de mesure</description>
+				<temps>45</temps>
+				<infecte>39</infecte>
+			</tache>
+			
 		</Avancee>
 		
 	</Imsi>
@@ -373,6 +380,34 @@
 				<infecte>7</infecte>
 			</tache>
 			
+			<tache>
+				<nom>Cours de Catia</nom>
+				<description>Donner des cours de Catia à des professionnels</description>
+				<temps>10</temps>
+				<infecte>4</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Ressorts</nom>
+				<description>Recherches pour améliorer les ressorts</description>
+				<temps>14</temps>
+				<infecte>5</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Études de drones</nom>
+				<description>Réalisation de tests sur des drones et étude du fonctionnement</description>
+				<temps>9</temps>
+				<infecte>6</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Montage d'une imprimante 3D</nom>
+				<description>Montage d'une imprimante 3D</description>
+				<temps>12</temps>
+				<infecte>2</infecte>
+			</tache>
+			
 		</Facile>
 		
 		<Moyenne>
@@ -380,8 +415,36 @@
 			<tache>
 				<nom>Mouvement mécanique</nom>
 				<description>Recherches du meilleur mouvement mécanique possible</description>
-				<temps>50</temps>
+				<temps>10</temps>
+				<infecte>17</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Fabrication d'éolienne</nom>
+				<description>Fabrication d'éoliennes</description>
+				<temps>19</temps>
 				<infecte>15</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Horloge quantique</nom>
+				<description>Réalisation d'une horloge quantique</description>
+				<temps>14</temps>
+				<infecte>14</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Balancement</nom>
+				<description>Optimisation de balancements pour un mouvement durable</description>
+				<temps>27</temps>
+				<infecte>19</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Conception table et chaises</nom>
+				<description>Conception d'un ensemble de table et de chaises du futur</description>
+				<temps>22</temps>
+				<infecte>17</infecte>
 			</tache>
 			
 		</Moyenne>
@@ -389,10 +452,38 @@
 		<Avancee>
 		
 			<tache>
+				<nom>Fabrication d'un drone</nom>
+				<description>Conception et réalisation d'un drone</description>
+				<temps>49</temps>
+				<infecte>38</infecte>
+			</tache>
+		
+			<tache>
+				<nom>Véhicule à 10 roues</nom>
+				<description>Fabrication d'un véhicule motorisé à 10 roues</description>
+				<temps>45</temps>
+				<infecte>34</infecte>
+			</tache>
+			
+			<tache>
 				<nom>Vol</nom>
 				<description>Travaux de propulsion aéronautique</description>
-				<temps>100</temps>
-				<infecte>30</infecte>
+				<temps>50</temps>
+				<infecte>31</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Modélisation de robots</nom>
+				<description>Conception et Modélisation 3D de robots</description>
+				<temps>44</temps>
+				<infecte>37</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Propulsion sous-marine</nom>
+				<description>Conception et réalisation d'un sous-marin de 2 mètres</description>
+				<temps>50</temps>
+				<infecte>37</infecte>
 			</tache>
 			
 		</Avancee>
