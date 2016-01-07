@@ -61,9 +61,9 @@ public class Evenement implements java.io.Serializable {
                 description.setVisible(false);
                 departement.setVisible(false);
             default:
-                description.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE));
-                nom.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE_TITRE));
-                departement.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE));
+                description.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE_EVENEMENT));
+                nom.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE));
+                departement.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE_EVENEMENT));
                 journal.setTranslateX(scene.getWidth() * Constantes.POS_X_JOURNAL);
                 journal.setFitWidth(scene.getWidth() * Constantes.LARGEUR_ARTICLE);
                 journal.setFitHeight(scene.getHeight() * Constantes.HAUTEUR_ARTICLE);

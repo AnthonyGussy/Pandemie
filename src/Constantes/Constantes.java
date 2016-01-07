@@ -110,6 +110,7 @@ public final class Constantes {
 	public static final double RAYON = 0.020;
 
 	// Affichage événement article
+	public static final double TAILLE_POLICE_EVENEMENT = 0.024;
 	public static final double POS_X_JOURNAL = 0.256;
 	public static final double LARGEUR_ARTICLE = 0.49;
 	public static final double HAUTEUR_ARTICLE = 0.276;
@@ -123,7 +124,7 @@ public final class Constantes {
 	// Affichage arbre de compétences
 	public static final double TAILLE_POLICE_TITRE = 0.040;
 
-	// Positions départements
+	// Affichage départements
 	public static final double POS_X_INFO = 0.269;
 	public static final double POS_Y_INFO = 0.528;
 	public static final double POS_X_ENERGIE = 0.069;

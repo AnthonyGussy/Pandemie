@@ -45,15 +45,14 @@ public class Departement implements java.io.Serializable {
         taches = new ArrayList<>();
         tachesStockage = new ArrayList<>();
         creeListeTache(jeu);
-        if(depart) creerTache(jeu);
+        if(depart) creerProjet(jeu);
         vue = new Vue.Departement(this, jeu);
     }
 
     public Vue.Departement getVue() { return vue; }
 
-    void creerTache(Modele.Jeu jeu) {
-
-        /*final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+    void creerProjet(Modele.Jeu jeu) {
+        final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 
         try {
             final DocumentBuilder builder = factory.newDocumentBuilder();
@@ -84,7 +83,11 @@ public class Departement implements java.io.Serializable {
 
         catch (final ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
-        }*/
+        }
+    }
+
+
+    void creerTache() {
         taches.add(tachesStockage.get((int)(Math.random() * tachesStockage.size())));
         compteurs.get(3).modifCompte(-taches.get(0).getCompteurs().get(1).getCompte());
         compteurs.get(2).modifCompte(taches.get(0).getCompteurs().get(1).getCompte());
@@ -100,6 +103,7 @@ public class Departement implements java.io.Serializable {
         }
         Platform.runLater(() -> vue.affichage(jeu, 2));
     }
+
     void supprimerTache() {
         for(Tache tache :  taches){
             if(tache.getTermine()){
