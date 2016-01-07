@@ -2,6 +2,7 @@ package Vue;
 
 import Constantes.Constantes;
 import javafx.application.Platform;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
@@ -14,12 +15,14 @@ public class PopUp {
 
     private double posX;
     private double posY;
+    private double randomX;
+    private double randomY;
     protected Circle popUp;
-    protected Modele.PopUp event;
+    protected Modele.PopUp modele;
 
     public PopUp(Modele.PopUp modele, Modele.Jeu jeu) {
-        event = modele;
-        switch (event.getDepartement().getNom()) {
+        this.modele = modele;
+        switch (this.modele.getDepartement().getNom()) {
             case "Informatique":
                 posX = Constantes.POS_X_INFO;
                 posY = Constantes.POS_Y_INFO;
@@ -41,29 +44,29 @@ public class PopUp {
                 posY = Constantes.POS_Y_EDIM;
 
         }
-
         popUp = new Circle();
         popUp.setFill(new ImagePattern(new Image("file:image\\PopUp.png"), 0, 0, 1, 1, true));
         genePopUp(jeu.getVue().getScene());
-        Platform.runLater(() -> jeu.getVue().getRoot().getChildren().addAll(popUp));
+        Platform.runLater(() -> jeu.getVue().getRoot().getChildren().add(popUp));
     }
 
     public void affichage(Modele.Jeu jeu,int affichage) {
-
+        Scene scene = jeu.getVue().getScene();
+        Group root = jeu.getVue().getRoot();
         switch (affichage){
             case 0:
                 popUp.setRadius(22);
                 popUp.setOnMouseClicked(event1 -> {
-                    event.appliquerEffet(jeu);
-                    jeu.getVue().getRoot().getChildren().remove(popUp);
+                    modele.appliquerEffet(jeu);
+                    root.getChildren().remove(popUp);
                 });
                 break;
             case 1:
-                jeu.getVue().getRoot().getChildren().remove(popUp);
+                root.getChildren().remove(popUp);
                 break;
             default:
-                genePopUp(jeu.getVue().getScene());
-
+                popUp.setCenterX(scene.getWidth() * posX + randomX * modele.getDepartement().getVue().getDepartementPoly().getLayoutBounds().getWidth());
+                popUp.setCenterY(scene.getHeight() * posY + randomY * modele.getDepartement().getVue().getDepartementPoly().getLayoutBounds().getHeight());
         }
 
 
@@ -71,10 +74,11 @@ public class PopUp {
 
     public void genePopUp(Scene scene) {
         do {
-            popUp.setCenterX(scene.getWidth() * posX + Math.random() * event.getDepartement().getVue().getDepartementPoly().getLayoutBounds().getWidth());
-            popUp.setCenterY(scene.getHeight() * posY + Math.random() * event.getDepartement().getVue().getDepartementPoly().getLayoutBounds().getHeight());
+            randomX = Math.random();
+            randomY = Math.random();
+            popUp.setCenterX(scene.getWidth() * posX + randomX * modele.getDepartement().getVue().getDepartementPoly().getLayoutBounds().getWidth());
+            popUp.setCenterY(scene.getHeight() * posY + randomY * modele.getDepartement().getVue().getDepartementPoly().getLayoutBounds().getHeight());
         }
-        while (!event.getDepartement().getVue().getDepartementPoly().contains(popUp.getCenterX() - scene.getWidth() * posX, popUp.getCenterY() - scene.getHeight() * posY));
-
+        while (!modele.getDepartement().getVue().getDepartementPoly().contains(popUp.getCenterX() - scene.getWidth() * posX, popUp.getCenterY() - scene.getHeight() * posY));
     }
 }

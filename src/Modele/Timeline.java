@@ -17,7 +17,7 @@ public class Timeline extends Thread {
     }
     public void run() {
 
-        int numero = (int)(Math.random()*10);
+        int numero = (int)(Math.random()*15);
         while(!end) {
             try {
                 this.sleep(1000);
@@ -34,7 +34,7 @@ public class Timeline extends Thread {
                 if(jeu.getPopUps().size() != 0){
                     jeu.getVue().affichagePopUp();
                 }
-                if (numero == (int)(Math.random()*10)){
+                if (numero == (int)(Math.random()*15)){
                     jeu.ajoutPopUp();
                 }
                 jeu.getVue().affichageEvenement();

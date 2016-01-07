@@ -206,6 +206,9 @@ public class Jeu implements java.io.Serializable {
         vue.affichagePlateau(3);
         menuPrincipal.affichage(this, 2);
         menuJeu.affichage(this, 2);
+        for(Modele.PopUp popUp : popUps) {
+            popUp.getVue().affichage(this, 2);
+        }
         for(Modele.Evenement evenement : evenements) {
             String type = evenement.getClass().getName();
             switch(type) {
@@ -213,7 +216,7 @@ public class Jeu implements java.io.Serializable {
                     EvenementArticle temp = (EvenementArticle) evenement;
                     temp.getVue().affichage(this, 2);
                     break;
-                case "Modele.EvenementAccomplissementModele":
+                case "Modele.EvenementAccomplissement":
                     break;
                 default:
             }

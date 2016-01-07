@@ -25,7 +25,7 @@ public class PopUp implements java.io.Serializable {
     public void setDuree(Modele.Jeu jeu){
         --duree;
         if(duree < 0) duree = 0;
-        //if(duree == 0) Platform.runLater(() -> event.affichage(jeu, 1));
+        //if(duree == 0) Platform.runLater(() -> modele.affichage(jeu, 1));
     }
     
     public int getDuree() { return duree; }
