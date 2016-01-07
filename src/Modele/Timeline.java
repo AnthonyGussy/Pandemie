@@ -40,7 +40,7 @@ public class Timeline extends Thread {
                 }
                 if(jeu.getEvenements().size() == 0) {
                     if((int)(Math.random() * 15) == 0) {
-                        //jeu.
+                        jeu.ajoutEvenement();
                     }
                 }
                 jeu.getVue().affichageEvenement(2);

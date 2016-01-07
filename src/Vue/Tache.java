@@ -1,14 +1,7 @@
 package Vue;
 
-import java.security.acl.Group;
-import java.util.ArrayList;
-import java.util.List;
 
 import Constantes.Constantes;
-import Modele.TacheList;
-import Modele.Jeu;
-
-import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -19,10 +12,8 @@ public class Tache implements java.io.Serializable {
 
 	private Text nom;
     private Text description;
-	private Modele.Tache modele;
 
 	public Tache(Modele.Tache modele, Modele.Jeu jeu) {
-		this.modele = modele;
 		nom = new Text(modele.getNom());
 		description = new Text(modele.getDescription());
 		nom.setFill(Color.BLACK);
