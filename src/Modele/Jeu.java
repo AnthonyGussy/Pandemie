@@ -285,7 +285,11 @@ public class Jeu implements java.io.Serializable {
     public ArrayList<Evenement> getEvenements() { return evenements; }
 
     public void ajoutEvenement() {
-        evenements.add(new EvenementArticle(eventStockage.get((int)(Math.random()*eventStockage.size())),this));
+        Platform.runLater(() -> {
+            Modele.Evenement  evenement = new EvenementArticle(eventStockage.get((int) (Math.random() * eventStockage.size())), this);
+            evenement.getVue().affichage(this, 0);
+            evenements.add(evenement);
+        });
     }
 }
 

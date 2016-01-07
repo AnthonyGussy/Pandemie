@@ -43,6 +43,9 @@ public class Timeline extends Thread {
                         jeu.ajoutEvenement();
                     }
                 }
+                if((int)(Math.random() * 15) == 0) {
+                    jeu.getDepartements().get((int)(Math.random() * jeu.getDepartements().size())).creerTache();
+                }
                 jeu.getVue().affichageEvenement(2);
             }
         }
