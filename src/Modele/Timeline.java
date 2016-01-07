@@ -16,6 +16,8 @@ public class Timeline extends Thread {
         this.start();
     }
     public void run() {
+
+        int numero = (int)(Math.random()*10);
         while(!end) {
             try {
                 this.sleep(1000);
@@ -29,12 +31,21 @@ public class Timeline extends Thread {
             }
             if (jeu.getDepartements().size() > 0) {
                 jeu.getDepartements().get(0).infection(jeu);
-                /*jeu.setPopUp();
-                if(jeu.getPopUp() != null)
-                    Platform.runLater(() -> jeu.getPopUp().getVue().affichage(jeu));*/
+                if(jeu.getPopUp() != null){
+
+                    jeu.getVue().affichagePopUp();
+
+                }
+                else if (numero == (int)(Math.random()*10)){
+
+                    jeu.setPopUp(true);
+
+                }
+
+                jeu.getVue().affichageEvenement();
             }
 
-            jeu.affichageEvenement();
+
 
         }
     }

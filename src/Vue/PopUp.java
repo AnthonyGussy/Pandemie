@@ -46,18 +46,29 @@ public class PopUp {
 
         popUp = new Circle();
         popUp.setFill(new ImagePattern(new Image("file:image\\PopUp.png"), 0, 0, 1, 1, true));
+        genePopUp(jeu.getVue().getScene());
         Platform.runLater(() -> jeu.getVue().getRoot().getChildren().addAll(popUp));
     }
 
-    public void affichage(Modele.Jeu jeu) {
+    public void affichage(Modele.Jeu jeu,int affichage) {
 
-        Scene scene = jeu.getVue().getScene();
-        popUp.setRadius(22);
-        genePopUp(scene);
-        popUp.setOnMouseClicked(event1 -> {
-            event.appliquerEffet(jeu);
-            jeu.getVue().getRoot().getChildren().removeAll(popUp);
-        });
+        switch (affichage){
+            case 0:
+                popUp.setRadius(22);
+                popUp.setOnMouseClicked(event1 -> {
+                    event.appliquerEffet(jeu);
+                    jeu.getVue().getRoot().getChildren().removeAll(popUp);
+                    jeu.setPopUp(false);
+                });
+                break;
+            case 1:
+                jeu.getVue().getRoot().getChildren().removeAll(popUp);
+                break;
+            default:
+                genePopUp(jeu.getVue().getScene());
+
+        }
+
 
     }
 

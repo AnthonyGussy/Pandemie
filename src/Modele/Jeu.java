@@ -219,27 +219,15 @@ public class Jeu implements java.io.Serializable {
         }
     }
 
-    public void setPopUp() {
+    public void setPopUp(boolean reste) {
 
-        popUp = new PopUp(departements.get((int)(Math.random()*5)),this);
-
+        if(reste)
+            popUp = new PopUp(departements.get((int)(Math.random()*5)),this);
+        else
+            popUp = null;
     }
 
     public PopUp getPopUp() { return popUp;}
-
-    public void affichageEvenement() {
-
-        if(evenements.size()>0){
-            
-            Platform.runLater(() -> {
-                evenements.get(0).getVue().affichage(this, 0);
-                if (evenements.get(0).getDuree() == 0) evenements.remove(0);
-            });
-            evenements.get(0).setDuree(this);
-
-        }
-
-    }
 
     public void setListeEvenementStockage(){
 
@@ -281,5 +269,7 @@ public class Jeu implements java.io.Serializable {
         }
 
     }
+
+    public ArrayList<Evenement> getEvenements() { return evenements; }
 }
 

@@ -1,5 +1,6 @@
 package Vue;
 
+import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.ImagePattern;
@@ -130,5 +131,29 @@ public class Jeu {
             default:
                 modele.getMenuJeu().affichage(modele, 1);
         }
+    }
+
+    public void affichagePopUp(){
+
+        Platform.runLater(() -> {
+            modele.getPopUp().getVue().affichage(modele, 0);
+            if (modele.getPopUp().getDuree() == 0) modele.setPopUp(false);
+        });
+        modele.getPopUp().setDuree(modele);
+
+    }
+
+    public void affichageEvenement() {
+
+        if(modele.getEvenements().size()>0){
+
+            Platform.runLater(() -> {
+                modele.getEvenements().get(0).getVue().affichage(modele, 0);
+                if (modele.getEvenements().get(0).getDuree() == 0) modele.getEvenements().remove(0);
+            });
+            modele.getEvenements().get(0).setDuree(modele);
+
+        }
+
     }
 }

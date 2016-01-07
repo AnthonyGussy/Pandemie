@@ -62,7 +62,7 @@ public class ArbreDeCompetence implements java.io.Serializable {
                     comp.getValue().affichage(jeu, 0);
                 }
                 dimensionnement(scene);
-                scene.setFill(new ImagePattern(new Image("file:image\\PandemieCompetenceJournal.jpg"), 0, 0, 1, 1, true));
+                scene.setFill(new ImagePattern(new Image("file:image\\PandemieCompetence.jpg"), 0, 0, 1, 1, true));
 
                 nom.setVisible(true);
                 lignes.setVisible(true);

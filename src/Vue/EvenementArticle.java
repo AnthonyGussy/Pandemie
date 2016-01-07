@@ -63,7 +63,7 @@ public class EvenementArticle implements java.io.Serializable {
     	Scene scene = jeu.getVue().getScene();
     	switch(afficher) {
             case 0:
-                scene.setFill(new ImagePattern(new Image("file:image\\PandemieCompetenceJournal.jpg"), 0, 0, 1, 1, true));
+                scene.setFill(new ImagePattern(new Image("file:image\\PandemieCompetence.jpg"), 0, 0, 1, 1, true));
                 nom.setX((int)(scene.getWidth() * Constantes.POS_X_EV_ART_NOM));
                 nom.setY((int)(scene.getHeight() * Constantes.POS_Y_EV_ART_NOM));
                 description.setX((int)(scene.getWidth() * Constantes.POS_X_EV_ART_DESC));
