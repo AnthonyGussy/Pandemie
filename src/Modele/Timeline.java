@@ -17,7 +17,7 @@ public class Timeline extends Thread {
     public void run() {
         while(!end) {
             try {
-                this.sleep(1000);
+                Modele.Timeline.sleep(1000);
             }
             catch(java.lang.InterruptedException e) {
                 e.printStackTrace();
@@ -25,8 +25,14 @@ public class Timeline extends Thread {
             catch (IndexOutOfBoundsException e) {
                 e.printStackTrace();
             }
+            jeu.setTemps(-1);
             if (jeu.getDepartements().size() > 0) {
+                if(jeu.getDepartements().get(0).getTaches().get(0).getAvancement() == 0) {
+                    //jeu.victoire();
+                }
+                int depComplet = 0;
                 for(Modele.Departement departement : jeu.getDepartements()) {
+                    if(departement.getNbActif() == departement.getNbPersonne()) depComplet++;
                     if(departement.getTaches().size() > 0) {
                         departement.infection(jeu);
                     }
@@ -35,6 +41,9 @@ public class Timeline extends Thread {
                     for(Modele.Tache tache : departement.getTaches()) {
                         tache.setAvancement(-1);
                     }
+                }
+                if(depComplet == 5 || jeu.getTemps() == 0) {
+                    //jeu.gameOver();
                 }
                 if(jeu.getPopUps().size() != 0){
                     jeu.getVue().affichagePopUp(2);

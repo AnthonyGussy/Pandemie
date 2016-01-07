@@ -29,7 +29,6 @@ public class Tache implements java.io.Serializable {
 	private String nom;
 	private List<Compteur> compteurs; // de temps (avancement) et d'infectés
 	private int tempsInitial;
-	private boolean termine;
 	private Modele.EvenementAccomplissement event;
 	private Modele.Departement departement;
 	private Vue.Tache vue;
@@ -44,7 +43,6 @@ public class Tache implements java.io.Serializable {
 		this.compteurs.add(temps);
 		this.compteurs.add(infectes);
 		tempsInitial = temps.getCompte();
-		termine = false;
 		vue = new Vue.Tache(this, jeu);
 	}
 
@@ -62,13 +60,13 @@ public class Tache implements java.io.Serializable {
 	    
 	public String getDescription() { return description; }
 
-	public List<Compteur> getCompteurs() {
+	/*public List<Compteur> getCompteurs() {
 		return compteurs;
-	}
+	}*/
 
-	public boolean getTermine() {
-		return termine;
-	}
+	public int getAvancement() { return compteurs.get(0).getCompte(); }
+
+	public int getInfectes() { return compteurs.get(1).getCompte(); }
 
 	public int getTempsInitial() {
 		return tempsInitial;

@@ -34,7 +34,7 @@ public class Jeu implements java.io.Serializable {
     private Regles regles;
     private Coin coin;
     private ArrayList<Modele.Departement> departements;
-    private Compteur compteur;
+    private ArrayList<Compteur> compteurs;
     private ArrayList<Modele.Evenement> evenements;
     private ArrayList<PopUp> popUps;
     private ArrayList<EvenementArticle> eventStockage;
@@ -45,7 +45,7 @@ public class Jeu implements java.io.Serializable {
         eventStockage = new ArrayList<>();
         departements = new ArrayList<>();
         evenements = new ArrayList<>();
-
+        compteurs = new ArrayList<>();
         vue = new Vue.Jeu(primaryStage, this);
         regles = new Regles(this);
         coin = new Coin(this);
@@ -90,7 +90,8 @@ public class Jeu implements java.io.Serializable {
                 departements.add(new Modele.Departement(departementNoms.get(alea),false, this));
             departementNoms.remove(alea);
         }
-        compteur = new Compteur(0, CompteurType.Points_de_competence);
+        compteurs.add(new Compteur(0, CompteurType.Points_de_competence));
+        compteurs.add(new Compteur(400, CompteurType.Temps));
         setListeEvenementStockage();
         for(Modele.Departement dep : departements) {
             dep.getVue().affichage(this, 0);
@@ -101,6 +102,16 @@ public class Jeu implements java.io.Serializable {
         evenements.get(0).setDuree(20);
         evenements.get(0).getVue().affichage(this, 0);
         vue.affichagePlateau(0);
+    }
+
+    public void victoire() {
+        vue.getRoot().getChildren().clear();
+        //vue.getScene().setFill();
+    }
+
+    public void gameOver() {
+        vue.getRoot().getChildren().clear();
+        //vue.getScene().setFill();
     }
 
     public Coin getCoin() { return coin; }
@@ -122,17 +133,19 @@ public class Jeu implements java.io.Serializable {
      *
      * @return
      */
-    public int getPtsCompetence() { return compteur.getCompte(); }
+    public int getPtsCompetence() { return compteurs.get(0).getCompte(); }
 
     /**
      *
      * @param pts
      */
     public void setPtsCompetence(int pts) {
-        compteur.modifCompte(pts);
+        compteurs.get(0).modifCompte(pts);
     }
 
-    public void setTemps(int ajout) { departements.get(0).getTaches().get(0).setAvancement(ajout);}
+    public int getTemps() { return compteurs.get(1).getCompte(); }
+
+    public void setTemps(int ajout) { compteurs.get(1).modifCompte(ajout); }
 
     /**
      * Cette méthode va sauvegarder le jeu en sérialisant les différents composants du jeu
