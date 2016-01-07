@@ -32,7 +32,7 @@ public class Competence implements java.io.Serializable {
         ligne = c.getLigne();
         colonne = c.getColonne();
         nomR = new Text(modele.getNom() + "\n \n" + modele.getDescription());
-        nomR.setText(nomR.getText() + "\ncout :+" + modele.getCout());
+        nomR.setText(nomR.getText() + "\ncout : " + modele.getCout());
         if (modele.getEffet()[0] != 0) nomR.setText(nomR.getText() + "\nefficacité :+" + modele.getEffet()[0]);
         if (modele.getEffet()[1] != 0) nomR.setText(nomR.getText() + "\nmoral :+" + modele.getEffet()[1]);
         if (modele.getEffet()[2] != 0) nomR.setText(nomR.getText() + "\ntemps :+" + modele.getEffet()[2]);
