@@ -495,10 +495,38 @@
 		<Facile>
 		
 			<tache>
+				<nom>Analyse du Cycle de Vie</nom>
+				<description>Analyse du Cycle de Vie du matériel présent à l'UTBM</description>
+				<temps>10</temps>
+				<infecte>15</infecte>
+			</tache>
+		
+			<tache>
 				<nom>Allègement</nom>
 				<description>Allègement des matériaux pour un projet plus léger</description>
 				<temps>10</temps>
 				<infecte>7</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Études des images et des couleurs</nom>
+				<description>Réalisation de tests à propos des couleurs et des images</description>
+				<temps>15</temps>
+				<infecte>4</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Cours d'ergonomie</nom>
+				<description>Enseignement de notions d'ergonomie aux autres étudiants</description>
+				<temps>10</temps>
+				<infecte>3</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Design d'une machine à coudre</nom>
+				<description>Réalisation du design d'une machine à coudre</description>
+				<temps>9</temps>
+				<infecte>8</infecte>
 			</tache>
 			
 		</Facile>
@@ -508,8 +536,36 @@
 			<tache>
 				<nom>Ergonomie</nom>
 				<description>Travaux sur l'ergonomie nécessaire</description>
-				<temps>50</temps>
+				<temps>20</temps>
+				<infecte>19</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Simulations</nom>
+				<description>Simulations de procédés de fabrication à base de plastique</description>
+				<temps>25</temps>
 				<infecte>15</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Design d'un vélo</nom>
+				<description>Réalisation du design d'une voiture</description>
+				<temps>17</temps>
+				<infecte>28</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Conception et réalisation d'une imprimante 3D</nom>
+				<description>Conception et réalisation d'une imprimante 3D à partir d'une imprimante 3D</description>
+				<temps>27</temps>
+				<infecte>17</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Conception Assistée par Ordinateur</nom>
+				<description>Conception Assistée par Ordinateur d'un nouveau type de moteur</description>
+				<temps>28</temps>
+				<infecte>24</infecte>
 			</tache>
 			
 		</Moyenne>
@@ -517,9 +573,37 @@
 		<Avancee>
 		
 			<tache>
-				<nom>Modélisation 3D</nom>
-				<description>Travaux de Modélisation 3D</description>
-				<temps>100</temps>
+				<nom>Modélisation 3D de personnes</nom>
+				<description>Travaux de Modélisation 3D de personnes</description>
+				<temps>40</temps>
+				<infecte>34</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Réalité augmentée</nom>
+				<description>Travaux de réalité aumentée</description>
+				<temps>39</temps>
+				<infecte>34</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Design d'une voiture</nom>
+				<description>Réalisation du design d'une voiture</description>
+				<temps>37</temps>
+				<infecte>39</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Recherches en éco-innovation</nom>
+				<description>Travaux et recherches en éco-innovation</description>
+				<temps>42</temps>
+				<infecte>40</infecte>
+			</tache>
+			
+			<tache>
+				<nom>Allègement des robots</nom>
+				<description>Allègement des matières consitants certains robots</description>
+				<temps>50</temps>
 				<infecte>30</infecte>
 			</tache>
 			
