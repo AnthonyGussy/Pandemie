@@ -53,7 +53,7 @@ public class Timeline extends Thread {
                             departement.creerTache();
                             Modele.Tache tache = departement.getTaches().get(departement.getTaches().size() - 1);
                             String nom = tache.getNom();
-                            jeu.ajoutEvenement(nom, "Vous avez demandé de l'aide au département " + departement.getNom() + " :");
+                            jeu.ajoutEvenement("Vous avez demandé de l'aide au département " + departement.getNom() + " :", nom);
                         }
                         else {
                             jeu.ajoutEvenement();

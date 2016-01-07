@@ -20,7 +20,6 @@ public class Compteur implements java.io.Serializable {
     }
     public void affichage(int x, int y, Modele.Jeu jeu){
         text = new Text(String.valueOf(compte));
-        //text.setFill(Color.AQUA);
         text.setX(x);
         text.setY(y);
         jeu.getVue().getRoot().getChildren().add(text);

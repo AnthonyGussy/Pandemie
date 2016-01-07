@@ -73,12 +73,6 @@ public class Tache implements java.io.Serializable {
 	public int getTempsInitial() {
 		return tempsInitial;
 	}
-
-	public void setTermine(boolean termine,Modele.Jeu jeu) {
-		this.termine = termine;
-		event = new EvenementAccomplissement(departement, this, jeu);
-		Platform.runLater(() -> event.getVue().affichage(jeu, 0));
-	}
 	
 	public Modele.EvenementAccomplissement getEvent() { return event;}
 }
