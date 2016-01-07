@@ -106,6 +106,7 @@ public final class Constantes {
 	public static final double POS_Y_FLECHENEXTRPAGE2 = 0.803;
 
 	// Affichage événement article
+	public static final double POS_X_JOURNAL = 0.2574;
 	public static final double LARGEUR_ARTICLE = 0.4;
 	public static final double POS_X_EV_ART_NOM = 0.3;
 	public static final double POS_Y_EV_ART_NOM  = 0.07;

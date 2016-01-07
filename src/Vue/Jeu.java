@@ -46,7 +46,7 @@ public class Jeu {
         primaryStage.setTitle("Study Project Simulator");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
-        primaryStage.setFullScreen(true);
+        //primaryStage.setFullScreen(true);
 
         primaryStage.show();
         coin = new Coin(this);

@@ -17,15 +17,10 @@ public class EvenementArticle implements java.io.Serializable {
     private ImageView journal;
 
     public EvenementArticle(Modele.Evenement event, Modele.Jeu jeu) {
-        Scene scene = jeu.getVue().getScene();
         journal = new ImageView(new Image("file:image\\PandemieJournal.jpg"));
         nom = new Text(event.getNom());
-        nom.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE_TITRE));
         nom.setFill(Color.WHITE);
-        nom.setWrappingWidth(scene.getWidth() * Constantes.LARGEUR_ARTICLE);
         description = new Text(event.getDescription());
-        description.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE));
-        description.setWrappingWidth(scene.getWidth() * Constantes.LARGEUR_ARTICLE);
         description.setFill(Color.WHITE);
         String classe = event.getClass().getSimpleName();
         String texte="";
@@ -66,15 +61,17 @@ public class EvenementArticle implements java.io.Serializable {
                 description.setVisible(false);
                 departement.setVisible(false);
             default:
+                description.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE));
+                nom.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE_TITRE));
                 departement.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE));
-                journal.setTranslateX(jeu.getVue().getScene().getWidth() * 0.2574);
+                journal.setTranslateX(scene.getWidth() * Constantes.POS_X_JOURNAL);
                 nom.setX((int)(scene.getWidth() * Constantes.POS_X_EV_ART_NOM));
                 nom.setY((int)(scene.getHeight() * Constantes.POS_Y_EV_ART_NOM));
+                nom.setWrappingWidth(scene.getWidth() * Constantes.LARGEUR_ARTICLE);
                 description.setX((int)(scene.getWidth() * Constantes.POS_X_EV_ART_DESC));
                 description.setY((int) (scene.getHeight() * Constantes.POS_Y_EV_ART_DESC));
                 departement.setX((int) (scene.getWidth() * Constantes.POS_X_EV_ART_DEP));
                 departement.setY((int) (scene.getHeight() * Constantes.POS_Y_EV_ART_DEP));
-                nom.setWrappingWidth(scene.getWidth() * Constantes.LARGEUR_ARTICLE);
                 description.setWrappingWidth(scene.getWidth() * Constantes.LARGEUR_ARTICLE);
         }
     }

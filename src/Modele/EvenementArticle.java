@@ -23,7 +23,7 @@ public class EvenementArticle extends Evenement implements java.io.Serializable 
 
 	// Constructeurs
 	public EvenementArticle(String nom, String description, int effets[], Modele.Jeu jeu) {
-		super(nom,description,jeu);
+		super(nom, description, jeu);
 		this.effets = effets;
 		event = new Vue.EvenementArticle(this, jeu);
 	}
