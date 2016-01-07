@@ -96,6 +96,7 @@ public class Jeu implements java.io.Serializable {
         String contexte = "Vous dirigez un groupe d'étudiant en " + departements.get(0).getNom();
         String description = "Vous devez réaliser le projet suivant : " + departements.get(0).getTaches().get(0).getNom() + "\n" + departements.get(0).getTaches().get(0).getDescription();
         evenements.add(new EvenementTextuel(contexte, description, this));
+        evenements.get(0).getVue().affichage(this, 0);
         vue.affichagePlateau(0);
 
         /*evenements.add(new Evenement(DepartementNom.Gmc, "Facile", 0));
@@ -112,6 +113,8 @@ public class Jeu implements java.io.Serializable {
      */
     public void retourJeu() {
         vue.affichagePlateau(0);
+        vue.affichagePopUp(0);
+        if(evenements.size() > 0) evenements.get(evenements.size() - 1).getVue().affichage(this, 0);
     }
 
     /**
@@ -208,21 +211,13 @@ public class Jeu implements java.io.Serializable {
         vue.affichagePlateau(3);
         menuPrincipal.affichage(this, 2);
         menuJeu.affichage(this, 2);
+        for(Modele.Evenement evenement : evenements) {
+            evenement.getVue().affichage(this, 2);
+        }
         for(Modele.PopUp popUp : popUps) {
             popUp.getVue().affichage(this, 2);
         }
-        for(Modele.Evenement evenement : evenements) {
-            String type = evenement.getClass().getName();
-            switch(type) {
-                case "Modele.Evenement":
-                    EvenementArticle temp = (EvenementArticle) evenement;
-                    temp.getVue().affichage(this, 2);
-                    break;
-                case "Modele.EvenementAccomplissement":
-                    break;
-                default:
-            }
-        }
+
     }
 
     public void ajoutPopUp() {

@@ -1,6 +1,7 @@
 package Vue;
 
 import Constantes.Constantes;
+import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -55,7 +56,7 @@ public class PopUp {
         Group root = jeu.getVue().getRoot();
         switch (affichage){
             case 0:
-                popUp.setRadius(22);
+                popUp.setRadius(scene.getWidth() * Constantes.RAYON);
                 popUp.setOnMouseClicked(event1 -> {
                     modele.appliquerEffet(jeu);
                     root.getChildren().remove(popUp);

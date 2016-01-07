@@ -32,12 +32,12 @@ public class Timeline extends Thread {
             if (jeu.getDepartements().size() > 0) {
                 jeu.getDepartements().get(0).infection(jeu);
                 if(jeu.getPopUps().size() != 0){
-                    jeu.getVue().affichagePopUp();
+                    jeu.getVue().affichagePopUp(2);
                 }
                 if (numero == (int)(Math.random()*15)){
                     jeu.ajoutPopUp();
                 }
-                jeu.getVue().affichageEvenement();
+                jeu.getVue().affichageEvenement(2);
             }
 
 

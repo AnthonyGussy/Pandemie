@@ -136,28 +136,49 @@ public class Jeu {
         }
     }
 
-    public void affichagePopUp(){
-        Platform.runLater(() -> {
-            ArrayList<Modele.PopUp> popUps = modele.getPopUps();
-            for(Modele.PopUp popUp : popUps) {
-                popUp.getVue().affichage(modele, 0);
-                popUp.setDuree(modele);
-            }
-            modele.enleverPopUp();
-        });
+    public void affichagePopUp(int afficher) {
+        ArrayList<Modele.PopUp> popUps = modele.getPopUps();
+        switch(afficher) {
+            case 0:
+                for(Modele.PopUp popUp : popUps) {
+                    popUp.getVue().affichage(modele, 0);
+                }
+                break;
+            case 1:
+                for(Modele.PopUp popUp : popUps) {
+                    popUp.getVue().affichage(modele, 1);
+                }
+                break;
+            case 2:
+                Platform.runLater(() -> {
+                    for(Modele.PopUp popUp : popUps) {
+                        popUp.getVue().affichage(modele, 0);
+                        popUp.setDuree(modele);
+                    }
+                    modele.enleverPopUp();
+                });
+        }
     }
 
-    public void affichageEvenement() {
-
-        if(modele.getEvenements().size()>0){
-
-            Platform.runLater(() -> {
-                modele.getEvenements().get(0).getVue().affichage(modele, 0);
-                if (modele.getEvenements().get(0).getDuree() == 0) modele.getEvenements().remove(0);
-            });
-            modele.getEvenements().get(0).setDuree(modele);
-
+    public void affichageEvenement(int afficher) {
+        switch(afficher) {
+            case 0:
+                for(Modele.Evenement evenement : modele.getEvenements()) {
+                    evenement.getVue().affichage(modele, 0);
+                }
+                break;
+            case 1:
+                for(Modele.Evenement evenement : modele.getEvenements()) {
+                    evenement.getVue().affichage(modele, 1);
+                }
+                break;
+            case 2:
+                if (modele.getEvenements().size() > 0) {
+                    Platform.runLater(() -> {
+                        if (modele.getEvenements().get(0).getDuree() == 0) modele.getEvenements().remove(0);
+                    });
+                    modele.getEvenements().get(0).setDuree(modele);
+                }
         }
-
     }
 }

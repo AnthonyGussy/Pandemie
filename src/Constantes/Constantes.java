@@ -105,6 +105,9 @@ public final class Constantes {
 	public static final double POS_X_FLECHENEXTRPAGE2 = 0.830;
 	public static final double POS_Y_FLECHENEXTRPAGE2 = 0.803;
 
+	// Affichage pop-ups
+	public static final double RAYON = 0.020;
+
 	// Affichage événement article
 	public static final double POS_X_JOURNAL = 0.256;
 	public static final double LARGEUR_ARTICLE = 0.49;

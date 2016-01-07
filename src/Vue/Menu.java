@@ -57,7 +57,7 @@ public class Menu {
                         break;
                     case Retour_Jeu:
                         affichage(jeu, 1);
-                        jeu.getVue().affichagePlateau(0);
+                        jeu.retourJeu();
                         break;
                 }
             });
