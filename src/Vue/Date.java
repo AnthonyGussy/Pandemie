@@ -32,7 +32,7 @@ public class Date extends Compteur implements java.io.Serializable {
             default:
                 int weeks = compte/24/7;
                 int days = compte/24 - weeks*7 ;
-                int hours = compte - 24*(days - 7*weeks);
+                int hours = compte - 24*(days + 7*weeks);
                 if(weeks<10 && hours<10)text.setText("0" + weeks + ":0"+ days + ":0" + hours);
                 else if(weeks<10)text.setText("0" + weeks + ":0"+ days + ":" + hours);
                 else if(hours<10) text.setText("" + weeks + ":0"+ days + ":0" + hours);

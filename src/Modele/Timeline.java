@@ -54,9 +54,6 @@ public class Timeline extends Thread {
                     jeu.ajoutPopUp();
                 }
                 if(jeu.getEvenements().size() == 0) {
-                    for(Modele.Departement departement : jeu.getDepartements()) {
-                        departement.supprimerTache(jeu);
-                    }
                     if(jeu.getEvenements().size() == 0 && (int)(Math.random() * 15) == 0) {
                         if((int)(Math.random() * 3) == 0) {
                             int depAlea = (int) (Math.random() * jeu.getDepartements().size());
