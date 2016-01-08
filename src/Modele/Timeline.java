@@ -59,7 +59,7 @@ public class Timeline extends Thread {
                     jeu.ajoutPopUp();
                 }
                 if(jeu.getEvenements().size() == 0) {
-                    if(jeu.getEvenements().size() == 0 && (int)(Math.random() * 15) == 0) {
+                    if(jeu.getEvenements().size() == 0 && (int)(Math.random() * 10) == 0) {
                         if((int)(Math.random() * 2) == 0) {
                             int depAlea = (int) (Math.random() * jeu.getDepartements().size());
                             Modele.Departement departement = jeu.getDepartements().get(depAlea);
