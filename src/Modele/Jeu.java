@@ -181,22 +181,19 @@ public class Jeu implements java.io.Serializable {
     public void charger() {
         commencerPartie(false);
         departements = deserialiser("departements");
-        //vue = deserialiser("vue");
-        //timeProjet = deserialiser("timeProjet");
-        //avancementProjet = deserialiser("avancementProjet");
         compteurs = deserialiser("compteurs");
-        //evenements = deserialiser("evenements");
-        //popUps = deserialiser("popUps");
         eventStockage = deserialiser("eventStockage");
         for(Modele.Departement departement : departements) {
             departement.creerVue(this);
         }
-        for(Compteur compteur : compteurs) {
+        /*for(Compteur compteur : compteurs) {
             compteur.creerVue(this);
-        }
+        }*/
         for(Modele.EvenementArticle evenement : eventStockage) {
             evenement.creerVue(this);
         }
+        menuPrincipal.affichage(this, 1);
+        afficherJeu();
     }
 
     /**
