@@ -24,6 +24,8 @@ public class Compteur implements java.io.Serializable {
         text.setY(y);
         jeu.getVue().getRoot().getChildren().add(text);
     }
+
+
     public void affichage(Modele.Jeu jeu){
         jeu.getVue().getRoot().getChildren().remove(text);
     }

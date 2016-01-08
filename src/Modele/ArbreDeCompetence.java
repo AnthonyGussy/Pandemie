@@ -114,6 +114,12 @@ public class ArbreDeCompetence implements java.io.Serializable {
         vue = new Vue.ArbreDeCompetence(this, jeu);
     }
 
+    public void creerVue(Modele.Jeu jeu){
+
+        vue = new Vue.ArbreDeCompetence(this, jeu);
+
+    }
+
     // Méthodes
 
     /**

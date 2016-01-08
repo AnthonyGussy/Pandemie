@@ -43,6 +43,12 @@ public class EvenementArticle extends Evenement implements java.io.Serializable 
 		jeu.setTemps(effets[2]);
 	}
 
+	public void creerVue(Modele.Jeu jeu){
+
+		event = new Vue.Evenement(this, jeu);
+
+	}
+
 	public int[] getEffets() { return effets; }
 
 	public int getMoral() { return effets[0]; }

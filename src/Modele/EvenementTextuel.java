@@ -8,4 +8,10 @@ public class EvenementTextuel extends Evenement implements java.io.Serializable 
         super(nom, description, jeu);
         event = new Vue.Evenement(this, jeu);
     }
+
+    public void creerVue(Modele.Jeu jeu){
+
+        event = new Vue.Evenement(this, jeu);
+
+    }
 }
