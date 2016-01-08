@@ -79,4 +79,6 @@ public class Tache implements java.io.Serializable {
 	public boolean getTermine() { return termine; }
 
 	public Modele.EvenementAccomplissement getEvent() { return event;}
+
+	public Modele.Departement getDepartement() { return departement; }
 }

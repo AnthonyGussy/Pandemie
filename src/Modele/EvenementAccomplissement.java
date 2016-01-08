@@ -15,8 +15,10 @@ public class EvenementAccomplissement extends Evenement implements java.io.Seria
     }
 
     public void appliquerEffet(Modele.Jeu jeu, Modele.Tache tache){
+
         jeu.setPtsCompetence(point);
-        jeu.getDepartements().get(0).getTaches().get(0).setAvancement(-tache.getTempsInitial()/2);
+        jeu.getDepartements().get(0).getTaches().get(0).setAvancement(-tache.getTempsInitial()/4);
+        tache.getDepartement().setMoral(+10);
 
     }
    
