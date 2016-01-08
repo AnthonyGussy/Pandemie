@@ -25,8 +25,9 @@ public class Timeline extends Thread {
             catch (IndexOutOfBoundsException e) {
                 e.printStackTrace();
             }
-            jeu.setTemps(-1);
+
             if (jeu.getDepartements().size() > 0) {
+                jeu.setTemps(-1);
                 if(jeu.getDepartements().get(0).getTaches().get(0).getAvancement() == 0) {
                     //jeu.victoire();
                 }
@@ -45,6 +46,7 @@ public class Timeline extends Thread {
                 if(depComplet == 5 || jeu.getTemps() == 0) {
                     //jeu.gameOver();
                 }
+                jeu.afficherCompte();
                 if(jeu.getPopUps().size() != 0){
                     jeu.getVue().affichagePopUp(2);
                 }

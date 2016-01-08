@@ -89,8 +89,8 @@ public class Departement implements java.io.Serializable {
 
     void creerTache() {
         taches.add(tachesStockage.get((int)(Math.random() * tachesStockage.size())));
-        compteurs.get(3).modifCompte(-taches.get(0).getCompteurs().get(1).getCompte());
-        compteurs.get(2).modifCompte(taches.get(0).getCompteurs().get(1).getCompte());
+        compteurs.get(3).modifCompte(-taches.get(0).getInfectes());
+        compteurs.get(2).modifCompte(taches.get(0).getInfectes());
     }
 
     void infection(Modele.Jeu jeu){
@@ -110,8 +110,8 @@ public class Departement implements java.io.Serializable {
     void supprimerTache(Modele.Jeu jeu) {
         for(int i = 0; i < taches.size(); i++) {
             if(taches.get(i).getTermine()){
-                compteurs.get(3).modifCompte(taches.get(i).getCompteurs().get(1).getCompte());
-                compteurs.get(2).modifCompte(-taches.get(i).getCompteurs().get(1).getCompte());
+                compteurs.get(3).modifCompte(taches.get(i).getInfectes());
+                compteurs.get(2).modifCompte(-taches.get(i).getInfectes());
                 jeu.ajoutEvenement(this, taches.get(i));
                 taches.remove(taches.get(i));
             }

@@ -33,6 +33,7 @@ public class Jeu implements java.io.Serializable {
     private Menu menuJeu;
     private Regles regles;
     private Coin coin;
+    private Date timeProjet;
     private ArrayList<Modele.Departement> departements;
     private ArrayList<Compteur> compteurs;
     private ArrayList<Modele.Evenement> evenements;
@@ -93,6 +94,7 @@ public class Jeu implements java.io.Serializable {
         compteurs.add(new Compteur(0, CompteurType.Points_de_competence));
         compteurs.add(new Compteur(400, CompteurType.Temps));
         setListeEvenementStockage();
+
         for(Modele.Departement dep : departements) {
             dep.getVue().affichage(this, 0);
         }
@@ -101,6 +103,7 @@ public class Jeu implements java.io.Serializable {
         evenements.add(new EvenementTextuel(contexte, description, this));
         evenements.get(0).setDuree(20);
         evenements.get(0).getVue().affichage(this, 0);
+        timeProjet = new Date(this.getTemps(), CompteurType.Temps, this.getVue());
         vue.affichagePlateau(0);
     }
 
@@ -112,6 +115,13 @@ public class Jeu implements java.io.Serializable {
     public void gameOver() {
         vue.getRoot().getChildren().clear();
         //vue.getScene().setFill();
+    }
+
+    public void afficherCompte(){
+        Platform.runLater(() -> {
+            timeProjet.setCompte(this.getTemps());
+            timeProjet.affichage(this.getVue().getScene(), 0);
+        });
     }
 
     public Coin getCoin() { return coin; }
