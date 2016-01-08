@@ -330,5 +330,19 @@ public class Jeu implements java.io.Serializable {
         evenement.getVue().affichage(this, 0);
         evenements.add(evenement);
     }
+
+    public void perdreMoral() {
+
+        for(Modele.Departement depart : departements){
+
+            if(depart.getTaches().size() >0){
+
+                depart.setMoral(-1);
+
+            }
+
+        }
+
+    }
 }
 

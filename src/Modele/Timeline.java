@@ -59,6 +59,9 @@ public class Timeline extends Thread {
                 if ((int)(Math.random() * 15) == 0){
                     jeu.ajoutPopUp();
                 }
+                if ((int)(Math.random() * 22) == 7){
+                    jeu.perdreMoral();
+                }
                 if(jeu.getEvenements().size() == 0) {
                     if(jeu.getEvenements().size() == 0 && (int)(Math.random() * 10) == 0) {
                         if((int)(Math.random() * 2) == 0) {
