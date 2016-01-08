@@ -283,6 +283,9 @@ public class Jeu {
         Platform.runLater(() -> {
             switch(afficher) {
                 case 0:
+                    affichageEvenement(1);
+                    modele.getCoin().affichage(modele, 1);
+                    modele.afficherCompte(1);
                     affichagePlateau(1);
                     defaite.setVisible(true);
                     break;

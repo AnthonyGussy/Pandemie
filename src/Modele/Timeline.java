@@ -15,7 +15,7 @@ public class Timeline extends Thread {
     public Timeline(String nom, Modele.Jeu jeu) {
         super(nom);
         this.jeu = jeu;
-        vitesse = 100;
+        vitesse = 1000;
         this.start();
     }
     public void run() {
@@ -83,8 +83,8 @@ public class Timeline extends Thread {
                 pause();
                 jeu.getVue().afficherVictoire(2, i);
                 jeu.getVue().afficherGameOver(2, 3 + j);
-                i = (i + 1)%2;
-                j = (j + 1)%1;
+                i = (i + 1)%3;
+                j = (j + 1)%2;
             }
         }
     }
