@@ -1,33 +1,53 @@
 package Vue;
 
 
+import Constantes.Constantes;
 import Enumerations.CompteurType;
 import Modele.Jeu;
 import javafx.scene.Group;
+import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 
-public class Barre extends Compteur implements java.io.Serializable {
-    Barre(int c, CompteurType t){
-        super(c, t);
-    }
-    Barre(int c, int vMax, CompteurType t){
+public class Barre extends Compteur {
+    private Rectangle barre;
+    private Rectangle progression;
+    private Text texte;
+    public Barre(int c, int vMax, CompteurType t, Modele.Jeu jeu){
         super(c, vMax, t);
-    }
-    Group g;
-    final int largeur = 100;
-    final int hauteur = 10;
-    public void affichage(int x, int y, Modele.Jeu jeu){
-        Rectangle barre = new Rectangle(x, y, largeur, hauteur);
+        texte = new Text("Avancement du projet :");
+        barre = new Rectangle();
         barre.setFill(Color.DARKGRAY);
-        Rectangle progression = new Rectangle(x + 1, y + 1, ((float)compte/valeurMax)*(largeur-2), hauteur-2);
+        progression = new Rectangle();
         progression.setFill(Color.ALICEBLUE);
-        g = new Group();
-        g.getChildren().add(barre);
-        g.getChildren().add(progression);
-        jeu.getVue().getRoot().getChildren().add(g);
+        jeu.getVue().getRoot().getChildren().addAll(barre, progression, texte);
     }
-    public void affichage(Modele.Jeu jeu){
-        jeu.getVue().getRoot().getChildren().remove(g);
+
+    public void affichage(Scene scene, int afficher) {
+        switch(afficher) {
+            case 0:
+                affichage(scene, 2);
+                barre.setVisible(true);
+                progression.setVisible(true);
+                break;
+            case 1:
+                barre.setVisible(false);
+                progression.setVisible(false);
+                break;
+            default:
+                barre.setX(scene.getWidth() * Constantes.POS_X_PROGRESSION);
+                barre.setY(scene.getHeight() * Constantes.POS_Y_PROGRESSION);
+                barre.setWidth(scene.getWidth() *  Constantes.LARGEUR_PROGRESSION);
+                barre.setHeight(scene.getHeight() * Constantes.HAUTEUR_PROGRESSION);
+                progression.setX(scene.getWidth() * Constantes.POS_X_PROGRESSION + 2);
+                progression.setY(scene.getHeight() * Constantes.POS_Y_PROGRESSION + 2);
+                progression.setWidth((double)(valeurMax - compte) / valeurMax * barre.getWidth());
+                progression.setHeight(scene.getHeight() * Constantes.HAUTEUR_PROGRESSION - 4);
+                texte.setX(scene.getWidth() * Constantes.POS_X_TEXTE_PROGRESSION);
+                texte.setY(scene.getHeight() * Constantes.POS_Y_TEXTE_PROGRESSION);
+                texte.setFont(Font.loadFont("file:Font.ttf", Constantes.TAILLE_POLICE * scene.getHeight()));
+        }
     }
 }

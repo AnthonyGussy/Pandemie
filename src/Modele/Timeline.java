@@ -26,7 +26,8 @@ public class Timeline extends Thread {
                 e.printStackTrace();
             }
 
-            if (jeu.getDepartements().size() > 0 && !jeu.getMenuJeu().getAffiche()) {
+            if (jeu.getDepartements().size() == 5 && !jeu.getMenuJeu().getAffiche()) {
+                jeu.afficherAvancement(2);
                 jeu.getVue().affichagePtsDeCompetence(2);
                 jeu.setTemps(-1);
 

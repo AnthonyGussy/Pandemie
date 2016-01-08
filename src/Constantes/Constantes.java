@@ -41,6 +41,14 @@ public final class Constantes {
 	public static final double POS_X_INFOS = 0.835;
 	public static final double POS_Y_INFOS = 0.55;
 
+	// Affichage progression
+	public static final double POS_X_TEXTE_PROGRESSION = 0.03;
+	public static final double POS_Y_TEXTE_PROGRESSION = 0.17;
+	public static final double POS_X_PROGRESSION = 0.03;
+	public static final double POS_Y_PROGRESSION = 0.2;
+	public static final double LARGEUR_PROGRESSION = 0.2;
+	public static final double HAUTEUR_PROGRESSION = 0.02;
+
 	// Affichage temps
 	public static final double POS_X_DATE = 0.857;
 	public static final double POS_Y_DATE = 0.96;

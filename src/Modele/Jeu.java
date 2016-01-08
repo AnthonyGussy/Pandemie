@@ -34,6 +34,7 @@ public class Jeu implements java.io.Serializable {
     private Regles regles;
     private Coin coin;
     private Date timeProjet;
+    private Barre avancementProjet;
     private ArrayList<Modele.Departement> departements;
     private ArrayList<Compteur> compteurs;
     private ArrayList<Modele.Evenement> evenements;
@@ -84,7 +85,6 @@ public class Jeu implements java.io.Serializable {
     public void commencerPartie() {
         compteurs.add(new Compteur(0, CompteurType.Points_de_competence));
         compteurs.add(new Compteur(1800, CompteurType.Temps));
-
         List<DepartementNom> departementNoms = new ArrayList<>(Arrays.asList(DepartementNom.Edim, DepartementNom.Energie, DepartementNom.Gmc, DepartementNom.Imsi, DepartementNom.Informatique));
         for(int i = 0; i<5; ++i) {
             int alea = (int)(Math.random()*departementNoms.size());
@@ -94,7 +94,8 @@ public class Jeu implements java.io.Serializable {
                 departements.add(new Modele.Departement(departementNoms.get(alea),false, this));
             departementNoms.remove(alea);
         }
-
+        avancementProjet = new Barre(departements.get(0).getTaches().get(0).getAvancement(), departements.get(0).getTaches().get(0).getTempsInitial(), CompteurType.Temps, this);
+        afficherAvancement(0);
         setListeEvenementStockage();
 
         for(Modele.Departement dep : departements) {
@@ -114,6 +115,13 @@ public class Jeu implements java.io.Serializable {
         Platform.runLater(() -> {
             timeProjet.setCompte(this.getTemps());
             timeProjet.affichage(this.getVue().getScene(), affichage);
+        });
+    }
+
+    public void afficherAvancement(int affichage) {
+        Platform.runLater(() -> {
+            avancementProjet.setCompte(departements.get(0).getTaches().get(0).getAvancement());
+            avancementProjet.affichage(vue.getScene(), affichage);
         });
     }
 
@@ -228,7 +236,7 @@ public class Jeu implements java.io.Serializable {
      */
     public void redimensionner() {
         regles.affichage(this, 2);
-        timeProjet.affichage(vue.getScene(), 2);
+        if(timeProjet != null) timeProjet.affichage(vue.getScene(), 2);
         vue.affichagePlateau(3);
         menuPrincipal.affichage(this, 2);
         menuJeu.affichage(this, 2);
@@ -241,7 +249,6 @@ public class Jeu implements java.io.Serializable {
         for(Modele.PopUp popUp : popUps) {
             popUp.getVue().affichage(this, 2);
         }
-
     }
 
     public void ajoutPopUp() {

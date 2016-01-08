@@ -34,6 +34,8 @@ public class Compteur implements java.io.Serializable {
         else if(compte > valeurMax) compte = valeurMax;
     }
 
+    public void setCompte(int c) { compte = c; }
+
     public int getCompte(){ return compte; }
 
 }

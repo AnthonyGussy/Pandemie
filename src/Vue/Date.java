@@ -39,6 +39,4 @@ public class Date extends Compteur implements java.io.Serializable {
                 text.setTranslateY(scene.getHeight() * Constantes.POS_Y_DATE);
         }
     }
-
-    public void setCompte(int c){compte = c;}
 }
