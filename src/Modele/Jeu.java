@@ -82,7 +82,7 @@ public class Jeu implements java.io.Serializable {
      * le département à l'index 0 étant considéré comme le département d'origine du projet.
      * Cette méthode va aussi afficher le plateau de jeu et lancer les événements aléatoires.
      */
-    public void commencerPartie() {
+    public void commencerPartie(boolean afficher) {
         compteurs.add(new Compteur(0, CompteurType.Points_de_competence));
         compteurs.add(new Compteur(1800, CompteurType.Temps));
         List<DepartementNom> departementNoms = new ArrayList<>(Arrays.asList(DepartementNom.Edim, DepartementNom.Energie, DepartementNom.Gmc, DepartementNom.Imsi, DepartementNom.Informatique));
@@ -96,16 +96,19 @@ public class Jeu implements java.io.Serializable {
         }
         avancementProjet = new Barre(departements.get(0).getTaches().get(0).getAvancement(), departements.get(0).getTaches().get(0).getTempsInitial(), CompteurType.Temps, this);
         setListeEvenementStockage();
-
-        for(Modele.Departement dep : departements) {
-            dep.getVue().affichage(this, 0);
-        }
         String contexte = "Vous dirigez un groupe d'étudiant en " + departements.get(0).getNom();
         String description = "Vous devez réaliser le projet suivant : " + departements.get(0).getTaches().get(0).getNom() + "\n" + departements.get(0).getTaches().get(0).getDescription();
         evenements.add(new EvenementTextuel(contexte, description, this));
         evenements.get(0).setDuree(20);
-        evenements.get(0).getVue().affichage(this, 0);
         timeProjet = new Date(this.getTemps(), CompteurType.Temps, this.getVue());
+        if(afficher) afficherJeu();
+    }
+
+    public void afficherJeu() {
+        for(Modele.Departement dep : departements) {
+            dep.getVue().affichage(this, 0);
+        }
+        evenements.get(0).getVue().affichage(this, 0);
         vue.affichagePlateau(0);
         afficherCompte(0);
     }
@@ -163,11 +166,11 @@ public class Jeu implements java.io.Serializable {
      */
     public void sauvegarder() {
         //serialiser(vue ,"vue");
-        serialiser(timeProjet, "timeProjet");
+        //serialiser(timeProjet, "timeProjet");
         //serialiser(avancementProjet, "avancementProjet");
         serialiser(compteurs, "compteurs");
-        serialiser(evenements, "evenements");
-        serialiser(popUps, "popUps");
+        //serialiser(evenements, "evenements");
+        //serialiser(popUps, "popUps");
         serialiser(eventStockage, "eventStockage");
         serialiser(departements, "departements");
     }
@@ -176,15 +179,24 @@ public class Jeu implements java.io.Serializable {
      * Cette méthode va charger le jeu en desérialisant les différents composants du jeu
      */
     public void charger() {
+        commencerPartie(false);
         departements = deserialiser("departements");
         //vue = deserialiser("vue");
-        timeProjet = deserialiser("timeProjet");
+        //timeProjet = deserialiser("timeProjet");
         //avancementProjet = deserialiser("avancementProjet");
         compteurs = deserialiser("compteurs");
-        evenements = deserialiser("evenements");
-        popUps = deserialiser("popUps");
+        //evenements = deserialiser("evenements");
+        //popUps = deserialiser("popUps");
         eventStockage = deserialiser("eventStockage");
-        departements = deserialiser("departements");
+        for(Modele.Departement departement : departements) {
+            departement.creerVue(this);
+        }
+        for(Compteur compteur : compteurs) {
+            compteur.creerVue(this);
+        }
+        for(Modele.EvenementArticle evenement : eventStockage) {
+            evenement.creerVue(this);
+        }
     }
 
     /**

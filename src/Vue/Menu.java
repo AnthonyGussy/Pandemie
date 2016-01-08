@@ -49,7 +49,7 @@ public class Menu implements java.io.Serializable{
                         break;
                     case Jouer:
                         affichage(jeu, 1);
-                        jeu.commencerPartie();
+                        jeu.commencerPartie(true);
                         break;
                     case Regles:
                         affichage(jeu, 1);
@@ -63,7 +63,6 @@ public class Menu implements java.io.Serializable{
             });
             boutons.add(b);
             boutonsGroup.setVisible(false);
-
         }
         jeu.getVue().getRoot().getChildren().add(boutonsGroup);
     }
