@@ -52,6 +52,7 @@ public class Tache implements java.io.Serializable {
 
 	public void setAvancement(int incr) {
 		compteurs.get(0).modifCompte(incr);
+		if(this.getAvancement() == 0) termine = true;
 	}
 
 	public void setInfectes(int incr) {
