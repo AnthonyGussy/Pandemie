@@ -55,6 +55,11 @@ public class Tache implements java.io.Serializable {
 		if(this.getAvancement() == 0) termine = true;
 	}
 
+	public void setAvancement() {
+		compteurs.get(0).modifCompte(-departement.getEfficacite() / 2);
+		if(this.getAvancement() == 0) termine = true;
+	}
+
 	public void setInfectes(int incr) {
 		compteurs.get(1).modifCompte(incr);
 	}

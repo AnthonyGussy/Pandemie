@@ -44,7 +44,7 @@ public class Timeline extends Thread {
                     }
                     departement.affichage(jeu);
                     for(Modele.Tache tache : departement.getTaches()) {
-                        tache.setAvancement(-1);
+                        tache.setAvancement();
                     }
                 }
                 if(depComplet == 5 || jeu.getTemps() == 0) {
