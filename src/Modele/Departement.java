@@ -53,6 +53,8 @@ public class Departement implements java.io.Serializable {
 
         vue = new Vue.Departement(this, jeu);
         arbre.creerVue(jeu);
+        for(Modele.Tache tache: taches)
+            tache.creerVue(jeu);
 
     }
 

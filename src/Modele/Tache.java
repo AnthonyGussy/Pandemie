@@ -81,4 +81,10 @@ public class Tache implements java.io.Serializable {
 	public Modele.EvenementAccomplissement getEvent() { return event;}
 
 	public Modele.Departement getDepartement() { return departement; }
+
+	public void creerVue(Modele.Jeu jeu) {
+
+		vue = new Vue.Tache(this, jeu);
+
+	}
 }
