@@ -46,7 +46,7 @@ public class Timeline extends Thread {
                 if(depComplet == 5 || jeu.getTemps() == 0) {
                     //jeu.gameOver();
                 }
-                jeu.afficherCompte();
+                jeu.afficherCompte(2);
                 if(jeu.getPopUps().size() != 0){
                     jeu.getVue().affichagePopUp(2);
                 }

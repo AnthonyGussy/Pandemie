@@ -82,6 +82,9 @@ public class Jeu implements java.io.Serializable {
      * Cette méthode va aussi afficher le plateau de jeu et lancer les événements aléatoires.
      */
     public void commencerPartie() {
+        compteurs.add(new Compteur(0, CompteurType.Points_de_competence));
+        compteurs.add(new Compteur(400, CompteurType.Temps));
+
         List<DepartementNom> departementNoms = new ArrayList<>(Arrays.asList(DepartementNom.Edim, DepartementNom.Energie, DepartementNom.Gmc, DepartementNom.Imsi, DepartementNom.Informatique));
         for(int i = 0; i<5; ++i) {
             int alea = (int)(Math.random()*departementNoms.size());
@@ -91,8 +94,7 @@ public class Jeu implements java.io.Serializable {
                 departements.add(new Modele.Departement(departementNoms.get(alea),false, this));
             departementNoms.remove(alea);
         }
-        compteurs.add(new Compteur(0, CompteurType.Points_de_competence));
-        compteurs.add(new Compteur(400, CompteurType.Temps));
+
         setListeEvenementStockage();
 
         for(Modele.Departement dep : departements) {
@@ -105,6 +107,7 @@ public class Jeu implements java.io.Serializable {
         evenements.get(0).getVue().affichage(this, 0);
         timeProjet = new Date(this.getTemps(), CompteurType.Temps, this.getVue());
         vue.affichagePlateau(0);
+        afficherCompte(0);
     }
 
     public void victoire() {
@@ -117,10 +120,10 @@ public class Jeu implements java.io.Serializable {
         //vue.getScene().setFill();
     }
 
-    public void afficherCompte(){
+    public void afficherCompte(int affichage){
         Platform.runLater(() -> {
             timeProjet.setCompte(this.getTemps());
-            timeProjet.affichage(this.getVue().getScene(), 0);
+            timeProjet.affichage(this.getVue().getScene(), affichage);
         });
     }
 

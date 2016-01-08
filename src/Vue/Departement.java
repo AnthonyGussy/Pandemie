@@ -163,6 +163,7 @@ public class Departement{
     private void eventArbreDeCompetence(Modele.Jeu jeu){
         jeu.getVue().affichagePlateau(1);
         jeu.getVue().affichagePopUp(1);
+        jeu.afficherCompte(1);
         modele.getArbre().getVue().affichage(jeu, 0);
         modele.afficherTaches(jeu.getVue().getScene(), 0);
     }

@@ -44,7 +44,7 @@ public final class Constantes {
 	// Affichage temps
 	public static final double POS_X_DATE = 0.857;
 	public static final double POS_Y_DATE = 0.96;
-	public static final double TAILLE_POLICE_DATE = 0.065;
+	public static final double TAILLE_POLICE_DATE = 0.058;
 
 	// Affichage liste tâches
 	public static final double ESPACEMENT_LIGNES = 0.08;

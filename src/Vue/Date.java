@@ -14,10 +14,6 @@ public class Date extends Compteur implements java.io.Serializable {
         super(c, t);
         text = new Text("");
         text.setVisible(false);
-        text.setFont(Font.loadFont("file:DJB Get Digital.ttf", jeu.getScene().getHeight() * Constantes.TAILLE_POLICE_DATE));
-        text.setFill(Color.web("#3ab7e7"));
-        text.setTranslateX(jeu.getScene().getWidth() * Constantes.POS_X_DATE);
-        text.setTranslateY(jeu.getScene().getHeight() * Constantes.POS_Y_DATE);
         jeu.getRoot().getChildren().add(text);
     }
     public void affichage(Scene scene, int afficher) {
@@ -37,6 +33,10 @@ public class Date extends Compteur implements java.io.Serializable {
                 else if(weeks<10)text.setText("0" + weeks + ":0"+ days + ":" + hours);
                 else if(hours<10) text.setText("" + weeks + ":0"+ days + ":0" + hours);
                 else text.setText("" + weeks + ":0"+ days + ":" + hours);
+                text.setFont(Font.loadFont("file:DJB Get Digital.ttf", scene.getHeight() * Constantes.TAILLE_POLICE_DATE));
+                text.setFill(Color.web("#3ab7e7"));
+                text.setTranslateX(scene.getWidth() * Constantes.POS_X_DATE);
+                text.setTranslateY(scene.getHeight() * Constantes.POS_Y_DATE);
         }
     }
 
