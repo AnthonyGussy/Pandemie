@@ -204,7 +204,7 @@ public final class Constantes {
 	//Position fleches influençant la vitesse
 	public static final double POS_X_FLECHE1_VITESSE = 0.74;
 	public static final double POS_X_FLECHE2_VITESSE = 0.76;
-	public static final double POS_X_FLECHE3_VITESSE = 0.78;
+	public static final double POS_X_FLECHE3_VITESSE = 0.783;
 	public static final double POS_Y_FLECHE_VITESSE = 0.34;
 	public static final double WIDTH_FLECHE1_VITESSE = 0.013;
 	public static final double WIDTH_FLECHE2_VITESSE = 0.018;
