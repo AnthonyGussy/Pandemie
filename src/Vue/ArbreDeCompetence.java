@@ -40,7 +40,6 @@ public class ArbreDeCompetence implements java.io.Serializable {
         lignes = new Group();
         retour.setOnMouseClicked(event -> {
             this.affichage(jeu, 1);
-            modele.getDepartement().afficherTaches(jeu.getVue().getScene(), 1);
             jeu.afficherCompte(0);
             jeu.retourJeu();
         });

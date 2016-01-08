@@ -19,7 +19,7 @@
             <description>Expliquer au département les enjeux du projet</description>
             <ligne>1</ligne>
             <colonne>1</colonne>
-            <moral>10</moral>
+            <moral>5</moral>
             <efficacite>0</efficacite>
             <temps>0</temps>
             <cout>1</cout>
@@ -36,7 +36,7 @@
             <ligne>1</ligne>
             <colonne>2</colonne>
             <moral>0</moral>
-            <efficacite>10</efficacite>
+            <efficacite>5</efficacite>
             <temps>0</temps>
             <cout>1</cout>
             <sommetLie>
@@ -51,7 +51,7 @@
             <description>Effectuer un discourt pour motiver le département</description>
             <ligne>2</ligne>
             <colonne>1</colonne>
-            <moral>20</moral>
+            <moral>10</moral>
             <efficacite>0</efficacite>
             <temps>0</temps>
             <cout>2</cout>
@@ -67,7 +67,7 @@
             <description>Débloquer la machine à café dans le département</description>
             <ligne>2</ligne>
             <colonne>2</colonne>
-            <moral>10</moral>
+            <moral>5</moral>
             <efficacite>0</efficacite>
             <temps>0</temps>
             <cout>2</cout>
@@ -84,7 +84,7 @@
             <ligne>2</ligne>
             <colonne>3</colonne>
             <moral>0</moral>
-            <efficacite>20</efficacite>
+            <efficacite>10</efficacite>
             <temps>0</temps>
             <cout>2</cout>
             <sommetLie>
@@ -100,7 +100,7 @@
             <ligne>2</ligne>
             <colonne>4</colonne>
             <moral>0</moral>
-            <efficacite>20</efficacite>
+            <efficacite>10</efficacite>
             <temps>0</temps>
             <cout>3</cout>
             <sommetLie>
@@ -115,7 +115,7 @@
             <description>Diffuser la vidéo de Shia Labeouf "Just do it"</description>
             <ligne>3</ligne>
             <colonne>1</colonne>
-            <moral>50</moral>
+            <moral>25</moral>
             <efficacite>0</efficacite>
             <temps>0</temps>
             <cout>5</cout>
@@ -131,8 +131,8 @@
             <description>Diminuer le prix du café de 25%</description>
             <ligne>3</ligne>
             <colonne>2</colonne>
-            <moral>10</moral>
-            <efficacite>10</efficacite>
+            <moral>5</moral>
+            <efficacite>5</efficacite>
             <temps>0</temps>
             <cout>3</cout>
             <sommetLie>
@@ -149,7 +149,7 @@
             <ligne>3</ligne>
             <colonne>3</colonne>
             <moral>0</moral>
-            <efficacite>20</efficacite>
+            <efficacite>10</efficacite>
             <temps>0</temps>
             <cout>3</cout>
             <sommetLie>
@@ -166,7 +166,7 @@
             <ligne>3</ligne>
             <colonne>4</colonne>
             <moral>0</moral>
-            <efficacite>20</efficacite>
+            <efficacite>10</efficacite>
             <temps>0</temps>
             <cout>3</cout>
             <sommetLie>
@@ -181,7 +181,7 @@
             <description>Visite d'un professionnel du domaine</description>
             <ligne>4</ligne>
             <colonne>1</colonne>
-            <moral>20</moral>
+            <moral>10</moral>
             <efficacite>0</efficacite>
             <temps>0</temps>
             <cout>5</cout>
@@ -200,8 +200,8 @@
             <description>Diminuer le prix du café de 50%</description>
             <ligne>4</ligne>
             <colonne>2</colonne>
-            <moral>20</moral>
-            <efficacite>20</efficacite>
+            <moral>10</moral>
+            <efficacite>10</efficacite>
             <temps>0</temps>
             <cout>5</cout>
             <sommetLie>
@@ -220,7 +220,7 @@
             <ligne>4</ligne>
             <colonne>3</colonne>
             <moral>0</moral>
-            <efficacite>30</efficacite>
+            <efficacite>15</efficacite>
             <temps>0</temps>
             <cout>5</cout>
             <sommetLie>
@@ -239,7 +239,7 @@
             <ligne>4</ligne>
             <colonne>4</colonne>
             <moral>0</moral>
-            <efficacite>30</efficacite>
+            <efficacite>15</efficacite>
             <temps>0</temps>
             <cout>5</cout>
             <sommetLie>
@@ -256,7 +256,7 @@
             <description>Félicitation, vous avez validé l'UV LO43</description>
             <ligne>5</ligne>
             <colonne>1</colonne>
-            <moral>80</moral>
+            <moral>40</moral>
             <efficacite>0</efficacite>
             <temps>0</temps>
             <cout>7</cout>
@@ -274,8 +274,8 @@
             <description>Diminuer le prix du café de 75%</description>
             <ligne>5</ligne>
             <colonne>2</colonne>
-            <moral>30</moral>
-            <efficacite>30</efficacite>
+            <moral>15</moral>
+            <efficacite>15</efficacite>
             <temps>0</temps>
             <cout>6</cout>
             <sommetLie>
@@ -294,7 +294,7 @@
             <ligne>5</ligne>
             <colonne>3</colonne>
             <moral>0</moral>
-            <efficacite>50</efficacite>
+            <efficacite>25</efficacite>
             <temps>0</temps>
             <cout>7</cout>
             <sommetLie>
@@ -313,7 +313,7 @@
             <ligne>5</ligne>
             <colonne>4</colonne>
             <moral>0</moral>
-            <efficacite>70</efficacite>
+            <efficacite>35</efficacite>
             <temps>0</temps>
             <cout>10</cout>
             <sommetLie>
@@ -330,8 +330,8 @@
             <description>Diminution du prix du café de 100%</description>
             <ligne>6</ligne>
             <colonne>1</colonne>
-            <moral>50</moral>
-            <efficacite>50</efficacite>
+            <moral>25</moral>
+            <efficacite>25</efficacite>
             <temps>0</temps>
             <cout>10</cout>
             <sommetLie>
@@ -350,7 +350,7 @@
             <ligne>6</ligne>
             <colonne>2</colonne>
             <moral>0</moral>
-            <efficacite>100</efficacite>
+            <efficacite>50</efficacite>
             <temps>0</temps>
             <cout>10</cout>
             <sommetLie>
@@ -380,7 +380,7 @@
             <description>Expliquer au département les enjeux du projet</description>
             <ligne>1</ligne>
             <colonne>1</colonne>
-            <moral>10</moral>
+            <moral>5</moral>
             <efficacite>0</efficacite>
             <temps>0</temps>
             <cout>1</cout>
@@ -397,7 +397,7 @@
             <ligne>1</ligne>
             <colonne>2</colonne>
             <moral>0</moral>
-            <efficacite>10</efficacite>
+            <efficacite>5</efficacite>
             <temps>0</temps>
             <cout>1</cout>
             <sommetLie>
@@ -412,7 +412,7 @@
             <description>Effectuer un discourt pour motiver le département</description>
             <ligne>2</ligne>
             <colonne>1</colonne>
-            <moral>20</moral>
+            <moral>10</moral>
             <efficacite>0</efficacite>
             <temps>0</temps>
             <cout>2</cout>
@@ -428,7 +428,7 @@
             <description>Débloquer la machine à café dans le département</description>
             <ligne>2</ligne>
             <colonne>2</colonne>
-            <moral>10</moral>
+            <moral>5</moral>
             <efficacite>0</efficacite>
             <temps>0</temps>
             <cout>2</cout>
@@ -445,7 +445,7 @@
             <ligne>2</ligne>
             <colonne>3</colonne>
             <moral>0</moral>
-            <efficacite>20</efficacite>
+            <efficacite>10</efficacite>
             <temps>0</temps>
             <cout>2</cout>
             <sommetLie>
@@ -461,7 +461,7 @@
             <ligne>2</ligne>
             <colonne>4</colonne>
             <moral>0</moral>
-            <efficacite>20</efficacite>
+            <efficacite>10</efficacite>
             <temps>0</temps>
             <cout>2</cout>
             <sommetLie>
@@ -476,7 +476,7 @@
             <description>Intervention d'un professeur pour répondre aux questions</description>
             <ligne>3</ligne>
             <colonne>1</colonne>
-            <moral>30</moral>
+            <moral>15</moral>
             <efficacite>0</efficacite>
             <temps>0</temps>
             <cout>4</cout>
@@ -492,8 +492,8 @@
             <description>Diminuer le prix du café de 25%</description>
             <ligne>3</ligne>
             <colonne>2</colonne>
-            <moral>10</moral>
-            <efficacite>10</efficacite>
+            <moral>5</moral>
+            <efficacite>5</efficacite>
             <temps>0</temps>
             <cout>3</cout>
             <sommetLie>
@@ -510,7 +510,7 @@
             <ligne>3</ligne>
             <colonne>3</colonne>
             <moral>0</moral>
-            <efficacite>40</efficacite>
+            <efficacite>20</efficacite>
             <temps>0</temps>
             <cout>5</cout>
             <sommetLie>
@@ -527,7 +527,7 @@
             <ligne>3</ligne>
             <colonne>4</colonne>
             <moral>0</moral>
-            <efficacite>40</efficacite>
+            <efficacite>20</efficacite>
             <temps>0</temps>
             <cout>5</cout>
             <sommetLie>
@@ -542,7 +542,7 @@
             <description>Visite d'un pionnier de l'énergie renouvelable</description>
             <ligne>4</ligne>
             <colonne>1</colonne>
-            <moral>40</moral>
+            <moral>20</moral>
             <efficacite>0</efficacite>
             <temps>0</temps>
             <cout>5</cout>
@@ -558,8 +558,8 @@
             <description>Diminuer le prix du café de 50%</description>
             <ligne>4</ligne>
             <colonne>2</colonne>
-            <moral>20</moral>
-            <efficacite>20</efficacite>
+            <moral>10</moral>
+            <efficacite>10</efficacite>
             <temps>0</temps>
             <cout>5</cout>
             <sommetLie>
@@ -576,7 +576,7 @@
             <ligne>4</ligne>
             <colonne>3</colonne>
             <moral>0</moral>
-            <efficacite>50</efficacite>
+            <efficacite>25</efficacite>
             <temps>0</temps>
             <cout>6</cout>
             <sommetLie>
@@ -592,7 +592,7 @@
             <ligne>4</ligne>
             <colonne>4</colonne>
             <moral>0</moral>
-            <efficacite>50</efficacite>
+            <efficacite>25</efficacite>
             <temps>0</temps>
             <cout>5</cout>
             <sommetLie>
@@ -608,7 +608,7 @@
             <description>Le concept car a gagné un prix pour son innovation</description>
             <ligne>5</ligne>
             <colonne>1</colonne>
-            <moral>80</moral>
+            <moral>40</moral>
             <efficacite>0</efficacite>
             <temps>0</temps>
             <cout>8</cout>
@@ -625,8 +625,8 @@
             <description>Diminuer le prix du café de 75%</description>
             <ligne>5</ligne>
             <colonne>2</colonne>
-            <moral>30</moral>
-            <efficacite>30</efficacite>
+            <moral>15</moral>
+            <efficacite>15</efficacite>
             <temps>0</temps>
             <cout>6</cout>
             <sommetLie>
@@ -643,7 +643,7 @@
             <ligne>5</ligne>
             <colonne>3</colonne>
             <moral>0</moral>
-            <efficacite>60</efficacite>
+            <efficacite>30</efficacite>
             <temps>0</temps>
             <cout>7</cout>
             <sommetLie>
@@ -658,8 +658,8 @@
             <description>Diminution du prix du café de 100%</description>
             <ligne>6</ligne>
             <colonne>1</colonne>
-            <moral>50</moral>
-            <efficacite>50</efficacite>
+            <moral>25</moral>
+            <efficacite>25</efficacite>
             <temps>0</temps>
             <cout>10</cout>
             <sommetLie>
@@ -676,7 +676,7 @@
             <ligne>6</ligne>
             <colonne>2</colonne>
             <moral>0</moral>
-            <efficacite>100</efficacite>
+            <efficacite>50</efficacite>
             <temps>0</temps>
             <cout>10</cout>
             <sommetLie>
@@ -704,7 +704,7 @@
             <description>Expliquer au département les enjeux du projet</description>
             <ligne>1</ligne>
             <colonne>1</colonne>
-            <moral>10</moral>
+            <moral>5</moral>
             <efficacite>0</efficacite>
             <temps>0</temps>
             <cout>1</cout>
@@ -721,7 +721,7 @@
             <ligne>1</ligne>
             <colonne>2</colonne>
             <moral>0</moral>
-            <efficacite>10</efficacite>
+            <efficacite>5</efficacite>
             <temps>0</temps>
             <cout>1</cout>
             <sommetLie>
@@ -736,7 +736,7 @@
             <description>Effectuer un discourt pour motiver le département</description>
             <ligne>2</ligne>
             <colonne>1</colonne>
-            <moral>20</moral>
+            <moral>10</moral>
             <efficacite>0</efficacite>
             <temps>0</temps>
             <cout>2</cout>
@@ -752,7 +752,7 @@
             <description>Débloquer la machine à café dans le département</description>
             <ligne>2</ligne>
             <colonne>2</colonne>
-            <moral>10</moral>
+            <moral>5</moral>
             <efficacite>0</efficacite>
             <temps>0</temps>
             <cout>2</cout>
@@ -769,7 +769,7 @@
             <ligne>2</ligne>
             <colonne>3</colonne>
             <moral>0</moral>
-            <efficacite>20</efficacite>
+            <efficacite>10</efficacite>
             <temps>0</temps>
             <cout>2</cout>
             <sommetLie>
@@ -785,7 +785,7 @@
             <ligne>2</ligne>
             <colonne>4</colonne>
             <moral>0</moral>
-            <efficacite>20</efficacite>
+            <efficacite>10</efficacite>
             <temps>0</temps>
             <cout>2</cout>
             <sommetLie>
@@ -800,7 +800,7 @@
             <description>Intervention d'un professeur pour répondre aux questions</description>
             <ligne>3</ligne>
             <colonne>1</colonne>
-            <moral>30</moral>
+            <moral>15</moral>
             <efficacite>0</efficacite>
             <temps>0</temps>
             <cout>4</cout>
@@ -816,8 +816,8 @@
             <description>Diminuer le prix du café de 25%</description>
             <ligne>3</ligne>
             <colonne>2</colonne>
-            <moral>10</moral>
-            <efficacite>10</efficacite>
+            <moral>5</moral>
+            <efficacite>5</efficacite>
             <temps>0</temps>
             <cout>3</cout>
             <sommetLie>
@@ -834,7 +834,7 @@
             <ligne>3</ligne>
             <colonne>3</colonne>
             <moral>0</moral>
-            <efficacite>30</efficacite>
+            <efficacite>15</efficacite>
             <temps>0</temps>
             <cout>4</cout>
             <sommetLie>
@@ -850,7 +850,7 @@
             <ligne>3</ligne>
             <colonne>4</colonne>
             <moral>0</moral>
-            <efficacite>40</efficacite>
+            <efficacite>20</efficacite>
             <temps>0</temps>
             <cout>4</cout>
             <sommetLie>
@@ -865,7 +865,7 @@
             <description>Visite d'un site de production</description>
             <ligne>4</ligne>
             <colonne>1</colonne>
-            <moral>40</moral>
+            <moral>20</moral>
             <efficacite>0</efficacite>
             <temps>0</temps>
             <cout>6</cout>
@@ -881,8 +881,8 @@
             <description>Diminuer le prix du café de 50%</description>
             <ligne>4</ligne>
             <colonne>2</colonne>
-            <moral>20</moral>
-            <efficacite>20</efficacite>
+            <moral>10</moral>
+            <efficacite>10</efficacite>
             <temps>0</temps>
             <cout>5</cout>
             <sommetLie>
@@ -899,7 +899,7 @@
             <ligne>4</ligne>
             <colonne>3</colonne>
             <moral>0</moral>
-            <efficacite>50</efficacite>
+            <efficacite>25</efficacite>
             <temps>0</temps>
             <cout>6</cout>
             <sommetLie>
@@ -915,7 +915,7 @@
             <ligne>4</ligne>
             <colonne>4</colonne>
             <moral>0</moral>
-            <efficacite>50</efficacite>
+            <efficacite>25</efficacite>
             <temps>0</temps>
             <cout>6</cout>
             <sommetLie>
@@ -931,7 +931,7 @@
             <ligne>4</ligne>
             <colonne>5</colonne>
             <moral>0</moral>
-            <efficacite>50</efficacite>
+            <efficacite>25</efficacite>
             <temps>0</temps>
             <cout>6</cout>
             <sommetLie>
@@ -946,7 +946,7 @@
             <description>Visite d'un professionnel du domaine</description>
             <ligne>5</ligne>
             <colonne>1</colonne>
-            <moral>80</moral>
+            <moral>40</moral>
             <efficacite>0</efficacite>
             <temps>0</temps>
             <cout>7</cout>
@@ -962,8 +962,8 @@
             <description>Diminuer le prix du café de 75%</description>
             <ligne>5</ligne>
             <colonne>2</colonne>
-            <moral>30</moral>
-            <efficacite>30</efficacite>
+            <moral>15</moral>
+            <efficacite>15</efficacite>
             <temps>0</temps>
             <cout>6</cout>
             <sommetLie>
@@ -980,7 +980,7 @@
             <ligne>5</ligne>
             <colonne>3</colonne>
             <moral>0</moral>
-            <efficacite>70</efficacite>
+            <efficacite>35</efficacite>
             <temps>0</temps>
             <cout>8</cout>
             <sommetLie>
@@ -996,7 +996,7 @@
             <ligne>5</ligne>
             <colonne>4</colonne>
             <moral>0</moral>
-            <efficacite>70</efficacite>
+            <efficacite>35</efficacite>
             <temps>0</temps>
             <cout>8</cout>
             <sommetLie>
@@ -1011,8 +1011,8 @@
             <description>Diminution du prix du café de 100%</description>
             <ligne>6</ligne>
             <colonne>1</colonne>
-            <moral>50</moral>
-            <efficacite>50</efficacite>
+            <moral>25</moral>
+            <efficacite>25</efficacite>
             <temps>0</temps>
             <cout>10</cout>
             <sommetLie>
@@ -1029,7 +1029,7 @@
             <ligne>6</ligne>
             <colonne>2</colonne>
             <moral>0</moral>
-            <efficacite>100</efficacite>
+            <efficacite>50</efficacite>
             <temps>0</temps>
             <cout>10</cout>
             <sommetLie>
@@ -1057,7 +1057,7 @@
             <description>Expliquer au département les enjeux du projet</description>
             <ligne>1</ligne>
             <colonne>1</colonne>
-            <moral>10</moral>
+            <moral>5</moral>
             <efficacite>0</efficacite>
             <temps>0</temps>
             <cout>1</cout>
@@ -1074,7 +1074,7 @@
             <ligne>1</ligne>
             <colonne>2</colonne>
             <moral>0</moral>
-            <efficacite>10</efficacite>
+            <efficacite>5</efficacite>
             <temps>0</temps>
             <cout>1</cout>
             <sommetLie>
@@ -1089,7 +1089,7 @@
             <description>Effectuer un discourt pour motiver le département</description>
             <ligne>2</ligne>
             <colonne>1</colonne>
-            <moral>20</moral>
+            <moral>10</moral>
             <efficacite>0</efficacite>
             <temps>0</temps>
             <cout>2</cout>
@@ -1105,7 +1105,7 @@
             <description>Débloquer la machine à café dans le département</description>
             <ligne>2</ligne>
             <colonne>2</colonne>
-            <moral>10</moral>
+            <moral>5</moral>
             <efficacite>0</efficacite>
             <temps>0</temps>
             <cout>2</cout>
@@ -1122,7 +1122,7 @@
             <ligne>2</ligne>
             <colonne>3</colonne>
             <moral>0</moral>
-            <efficacite>20</efficacite>
+            <efficacite>10</efficacite>
             <temps>0</temps>
             <cout>2</cout>
             <sommetLie>
@@ -1138,7 +1138,7 @@
             <ligne>2</ligne>
             <colonne>4</colonne>
             <moral>0</moral>
-            <efficacite>20</efficacite>
+            <efficacite>10</efficacite>
             <temps>0</temps>
             <cout>2</cout>
             <sommetLie>
@@ -1153,7 +1153,7 @@
             <description>Visite d'un site de production</description>
             <ligne>3</ligne>
             <colonne>1</colonne>
-            <moral>30</moral>
+            <moral>15</moral>
             <efficacite>0</efficacite>
             <temps>0</temps>
             <cout>6</cout>
@@ -1169,8 +1169,8 @@
             <description>Diminuer le prix du café de 25%</description>
             <ligne>3</ligne>
             <colonne>2</colonne>
-            <moral>10</moral>
-            <efficacite>10</efficacite>
+            <moral>5</moral>
+            <efficacite>5</efficacite>
             <temps>0</temps>
             <cout>3</cout>
             <sommetLie>
@@ -1187,7 +1187,7 @@
             <ligne>3</ligne>
             <colonne>3</colonne>
             <moral>0</moral>
-            <efficacite>30</efficacite>
+            <efficacite>15</efficacite>
             <temps>0</temps>
             <cout>4</cout>
             <sommetLie>
@@ -1203,7 +1203,7 @@
             <ligne>3</ligne>
             <colonne>4</colonne>
             <moral>0</moral>
-            <efficacite>40</efficacite>
+            <efficacite>20</efficacite>
             <temps>0</temps>
             <cout>5</cout>
             <sommetLie>
@@ -1218,7 +1218,7 @@
             <description>Participation au Rallye acceptée</description>
             <ligne>4</ligne>
             <colonne>1</colonne>
-            <moral>50</moral>
+            <moral>25</moral>
             <efficacite>0</efficacite>
             <temps>0</temps>
             <cout>5</cout>
@@ -1234,8 +1234,8 @@
             <description>Diminuer le prix du café de 50%</description>
             <ligne>4</ligne>
             <colonne>2</colonne>
-            <moral>20</moral>
-            <efficacite>20</efficacite>
+            <moral>10</moral>
+            <efficacite>10</efficacite>
             <temps>0</temps>
             <cout>5</cout>
             <sommetLie>
@@ -1252,7 +1252,7 @@
             <ligne>4</ligne>
             <colonne>3</colonne>
             <moral>0</moral>
-            <efficacite>60</efficacite>
+            <efficacite>30</efficacite>
             <temps>0</temps>
             <cout>6</cout>
             <sommetLie>
@@ -1268,7 +1268,7 @@
             <ligne>4</ligne>
             <colonne>4</colonne>
             <moral>0</moral>
-            <efficacite>20</efficacite>
+            <efficacite>10</efficacite>
             <temps>0</temps>
             <cout>5</cout>
             <sommetLie>
@@ -1283,7 +1283,7 @@
             <description>Visite d'un professionnel en mécanique</description>
             <ligne>5</ligne>
             <colonne>1</colonne>
-            <moral>80</moral>
+            <moral>40</moral>
             <efficacite>0</efficacite>
             <temps>0</temps>
             <cout>7</cout>
@@ -1299,8 +1299,8 @@
             <description>Diminuer le prix du café de 75%</description>
             <ligne>5</ligne>
             <colonne>2</colonne>
-            <moral>30</moral>
-            <efficacite>30</efficacite>
+            <moral>15</moral>
+            <efficacite>15</efficacite>
             <temps>0</temps>
             <cout>6</cout>
             <sommetLie>
@@ -1317,7 +1317,7 @@
             <ligne>5</ligne>
             <colonne>3</colonne>
             <moral>0</moral>
-            <efficacite>70</efficacite>
+            <efficacite>35</efficacite>
             <temps>0</temps>
             <cout>8</cout>
             <sommetLie>
@@ -1333,7 +1333,7 @@
             <ligne>5</ligne>
             <colonne>4</colonne>
             <moral>0</moral>
-            <efficacite>60</efficacite>
+            <efficacite>30</efficacite>
             <temps>0</temps>
             <cout>7</cout>
             <sommetLie>
@@ -1349,7 +1349,7 @@
             <ligne>5</ligne>
             <colonne>5</colonne>
             <moral>0</moral>
-            <efficacite>80</efficacite>
+            <efficacite>40</efficacite>
             <temps>0</temps>
             <cout>8</cout>
             <sommetLie>
@@ -1365,8 +1365,8 @@
             <description>Diminution du prix du café de 100%</description>
             <ligne>6</ligne>
             <colonne>1</colonne>
-            <moral>50</moral>
-            <efficacite>50</efficacite>
+            <moral>25</moral>
+            <efficacite>25</efficacite>
             <temps>0</temps>
             <cout>10</cout>
             <sommetLie>
@@ -1383,7 +1383,7 @@
             <ligne>6</ligne>
             <colonne>2</colonne>
             <moral>0</moral>
-            <efficacite>100</efficacite>
+            <efficacite>50</efficacite>
             <temps>0</temps>
             <cout>10</cout>
             <sommetLie>
@@ -1401,7 +1401,7 @@
             <ligne>6</ligne>
             <colonne>3</colonne>
             <moral>0</moral>
-            <efficacite>90</efficacite>
+            <efficacite>45</efficacite>
             <temps>0</temps>
             <cout>10</cout>
             <sommetLie>
@@ -1429,7 +1429,7 @@
             <description>Expliquer au département les enjeux du projet</description>
             <ligne>1</ligne>
             <colonne>1</colonne>
-            <moral>10</moral>
+            <moral>5</moral>
             <efficacite>0</efficacite>
             <temps>0</temps>
             <cout>1</cout>
@@ -1446,7 +1446,7 @@
             <ligne>1</ligne>
             <colonne>2</colonne>
             <moral>0</moral>
-            <efficacite>10</efficacite>
+            <efficacite>5</efficacite>
             <temps>0</temps>
             <cout>1</cout>
             <sommetLie>
@@ -1461,7 +1461,7 @@
             <description>Effectuer un discourt pour motiver le département</description>
             <ligne>2</ligne>
             <colonne>1</colonne>
-            <moral>20</moral>
+            <moral>10</moral>
             <efficacite>0</efficacite>
             <temps>0</temps>
             <cout>2</cout>
@@ -1477,7 +1477,7 @@
             <description>Débloquer la machine à café dans le département</description>
             <ligne>2</ligne>
             <colonne>2</colonne>
-            <moral>10</moral>
+            <moral>5</moral>
             <efficacite>0</efficacite>
             <temps>0</temps>
             <cout>2</cout>
@@ -1494,7 +1494,7 @@
             <ligne>2</ligne>
             <colonne>3</colonne>
             <moral>0</moral>
-            <efficacite>20</efficacite>
+            <efficacite>10</efficacite>
             <temps>0</temps>
             <cout>2</cout>
             <sommetLie>
@@ -1510,7 +1510,7 @@
             <ligne>2</ligne>
             <colonne>4</colonne>
             <moral>0</moral>
-            <efficacite>20</efficacite>
+            <efficacite>10</efficacite>
             <temps>0</temps>
             <cout>2</cout>
             <sommetLie>
@@ -1525,7 +1525,7 @@
             <description>Intervention d'un professeur pour répondre aux questions</description>
             <ligne>3</ligne>
             <colonne>1</colonne>
-            <moral>30</moral>
+            <moral>15</moral>
             <efficacite>0</efficacite>
             <temps>0</temps>
             <cout>4</cout>
@@ -1541,8 +1541,8 @@
             <description>Diminuer le prix du café de 25%</description>
             <ligne>3</ligne>
             <colonne>2</colonne>
-            <moral>10</moral>
-            <efficacite>10</efficacite>
+            <moral>5</moral>
+            <efficacite>5</efficacite>
             <temps>0</temps>
             <cout>3</cout>
             <sommetLie>
@@ -1559,7 +1559,7 @@
             <ligne>3</ligne>
             <colonne>3</colonne>
             <moral>0</moral>
-            <efficacite>30</efficacite>
+            <efficacite>15</efficacite>
             <temps>0</temps>
             <cout>4</cout>
             <sommetLie>
@@ -1575,7 +1575,7 @@
             <ligne>3</ligne>
             <colonne>4</colonne>
             <moral>0</moral>
-            <efficacite>30</efficacite>
+            <efficacite>15</efficacite>
             <temps>0</temps>
             <cout>4</cout>
             <sommetLie>
@@ -1590,7 +1590,7 @@
             <description>Intervention d'un professionnel du design industriel</description>
             <ligne>4</ligne>
             <colonne>1</colonne>
-            <moral>50</moral>
+            <moral>25</moral>
             <efficacite>0</efficacite>
             <temps>0</temps>
             <cout>6</cout>
@@ -1606,8 +1606,8 @@
             <description>Diminuer le prix du café de 50%</description>
             <ligne>4</ligne>
             <colonne>2</colonne>
-            <moral>20</moral>
-            <efficacite>20</efficacite>
+            <moral>10</moral>
+            <efficacite>10</efficacite>
             <temps>0</temps>
             <cout>5</cout>
             <sommetLie>
@@ -1624,7 +1624,7 @@
             <ligne>4</ligne>
             <colonne>3</colonne>
             <moral>0</moral>
-            <efficacite>50</efficacite>
+            <efficacite>25</efficacite>
             <temps>0</temps>
             <cout>5</cout>
             <sommetLie>
@@ -1640,7 +1640,7 @@
             <ligne>4</ligne>
             <colonne>4</colonne>
             <moral>0</moral>
-            <efficacite>50</efficacite>
+            <efficacite>25</efficacite>
             <temps>0</temps>
             <cout>5</cout>
             <sommetLie>
@@ -1655,7 +1655,7 @@
             <description>Participation au concept car en le designant</description>
             <ligne>5</ligne>
             <colonne>1</colonne>
-            <moral>70</moral>
+            <moral>35</moral>
             <efficacite>0</efficacite>
             <temps>0</temps>
             <cout>7</cout>
@@ -1671,8 +1671,8 @@
             <description>Diminuer le prix du café de 75%</description>
             <ligne>5</ligne>
             <colonne>2</colonne>
-            <moral>30</moral>
-            <efficacite>30</efficacite>
+            <moral>15</moral>
+            <efficacite>15</efficacite>
             <temps>0</temps>
             <cout>6</cout>
             <sommetLie>
@@ -1689,7 +1689,7 @@
             <ligne>5</ligne>
             <colonne>3</colonne>
             <moral>0</moral>
-            <efficacite>80</efficacite>
+            <efficacite>40</efficacite>
             <temps>0</temps>
             <cout>8</cout>
             <sommetLie>
@@ -1705,7 +1705,7 @@
             <ligne>5</ligne>
             <colonne>4</colonne>
             <moral>0</moral>
-            <efficacite>70</efficacite>
+            <efficacite>35</efficacite>
             <temps>0</temps>
             <cout>8</cout>
             <sommetLie>
@@ -1720,8 +1720,8 @@
             <description>Diminution du prix du café de 100%</description>
             <ligne>6</ligne>
             <colonne>1</colonne>
-            <moral>50</moral>
-            <efficacite>50</efficacite>
+            <moral>25</moral>
+            <efficacite>25</efficacite>
             <temps>0</temps>
             <cout>10</cout>
             <sommetLie>
@@ -1738,7 +1738,7 @@
             <ligne>6</ligne>
             <colonne>2</colonne>
             <moral>0</moral>
-            <efficacite>100</efficacite>
+            <efficacite>50</efficacite>
             <temps>0</temps>
             <cout>10</cout>
             <sommetLie>
