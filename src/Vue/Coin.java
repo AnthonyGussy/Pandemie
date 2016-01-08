@@ -52,6 +52,7 @@ public class Coin {
             jeu.getVue().affichageMenuJeu(0);
             jeu.getRegles().affichage(jeu, 1);
             jeu.getVue().affichagePlateau(1);
+            jeu.getVue().affichagePtsDeCompetence(1);
             jeu.getVue().affichageEvenement(1);
             jeu.getVue().affichagePopUp(1);
             jeu.afficherCompte(1);

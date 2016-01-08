@@ -27,6 +27,7 @@ public class Timeline extends Thread {
             }
 
             if (jeu.getDepartements().size() > 0 && !jeu.getMenuJeu().getAffiche()) {
+                jeu.getVue().affichagePtsDeCompetence(2);
                 jeu.setTemps(-1);
 
                 int depComplet = 0;
