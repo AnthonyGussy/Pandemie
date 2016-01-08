@@ -202,14 +202,14 @@ public class Jeu {
     public void victoire() {
         Platform.runLater(() -> {
             System.out.println("VICTOIRE");
-            //vue.getScene().setFill();
+            scene.setFill(new ImagePattern(new Image("file:image\\PandemieVictory.jpg"), 0, 0, 1, 1, true));
         });
     }
 
     public void gameOver() {
         Platform.runLater(() -> {
             System.out.println("DEFAITE");
-            //vue.getScene().setFill();
+            scene.setFill(new ImagePattern(new Image("file:image\\PandemieGameOver1.jpg"), 0, 0, 1, 1, true));
         });
     }
 }
