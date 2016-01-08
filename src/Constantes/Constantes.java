@@ -192,6 +192,10 @@ public final class Constantes {
 	public static final double POS_Y_FLECHEARBRE = 0.931;
 	public static final double POS_X_FLECHEARBRE = 0.023;
 
+	//Position du texte contenant le nb de points de compétences
+	public static double POS_X_PTC = 0.02;
+	public static double POS_Y_PTC = 0.35;
+
 	public static ArrayList<Double> adaptPolygone(ArrayList<Double> poly, Scene scene) {
 		ArrayList<Double> newPoly = new ArrayList<>();
 		boolean x = true;

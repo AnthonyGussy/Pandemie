@@ -30,6 +30,7 @@ public class Jeu {
     private Text texte;
     private Stage primaryStage;
     private boolean affiche = false;
+    private Text nbPoints;
 
     // Constructeur
     public Jeu(Stage primaryStage, Modele.Jeu modele) {
@@ -39,9 +40,11 @@ public class Jeu {
         scene = new Scene(root, Constantes.LARGEUR_FENETRE, Constantes.HAUTEUR_FENETRE);
         liste = new ImageView(new Image("file:image\\Liste.jpg"));
         texte = new Text("Départements :");
+        nbPoints = new Text("Nombre de points : : 0");
+        nbPoints.setVisible(false);
         liste.setVisible(false);
         texte.setVisible(false);
-        root.getChildren().addAll(liste, texte);
+        root.getChildren().addAll(liste, texte, nbPoints);
 
         primaryStage.setTitle("Study Project Simulator");
         primaryStage.setScene(scene);
@@ -50,7 +53,6 @@ public class Jeu {
         primaryStage.show();
         scene.widthProperty().addListener((observableValue, oldSceneWidth, newSceneWidth) -> modele.redimensionner());
         scene.heightProperty().addListener((observableValue, oldSceneHeight, newSceneHeight) -> modele.redimensionner());
-        //scene.setOnMouseClicked(mouseEvent -> System.out.println(scene.getWidth() + " " + scene.getHeight()));
     }
 
     // Méthodes
@@ -83,24 +85,19 @@ public class Jeu {
                 for(Modele.Departement departement : modele.getDepartements()) {
                     departement.getVue().affichage(modele, 0);
                 }
-                liste.setX(scene.getWidth() * Constantes.POS_X_LISTE);
-                liste.setY(scene.getHeight() * Constantes.POS_Y_LISTE);
-                liste.setFitWidth(scene.getWidth() * Constantes.LARGEUR_LISTE);
-                liste.setFitHeight(scene.getHeight() * Constantes.HAUTEUR_LISTE);
-                texte.setX(scene.getWidth() * Constantes.POS_X_TEXTE);
-                texte.setY(scene.getHeight() * Constantes.POS_Y_TEXTE);
-                texte.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE));
+                affichagePlateau(3);
                 liste.setVisible(true);
                 texte.setVisible(true);
+                nbPoints.setVisible(true);
                 modele.getCoin().affichage(modele, 0);
                 break;
             case 1:
                 affiche = false;
-                affichagePlateau(4);
                 for(Modele.Departement departement : modele.getDepartements()) {
                     departement.getVue().affichage(modele, 1);
                     departement.getArbre().getVue().affichage(modele, 1);
                 }
+                affichagePlateau(4);
                 break;
             case 2:
                 liste.setVisible(true);
@@ -121,6 +118,9 @@ public class Jeu {
                 texte.setX(scene.getWidth() * Constantes.POS_X_TEXTE);
                 texte.setY(scene.getHeight() * Constantes.POS_Y_TEXTE);
                 texte.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE));
+                nbPoints.setX(scene.getWidth() * Constantes.POS_X_PTC);
+                nbPoints.setY(scene.getHeight() * Constantes.POS_Y_PTC);
+                nbPoints.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE));
                 break;
             default:
                 liste.setVisible(false);
@@ -153,7 +153,7 @@ public class Jeu {
                 break;
             case 2:
                 Platform.runLater(() -> {
-                    for(int i = 0; i < popUps.size(); i++) {
+                    for (int i = 0; i < popUps.size(); i++) {
                         popUps.get(i).getVue().affichage(modele, 2);
                         popUps.get(i).setDuree(modele);
                     }
@@ -182,6 +182,21 @@ public class Jeu {
                     modele.getEvenements().get(0).diminuerTemps(modele);
                 }
         }
+    }
+
+    public void affichagePtsDeCompetence(int affichage) {
+
+        Platform.runLater(() -> {
+            switch (affichage) {
+                case 1:
+                    nbPoints.setVisible(false);
+                    affichagePlateau(1);
+                    break;
+                default:
+                    nbPoints.setText("Nombre de points : " + modele.getPtsCompetence());
+                    break;
+            }
+        });
     }
 
     public void victoire() {
