@@ -15,7 +15,7 @@ public class Timeline extends Thread {
     public Timeline(String nom, Modele.Jeu jeu) {
         super(nom);
         this.jeu = jeu;
-        vitesse = 1000;
+        vitesse = 100;
         this.start();
     }
     public void run() {
@@ -34,7 +34,7 @@ public class Timeline extends Thread {
                             departement.infection(jeu);
                         }
                         if (jeu.getDepartements().get(0).getTaches().get(0).getAvancement() == 0) {
-                            setEnd(true);
+                            partie = false;
                             jeu.getVue().afficherVictoire(0, 0);
                         } else {
                             departement.supprimerTache(jeu);
@@ -45,7 +45,7 @@ public class Timeline extends Thread {
                         }
                     }
                     if (depComplet == 5 || jeu.getTemps() == 0) {
-                        setEnd(true);
+                        partie = false;
                         jeu.getVue().afficherGameOver(0, 3);
                     }
                     jeu.afficherCompte(2);
