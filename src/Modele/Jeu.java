@@ -228,6 +228,7 @@ public class Jeu implements java.io.Serializable {
      */
     public void redimensionner() {
         regles.affichage(this, 2);
+        timeProjet.affichage(vue.getScene(), 2);
         vue.affichagePlateau(3);
         menuPrincipal.affichage(this, 2);
         menuJeu.affichage(this, 2);
