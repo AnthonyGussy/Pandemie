@@ -83,7 +83,7 @@ public class Jeu implements java.io.Serializable {
      */
     public void commencerPartie() {
         compteurs.add(new Compteur(0, CompteurType.Points_de_competence));
-        compteurs.add(new Compteur(400, CompteurType.Temps));
+        compteurs.add(new Compteur(1800, CompteurType.Temps));
 
         List<DepartementNom> departementNoms = new ArrayList<>(Arrays.asList(DepartementNom.Edim, DepartementNom.Energie, DepartementNom.Gmc, DepartementNom.Imsi, DepartementNom.Informatique));
         for(int i = 0; i<5; ++i) {
