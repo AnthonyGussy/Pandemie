@@ -76,6 +76,7 @@ public class ArbreDeCompetence implements java.io.Serializable {
                 for (Map.Entry<String, Competence> comp : competences.entrySet()) {
                     comp.getValue().affichage(jeu, 1);
                 }
+                modele.getDepartement().afficherTaches(jeu.getVue().getScene(),1);
                 nom.setVisible(false);
                 lignes.setVisible(false);
                 retour.setVisible(false);
