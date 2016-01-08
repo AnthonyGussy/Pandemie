@@ -47,6 +47,8 @@ public class Jeu {
         nbPoints.setVisible(false);
         liste.setVisible(false);
         texte.setVisible(false);
+
+        vitesse1 = new ImageView(new Image("file:image\\FlecheP1.jpg"));
         vitesse1.setOnMouseClicked(event -> Timeline.vitesse = 1000);
         vitesse1.setOnMouseEntered(event -> vitesse1.setTranslateX(scene.getWidth() * (Constantes.POS_X_FLECHE1_VITESSE + 0.001)));
         vitesse1.setOnMouseExited(event -> vitesse1.setTranslateX(scene.getWidth() * Constantes.POS_X_FLECHE1_VITESSE));
