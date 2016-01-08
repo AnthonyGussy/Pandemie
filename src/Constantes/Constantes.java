@@ -200,6 +200,13 @@ public final class Constantes {
 	public static final double POS_Y_FLECHEARBRE = 0.931;
 	public static final double POS_X_FLECHEARBRE = 0.023;
 
+
+	//Position fleches influençant la vitesse
+	public static final double POS_X_FLECHE1_VITESSE = 0.74;
+	public static final double POS_X_FLECHE2_VITESSE = 0.76;
+	public static final double POS_X_FLECHE3_VITESSE = 0.78;
+	public static final double POS_Y_FLECHE_VITESSE = 0.34;
+
 	//Position du texte contenant le nb de points de compétences
 	public static double POS_X_PTC = 0.02;
 	public static double POS_Y_PTC = 0.35;

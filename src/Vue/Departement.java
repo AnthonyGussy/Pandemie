@@ -2,9 +2,12 @@ package Vue;
 
 import Constantes.Constantes;
 import Modele.Tache;
+import Modele.Timeline;
+import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.*;
 import javafx.scene.shape.Polygon;
@@ -66,6 +69,7 @@ public class Departement{
         personne = new Group();
         pointInfecte = new ImagePattern(new Image("file:image\\PointInfecte.png"));
         pointNormal = new ImagePattern(new Image("file:image\\PointNormal.png"));
+
         personne.setOnMouseEntered(mouseEvent -> eventInformation(jeu));
         personne.setOnMouseExited(mouseEvent -> eventRemoveInformation(jeu));
         personne.setOnMouseClicked(mouseEvent -> eventArbreDeCompetence(jeu));
@@ -80,8 +84,8 @@ public class Departement{
         switch(afficher) {
             case 0:
                 affiche = true;
-                personne.setVisible(true);
                 affichage(jeu, 2);
+                personne.setVisible(true);
                 break;
             case 1:
                 affiche = false;

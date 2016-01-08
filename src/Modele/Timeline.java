@@ -8,16 +8,18 @@ import javafx.application.Platform;
 public class Timeline extends Thread {
     Modele.Jeu jeu;
     boolean end;
+    public static int vitesse;
 
     public Timeline(String nom, Modele.Jeu jeu) {
         super(nom);
         this.jeu = jeu;
+        vitesse = 1000;
         this.start();
     }
     public void run() {
         while(!end) {
             try {
-                Modele.Timeline.sleep(100);
+                Modele.Timeline.sleep(vitesse);
             }
             catch(java.lang.InterruptedException e) {
                 e.printStackTrace();

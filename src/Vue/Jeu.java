@@ -31,6 +31,9 @@ public class Jeu {
     private Stage primaryStage;
     private boolean affiche = false;
     private Text nbPoints;
+    private ImageView vitesse1;
+    private ImageView vitesse2;
+    private ImageView vitesse3;
 
     // Constructeur
     public Jeu(Stage primaryStage, Modele.Jeu modele) {
@@ -41,10 +44,29 @@ public class Jeu {
         liste = new ImageView(new Image("file:image\\Liste.jpg"));
         texte = new Text("Départements :");
         nbPoints = new Text("Nombre de points : : 0");
+        vitesse1 = new ImageView(new Image("file:image\\FlecheP1.jpg"));
+        vitesse1.setOnMouseClicked(event -> Timeline.vitesse = 1000);
+        vitesse1.setOnMouseEntered(event -> vitesse1.setTranslateX(scene.getWidth() * (Constantes.POS_X_FLECHE1_VITESSE + 0.001)));
+        vitesse1.setOnMouseExited(event -> vitesse1.setTranslateX(scene.getWidth() * Constantes.POS_X_FLECHE1_VITESSE));
+
+        vitesse2 = new ImageView(new Image("file:image\\Vitesse2.png"));
+        vitesse2.setOnMouseClicked(event -> Timeline.vitesse = 750);
+        vitesse2.setOnMouseEntered(event -> vitesse2.setTranslateX(scene.getWidth() * (Constantes.POS_X_FLECHE2_VITESSE + 0.001)));
+        vitesse2.setOnMouseExited(event -> vitesse2.setTranslateX(scene.getWidth() * Constantes.POS_X_FLECHE2_VITESSE));
+
+        vitesse3 = new ImageView(new Image("file:image\\Vitesse3.png"));
+        vitesse3.setOnMouseClicked(event -> Timeline.vitesse = 500);
+        vitesse3.setOnMouseEntered(event -> vitesse3.setTranslateX(scene.getWidth() * (Constantes.POS_X_FLECHE3_VITESSE + 0.001)));
+        vitesse3.setOnMouseExited(event -> vitesse3.setTranslateX(scene.getWidth() * Constantes.POS_X_FLECHE3_VITESSE));
+
+
+        vitesse1.setVisible(false);
+        vitesse2.setVisible(false);
+        vitesse3.setVisible(false);
         nbPoints.setVisible(false);
         liste.setVisible(false);
         texte.setVisible(false);
-        root.getChildren().addAll(liste, texte, nbPoints);
+        root.getChildren().addAll(liste, texte, nbPoints,vitesse1,vitesse2,vitesse3);
 
         primaryStage.setTitle("Study Project Simulator");
         primaryStage.setScene(scene);
@@ -86,6 +108,10 @@ public class Jeu {
                     departement.getVue().affichage(modele, 0);
                 }
                 affichagePlateau(3);
+
+                vitesse1.setVisible(true);
+                vitesse2.setVisible(true);
+                vitesse3.setVisible(true);
                 liste.setVisible(true);
                 texte.setVisible(true);
                 nbPoints.setVisible(true);
@@ -93,6 +119,10 @@ public class Jeu {
                 break;
             case 1:
                 affiche = false;
+
+                vitesse1.setVisible(false);
+                vitesse2.setVisible(false);
+                vitesse3.setVisible(false);
                 for(Modele.Departement departement : modele.getDepartements()) {
                     departement.getVue().affichage(modele, 1);
                     departement.getArbre().getVue().affichage(modele, 1);
@@ -121,6 +151,15 @@ public class Jeu {
                 nbPoints.setX(scene.getWidth() * Constantes.POS_X_PTC);
                 nbPoints.setY(scene.getHeight() * Constantes.POS_Y_PTC);
                 nbPoints.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE));
+
+                vitesse1.setTranslateX(scene.getWidth() * Constantes.POS_X_FLECHE1_VITESSE);
+                vitesse1.setTranslateY(scene.getHeight() * Constantes.POS_Y_FLECHE_VITESSE);
+
+                vitesse2.setTranslateX(scene.getWidth() * Constantes.POS_X_FLECHE2_VITESSE);
+                vitesse2.setTranslateY(scene.getHeight() * Constantes.POS_Y_FLECHE_VITESSE);
+
+                vitesse3.setTranslateX(scene.getWidth() * Constantes.POS_X_FLECHE3_VITESSE);
+                vitesse3.setTranslateY(scene.getHeight() * Constantes.POS_Y_FLECHE_VITESSE);
                 break;
             default:
                 liste.setVisible(false);
