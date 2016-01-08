@@ -28,23 +28,26 @@ public class Timeline extends Thread {
 
             if (jeu.getDepartements().size() > 0) {
                 jeu.setTemps(-1);
-                if(jeu.getDepartements().get(0).getTaches().get(0).getAvancement() == 0) {
-                    //jeu.victoire();
-                }
+
                 int depComplet = 0;
                 for(Modele.Departement departement : jeu.getDepartements()) {
                     if(departement.getNbActif() == departement.getNbPersonne()) depComplet++;
                     if(departement.getTaches().size() > 0) {
                         departement.infection(jeu);
                     }
-                    departement.supprimerTache(jeu);
+                    if(jeu.getDepartements().get(0).getTaches().get(0).getAvancement() == 0) {
+                        jeu.victoire();
+                    }
+                    else {
+                        departement.supprimerTache(jeu);
+                    }
                     departement.affichage(jeu);
                     for(Modele.Tache tache : departement.getTaches()) {
                         tache.setAvancement(-1);
                     }
                 }
                 if(depComplet == 5 || jeu.getTemps() == 0) {
-                    //jeu.gameOver();
+                    jeu.gameOver();
                 }
                 jeu.afficherCompte(2);
                 if(jeu.getPopUps().size() != 0){

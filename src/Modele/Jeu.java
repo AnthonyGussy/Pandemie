@@ -111,13 +111,17 @@ public class Jeu implements java.io.Serializable {
     }
 
     public void victoire() {
-        vue.getRoot().getChildren().clear();
-        //vue.getScene().setFill();
+        Platform.runLater(() -> {
+            //vue.getRoot().getChildren().clear();
+            //vue.getScene().setFill();
+        });
     }
 
     public void gameOver() {
-        vue.getRoot().getChildren().clear();
-        //vue.getScene().setFill();
+        Platform.runLater(() -> {
+            //vue.getRoot().getChildren().clear();
+            //vue.getScene().setFill();
+        });
     }
 
     public void afficherCompte(int affichage){
