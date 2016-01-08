@@ -2,12 +2,12 @@ package Modele;
 
 public class EvenementAccomplissement extends Evenement implements java.io.Serializable {
 	
-	private int point; // Calculé en fonction de la tâche
+	private int point; // Calculï¿½ en fonction de la tï¿½che
 
 
     public EvenementAccomplissement(Modele.Departement departement, Modele.Tache tache, Modele.Jeu jeu){
 
-        super("Tâche terminée !","Une tâche a été terminée dans le département : "+departement.getNom(),jeu);
+        super("TÃ¢che terminÃ©e !","Une tÃ¢che a Ã©tÃ© terminÃ©e dans le dÃ©partement : "+departement.getNom(),jeu);
         point = (int)(Math.random()*(tache.getTempsInitial()/10))+1;
         appliquerEffet(jeu,tache);
         event = new Vue.Evenement(this,jeu);
