@@ -267,10 +267,13 @@ public class Jeu {
         Platform.runLater(() -> {
             switch(afficher) {
                 case 0:
+                    affichagePlateau(1);
                     victoire.setVisible(true);
                     break;
                 case 2:
                     victoire.setImage(finImagesStock[index]);
+                    victoire.setFitWidth(scene.getWidth());
+                    victoire.setFitHeight(scene.getHeight());
                     break;
             }
         });
@@ -280,10 +283,13 @@ public class Jeu {
         Platform.runLater(() -> {
             switch(afficher) {
                 case 0:
+                    affichagePlateau(1);
                     defaite.setVisible(true);
                     break;
                 case 2:
                     defaite.setImage(finImagesStock[index]);
+                    defaite.setFitWidth(scene.getWidth());
+                    defaite.setFitHeight(scene.getHeight());
                     break;
             }
         });
