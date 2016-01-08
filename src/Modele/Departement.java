@@ -108,14 +108,16 @@ public class Departement implements java.io.Serializable {
     }
 
     void supprimerTache(Modele.Jeu jeu) {
-        for(int i = 0; i < taches.size(); i++) {
-            if(taches.get(i).getTermine()){
-                compteurs.get(3).modifCompte(taches.get(i).getInfectes());
-                compteurs.get(2).modifCompte(-taches.get(i).getInfectes());
-                jeu.ajoutEvenement(this, taches.get(i));
-                taches.remove(taches.get(i));
+        Platform.runLater(() -> {
+            for (int i = 0; i < taches.size(); i++) {
+                if (taches.get(i).getTermine()) {
+                    compteurs.get(3).modifCompte(taches.get(i).getInfectes());
+                    compteurs.get(2).modifCompte(-taches.get(i).getInfectes());
+                    jeu.ajoutEvenement(this, taches.get(i));
+                    taches.remove(taches.get(i));
+                }
             }
-        }
+        });
     }
 
     public void afficherTaches(Scene scene, int afficher) {

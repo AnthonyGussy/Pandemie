@@ -9,7 +9,7 @@ public class EvenementAccomplissement extends Evenement implements java.io.Seria
 
         super("Tâche terminée !","Une tâche a été terminée dans le département : "+departement.getNom(),jeu);
         point = (int)(Math.random()*(tache.getTempsInitial()/10))+1;
-        appliquerEffet(jeu,tache);
+        appliquerEffet(jeu);
 
     }
 
