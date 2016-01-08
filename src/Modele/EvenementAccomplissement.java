@@ -2,7 +2,7 @@ package Modele;
 
 public class EvenementAccomplissement extends Evenement implements java.io.Serializable {
 	
-	private int point; // Calcul� en fonction de la t�che
+	private int point; // Calculé en fonction de la tâche
 
 
     public EvenementAccomplissement(Modele.Departement departement, Modele.Tache tache, Modele.Jeu jeu){
