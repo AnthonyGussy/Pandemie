@@ -54,6 +54,7 @@ public class Coin {
             jeu.getVue().affichagePlateau(1);
             jeu.getVue().affichageEvenement(1);
             jeu.getVue().affichagePopUp(1);
+            jeu.afficherCompte(1);
         });
         polyAffichage = new Polygon();
         polyAffichage.getPoints().addAll(Constantes.adaptPolygone(Constantes.POLYGONE_COIN_AFFICHAGE, scene));

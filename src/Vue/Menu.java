@@ -72,6 +72,7 @@ public class Menu {
         Scene scene = jeu.getVue().getScene();
         switch(afficher){
             case 0:
+                affiche = true;
                 scene.setFill(new ImagePattern(new Image("file:image\\PandemieAccueil.jpg"), 0, 0, 1, 1, true));
                 int i = 1;
                 boutonsGroup.getChildren().clear();
@@ -94,6 +95,7 @@ public class Menu {
                 boutonsGroup.setVisible(true);
                 break;
             case 1:
+                affiche = false;
                 boutonsGroup.setVisible(false);
             default:
                 int j = 1;
@@ -107,4 +109,6 @@ public class Menu {
                 break;
         }
     }
+
+    public boolean getAffiche() { return affiche; }
 }

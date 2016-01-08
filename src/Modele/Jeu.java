@@ -142,6 +142,7 @@ public class Jeu implements java.io.Serializable {
      */
     public void retourJeu() {
         vue.affichagePlateau(0);
+        afficherCompte(0);
         vue.affichagePopUp(0);
         if(evenements.size() > 0) evenements.get(evenements.size() - 1).getVue().affichage(this, 0);
     }

@@ -26,7 +26,7 @@ public class Timeline extends Thread {
                 e.printStackTrace();
             }
 
-            if (jeu.getDepartements().size() > 0) {
+            if (jeu.getDepartements().size() > 0 && !jeu.getMenuJeu().getAffiche()) {
                 jeu.setTemps(-1);
 
                 int depComplet = 0;
