@@ -13,7 +13,7 @@ public class Evenement implements java.io.Serializable {
     private Text nom;
     private Text description;
     private Text departement;
-    private ImageView journal;
+    transient private ImageView journal;
 
     public Evenement(Modele.Evenement event, Modele.Jeu jeu) {
         journal = new ImageView(new Image("file:image\\PandemieJournal.jpg"));

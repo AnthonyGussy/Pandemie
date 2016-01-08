@@ -20,22 +20,22 @@ import java.util.ArrayList;
  * Cette classe sert à instancier l'affichagePlateau du jeu
  */
 
-public class Jeu {
+public class Jeu implements java.io.Serializable{
 
     // Champs
     private Modele.Jeu modele;
     private static Group root;
     private static Scene scene;
-    private ImageView liste;
+    transient private ImageView liste;
     private Text texte;
     private Stage primaryStage;
     private boolean affiche = false;
     private Text nbPoints;
-    private ImageView vitesse1;
-    private ImageView vitesse2;
-    private ImageView vitesse3;
-    private ImageView victoire;
-    private ImageView defaite;
+    transient private ImageView vitesse1;
+    transient private ImageView vitesse2;
+    transient private ImageView vitesse3;
+    transient private ImageView victoire;
+    transient private ImageView defaite;
     private Image[] finImagesStock;
 
     // Constructeur

@@ -28,7 +28,7 @@ import java.util.List;
 public class Jeu implements java.io.Serializable {
 
     //Champs
-    private Vue.Jeu vue;
+    transient private Vue.Jeu vue;
     private Menu menuPrincipal;
     private Menu menuJeu;
     private Regles regles;
@@ -162,7 +162,13 @@ public class Jeu implements java.io.Serializable {
      * Cette méthode va sauvegarder le jeu en sérialisant les différents composants du jeu
      */
     public void sauvegarder() {
-        //departements.add(new Departement(DepartementNom.Edim));
+        //serialiser(vue ,"vue");
+        serialiser(timeProjet, "timeProjet");
+        //serialiser(avancementProjet, "avancementProjet");
+        serialiser(compteurs, "compteurs");
+        serialiser(evenements, "evenements");
+        serialiser(popUps, "popUps");
+        serialiser(eventStockage, "eventStockage");
         serialiser(departements, "departements");
     }
 
@@ -171,7 +177,14 @@ public class Jeu implements java.io.Serializable {
      */
     public void charger() {
         departements = deserialiser("departements");
-        System.out.println(departements.get(0).getNom());
+        //vue = deserialiser("vue");
+        timeProjet = deserialiser("timeProjet");
+        //avancementProjet = deserialiser("avancementProjet");
+        compteurs = deserialiser("compteurs");
+        evenements = deserialiser("evenements");
+        popUps = deserialiser("popUps");
+        eventStockage = deserialiser("eventStockage");
+        departements = deserialiser("departements");
     }
 
     /**

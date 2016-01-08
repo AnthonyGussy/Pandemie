@@ -13,7 +13,7 @@ public class Competence implements java.io.Serializable {
     protected boolean debloque;
     protected boolean achete;
     protected String sommetLie;   //la liste des sommets lie de forme ligne,colonne separer par des points virgules
-    protected ArbreDeCompetence arbreDeCompetence;
+    transient protected ArbreDeCompetence arbreDeCompetence;
 
     Competence(String _nom, String _description, int _ligne, int _colonne, int[] _effet, int _cout, String _sommetLie, int _nbColonnes, int _nbLignes, ArbreDeCompetence arbre){
         arbreDeCompetence = arbre;

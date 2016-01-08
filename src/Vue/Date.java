@@ -8,7 +8,7 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class Date extends Compteur implements java.io.Serializable {
-    Text text;
+    transient Text text;
 
     public Date(int c, CompteurType t, Vue.Jeu jeu){
         super(c, t);

@@ -9,7 +9,7 @@ import javafx.scene.shape.Polygon;
 /**
  *
  */
-public class Regles {
+public class Regles implements java.io.Serializable{
     private Polygon fleche;
     private Polygon flecheOmbre;
     private double[] posFleche;

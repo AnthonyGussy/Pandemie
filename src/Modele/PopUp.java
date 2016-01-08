@@ -6,7 +6,7 @@ public class PopUp implements java.io.Serializable {
 
     private int duree;
     private int point;
-    private Vue.PopUp event;
+    transient private Vue.PopUp event;
     private Modele.Departement departement;
 
     public PopUp(Modele.Departement depart, Modele.Jeu jeu){

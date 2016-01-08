@@ -13,7 +13,7 @@ import Constantes.Constantes;
 /**
  * Cette classe sert à instancier un menu avec différents boutons
  */
-public class Menu {
+public class Menu implements java.io.Serializable{
 
     //Champs
     private boolean affiche = false;

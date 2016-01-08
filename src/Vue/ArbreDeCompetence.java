@@ -22,7 +22,7 @@ public class ArbreDeCompetence implements java.io.Serializable {
     private Text nom;
     private boolean affiche = false;
     private String aCliquer;
-    private ImageView retour;
+    transient private ImageView retour;
     private Group lignes;
     protected Text noPoint;
 

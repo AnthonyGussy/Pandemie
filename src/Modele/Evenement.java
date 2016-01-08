@@ -4,7 +4,7 @@ import javafx.application.Platform;
 
 public abstract class Evenement implements java.io.Serializable {
 
-    protected Vue.Evenement event;
+    transient protected Vue.Evenement event;
 
     protected String nom;
     protected String description;

@@ -19,7 +19,7 @@ import java.util.ArrayList;
 /**
  *
  */
-public class Departement{
+public class Departement implements java.io.Serializable{
     private Text information;
     private Text nomR;
     private Polygon departementPoly;

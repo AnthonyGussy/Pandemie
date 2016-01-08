@@ -6,7 +6,7 @@ import javafx.scene.text.Text;
 public class Compteur implements java.io.Serializable {
     int compte;
     int valeurMax;
-    Text text;
+    transient Text text;
     CompteurType type;
     public Compteur(int c, CompteurType t){
         compte = c;

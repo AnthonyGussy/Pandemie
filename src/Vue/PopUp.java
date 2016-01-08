@@ -12,7 +12,7 @@ import javafx.scene.shape.Circle;
 /**
  *
  */
-public class PopUp {
+public class PopUp implements java.io.Serializable{
 
     private double posX;
     private double posY;

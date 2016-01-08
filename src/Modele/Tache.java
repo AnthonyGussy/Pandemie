@@ -31,7 +31,7 @@ public class Tache implements java.io.Serializable {
 	private int tempsInitial;
 	private Modele.EvenementAccomplissement event;
 	private Modele.Departement departement;
-	private Vue.Tache vue;
+	transient private Vue.Tache vue;
 	private boolean termine;
 
 	// Méthodes

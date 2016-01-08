@@ -27,7 +27,7 @@ public class Departement implements java.io.Serializable {
     private List<Modele.Tache> taches;
     private List<Modele.Tache> tachesStockage;
     private Modele.ArbreDeCompetence arbre;
-    private Vue.Departement vue;
+    transient private Vue.Departement vue;
 
     public Departement(DepartementNom depNom, boolean depart, Modele.Jeu jeu){
         this.nom = depNom;

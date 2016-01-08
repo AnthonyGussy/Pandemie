@@ -15,10 +15,10 @@ import java.util.ArrayList;
 /**
  *
  */
-public class Coin {
+public class Coin implements java.io.Serializable {
     private Image[] coinImagesStock;
     private Image[] coinImages;
-    private ImageView coin;
+    transient private ImageView coin;
     private boolean affiche;
     private Polygon polyMenu;
     private Polygon polyAffichage;
