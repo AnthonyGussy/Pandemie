@@ -31,10 +31,12 @@ public class Barre extends Compteur {
                 affichage(scene, 2);
                 barre.setVisible(true);
                 progression.setVisible(true);
+                texte.setVisible(true);
                 break;
             case 1:
                 barre.setVisible(false);
                 progression.setVisible(false);
+                texte.setVisible(false);
                 break;
             default:
                 barre.setX(scene.getWidth() * Constantes.POS_X_PROGRESSION);

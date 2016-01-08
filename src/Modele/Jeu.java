@@ -95,7 +95,6 @@ public class Jeu implements java.io.Serializable {
             departementNoms.remove(alea);
         }
         avancementProjet = new Barre(departements.get(0).getTaches().get(0).getAvancement(), departements.get(0).getTaches().get(0).getTempsInitial(), CompteurType.Temps, this);
-        afficherAvancement(0);
         setListeEvenementStockage();
 
         for(Modele.Departement dep : departements) {
