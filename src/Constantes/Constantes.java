@@ -59,7 +59,7 @@ public final class Constantes {
 	public static final double LARGEUR_POST_IT = 0.15;
 	public static final double POS_X_TACHE_NOM = 0.84;
 	public static final double POS_Y_TACHE_NOM = 0.78;
-	public static final double TAILLE_POLICE_TACHE = 0.028;
+	public static final double TAILLE_POLICE_TACHE = 0.014;
 
 	// Affichage menu
 	public static final double POS_X_BOUTON = 0.17;
@@ -124,7 +124,8 @@ public final class Constantes {
 	public static final double RAYON = 0.020;
 
 	// Affichage événement article
-	public static final double TAILLE_POLICE_EVENEMENT = 0.024;
+	public static final double TAILLE_POLICE_EVENEMENT_TITRE = 0.018;
+	public static final double TAILLE_POLICE_EVENEMENT = 0.014;
 	public static final double POS_X_JOURNAL = 0.256;
 	public static final double LARGEUR_ARTICLE = 0.49;
 	public static final double HAUTEUR_ARTICLE = 0.276;
