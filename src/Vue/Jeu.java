@@ -34,6 +34,9 @@ public class Jeu {
     private ImageView vitesse1;
     private ImageView vitesse2;
     private ImageView vitesse3;
+    private ImageView victoire;
+    private ImageView defaite;
+    private Image[] finImagesStock;
 
     // Constructeur
     public Jeu(Stage primaryStage, Modele.Jeu modele) {
@@ -47,6 +50,17 @@ public class Jeu {
         nbPoints.setVisible(false);
         liste.setVisible(false);
         texte.setVisible(false);
+
+
+        finImagesStock = new Image[]{ new Image("file:image\\PandemieVictory1.jpg"),
+                new Image("file:image\\PandemieVictory2.jpg"),
+                new Image("file:image\\PandemieVictory3.jpg"),
+                new Image("file:image\\PandemieGameOver1.jpg"),
+                new Image("file:image\\PandemieGameOver2.jpg")};
+        victoire = new ImageView();
+        defaite = new ImageView();
+        victoire.setVisible(false);
+        defaite.setVisible(false);
 
         vitesse1 = new ImageView(new Image("file:image\\FlecheP1.jpg"));
         vitesse1.setOnMouseClicked(event -> Timeline.vitesse = 1000);
@@ -68,7 +82,7 @@ public class Jeu {
         vitesse2.setVisible(false);
         vitesse3.setVisible(false);
         nbPoints.setVisible(false);
-        root.getChildren().addAll(liste, texte, nbPoints, vitesse1,vitesse2,vitesse3);
+        root.getChildren().addAll(liste, texte, nbPoints, vitesse1, vitesse2, vitesse3, victoire, defaite);
 
         primaryStage.setTitle("Study Project Simulator");
         primaryStage.setScene(scene);
@@ -249,17 +263,29 @@ public class Jeu {
         });
     }
 
-    public void victoire() {
+    public void afficherVictoire(int afficher, int index) {
         Platform.runLater(() -> {
-            System.out.println("VICTOIRE");
-            scene.setFill(new ImagePattern(new Image("file:image\\PandemieVictory.jpg"), 0, 0, 1, 1, true));
+            switch(afficher) {
+                case 0:
+                    victoire.setVisible(true);
+                    break;
+                case 2:
+                    victoire.setImage(finImagesStock[index]);
+                    break;
+            }
         });
     }
 
-    public void gameOver() {
+    public void afficherGameOver(int afficher, int index) {
         Platform.runLater(() -> {
-            System.out.println("DEFAITE");
-            scene.setFill(new ImagePattern(new Image("file:image\\PandemieGameOver1.jpg"), 0, 0, 1, 1, true));
+            switch(afficher) {
+                case 0:
+                    defaite.setVisible(true);
+                    break;
+                case 2:
+                    defaite.setImage(finImagesStock[index]);
+                    break;
+            }
         });
     }
 }

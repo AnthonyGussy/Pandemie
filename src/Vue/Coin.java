@@ -27,12 +27,12 @@ public class Coin {
         Scene scene = jeu.getVue().getScene();
         Group root = jeu.getVue().getRoot();
         Stage primarystage = jeu.getVue().getPrimaryStage();
-        coinImagesStock = new Image[]{ new Image("file:image\\FullScreen\\PandemieNoSelection.jpg"),
-                new Image("file:image\\FullScreen\\PandemieMenuSelection.jpg"),
-                new Image("file:image\\FullScreen\\PandemieAffichageSelection.jpg"),
-                new Image("file:image\\Fenetre\\PandemieNoSelection.jpg"),
-                new Image("file:image\\Fenetre\\PandemieMenuSelection.jpg"),
-                new Image("file:image\\Fenetre\\PandemieAffichageSelection.jpg") };
+        coinImagesStock = new Image[]{ new Image("file:image\\FullScreen\\PandemieNoSelection.png"),
+                new Image("file:image\\FullScreen\\PandemieMenuSelection.png"),
+                new Image("file:image\\FullScreen\\PandemieAffichageSelection.png"),
+                new Image("file:image\\Fenetre\\PandemieNoSelection.png"),
+                new Image("file:image\\Fenetre\\PandemieMenuSelection.png"),
+                new Image("file:image\\Fenetre\\PandemieAffichageSelection.png")};
         coinImages = new Image[]{coinImagesStock[3], coinImagesStock[4], coinImagesStock[5]};
         coin = new ImageView(coinImages[0]);
         coin.setX(0);
