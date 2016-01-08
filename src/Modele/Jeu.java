@@ -280,7 +280,7 @@ public class Jeu implements java.io.Serializable {
             Element racine = doc.getDocumentElement();
             NodeList racineNoeuds = racine.getChildNodes();
             EvenementArticle a;
-            int effets[] = {0,0,0};
+
 
             for (int i = 0; i < racineNoeuds.getLength(); i++) {
                 if(racineNoeuds.item(i).getNodeType() == Node.ELEMENT_NODE) {
@@ -293,12 +293,13 @@ public class Jeu implements java.io.Serializable {
 
                             String nom = elementEven.getElementsByTagName("nom").item(0).getTextContent();
                             String description = elementEven.getElementsByTagName("description").item(0).getTextContent();
+                            int effets[] = new int[3];
                             effets[0] = Integer.parseInt(elementEven.getElementsByTagName("moral").item(0).getTextContent());
                             effets[1] = Integer.parseInt(elementEven.getElementsByTagName("efficacite").item(0).getTextContent());
                             effets[2] = Integer.parseInt(elementEven.getElementsByTagName("temps").item(0).getTextContent());
 
-                            a = new EvenementArticle(nom, description, effets, this);
-                            eventStockage.add(a);
+
+                            eventStockage.add(new EvenementArticle(nom, description, effets, this));
                         }
                     }
                 }

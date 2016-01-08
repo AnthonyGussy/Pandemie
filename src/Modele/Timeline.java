@@ -17,7 +17,7 @@ public class Timeline extends Thread {
     public void run() {
         while(!end) {
             try {
-                Modele.Timeline.sleep(1000);
+                Modele.Timeline.sleep(500);
             }
             catch(java.lang.InterruptedException e) {
                 e.printStackTrace();
