@@ -111,6 +111,7 @@ public class Jeu {
                 }
                 affichagePlateau(3);
                 modele.afficherAvancement(0);
+                modele.afficherAvancement(0);
                 vitesse1.setVisible(true);
                 vitesse2.setVisible(true);
                 vitesse3.setVisible(true);
@@ -125,12 +126,14 @@ public class Jeu {
                     departement.getVue().affichage(modele, 1);
                     departement.getArbre().getVue().affichage(modele, 1);
                 }
+                modele.afficherAvancement(1);
                 vitesse1.setVisible(false);
                 vitesse2.setVisible(false);
                 vitesse3.setVisible(false);
                 affichagePlateau(4);
                 break;
             case 2:
+                modele.afficherAvancement(2);
                 liste.setVisible(true);
                 texte.setVisible(true);
                 break;
@@ -149,14 +152,22 @@ public class Jeu {
                 texte.setX(scene.getWidth() * Constantes.POS_X_TEXTE);
                 texte.setY(scene.getHeight() * Constantes.POS_Y_TEXTE);
                 texte.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE));
+
                 vitesse1.setTranslateX(scene.getWidth() * Constantes.POS_X_FLECHE1_VITESSE);
                 vitesse1.setTranslateY(scene.getHeight() * Constantes.POS_Y_FLECHE_VITESSE);
+                vitesse1.setFitWidth(scene.getWidth() * Constantes.WIDTH_FLECHE1_VITESSE);
+                vitesse1.setFitHeight(scene.getHeight() * Constantes.HEIGHT_FLECHE_VITESSE);
 
                 vitesse2.setTranslateX(scene.getWidth() * Constantes.POS_X_FLECHE2_VITESSE);
                 vitesse2.setTranslateY(scene.getHeight() * Constantes.POS_Y_FLECHE_VITESSE);
+                vitesse2.setFitWidth(scene.getWidth() * Constantes.WIDTH_FLECHE2_VITESSE);
+                vitesse2.setFitHeight(scene.getHeight() * Constantes.HEIGHT_FLECHE_VITESSE);
 
                 vitesse3.setTranslateX(scene.getWidth() * Constantes.POS_X_FLECHE3_VITESSE);
                 vitesse3.setTranslateY(scene.getHeight() * Constantes.POS_Y_FLECHE_VITESSE);
+                vitesse3.setFitWidth(scene.getWidth() * Constantes.WIDTH_FLECHE3_VITESSE);
+                vitesse3.setFitHeight(scene.getHeight() * Constantes.HEIGHT_FLECHE_VITESSE);
+
                 nbPoints.setX(scene.getWidth() * Constantes.POS_X_PTC);
                 nbPoints.setY(scene.getHeight() * Constantes.POS_Y_PTC);
                 nbPoints.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE));

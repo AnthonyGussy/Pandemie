@@ -206,6 +206,10 @@ public final class Constantes {
 	public static final double POS_X_FLECHE2_VITESSE = 0.76;
 	public static final double POS_X_FLECHE3_VITESSE = 0.78;
 	public static final double POS_Y_FLECHE_VITESSE = 0.34;
+	public static final double WIDTH_FLECHE1_VITESSE = 0.013;
+	public static final double WIDTH_FLECHE2_VITESSE = 0.018;
+	public static final double WIDTH_FLECHE3_VITESSE = 0.023;
+	public static final double HEIGHT_FLECHE_VITESSE = 0.02;
 
 	//Position du texte contenant le nb de points de compétences
 	public static double POS_X_PTC = 0.02;
