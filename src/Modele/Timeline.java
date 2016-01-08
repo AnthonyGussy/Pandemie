@@ -36,7 +36,8 @@ public class Timeline extends Thread {
                         departement.infection(jeu);
                     }
                     if(jeu.getDepartements().get(0).getTaches().get(0).getAvancement() == 0) {
-                        jeu.victoire();
+                        setEnd(true);
+                        jeu.getVue().victoire();
                     }
                     else {
                         departement.supprimerTache(jeu);
@@ -47,7 +48,8 @@ public class Timeline extends Thread {
                     }
                 }
                 if(depComplet == 5 || jeu.getTemps() == 0) {
-                    jeu.gameOver();
+                    setEnd(true);
+                    jeu.getVue().gameOver();
                 }
                 jeu.afficherCompte(2);
                 if(jeu.getPopUps().size() != 0){
@@ -58,7 +60,7 @@ public class Timeline extends Thread {
                 }
                 if(jeu.getEvenements().size() == 0) {
                     if(jeu.getEvenements().size() == 0 && (int)(Math.random() * 15) == 0) {
-                        if((int)(Math.random() * 3) == 0) {
+                        if((int)(Math.random() * 2) == 0) {
                             int depAlea = (int) (Math.random() * jeu.getDepartements().size());
                             Modele.Departement departement = jeu.getDepartements().get(depAlea);
                             if(departement.getTaches().size() < 4) {

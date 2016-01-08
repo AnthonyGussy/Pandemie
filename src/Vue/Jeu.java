@@ -183,4 +183,18 @@ public class Jeu {
                 }
         }
     }
+
+    public void victoire() {
+        Platform.runLater(() -> {
+            System.out.println("VICTOIRE");
+            //vue.getScene().setFill();
+        });
+    }
+
+    public void gameOver() {
+        Platform.runLater(() -> {
+            System.out.println("DEFAITE");
+            //vue.getScene().setFill();
+        });
+    }
 }

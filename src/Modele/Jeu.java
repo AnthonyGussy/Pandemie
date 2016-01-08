@@ -110,20 +110,6 @@ public class Jeu implements java.io.Serializable {
         afficherCompte(0);
     }
 
-    public void victoire() {
-        Platform.runLater(() -> {
-            //vue.getRoot().getChildren().clear();
-            //vue.getScene().setFill();
-        });
-    }
-
-    public void gameOver() {
-        Platform.runLater(() -> {
-            //vue.getRoot().getChildren().clear();
-            //vue.getScene().setFill();
-        });
-    }
-
     public void afficherCompte(int affichage){
         Platform.runLater(() -> {
             timeProjet.setCompte(this.getTemps());
