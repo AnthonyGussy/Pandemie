@@ -20,7 +20,7 @@ public class Timeline extends Thread {
     }
     public void run() {
         while(!end) {
-            while(partie) {
+            while(partie && !end) {
                 pause();
                 if (jeu.getDepartements().size() == 5 && !jeu.getMenuJeu().getAffiche()) {
                     jeu.afficherAvancement(2);
@@ -79,7 +79,7 @@ public class Timeline extends Thread {
             }
             int i = 0;
             int j = 0;
-            while(ecranFin) {
+            while(ecranFin && !end) {
                 pause();
                 jeu.getVue().afficherVictoire(2, i);
                 jeu.getVue().afficherGameOver(2, 3 + j);
