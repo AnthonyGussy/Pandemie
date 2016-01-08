@@ -8,26 +8,29 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Line;
-import javafx.scene.shape.Polygon;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ArbreDeCompetence implements java.io.Serializable {
+/**
+ * Partie Vue de la classe ArbreDeCompetence
+ * Affiche un arbre de compétence
+ */
+public class ArbreDeCompetence {
+
+    // Champs
     private Modele.ArbreDeCompetence modele;
     private HashMap<String, Competence> competences;
     private Text nom;
-    private boolean affiche = false;
     private String aCliquer;
     transient private ImageView retour;
     private Group lignes;
     protected Text noPoint;
 
+    // Constructeur
     public ArbreDeCompetence(Modele.ArbreDeCompetence modele, Modele.Jeu jeu){
-
         noPoint = new Text("Vous n'avez pas assez de points");
         noPoint.setFill(Color.ORANGERED);
         retour = new ImageView(new Image("file:image\\RetourActif.jpg"));
@@ -48,7 +51,6 @@ public class ArbreDeCompetence implements java.io.Serializable {
         lignes.setVisible(false);
         retour.setVisible(false);
         noPoint.setVisible(false);
-
         jeu.getVue().getRoot().getChildren().addAll(nom, lignes, retour, noPoint);
         HashMap<String, ArrayList<Modele.Competence>> temporaire = modele.getComp();
         for (Map.Entry<String, ArrayList<Modele.Competence>> competence : temporaire.entrySet()) {
@@ -56,7 +58,19 @@ public class ArbreDeCompetence implements java.io.Serializable {
         }
     }
 
+    // Getters et setters
+    public String getACliquer() { return aCliquer; }
+    public void setACliquer(String aCliquer) { this.aCliquer = aCliquer; }
+    public void setNoPoint(boolean visible) {
+        noPoint.setVisible(visible);
+    }
 
+    // Méthodes
+    /**
+     * Affiche l'arbre de compétence
+     * @param jeu L'instance de jeu
+     * @param afficher La valeur de switch (0 pour afficher, 1 pour enlever, 2 pour mettre à jour)
+     */
     void affichage(Modele.Jeu jeu, int afficher) {
         Scene scene = jeu.getVue().getScene();
         switch(afficher) {
@@ -87,11 +101,13 @@ public class ArbreDeCompetence implements java.io.Serializable {
                     comp.getValue().affichage(jeu, 2);
                 }
         }
-
     }
 
+    /**
+     * Redimensionne l'arbre de compétence
+     * @param scene L'instance de la scene
+     */
     void dimensionnement(Scene scene){
-
         nom.setX(scene.getWidth() * Constantes.POS_X_NOM_DEPARTEMENT_ARBRE);
         nom.setY(scene.getHeight() * Constantes.POS_Y_NOM_DEPARTEMENT_ARBRE);
         nom.setFont(Font.loadFont("file:Font.ttf", scene.getWidth() * Constantes.TAILLE_POLICE_TITRE));
@@ -99,13 +115,12 @@ public class ArbreDeCompetence implements java.io.Serializable {
         retour.setTranslateY(scene.getHeight() * Constantes.POS_Y_FLECHEARBRE);
         retour.setFitWidth(scene.getWidth() * Constantes.LARGEUR_RETOUR);
         retour.setFitHeight(scene.getHeight() * Constantes.HAUTEUR_RETOUR);
-
         HashMap<String, ArrayList<Modele.Competence>> temporaire = modele.getComp();
         lignes.getChildren().clear();
+
         for (Map.Entry<String, ArrayList<Modele.Competence>> competence : temporaire.entrySet()) {
             if(competence.getValue().size() > 1) {
                 for (int i = 1; i < competence.getValue().size(); ++i){
-
                     double coefx1 = (double) 1 / competence.getValue().get(0).getNbLignes() * (competence.getValue().get(0).getLigne() - 1);
                     double coefy1 = (double) 1 / competence.getValue().get(0).getNbColonnes() * (competence.getValue().get(0).getColonne() - 1);
                     double coefx2 = (double) 1 / competence.getValue().get(i).getNbLignes() * (competence.getValue().get(i).getLigne() - 1);
@@ -119,34 +134,30 @@ public class ArbreDeCompetence implements java.io.Serializable {
                 }
             }
         }
-
     }
 
+    /**
+     * Change l'affichage d'une compétence de bloquée à débloquée
+     * @param ligne Ligne de la vérification
+     */
     void changementAffichage(int ligne){
-
         if(modele.getComp().get(ligne+1+","+1) != null) {
             for (int i = 1; i <= modele.getComp().get(ligne + 1 + "," + 1).get(0).getNbColonnes(); ++i) {
-
                 if (competences.get((ligne + 1) + "," + (i)) != null) {
                     if (competences.get((ligne + 1) + "," + (i)).modele.getDebloque() && !competences.get((ligne + 1) + "," + (i)).modele.getAchete())
                         competences.get((ligne + 1) + "," + (i)).compet.setFill(new ImagePattern(new Image("file:image\\CompetenceDebloque.png"), 0, 0, 1, 1, true));
                 }
-
             }
         }
 
     }
 
-
-
-    public String getACliquer() { return aCliquer; }
-    public void setACliquer(String aCliquer) { this.aCliquer = aCliquer; }
-
-    public void setNoPoint(boolean visible) {
-        noPoint.setVisible(visible);
-    }
-
-    public void erreurAchat(Modele.Jeu jeu,String nom) {
+    /**
+     * Affiche une erreur (pas assez de points de compétence ou compétence bloquée)
+     * @param jeu L'instance de jeu
+     * @param nom Le nom de l'erreur
+     */
+    public void erreurAchat(Modele.Jeu jeu, String nom) {
         noPoint.setText(nom);
         noPoint.setFont(Font.loadFont("file:Font.ttf", jeu.getVue().getScene().getHeight() * Constantes.TAILLE_POLICE));
         noPoint.setX((jeu.getVue().getScene().getWidth() * 83.5) / 100);

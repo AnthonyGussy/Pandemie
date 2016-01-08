@@ -1,7 +1,6 @@
 package Vue;
 
 import Constantes.Constantes;
-import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
@@ -10,19 +9,19 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
-
 /**
- *
+ * Classe qui sert à instancier l'accès au menu et le changement de mode de fenêtrage pendant le jeu
  */
-public class Coin implements java.io.Serializable {
+public class Coin {
+
+    // Champs
     private Image[] coinImagesStock;
     private Image[] coinImages;
     transient private ImageView coin;
-    private boolean affiche;
     private Polygon polyMenu;
     private Polygon polyAffichage;
 
+    // Constructeur
     public Coin(Modele.Jeu jeu) {
         Scene scene = jeu.getVue().getScene();
         Group root = jeu.getVue().getRoot();
@@ -78,6 +77,11 @@ public class Coin implements java.io.Serializable {
         root.getChildren().addAll(coin, polyAffichage, polyMenu);
     }
 
+    /**
+     * Affiche le menu coin
+     * @param jeu L'instance de jeu
+     * @param afficher La valeur de switch (0 pour afficher, 1 pour enlever, 2 pour mettre à jour)
+     */
     public void affichage(Modele.Jeu jeu, int afficher) {
         Scene scene = jeu.getVue().getScene();
         switch(afficher) {

@@ -8,13 +8,18 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
+/**
+ * Affiche un événement quel qu'il soit
+ */
+public class Evenement {
 
-public class Evenement implements java.io.Serializable {
+    // Champs
     private Text nom;
     private Text description;
     private Text departement;
-    transient private ImageView journal;
+    private ImageView journal;
 
+    // Constructeur
     public Evenement(Modele.Evenement event, Modele.Jeu jeu) {
         journal = new ImageView(new Image("file:image\\PandemieJournal.jpg"));
         nom = new Text(event.getNom());
@@ -44,7 +49,12 @@ public class Evenement implements java.io.Serializable {
         jeu.getVue().getRoot().getChildren().addAll(journal, nom, description, departement);
     }
 
-
+    // Méthodes
+    /**
+     * Affiche l'événement
+     * @param jeu L'instance de jeu
+     * @param afficher La valeur de switch (0 pour afficher, 1 pour enlever, 2 pour mettre à jour)
+     */
     public void affichage(Modele.Jeu jeu, int afficher) {
     	Scene scene = jeu.getVue().getScene();
     	switch(afficher) {

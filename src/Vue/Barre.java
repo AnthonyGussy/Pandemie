@@ -2,21 +2,25 @@ package Vue;
 
 
 import Constantes.Constantes;
-import Enumerations.CompteurType;
-import Modele.Jeu;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
-public class Barre extends Compteur implements java.io.Serializable {
+/**
+ * Classe fille de compteur qui affiche le compteur sous forme de barre de progression
+ */
+public class Barre extends Compteur {
+
+    // Champs
     private Rectangle barre;
     private Rectangle progression;
     private Text texte;
-    public Barre(int c, int vMax, CompteurType t, Modele.Jeu jeu){
-        super(c, vMax, t);
+
+    // Constructeur
+    public Barre(int c, int vMax, Modele.Jeu jeu){
+        super(c, vMax);
         texte = new Text("Avancement du projet :");
         barre = new Rectangle();
         barre.setFill(Color.DARKGRAY);
@@ -25,6 +29,12 @@ public class Barre extends Compteur implements java.io.Serializable {
         jeu.getVue().getRoot().getChildren().addAll(barre, progression, texte);
     }
 
+    // Méthodes
+    /**
+     * Affiche la barre de progression
+     * @param scene L'instance de scene
+     * @param afficher La valeur de switch (0 pour afficher, 1 pour enlever, 2 pour mettre à jour)
+     */
     public void affichage(Scene scene, int afficher) {
         switch(afficher) {
             case 0:

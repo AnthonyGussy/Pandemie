@@ -15,17 +15,22 @@ public final class Constantes {
 
 	// Le tableau "effets"
 	public static final int TAILLE_EFFETS = 3;
-	public static final int MORAL = 0;
-	public static final int EFFICACITE = 1;
-
-	public static final int PTS_COMPETENCE = 0;
-	public static final int TEMPS = 1;
 	
-	// Les chemins
+	// Chemins
 	public static final String PATH_XML = System.getProperty("user.dir" )+"/xml/";
 	public static final String PATH_EVEN_ARTICLE_MODELE = PATH_XML+"evenementarticle.xml";
 	public static final String PATH_TACHES = PATH_XML+"tache.xml";
 	public static final String PATH_PROJET = PATH_XML+"projet.xml";
+
+	// Valeurs d'initialisation des champs
+	public static final int NB_PERSONNE_MINI_DEP = 200;
+	public static final int NB_PERSONNE_SUP_DEP = 201;
+	public static final int VALEUR_INIT_EFFICACITE = 20;
+	public static final int VALEUR_MAX_EFFICACITE = 100;
+	public static final int VALEUR_INIT_MORAL = 40;
+	public static final int VALEUR_MAX_MORAL = 100;
+	public static final int VALEUR_INIT_INFECTES = 0;
+	public static final int VALEUR_INIT_STANDBY = 0;
 
 	// Affichage jeu
 	public static final double POS_X_LISTE = 0.84;
@@ -216,6 +221,12 @@ public final class Constantes {
 	public static double POS_X_PTC = 0.02;
 	public static double POS_Y_PTC = 0.35;
 
+	/**
+	 * Transforme un polygone selon la taille de la fenêtre
+	 * @param poly Le polygone à transformer
+	 * @param scene L'instance de la scene
+	 * @return Le polygone transformé
+	 */
 	public static ArrayList<Double> adaptPolygone(ArrayList<Double> poly, Scene scene) {
 		ArrayList<Double> newPoly = new ArrayList<>();
 		boolean x = true;

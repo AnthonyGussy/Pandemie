@@ -7,9 +7,11 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Polygon;
 
 /**
- *
+ * Affiche les pages de règles
  */
-public class Regles implements java.io.Serializable{
+public class Regles {
+
+    // Champs
     private Polygon fleche;
     private Polygon flecheOmbre;
     private double[] posFleche;
@@ -20,6 +22,7 @@ public class Regles implements java.io.Serializable{
     private Modele.Jeu jeu;
     private Polygon retour;
 
+    // Constructeur
     public Regles(Modele.Jeu jeu){
         fleche = new Polygon();
         flecheOmbre = new Polygon() ;
@@ -49,6 +52,12 @@ public class Regles implements java.io.Serializable{
 
         jeu.getVue().getRoot().getChildren().addAll(flecheOmbre, fleche, retour);
     }
+
+    // Méthodes
+    /**
+     * Switch des événements du bouton retour menu
+     * @param event La valeur de switch (1 pour afficher au survol, 2 pour afficher sans survol, 3 pour retour au menu lors d'un clic)
+     */
     private void eventRetour(int event){
         switch (event){
             case 1:
@@ -68,6 +77,11 @@ public class Regles implements java.io.Serializable{
                 break;
         }
     }
+
+    /**
+     * Switch des événements du bouton changement de page
+     * @param event La valeur de switch (1 pour afficher au survol, 2 pour afficher sans survol, 3 pour changer de page au clic)
+     */
     private void eventMouvement(int event){
         switch(event){
             case 1:
@@ -86,6 +100,12 @@ public class Regles implements java.io.Serializable{
                 affichage(jeu, 0);
         }
     }
+
+    /**
+     * Affiche les pages de règles
+     * @param jeu L'instance de jeu
+     * @param afficher La valeur de switch (0 pour afficher, 1 pour enlever, 2 pour mettre à jour)
+     */
     public void affichage(Modele.Jeu jeu, int afficher) {
         switch (afficher) {
             case 0:

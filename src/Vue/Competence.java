@@ -4,14 +4,14 @@ import Constantes.Constantes;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.*;
 import javafx.scene.text.Font;
 
 /**
- *
+ * Partie Vue de la classe Competence
+ * Affiche une compétence
  */
 public class Competence implements java.io.Serializable {
 
@@ -23,7 +23,6 @@ public class Competence implements java.io.Serializable {
     protected int colonne;
     protected int ligne;
     protected Text nomR;
-
 
     // Constructeur
     Competence(Modele.Competence c, ArbreDeCompetence arbreDeCompetenceVue,Modele.Jeu jeu) {
@@ -43,10 +42,10 @@ public class Competence implements java.io.Serializable {
     }
 
     // Méthodes
-
     /**
-     * @param jeu
-     * @param afficher
+     * Affiche une compétence
+     * @param jeu L'instance de jeu
+     * @param afficher La valeur de switch (0 pour afficher, 1 pour enlever, 2 pour mettre à jour)
      */
     void affichage(Modele.Jeu jeu, int afficher) {
         Scene scene = jeu.getVue().getScene();
@@ -85,43 +84,25 @@ public class Competence implements java.io.Serializable {
                     compet.setRadius(24);
                     nomR.setVisible(false);
                 });
-
-
-                compet.setOnMouseClicked(mouseEvent -> {
-                    eventAchat(jeu); });
+                compet.setOnMouseClicked(mouseEvent -> eventAchat(jeu));
                 break;
-            case 2:
-
+            case 1:
+                compet.setVisible(false);
+                break;
+            default:
                 double coeffx = (double) 1 / modele.getNbLignes() * (ligne - 1);
                 double coeffy = (double) 1 / modele.getNbColonnes() * (colonne - 1);
                 compet.setCenterX((scene.getWidth() * 15) / 100 + coeffx * (scene.getWidth() * 60 / 100));
                 compet.setCenterY((scene.getHeight() * 90) / 100 - coeffy * (scene.getHeight() * 65 / 100));
                 nomR.setFont(Font.loadFont("file:Font.ttf", scene.getHeight() * Constantes.TAILLE_POLICE_COMPETENCE));
-
-                break;
-            default:
-                compet.setVisible(false);
         }
     }
 
     /**
-     * @return
+     * Achète la compétence lors d'un double clic sur le cercle si elle est déblocable et que le joueur dispose d'assez de points de compétence
+     * @param jeu L'instance de jeu
      */
-    public Circle getCompet() {
-        return compet;
-    }
-
-    /**
-     * @param group
-     */
-    public void setGroup(Group group) {
-        g = group;
-    }
-
-
-    // Achète la compétence lors d'un double clic sur le cercle si elle est déblocable et que le joueur dispose d'assez de points de compétence
     public void eventAchat(Modele.Jeu jeu){
-
         if (vueArbre.getACliquer().equals(ligne + "," + colonne)) {
             if (modele.getDebloque() && !modele.getAchete() && jeu.getPtsCompetence() >= modele.getCout()) {
                 jeu.setPtsCompetence(-modele.getCout());
@@ -138,6 +119,5 @@ public class Competence implements java.io.Serializable {
                 vueArbre.erreurAchat(jeu, "Vous n'avez pas assez de points");
             }
         } else vueArbre.setACliquer(ligne + "," + colonne);
-
     }
 }

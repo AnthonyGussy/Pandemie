@@ -17,10 +17,10 @@ import java.util.ArrayList;
 
 /**
  * Partie Vue de la classe Jeu
- * Cette classe sert à instancier l'affichagePlateau du jeu
+ * Cette classe sert à instancier l'affichage du jeu
  */
 
-public class Jeu implements java.io.Serializable{
+public class Jeu {
 
     // Champs
     private Modele.Jeu modele;
@@ -31,11 +31,11 @@ public class Jeu implements java.io.Serializable{
     private Stage primaryStage;
     private boolean affiche = false;
     private Text nbPoints;
-    transient private ImageView vitesse1;
-    transient private ImageView vitesse2;
-    transient private ImageView vitesse3;
-    transient private ImageView victoire;
-    transient private ImageView defaite;
+    private ImageView vitesse1;
+    private ImageView vitesse2;
+    private ImageView vitesse3;
+    private ImageView victoire;
+    private ImageView defaite;
     private Image[] finImagesStock;
 
     // Constructeur
@@ -50,7 +50,6 @@ public class Jeu implements java.io.Serializable{
         nbPoints.setVisible(false);
         liste.setVisible(false);
         texte.setVisible(false);
-
 
         finImagesStock = new Image[]{ new Image("file:image\\PandemieVictory1.jpg"),
                 new Image("file:image\\PandemieVictory2.jpg"),
@@ -93,27 +92,17 @@ public class Jeu implements java.io.Serializable{
         scene.heightProperty().addListener((observableValue, oldSceneHeight, newSceneHeight) -> modele.redimensionner());
     }
 
-    // Méthodes
-    /**
-     * Getter du groupe racine
-     * @return Groupe racine
-     */
+    // Getters et setters
     public Group getRoot() { return root; }
-
-    /**
-     * Getter de la scene
-     * @return La scene
-     */
     public Scene getScene() { return scene; }
-
     public Stage getPrimaryStage() { return primaryStage; }
-
     public boolean getAffiche() { return affiche; }
 
     /**
      * Méthode qui affichePlateau le "plateau de jeu"
-     * @param afficher Entier qui détermine l'action à effectuer. 0 pour afficher, 1 pour désafficher, 2 pour mettre à jour l'affichagePlateau
-     *                 et 3 pour enlever uniquement les informations, pas les départements
+     * @param afficher Entier qui détermine l'action à effectuer. 0 pour afficher, 1 pour désafficher,
+     *                 2 pour afficher uniquement les informations, pas les départements, 3 pour mettre à jour l'affichage
+     *                 et 4 pour enlever uniquement les informations, pas les départements
      */
     public void  affichagePlateau(int afficher) {
         switch(afficher) {
@@ -192,6 +181,10 @@ public class Jeu implements java.io.Serializable{
         }
     }
 
+    /**
+     * Affiche le menu en jeu
+     * @param afficher La valeur de switch (0 pour afficher, 1 pour enlever)
+     */
     public void affichageMenuJeu(int afficher) {
         switch(afficher) {
             case 0:
@@ -202,6 +195,10 @@ public class Jeu implements java.io.Serializable{
         }
     }
 
+    /**
+     * Affiche les pop ups
+     * @param afficher La valeur de switch (0 pour afficher, 1 pour enlever, 2 pour mettre à jour)
+     */
     public void affichagePopUp(int afficher) {
         ArrayList<Modele.PopUp> popUps = modele.getPopUps();
         switch(afficher) {
@@ -215,17 +212,21 @@ public class Jeu implements java.io.Serializable{
                     popUp.getVue().affichage(modele, 1);
                 }
                 break;
-            case 2:
+            default:
                 Platform.runLater(() -> {
-                    for (int i = 0; i < popUps.size(); i++) {
-                        popUps.get(i).getVue().affichage(modele, 2);
-                        popUps.get(i).setDuree(modele);
+                    for (PopUp popUp : popUps) {
+                        popUp.getVue().affichage(modele, 2);
+                        popUp.setDuree();
                     }
                     modele.enleverPopUp();
                 });
         }
     }
 
+    /**
+     * Affiche les événements
+     * @param afficher La valeur de switch (0 pour afficher, 1 pour enlever, 2 pour mettre à jour)
+     */
     public void affichageEvenement(int afficher) {
         switch(afficher) {
             case 0:
@@ -238,7 +239,7 @@ public class Jeu implements java.io.Serializable{
                     evenement.getVue().affichage(modele, 1);
                 }
                 break;
-            case 2:
+            default:
                 if (modele.getEvenements().size() > 0) {
                     Platform.runLater(() -> {
                         if (modele.getEvenements().get(0).getDuree() == 0) modele.getEvenements().remove(0);
@@ -248,6 +249,10 @@ public class Jeu implements java.io.Serializable{
         }
     }
 
+    /**
+     * Affiche le compteur des points de compétence
+     * @param affichage La valeur de switch (1 pour enlever, 2 pour mettre à jour)
+     */
     public void affichagePtsDeCompetence(int affichage) {
 
         Platform.runLater(() -> {
@@ -263,6 +268,11 @@ public class Jeu implements java.io.Serializable{
         });
     }
 
+    /**
+     * Affiche l'écran de victoire
+     * @param afficher La valeur de switch (0 pour afficher, 2 pour mettre à jour)
+     * @param index L'index de l'image de l'animation
+     */
     public void afficherVictoire(int afficher, int index) {
         Platform.runLater(() -> {
             switch(afficher) {
@@ -279,6 +289,11 @@ public class Jeu implements java.io.Serializable{
         });
     }
 
+    /**
+     * Affiche l'écran de Game Over
+     * @param afficher La valeur de switch (0 pour afficher, 2 pour mettre à jour)
+     * @param index L'index de l'image de l'animation
+     */
     public void afficherGameOver(int afficher, int index) {
         Platform.runLater(() -> {
             switch(afficher) {
