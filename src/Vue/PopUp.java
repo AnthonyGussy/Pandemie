@@ -1,7 +1,6 @@
 package Vue;
 
 import Constantes.Constantes;
-import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -10,10 +9,12 @@ import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
 /**
- *
+ * Partie Vue de la classe PopUp
+ * Affiche un PopUp
  */
-public class PopUp implements java.io.Serializable{
+public class PopUp {
 
+    // Champs
     private double posX;
     private double posY;
     private double randomX;
@@ -21,6 +22,7 @@ public class PopUp implements java.io.Serializable{
     protected Circle popUp;
     protected Modele.PopUp modele;
 
+    // Constructeur
     public PopUp(Modele.PopUp modele, Modele.Jeu jeu) {
         this.modele = modele;
         switch (this.modele.getDepartement().getNom()) {
@@ -43,7 +45,6 @@ public class PopUp implements java.io.Serializable{
             default:
                 posX = Constantes.POS_X_EDIM;
                 posY = Constantes.POS_Y_EDIM;
-
         }
         popUp = new Circle();
         popUp.setVisible(false);
@@ -56,6 +57,12 @@ public class PopUp implements java.io.Serializable{
         Platform.runLater(() -> jeu.getVue().getRoot().getChildren().add(popUp));
     }
 
+    // Méthodes
+    /**
+     * Affiche le pop up
+     * @param jeu L'instance de jeu
+     * @param affichage La valeur de switch (0 pour afficher, 1 pour enlever, 2 pour mettre à jour, 3 pour l'enlever totalement de l'affichage)
+     */
     public void affichage(Modele.Jeu jeu,int affichage) {
         Scene scene = jeu.getVue().getScene();
         Group root = jeu.getVue().getRoot();
@@ -75,10 +82,12 @@ public class PopUp implements java.io.Serializable{
             default:
                 root.getChildren().remove(popUp);
         }
-
-
     }
 
+    /**
+     * Génère aléatoirement la position du pop up dans le département
+     * @param scene L'instance de la scene
+     */
     public void genePopUp(Scene scene) {
         do {
             randomX = Math.random();

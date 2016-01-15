@@ -2,36 +2,36 @@ package Vue;
 
 import Constantes.Constantes;
 import Modele.Tache;
-import Modele.Timeline;
-import com.sun.xml.internal.bind.v2.runtime.reflect.opt.Const;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.*;
 import javafx.scene.shape.Polygon;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-
 import java.util.ArrayList;
 
 /**
- *
+ * Partie Vue de la classe Departement
+ * Affiche le département
  */
-public class Departement implements java.io.Serializable{
+public class Departement {
+
+    // Champs
     private Text information;
     private Text nomR;
     private Polygon departementPoly;
     private Group personne;
     private double posX;
     private double posY;
-    ArrayList<Double> polygone;
+    private ArrayList<Double> polygone;
     private Modele.Departement modele;
     private ImagePattern pointInfecte;
     private ImagePattern pointNormal;
     private boolean affiche = false;
 
+    // Constructeur
     public Departement(Modele.Departement modele, Modele.Jeu jeu){
         this.modele = modele;
         Scene scene = jeu.getVue().getScene();
@@ -79,6 +79,15 @@ public class Departement implements java.io.Serializable{
         jeu.getVue().getRoot().getChildren().addAll(information, nomR, personne);
     }
 
+    // Getters et setters
+    public Polygon getDepartementPoly() { return departementPoly; }
+
+    // Méthodes
+    /**
+     * Affiche le département
+     * @param jeu L'instance de jeu
+     * @param afficher La valeur de switch (0 pour afficher, 1 pour enlever, 2 pour mettre à jour)
+     */
     public void affichage(Modele.Jeu jeu, int afficher) {
         Scene scene = jeu.getVue().getScene();
         switch(afficher) {
@@ -111,6 +120,12 @@ public class Departement implements java.io.Serializable{
                 }
         }
     }
+
+    /**
+     * Génère les points représentant les personnes à l'intérieur du département
+     * @param scene L'instance de la scene
+     * @return Un groupe d'éléments visuels
+     */
     public Group genePoint(Scene scene) {
         Group depPersonne = new Group();
         for (int i = 0; i < modele.getNbPersonne(); i++) {
@@ -131,6 +146,10 @@ public class Departement implements java.io.Serializable{
         return depPersonne;
     }
 
+    /**
+     * Met à jour les informations au survol du département
+     * @param scene L'instance de la scene
+     */
     private void updateInformation(Scene scene) {
         String nom = modele.getNom();
         nomR.setText(nom);
@@ -148,6 +167,10 @@ public class Departement implements java.io.Serializable{
         information.setY(scene.getHeight() * Constantes.POS_Y_INFOS);
     }
 
+    /**
+     * Affiche les informations au survol du département
+     * @param jeu L'instance de jeu
+     */
     private void eventInformation(Modele.Jeu jeu){
         jeu.getVue().affichagePlateau(4);
         String nom = modele.getNom();
@@ -155,6 +178,11 @@ public class Departement implements java.io.Serializable{
         information.setVisible(true);
         nomR.setVisible(true);
     }
+
+    /**
+     * Enlève les informations du département lorsqu'il n'est plus survolé
+     * @param jeu L'instance de jeu
+     */
     private void eventRemoveInformation(Modele.Jeu jeu){
         String nom = modele.getNom();
         departementPoly.setFill(new ImagePattern(new Image("file:image\\" + nom + "Dep.jpg"), 0, 0, 1, 1, true));
@@ -164,6 +192,11 @@ public class Departement implements java.io.Serializable{
             jeu.getVue().affichagePlateau(2);
         }
     }
+
+    /**
+     * Affiche l'arbre de compétence du département
+     * @param jeu L'instance de jeu
+     */
     private void eventArbreDeCompetence(Modele.Jeu jeu){
         jeu.getVue().affichagePlateau(1);
         jeu.getVue().affichagePopUp(1);
@@ -171,6 +204,4 @@ public class Departement implements java.io.Serializable{
         modele.getArbre().getVue().affichage(jeu, 0);
         modele.afficherTaches(jeu.getVue().getScene(), 0);
     }
-
-    public Polygon getDepartementPoly() { return departementPoly; }
 }

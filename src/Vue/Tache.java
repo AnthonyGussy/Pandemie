@@ -1,25 +1,35 @@
 package Vue;
 
-
 import Constantes.Constantes;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
+/**
+ * Partie Vue de la classe Tache
+ * Affiche le nom de la tache
+ */
+public class Tache {
 
-public class Tache implements java.io.Serializable {
-
+	// Champs
 	private Text nom;
-    private Text description;
 
+	// Constructeur
 	public Tache(Modele.Tache modele, Modele.Jeu jeu) {
 		nom = new Text("- " + modele.getNom());
 		nom.setFill(Color.BLACK);
 		nom.setVisible(false);
 		jeu.getVue().getRoot().getChildren().add(nom);
 	}
-	
+
+	// Méthodes
+	/**
+	 * Affiche le nom de la tâche à l'emplacement prévu à cet effet
+	 * @param scene L'instance de la scene
+	 * @param afficher La valeur de switch (0 pour afficher, 1 pour enlever, 2 pour mettre à jour)
+	 * @param index L'index de la tâche, pour afficher la liste des tâches en colonne
+	 */
 	public void affichage(Scene scene, int afficher, int index) {
 		switch(afficher) {
 			case 0:
@@ -36,7 +46,4 @@ public class Tache implements java.io.Serializable {
 				nom.setWrappingWidth(scene.getWidth() * Constantes.LARGEUR_POST_IT);
 		}
 	}
-	
-	
-
 }

@@ -1,7 +1,6 @@
 package Modele;
 
 import Constantes.Constantes;
-import Enumerations.CompteurType;
 import Enumerations.DepartementNom;
 import Enumerations.BoutonType;
 import Vue.*;
@@ -12,7 +11,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -58,33 +56,32 @@ public class Jeu implements java.io.Serializable {
         menuJeu = new Menu(boutons, this);
     }
 
-    // Méthodes
-    /**
-     * Cette méthode renvoie la Vue de Jeu
-     * @return Vue de Jeu
-     */
+    // Getters et setters
     public Vue.Jeu getVue() { return vue; }
-
     public Vue.Menu getMenuJeu() { return menuJeu; }
-
     public Vue.Menu getMenuPrincipal() { return menuPrincipal; }
-
     public Vue.Regles getRegles() { return regles; }
-
-    /**
-     * Cette méthode renvoie la liste des départements
-     * @return Liste des départements
-     */
     public ArrayList<Modele.Departement> getDepartements() { return departements; }
+    public Coin getCoin() { return coin; }
+    public int getPtsCompetence() { return compteurs.get(0).getCompte(); }
+    public void setPtsCompetence(int pts) {
+        compteurs.get(0).modifCompte(pts);
+    }
+    public int getTemps() { return compteurs.get(1).getCompte(); }
+    public void setTemps(int ajout) { compteurs.get(1).modifCompte(ajout); }
+    public ArrayList<PopUp> getPopUps() { return popUps;}
+    public ArrayList<Evenement> getEvenements() { return evenements; }
 
+    // Méthodes
     /**
      * Méthode qui va mettre dans un ordre aléatoire la liste des départements,
      * le département à l'index 0 étant considéré comme le département d'origine du projet.
-     * Cette méthode va aussi afficher le plateau de jeu et lancer les événements aléatoires.
+     * Cette méthode va aussi lancer les événements aléatoires.
+     * @param afficher Affiche ou non le plateau de jeu
      */
     public void commencerPartie(boolean afficher) {
-        compteurs.add(new Compteur(0, CompteurType.Points_de_competence));
-        compteurs.add(new Compteur(1800, CompteurType.Temps));
+        compteurs.add(new Compteur(0));
+        compteurs.add(new Compteur(1800));
         List<DepartementNom> departementNoms = new ArrayList<>(Arrays.asList(DepartementNom.Edim, DepartementNom.Energie, DepartementNom.Gmc, DepartementNom.Imsi, DepartementNom.Informatique));
         for(int i = 0; i<5; ++i) {
             int alea = (int)(Math.random()*departementNoms.size());
@@ -94,16 +91,19 @@ public class Jeu implements java.io.Serializable {
                 departements.add(new Modele.Departement(departementNoms.get(alea),false, this));
             departementNoms.remove(alea);
         }
-        avancementProjet = new Barre(departements.get(0).getTaches().get(0).getAvancement(), departements.get(0).getTaches().get(0).getTempsInitial(), CompteurType.Temps, this);
+        avancementProjet = new Barre(departements.get(0).getTaches().get(0).getAvancement(), departements.get(0).getTaches().get(0).getTempsInitial(), this);
         setListeEvenementStockage();
         String contexte = "Vous dirigez un groupe d'étudiant en " + departements.get(0).getNom();
         String description = "Vous devez réaliser le projet suivant : " + departements.get(0).getTaches().get(0).getNom() + "\n" + departements.get(0).getTaches().get(0).getDescription();
         evenements.add(new EvenementTextuel(contexte, description, this));
         evenements.get(0).setDuree(20);
-        timeProjet = new Date(this.getTemps(), CompteurType.Temps, this.getVue());
+        timeProjet = new Date(this.getTemps(), this.getVue());
         if(afficher) afficherJeu();
     }
 
+    /**
+     * Affiche le plateau de jeu
+     */
     public void afficherJeu() {
         for(Modele.Departement dep : departements) {
             dep.getVue().affichage(this, 0);
@@ -113,6 +113,10 @@ public class Jeu implements java.io.Serializable {
         afficherCompte(0);
     }
 
+    /**
+     * Affiche le décompte de la date limite
+     * @param affichage La valeur de switch (0 pour afficher, 1 pour enlever, 2 pour mettre à jour)
+     */
     public void afficherCompte(int affichage){
         Platform.runLater(() -> {
             timeProjet.setCompte(this.getTemps());
@@ -120,6 +124,10 @@ public class Jeu implements java.io.Serializable {
         });
     }
 
+    /**
+     * Affiche l'avancement du projet
+     * @param affichage La valeur de switch (0 pour afficher, 1 pour enlever, 2 pour mettre à jour)
+     */
     public void afficherAvancement(int affichage) {
         Platform.runLater(() -> {
             avancementProjet.setCompte(departements.get(0).getTaches().get(0).getAvancement());
@@ -127,14 +135,15 @@ public class Jeu implements java.io.Serializable {
         });
     }
 
-    public Coin getCoin() { return coin; }
-
-    public void regles() {
+    /**
+     * Affiche la page de règles
+     */
+    public void afficherRegles() {
         regles.affichage(this, 0);
     }
 
     /**
-     *
+     * Affiche à nouveau le plateau de jeu
      */
     public void retourJeu() {
         vue.affichagePlateau(0);
@@ -144,33 +153,10 @@ public class Jeu implements java.io.Serializable {
     }
 
     /**
-     *
-     * @return
-     */
-    public int getPtsCompetence() { return compteurs.get(0).getCompte(); }
-
-    /**
-     *
-     * @param pts
-     */
-    public void setPtsCompetence(int pts) {
-        compteurs.get(0).modifCompte(pts);
-    }
-
-    public int getTemps() { return compteurs.get(1).getCompte(); }
-
-    public void setTemps(int ajout) { compteurs.get(1).modifCompte(ajout); }
-
-    /**
      * Cette méthode va sauvegarder le jeu en sérialisant les différents composants du jeu
      */
     public void sauvegarder() {
-        //serialiser(vue ,"vue");
-        //serialiser(timeProjet, "timeProjet");
-        //serialiser(avancementProjet, "avancementProjet");
         serialiser(compteurs, "compteurs");
-        //serialiser(evenements, "evenements");
-        //serialiser(popUps, "popUps");
         serialiser(eventStockage, "eventStockage");
         serialiser(departements, "departements");
     }
@@ -186,9 +172,6 @@ public class Jeu implements java.io.Serializable {
         for(Modele.Departement departement : departements) {
             departement.creerVue(this);
         }
-        /*for(Compteur compteur : compteurs) {
-            compteur.creerVue(this);
-        }*/
         for(Modele.EvenementArticle evenement : eventStockage) {
             evenement.creerVue(this);
         }
@@ -253,7 +236,7 @@ public class Jeu implements java.io.Serializable {
     }
 
     /**
-     * Cette méthode redimensionne les éléments actifs de l'affichagePlateau lorsque la fenêtre est redimensionnée
+     * Cette méthode redimensionne tous les éléments
      */
     public void redimensionner() {
         regles.affichage(this, 2);
@@ -272,6 +255,9 @@ public class Jeu implements java.io.Serializable {
         }
     }
 
+    /**
+     * Ajoute un pop up sur un département actif au hasard
+     */
     public void ajoutPopUp() {
         Departement depPopUp;
         do {
@@ -282,6 +268,9 @@ public class Jeu implements java.io.Serializable {
         if(vue.getAffiche()) popUp.getVue().affichage(this, 0);
     }
 
+    /**
+     * Enlève les pop ups dont le temps d'apparition a atteint 0
+     */
     public void enleverPopUp() {
         for(int i = 0; i < popUps.size(); i++) {
             if(popUps.get(i).getDuree() == 0) {
@@ -291,29 +280,23 @@ public class Jeu implements java.io.Serializable {
         }
     }
 
-    public ArrayList<PopUp> getPopUps() { return popUps;}
-
+    /**
+     * Cherche tous les événements article dans le xml et les stocke pour éviter d'avoir à charger plusieurs fois le xml
+     */
     private void setListeEvenementStockage(){
-
         final DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-
         try {
             final DocumentBuilder builder = factory.newDocumentBuilder();
             final Document doc = builder.parse(new File(Constantes.PATH_EVEN_ARTICLE_MODELE));
             Element racine = doc.getDocumentElement();
             NodeList racineNoeuds = racine.getChildNodes();
-            EvenementArticle a;
-
 
             for (int i = 0; i < racineNoeuds.getLength(); i++) {
                 if(racineNoeuds.item(i).getNodeType() == Node.ELEMENT_NODE) {
                     NodeList evenNoeuds = racineNoeuds.item(i).getChildNodes();
                     for (int j = 0; j < evenNoeuds.getLength(); j++) {
-
                         if(evenNoeuds.item(j).getNodeType() == Node.ELEMENT_NODE && evenNoeuds.item(j).getNodeName().equals("evenement")) {
-
                             Element elementEven = (Element) evenNoeuds.item(j);
-
                             String nom = elementEven.getElementsByTagName("nom").item(0).getTextContent();
                             String description = elementEven.getElementsByTagName("description").item(0).getTextContent();
                             int effets[] = new int[3];
@@ -321,22 +304,20 @@ public class Jeu implements java.io.Serializable {
                             effets[1] = Integer.parseInt(elementEven.getElementsByTagName("efficacite").item(0).getTextContent());
                             effets[2] = Integer.parseInt(elementEven.getElementsByTagName("temps").item(0).getTextContent());
 
-
                             eventStockage.add(new EvenementArticle(nom, description, effets, this));
                         }
                     }
                 }
             }
         }
-
         catch (final ParserConfigurationException | SAXException | IOException e) {
             e.printStackTrace();
         }
-
     }
 
-    public ArrayList<Evenement> getEvenements() { return evenements; }
-
+    /**
+     * Ajoute un événement article en le prenant au hasard dans la liste stockée
+     */
     public void ajoutEvenement() {
         Platform.runLater(() -> {
             Modele.EvenementArticle  evenement = new EvenementArticle(eventStockage.get((int) (Math.random() * eventStockage.size())), this);
@@ -345,6 +326,12 @@ public class Jeu implements java.io.Serializable {
             evenements.add(evenement);
         });
     }
+
+    /**
+     * Ajoute un événement textuel
+     * @param nom Nom de l'événement
+     * @param description Description de l'événement
+     */
     public void ajoutEvenement(String nom, String description) {
         Platform.runLater(() -> {
             Modele.EvenementTextuel  evenement = new EvenementTextuel(nom, description, this);
@@ -353,24 +340,26 @@ public class Jeu implements java.io.Serializable {
         });
     }
 
+    /**
+     * Ajoute un événement accomplissement
+     * @param departement Le département qui émet l'événement accomplissement
+     * @param tache La tâche qui émet l'événement accomplissement
+     */
     public void ajoutEvenement(Modele.Departement departement, Modele.Tache tache) {
         Modele.EvenementAccomplissement  evenement = new EvenementAccomplissement(departement, tache, this);
         evenement.getVue().affichage(this, 0);
         evenements.add(evenement);
     }
 
+    /**
+     * Diminue le moral dans chaque département
+     */
     public void perdreMoral() {
-
-        for(Modele.Departement depart : departements){
-
-            if(depart.getTaches().size() >0){
-
-                depart.setMoral(-1);
-
+        for(Modele.Departement departement : departements){
+            if(departement.getTaches().size() >0){
+                departement.setMoral(-1);
             }
-
         }
-
     }
 }
 

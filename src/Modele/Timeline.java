@@ -6,18 +6,31 @@ import Constantes.Constantes;
  * Classe qui va faire progresser "l'infection" et générer les événements aléatoires
  */
 public class Timeline extends Thread {
+
+    // Champs
     private Modele.Jeu jeu;
     private boolean end;
     private boolean partie = true;
     private boolean ecranFin = true;
     public static int vitesse;
 
+    // Constructeur
     public Timeline(String nom, Modele.Jeu jeu) {
         super(nom);
         this.jeu = jeu;
         vitesse = 1000;
         this.start();
     }
+
+    // Getters et setters
+    public void setEnd(boolean end) {
+        this.end = end;
+    }
+
+    // Méthodes
+    /**
+     * Méthode principale du thread qui gère toutes les boucles pseudo-infinies du jeu
+     */
     public void run() {
         while(!end) {
             while(partie && !end) {
@@ -89,6 +102,9 @@ public class Timeline extends Thread {
         }
     }
 
+    /**
+     * Met en pause le thread
+     */
     private void pause() {
         try {
             Modele.Timeline.sleep(vitesse);
@@ -97,9 +113,5 @@ public class Timeline extends Thread {
         } catch (IndexOutOfBoundsException e) {
             e.printStackTrace();
         }
-    }
-
-    public void setEnd(boolean end) {
-        this.end = end;
     }
 }

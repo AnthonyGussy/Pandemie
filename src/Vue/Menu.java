@@ -13,7 +13,7 @@ import Constantes.Constantes;
 /**
  * Cette classe sert à instancier un menu avec différents boutons
  */
-public class Menu implements java.io.Serializable{
+public class Menu {
 
     //Champs
     private boolean affiche = false;
@@ -53,7 +53,7 @@ public class Menu implements java.io.Serializable{
                         break;
                     case Regles:
                         affichage(jeu, 1);
-                        jeu.regles();
+                        jeu.afficherRegles();
                         break;
                     case Retour_Jeu:
                         affichage(jeu, 1);
@@ -67,6 +67,15 @@ public class Menu implements java.io.Serializable{
         jeu.getVue().getRoot().getChildren().add(boutonsGroup);
     }
 
+    // Getters et setters
+    public boolean getAffiche() { return affiche; }
+
+    // Méthodes
+    /**
+     * Affiche le menu
+     * @param jeu L'instance de jeu
+     * @param afficher La valeur de switch (0 pour afficher, 1 pour enlever, 2 pour mettre à jour)
+     */
     public void affichage(Modele.Jeu jeu, int afficher) {
         Scene scene = jeu.getVue().getScene();
         switch(afficher){
@@ -108,6 +117,4 @@ public class Menu implements java.io.Serializable{
                 break;
         }
     }
-
-    public boolean getAffiche() { return affiche; }
 }

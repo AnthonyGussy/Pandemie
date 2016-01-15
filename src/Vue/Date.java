@@ -1,21 +1,33 @@
 package Vue;
 
 import Constantes.Constantes;
-import Enumerations.CompteurType;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
+/**
+ * Classe fille de compteur qui affiche le décompte de la date limite de rendu du projet
+ */
 public class Date extends Compteur implements java.io.Serializable {
+
+    // Champs
     transient Text text;
 
-    public Date(int c, CompteurType t, Vue.Jeu jeu){
-        super(c, t);
+    // Constructeur
+    public Date(int c, Vue.Jeu jeu){
+        super(c);
         text = new Text("");
         text.setVisible(false);
         jeu.getRoot().getChildren().add(text);
     }
+
+    // Méthodes
+    /**
+     * Affiche le décompte
+     * @param scene L'instance de scene
+     * @param afficher La valeur de switch (0 pour afficher, 1 pour enlever, 2 pour mettre à jour)
+     */
     public void affichage(Scene scene, int afficher) {
         switch(afficher) {
             case 0:
