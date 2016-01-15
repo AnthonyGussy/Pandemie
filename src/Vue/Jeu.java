@@ -267,6 +267,9 @@ public class Jeu implements java.io.Serializable{
         Platform.runLater(() -> {
             switch(afficher) {
                 case 0:
+                    affichageEvenement(1);
+                    modele.getCoin().affichage(modele, 1);
+                    modele.afficherCompte(1);
                     affichagePlateau(1);
                     victoire.setVisible(true);
                     break;
